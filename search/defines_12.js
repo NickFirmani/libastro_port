@@ -55,7 +55,7 @@ var searchData=
   ['si2',['SI2',['../deep_8c.html#aa1fda2f29992525c415b62e5d6568ee2',1,'deep.c']]],
   ['si3',['SI3',['../deep_8c.html#ac6e6e28e441220e52edbe68c4652291e',1,'deep.c']]],
   ['siderealsolar',['SiderealSolar',['../earthsat_8c.html#a6b30ee720c1427a219a5bbe5b32a93e5',1,'earthsat.c']]],
-  ['sidrate',['SidRate',['../earthsat_8c.html#acfb5d247845900c926e7255d76d6e86f',1,'SidRate():&#160;earthsat.c'],['../astro_8h.html#a339259d0a0e3e4de8593894ac41b2313',1,'SIDRATE():&#160;astro.h']]],
+  ['sidrate',['SIDRATE',['../astro_8h.html#a339259d0a0e3e4de8593894ac41b2313',1,'SIDRATE():&#160;astro.h'],['../earthsat_8c.html#acfb5d247845900c926e7255d76d6e86f',1,'SidRate():&#160;earthsat.c']]],
   ['sin',['SIN',['../satmoon_8c.html#ac80ce9955a1af2ab7aa3a67251ec9f5c',1,'satmoon.c']]],
   ['sind',['sind',['../twobody_8c.html#ad0827f80a4727ba1e433b37a59b61571',1,'twobody.c']]],
   ['sing',['SING',['../sdp4_8c.html#abcab83f12b426c24e18980b68ed72945',1,'sdp4.c']]],
