@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['g',['G',['../circum_8c.html#aed9ea78689ecce0b7264c02c7f8a9a54',1,'circum.c']]],
+  ['g22',['G22',['../deep_8c.html#acbaf2ba6f8b6ad685148a4fb9739f68e',1,'deep.c']]],
+  ['g32',['G32',['../deep_8c.html#a39592f73e00ba9d4035c4a9c848485d7',1,'deep.c']]],
+  ['g44',['G44',['../deep_8c.html#ace55b55709d2a5684ad03cd964681c8b',1,'deep.c']]],
+  ['g52',['G52',['../deep_8c.html#a37cc769199d337bf6c93d2748190c6e3',1,'deep.c']]],
+  ['g54',['G54',['../deep_8c.html#a745dd04ac9473a32db6ce70dd453cf91',1,'deep.c']]],
+  ['galtoeq',['GALtoEQ',['../eq__gal_8c.html#ab82085ada2042e01f2268d4d42c74030',1,'eq_gal.c']]],
+  ['ge',['GE',['../deepconst_8h.html#a38a01c8e60e89c1d671a68259085288f',1,'deepconst.h']]],
+  ['gelim',['GELIM',['../refract_8c.html#a951802ad69815481130e4600f2316c0c',1,'refract.c']]],
+  ['gem',['Gem',['../constel_8c.html#ab5e4a8f7b6e6b2c3e77f4792e8a22a24',1,'constel.c']]],
+  ['get_5ffmag',['get_fmag',['../astro_8h.html#a3f0c0ca2567b92718e065d6960f5b1d3',1,'astro.h']]],
+  ['get_5fmag',['get_mag',['../astro_8h.html#a22d3705b08d8fc5d3bd0905d1093ca4a',1,'astro.h']]],
+  ['get_5fpa',['get_pa',['../astro_8h.html#a45f780dca678f5f5ee84edd04c0624c6',1,'astro.h']]],
+  ['get_5fratio',['get_ratio',['../astro_8h.html#a09b45117e19ca6ff394bc0a04bdd0655',1,'astro.h']]],
+  ['gm',['GM',['../earthsat_8c.html#a225f033481a4247d0a2853d327cc6f65',1,'earthsat.c']]],
+  ['gru',['Gru',['../constel_8c.html#ada1269f4176dc77ffee521535262f035',1,'constel.c']]]
+];

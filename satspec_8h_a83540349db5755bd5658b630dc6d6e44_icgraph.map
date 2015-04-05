@@ -1,0 +1,21 @@
+<map id="dpsec" name="dpsec">
+<area shape="rect" id="node2" href="$sdp4_8c.html#acddb23780273aa81282da6520341cb4a" title="sdp4" alt="" coords="112,290,162,318"/>
+<area shape="rect" id="node3" href="$earthsat_8c.html#a00b33c7151c61372f445e59d4c629c20" title="esat_prop" alt="" coords="210,290,291,318"/>
+<area shape="rect" id="node4" href="$earthsat_8c.html#a33e16bf55d33a63934a19835b20784f0" title="obj_earthsat" alt="" coords="339,290,434,318"/>
+<area shape="rect" id="node5" href="$circum_8c.html#a88029bd0976d52e82ec40e1b9230d54a" title="obj_cir" alt="" coords="483,290,544,318"/>
+<area shape="rect" id="node6" href="$astro_8h.html#a11919b10760f866b904d4d154eede26e" title="ap_as" alt="" coords="609,5,666,33"/>
+<area shape="rect" id="node7" href="$astro_8h.html#a7aca2af85728e9b6336700b2753c6790" title="as_ap" alt="" coords="609,57,666,85"/>
+<area shape="rect" id="node9" href="$libastro__sample_8c.html#adacbe0175a79dff748855d8c9839f82b" title="main" alt="" coords="612,109,662,137"/>
+<area shape="rect" id="node10" href="$misc_8c.html#a6efd883b3f96c6bc244d5da7fe50e8f8" title="gha" alt="" coords="616,161,659,189"/>
+<area shape="rect" id="node11" href="$plmoon_8c.html#a36bf9219baa35c252d1962dd7396e9f7" title="plmoon_cir" alt="" coords="594,213,681,241"/>
+<area shape="rect" id="node13" href="$riset__cir_8c.html#af8e6c7c17b7ac05ea2867fd998963863" title="riset_cir" alt="" coords="867,445,935,473"/>
+<area shape="rect" id="node15" href="$riset__cir_8c.html#a1aa470b346744074422bbc250580c4da" title="e_riset_cir" alt="" coords="733,418,816,446"/>
+<area shape="rect" id="node16" href="$riset__cir_8c.html#add6746d9454330fd0ffef261a2db0dfe" title="find_0alt" alt="" coords="601,470,673,498"/>
+<area shape="rect" id="node17" href="$riset__cir_8c.html#aca86e4e62a1086874a60b59a5d7855f9" title="find_transit" alt="" coords="731,522,818,550"/>
+<area shape="rect" id="node18" href="$riset__cir_8c.html#ac3dbf8f1f58a5cf88d87f05c70f48689" title="find_maxalt" alt="" coords="593,418,682,446"/>
+<area shape="rect" id="node19" href="$micro_8c.html#ad36c4b2c7080a1289f22f17233075394" title="unitTest" alt="" coords="604,574,671,602"/>
+<area shape="rect" id="node8" href="$misc_8c.html#a44d4b3df87d6ef5556b4d7b2d65b105f" title="radec2ha" alt="" coords="736,57,813,85"/>
+<area shape="rect" id="node12" href="$circum_8c.html#a8918cfa34631c99b8e0a216a9df405e9" title="obj_planet" alt="" coords="733,238,816,266"/>
+<area shape="rect" id="node14" href="$riset__cir_8c.html#a6a98467ec72d49825b57dcccb77a2f78" title="twilight_cir" alt="" coords="985,445,1068,473"/>
+<area shape="rect" id="node20" href="$micro_8c.html#adacbe0175a79dff748855d8c9839f82b" title="main" alt="" coords="750,574,800,602"/>
+</map>

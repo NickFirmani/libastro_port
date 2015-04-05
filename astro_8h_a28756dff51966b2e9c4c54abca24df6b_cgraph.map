@@ -1,0 +1,11 @@
+<map id="jupiter_data" name="jupiter_data">
+<area shape="rect" id="node2" href="$jupmoon_8c.html#a363aa7b4b034d8fef73c58b88e9635b4" title="use_bdl" alt="" coords="163,5,231,33"/>
+<area shape="rect" id="node3" href="$jupmoon_8c.html#a6a34bd9cfe6d6e003ed5d9b795a45cf2" title="meeus_jupiter" alt="" coords="145,57,250,85"/>
+<area shape="rect" id="node5" href="$jupmoon_8c.html#a233175cb9ac979465a5cbf3e99d02414" title="moonSVis" alt="" coords="156,109,238,137"/>
+<area shape="rect" id="node6" href="$jupmoon_8c.html#a42d3fa802be3207caedae42328431ad9" title="moonPShad" alt="" coords="150,161,245,189"/>
+<area shape="rect" id="node8" href="$jupmoon_8c.html#ae0a54aac22ead72aa9a21ee06d6d6b7c" title="moonEVis" alt="" coords="156,213,238,241"/>
+<area shape="rect" id="node9" href="$jupmoon_8c.html#a02fe88398aa81552fd5623d6931ce6b0" title="moonTrans" alt="" coords="153,265,241,293"/>
+<area shape="rect" id="node10" href="$jupmoon_8c.html#a3118f284248e6cfb9e51dc42355551ea" title="moonradec" alt="" coords="153,317,241,345"/>
+<area shape="rect" id="node4" href="$astro_8h.html#a95f97bc2c6a39966a664c3b924d5eacb" title="range" alt="" coords="310,57,365,85"/>
+<area shape="rect" id="node7" href="$astro_8h.html#a260684a186196c6eb829f4f9dfe358c0" title="plshadow" alt="" coords="298,161,376,189"/>
+</map>

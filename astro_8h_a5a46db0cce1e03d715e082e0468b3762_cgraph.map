@@ -1,0 +1,11 @@
+<map id="eq_gal" name="eq_gal">
+<area shape="rect" id="node2" href="$eq__gal_8c.html#a5862050738a8529c167fc673bfdcd50d" title="galeq_init" alt="" coords="117,5,195,33"/>
+<area shape="rect" id="node3" href="$astro_8h.html#a9f5e4e6f7eb27a864f2620d9a2b9b855" title="precess" alt="" coords="122,57,190,85"/>
+<area shape="rect" id="node10" href="$eq__gal_8c.html#adf8c30860ed84095d96835c19cd60c81" title="galeq_aux" alt="" coords="115,109,197,137"/>
+<area shape="rect" id="node4" href="$precess_8c.html#a43ceb3170195ecba07ab3bbabe2983e6" title="precess_hiprec" alt="" coords="245,57,357,85"/>
+<area shape="rect" id="node5" href="$astro_8h.html#afe66e4f206d9a07bb390e71fc3522986" title="mjd_year" alt="" coords="406,30,482,58"/>
+<area shape="rect" id="node9" href="$astro_8h.html#a95f97bc2c6a39966a664c3b924d5eacb" title="range" alt="" coords="416,82,472,110"/>
+<area shape="rect" id="node6" href="$moonnf_8c.html#a0da0a4863fcd4c1f629fc7fc6e6a4dad" title="m" alt="" coords="646,30,685,58"/>
+<area shape="rect" id="node7" href="$mjd_8c.html#a0892d36d4d420cee7242296b777acd0c" title="mjd_cal" alt="" coords="530,30,598,58"/>
+<area shape="rect" id="node8" href="$mjd_8c.html#aa9a18040f0386c0016db77547470520f" title="cal_mjd" alt="" coords="530,82,598,110"/>
+</map>
