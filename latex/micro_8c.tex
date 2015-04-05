@@ -1,0 +1,288 @@
+\hypertarget{micro_8c}{\section{micro.\-c File Reference}
+\label{micro_8c}\index{micro.\-c@{micro.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+Include dependency graph for micro.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{micro_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{micro_8c_a71d13f2580664825e9be02280cbba31d}{init\-Now} (\hyperlink{struct_now}{Now} $\ast$np, int year, int month, int day, int hour, int minute, int second, double timezon, double latitude, double longitude, double temperature, double press, double elevation)
+\item 
+void \hyperlink{micro_8c_a388a68db1923c8ecfe72079294353217}{set\-Now\-Time} (\hyperlink{struct_now}{Now} $\ast$np, int year, int month, int day, int hour, int minute, int second)
+\item 
+void \hyperlink{micro_8c_a35ee2ec2cd4560a1f5e60340e4dfdc3d}{set\-Obj} (\hyperlink{union_obj}{Obj} $\ast$op, char s\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{micro_8c_ad36c4b2c7080a1289f22f17233075394}{unit\-Test} ()
+\item 
+static void \hyperlink{micro_8c_aae53ff9bdd0256f9ec24fde0411a03a2}{report\-Now\-Position} (\hyperlink{struct_now}{Now} $\ast$np)
+\item 
+static void \hyperlink{micro_8c_a87e78b067bfb36a6e4d5f528b3461801}{report\-Obj\-Position} (\hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+int \hyperlink{micro_8c_adacbe0175a79dff748855d8c9839f82b}{main} (int ac, char $\ast$av\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{micro_8c_a71d13f2580664825e9be02280cbba31d}{\index{micro.\-c@{micro.\-c}!init\-Now@{init\-Now}}
+\index{init\-Now@{init\-Now}!micro.c@{micro.\-c}}
+\subsubsection[{init\-Now}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Now (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day, }
+\item[{int}]{hour, }
+\item[{int}]{minute, }
+\item[{int}]{second, }
+\item[{double}]{timezon, }
+\item[{double}]{latitude, }
+\item[{double}]{longitude, }
+\item[{double}]{temperature, }
+\item[{double}]{press, }
+\item[{double}]{elevation}
+\end{DoxyParamCaption}
+)}}\label{micro_8c_a71d13f2580664825e9be02280cbba31d}
+Function that sets up our \hyperlink{struct_now}{Now} variable with the proper fields year, month, day, h, m, s = current time at N\-O\-W. latitude, degrees +north (standard) longitude, degrees +east (standard) timezone, hours behind U\-T\-C (reverse of standard eg P\-S\-T = 7) temp, degrees C pressure, milibars elevation, above Mean Sea Level in Meters 
+
+Definition at line 38 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{micro_8c_a71d13f2580664825e9be02280cbba31d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{micro_8c_a71d13f2580664825e9be02280cbba31d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_adacbe0175a79dff748855d8c9839f82b}{\index{micro.\-c@{micro.\-c}!main@{main}}
+\index{main@{main}!micro.c@{micro.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ac, }
+\item[{char $\ast$}]{av\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{micro_8c_adacbe0175a79dff748855d8c9839f82b}
+
+
+Definition at line 165 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{micro_8c_adacbe0175a79dff748855d8c9839f82b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_aae53ff9bdd0256f9ec24fde0411a03a2}{\index{micro.\-c@{micro.\-c}!report\-Now\-Position@{report\-Now\-Position}}
+\index{report\-Now\-Position@{report\-Now\-Position}!micro.c@{micro.\-c}}
+\subsubsection[{report\-Now\-Position}]{\setlength{\rightskip}{0pt plus 5cm}static void report\-Now\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{micro_8c_aae53ff9bdd0256f9ec24fde0411a03a2}
+Prints out some helpful info from our now struct 
+
+Definition at line 171 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{micro_8c_aae53ff9bdd0256f9ec24fde0411a03a2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{micro_8c_aae53ff9bdd0256f9ec24fde0411a03a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_a87e78b067bfb36a6e4d5f528b3461801}{\index{micro.\-c@{micro.\-c}!report\-Obj\-Position@{report\-Obj\-Position}}
+\index{report\-Obj\-Position@{report\-Obj\-Position}!micro.c@{micro.\-c}}
+\subsubsection[{report\-Obj\-Position}]{\setlength{\rightskip}{0pt plus 5cm}static void report\-Obj\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{micro_8c_a87e78b067bfb36a6e4d5f528b3461801}
+Print out some helpful info from our obj struct 
+
+Definition at line 189 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{micro_8c_a87e78b067bfb36a6e4d5f528b3461801_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{micro_8c_a87e78b067bfb36a6e4d5f528b3461801_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_a388a68db1923c8ecfe72079294353217}{\index{micro.\-c@{micro.\-c}!set\-Now\-Time@{set\-Now\-Time}}
+\index{set\-Now\-Time@{set\-Now\-Time}!micro.c@{micro.\-c}}
+\subsubsection[{set\-Now\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Now\-Time (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day, }
+\item[{int}]{hour, }
+\item[{int}]{minute, }
+\item[{int}]{second}
+\end{DoxyParamCaption}
+)}}\label{micro_8c_a388a68db1923c8ecfe72079294353217}
+M\-J\-D is silly, this lets us set the field for a now from typical ymd,hms -\/$>$ decimal days (!?) 
+
+Definition at line 55 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{micro_8c_a388a68db1923c8ecfe72079294353217_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{micro_8c_a388a68db1923c8ecfe72079294353217_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_a35ee2ec2cd4560a1f5e60340e4dfdc3d}{\index{micro.\-c@{micro.\-c}!set\-Obj@{set\-Obj}}
+\index{set\-Obj@{set\-Obj}!micro.c@{micro.\-c}}
+\subsubsection[{set\-Obj}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Obj (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{s\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{micro_8c_a35ee2ec2cd4560a1f5e60340e4dfdc3d}
+Sets the correct object fields given a E\-D\-B line. Prints an error if it can't figure out what to do 
+
+Definition at line 67 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{micro_8c_a35ee2ec2cd4560a1f5e60340e4dfdc3d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{micro_8c_a35ee2ec2cd4560a1f5e60340e4dfdc3d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{micro_8c_ad36c4b2c7080a1289f22f17233075394}{\index{micro.\-c@{micro.\-c}!unit\-Test@{unit\-Test}}
+\index{unit\-Test@{unit\-Test}!micro.c@{micro.\-c}}
+\subsubsection[{unit\-Test}]{\setlength{\rightskip}{0pt plus 5cm}void unit\-Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{micro_8c_ad36c4b2c7080a1289f22f17233075394}
+
+
+Definition at line 76 of file micro.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{micro_8c_ad36c4b2c7080a1289f22f17233075394_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{micro_8c_ad36c4b2c7080a1289f22f17233075394_icgraph}
+\end{center}
+\end{figure}
+
+

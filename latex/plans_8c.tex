@@ -1,0 +1,221 @@
+\hypertarget{plans_8c}{\section{libastro/plans.c File Reference}
+\label{plans_8c}\index{libastro/plans.\-c@{libastro/plans.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vsop87.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}chap95.\-h\char`\"{}}\\*
+Include dependency graph for plans.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{plans_8c_a6de5b5a34d99a36621e4875974d52d28}{pluto\-\_\-ell} (double mj, double $\ast$ret)
+\item 
+static void \hyperlink{plans_8c_a7cab8f0885c038c3dfa637d0cf4ce064}{chap\-\_\-trans} (double mj, double $\ast$ret)
+\item 
+static void \hyperlink{plans_8c_afe8fac1dcb481e24f299416b6e46b4c7}{planpos} (double mj, int obj, double prec, double $\ast$ret)
+\item 
+void \hyperlink{plans_8c_a9a9700123eddb2bc9e60873f3ef14857}{plans} (double mj, \hyperlink{astro_8h_a2a6f493a094887058ce904937bb27647}{P\-L\-Code} p, double $\ast$lpd0, double $\ast$psi0, double $\ast$rp0, double $\ast$rho0, double $\ast$lam, double $\ast$bet, double $\ast$dia, double $\ast$mag)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{plans_8c_ac0d79aacde4841ae8c697d5d53898404}{vis\-\_\-elements} \mbox{[}8\mbox{]}\mbox{[}5\mbox{]}
+\item 
+static char $\ast$ \hyperlink{plans_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{plans.\-c},v \$ \$Date\-: 2003/11/15 04\-:07\-:36 \$ \$Revision\-: 1.\-5 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{plans_8c_a7cab8f0885c038c3dfa637d0cf4ce064}{\index{plans.\-c@{plans.\-c}!chap\-\_\-trans@{chap\-\_\-trans}}
+\index{chap\-\_\-trans@{chap\-\_\-trans}!plans.c@{plans.\-c}}
+\subsubsection[{chap\-\_\-trans}]{\setlength{\rightskip}{0pt plus 5cm}static void chap\-\_\-trans (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{ret}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plans_8c_a7cab8f0885c038c3dfa637d0cf4ce064}
+
+
+Definition at line 22 of file plans.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_a7cab8f0885c038c3dfa637d0cf4ce064_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_a7cab8f0885c038c3dfa637d0cf4ce064_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plans_8c_afe8fac1dcb481e24f299416b6e46b4c7}{\index{plans.\-c@{plans.\-c}!planpos@{planpos}}
+\index{planpos@{planpos}!plans.c@{plans.\-c}}
+\subsubsection[{planpos}]{\setlength{\rightskip}{0pt plus 5cm}static void planpos (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{int}]{obj, }
+\item[{double}]{prec, }
+\item[{double $\ast$}]{ret}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plans_8c_afe8fac1dcb481e24f299416b6e46b4c7}
+
+
+Definition at line 82 of file plans.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_afe8fac1dcb481e24f299416b6e46b4c7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_afe8fac1dcb481e24f299416b6e46b4c7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plans_8c_a9a9700123eddb2bc9e60873f3ef14857}{\index{plans.\-c@{plans.\-c}!plans@{plans}}
+\index{plans@{plans}!plans.c@{plans.\-c}}
+\subsubsection[{plans}]{\setlength{\rightskip}{0pt plus 5cm}void plans (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{{\bf P\-L\-Code}}]{p, }
+\item[{double $\ast$}]{lpd0, }
+\item[{double $\ast$}]{psi0, }
+\item[{double $\ast$}]{rp0, }
+\item[{double $\ast$}]{rho0, }
+\item[{double $\ast$}]{lam, }
+\item[{double $\ast$}]{bet, }
+\item[{double $\ast$}]{dia, }
+\item[{double $\ast$}]{mag}
+\end{DoxyParamCaption}
+)}}\label{plans_8c_a9a9700123eddb2bc9e60873f3ef14857}
+
+
+Definition at line 145 of file plans.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_a9a9700123eddb2bc9e60873f3ef14857_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_a9a9700123eddb2bc9e60873f3ef14857_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plans_8c_a6de5b5a34d99a36621e4875974d52d28}{\index{plans.\-c@{plans.\-c}!pluto\-\_\-ell@{pluto\-\_\-ell}}
+\index{pluto\-\_\-ell@{pluto\-\_\-ell}!plans.c@{plans.\-c}}
+\subsubsection[{pluto\-\_\-ell}]{\setlength{\rightskip}{0pt plus 5cm}static void pluto\-\_\-ell (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{ret}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plans_8c_a6de5b5a34d99a36621e4875974d52d28}
+
+
+Definition at line 44 of file plans.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{plans_8c_a6de5b5a34d99a36621e4875974d52d28_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plans_8c_a6de5b5a34d99a36621e4875974d52d28_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{plans_8c_ae037a79cb31f056d04153837887f5813}{\index{plans.\-c@{plans.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!plans.c@{plans.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf plans.\-c},v \$ \$Date\-: 2003/11/15 04\-:07\-:36 \$ \$Revision\-: 1.\-5 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{plans_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 227 of file plans.\-c.
+
+\hypertarget{plans_8c_ac0d79aacde4841ae8c697d5d53898404}{\index{plans.\-c@{plans.\-c}!vis\-\_\-elements@{vis\-\_\-elements}}
+\index{vis\-\_\-elements@{vis\-\_\-elements}!plans.c@{plans.\-c}}
+\subsubsection[{vis\-\_\-elements}]{\setlength{\rightskip}{0pt plus 5cm}double vis\-\_\-elements\mbox{[}8\mbox{]}\mbox{[}5\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{plans_8c_ac0d79aacde4841ae8c697d5d53898404}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+        \{ 6.74, -0.36, 3.8, -2.73, 2.00\},
+        \{ 16.92, -4.29, 0.09, 2.39, -.65\},
+        \{ 9.36, -1.52, 1.60, 0., 0.\},
+        \{ 196.74, -9.25, 0.50, 0., 0.\},
+        \{ 165.6, -8.88, 4.40, 0., 0.\},
+        \{ 65.8, -7.19, 0.28, 0., 0.\},
+        \{ 62.2, -6.87, 0., 0., 0.\},
+        \{ 8.2, -1.01, 4.1, 0., 0.\}
+\}
+\end{DoxyCode}
+
+
+Definition at line 112 of file plans.\-c.
+

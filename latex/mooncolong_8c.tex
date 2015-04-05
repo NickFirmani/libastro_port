@@ -1,0 +1,169 @@
+\hypertarget{mooncolong_8c}{\section{libastro/mooncolong.c File Reference}
+\label{mooncolong_8c}\index{libastro/mooncolong.\-c@{libastro/mooncolong.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for mooncolong.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{mooncolong_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{mooncolong_8c_ad84ad31de32d71727b14030e42ef684c}{Librations} (double R\-A\-D, double L\-A\-M\-H, double B\-H, double O\-M, double \hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027af382a63cc3d6491bf26b59e66f46826d}{F}, double L, double L1, double $\ast$L0, double $\ast$B0)
+\item 
+static void \hyperlink{mooncolong_8c_ad9b5002498b391bc9f219b5d1945ac33}{Moon} (double R\-A\-D, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}, double T2, double L\-A\-M0, double R, double M, double $\ast$\hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027af382a63cc3d6491bf26b59e66f46826d}{F}, double $\ast$L1, double $\ast$O\-M, double $\ast$L\-A\-M, double $\ast$B, double $\ast$D\-R, double $\ast$L\-A\-M\-H, double $\ast$B\-H)
+\item 
+static void \hyperlink{mooncolong_8c_a203b0774aa9f18ccdb73ede3d38ba851}{Sun} (double R\-A\-D, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}, double T2, double $\ast$L, double $\ast$M, double $\ast$R, double $\ast$L\-A\-M0)
+\item 
+void \hyperlink{mooncolong_8c_a2b580af984adcdec784ee9fd6e556cde}{moon\-\_\-colong} (double jd, double lt, double lg, double $\ast$cp, double $\ast$kp, double $\ast$ap, double $\ast$sp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{mooncolong_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{mooncolong.\-c},v \$ \$Date\-: 2004/05/05 17\-:45\-:49 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mooncolong_8c_ad84ad31de32d71727b14030e42ef684c}{\index{mooncolong.\-c@{mooncolong.\-c}!Librations@{Librations}}
+\index{Librations@{Librations}!mooncolong.c@{mooncolong.\-c}}
+\subsubsection[{Librations}]{\setlength{\rightskip}{0pt plus 5cm}static void Librations (
+\begin{DoxyParamCaption}
+\item[{double}]{R\-A\-D, }
+\item[{double}]{L\-A\-M\-H, }
+\item[{double}]{B\-H, }
+\item[{double}]{O\-M, }
+\item[{double}]{F, }
+\item[{double}]{L, }
+\item[{double}]{L1, }
+\item[{double $\ast$}]{L0, }
+\item[{double $\ast$}]{B0}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mooncolong_8c_ad84ad31de32d71727b14030e42ef684c}
+
+
+Definition at line 89 of file mooncolong.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{mooncolong_8c_ad84ad31de32d71727b14030e42ef684c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mooncolong_8c_ad9b5002498b391bc9f219b5d1945ac33}{\index{mooncolong.\-c@{mooncolong.\-c}!Moon@{Moon}}
+\index{Moon@{Moon}!mooncolong.c@{mooncolong.\-c}}
+\subsubsection[{Moon}]{\setlength{\rightskip}{0pt plus 5cm}static void Moon (
+\begin{DoxyParamCaption}
+\item[{double}]{R\-A\-D, }
+\item[{double}]{T, }
+\item[{double}]{T2, }
+\item[{double}]{L\-A\-M0, }
+\item[{double}]{R, }
+\item[{double}]{M, }
+\item[{double $\ast$}]{F, }
+\item[{double $\ast$}]{L1, }
+\item[{double $\ast$}]{O\-M, }
+\item[{double $\ast$}]{L\-A\-M, }
+\item[{double $\ast$}]{B, }
+\item[{double $\ast$}]{D\-R, }
+\item[{double $\ast$}]{L\-A\-M\-H, }
+\item[{double $\ast$}]{B\-H}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mooncolong_8c_ad9b5002498b391bc9f219b5d1945ac33}
+
+
+Definition at line 115 of file mooncolong.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{mooncolong_8c_ad9b5002498b391bc9f219b5d1945ac33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mooncolong_8c_a2b580af984adcdec784ee9fd6e556cde}{\index{mooncolong.\-c@{mooncolong.\-c}!moon\-\_\-colong@{moon\-\_\-colong}}
+\index{moon\-\_\-colong@{moon\-\_\-colong}!mooncolong.c@{mooncolong.\-c}}
+\subsubsection[{moon\-\_\-colong}]{\setlength{\rightskip}{0pt plus 5cm}void moon\-\_\-colong (
+\begin{DoxyParamCaption}
+\item[{double}]{jd, }
+\item[{double}]{lt, }
+\item[{double}]{lg, }
+\item[{double $\ast$}]{cp, }
+\item[{double $\ast$}]{kp, }
+\item[{double $\ast$}]{ap, }
+\item[{double $\ast$}]{sp}
+\end{DoxyParamCaption}
+)}}\label{mooncolong_8c_a2b580af984adcdec784ee9fd6e556cde}
+
+
+Definition at line 25 of file mooncolong.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{mooncolong_8c_a2b580af984adcdec784ee9fd6e556cde_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mooncolong_8c_a203b0774aa9f18ccdb73ede3d38ba851}{\index{mooncolong.\-c@{mooncolong.\-c}!Sun@{Sun}}
+\index{Sun@{Sun}!mooncolong.c@{mooncolong.\-c}}
+\subsubsection[{Sun}]{\setlength{\rightskip}{0pt plus 5cm}static void Sun (
+\begin{DoxyParamCaption}
+\item[{double}]{R\-A\-D, }
+\item[{double}]{T, }
+\item[{double}]{T2, }
+\item[{double $\ast$}]{L, }
+\item[{double $\ast$}]{M, }
+\item[{double $\ast$}]{R, }
+\item[{double $\ast$}]{L\-A\-M0}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mooncolong_8c_a203b0774aa9f18ccdb73ede3d38ba851}
+
+
+Definition at line 155 of file mooncolong.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{mooncolong_8c_a203b0774aa9f18ccdb73ede3d38ba851_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{mooncolong_8c_ae037a79cb31f056d04153837887f5813}{\index{mooncolong.\-c@{mooncolong.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!mooncolong.c@{mooncolong.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf mooncolong.\-c},v \$ \$Date\-: 2004/05/05 17\-:45\-:49 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{mooncolong_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 236 of file mooncolong.\-c.
+

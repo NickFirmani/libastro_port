@@ -1,0 +1,473 @@
+\hypertarget{satmoon_8c}{\section{libastro/satmoon.c File Reference}
+\label{satmoon_8c}\index{libastro/satmoon.\-c@{libastro/satmoon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bdl.\-h\char`\"{}}\\*
+Include dependency graph for satmoon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{satmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{P\-O\-L\-E\-\_\-\-R\-A}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(40.\-58)   /$\ast$ R\-A of Saturn's north pole $\ast$/
+\item 
+\#define \hyperlink{satmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{P\-O\-L\-E\-\_\-\-D\-E\-C}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(83.\-54)   /$\ast$ Dec of Saturn's north pole $\ast$/
+\item 
+\#define \hyperlink{satmoon_8c_a2dfcb59d184ee8e34dfd13c2dcad0f91}{S\-A\-T\-R\-A\-U}~.\-0004014253	/$\ast$ saturn radius, A\-U $\ast$/
+\item 
+\#define \hyperlink{satmoon_8c_a6634515171060cf2f7afd70a96cb9bde}{F\-O\-R}~for
+\item 
+\#define \hyperlink{satmoon_8c_ac138c68a0709c57bc5f7567abc1558eb}{I\-F}~if
+\item 
+\#define \hyperlink{satmoon_8c_a0a70ee0cbf5b1738be4c9463c529ce72}{E\-L\-S\-E}~else
+\item 
+\#define \hyperlink{satmoon_8c_af1af2de870caad797b91210f0fc6fe78}{C\-O\-S}~cos
+\item 
+\#define \hyperlink{satmoon_8c_ac80ce9955a1af2ab7aa3a67251ec9f5c}{S\-I\-N}~sin
+\item 
+\#define \hyperlink{satmoon_8c_a3f6118fca436bd2827d5fd0f998f665d}{T\-A\-N}~tan
+\item 
+\#define \hyperlink{satmoon_8c_aea909158791869e412489f94e406bf49}{A\-T\-N}~atan
+\item 
+\#define \hyperlink{satmoon_8c_a26e668489fb528456f4bc54ba908d5b4}{A\-B\-S}~fabs
+\item 
+\#define \hyperlink{satmoon_8c_a80f6a263043110b8f7c5da14fcea8d38}{S\-Q\-R}~sqrt
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{satmoon_8c_a89134b7574d62c5bd67ae205294186c4}{use\-\_\-bdl} (double J\-D, char $\ast$dir, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_abf3045a92f0bcd728775d9edf82b1e31}{bruton\-\_\-saturn} (\hyperlink{union_obj}{Obj} $\ast$sop, double J\-D, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_a39736daddc2d64ad62e800ce73b5b949}{moonradec} (double satsize, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_af87bd42fb6db114a2e1e2cde5bf789ad}{moon\-S\-Vis} (\hyperlink{union_obj}{Obj} $\ast$eop, \hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_a7a5f542a2fe6889bbc7cfb246059b968}{moon\-E\-Vis} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_a50631251333df4870ac80c97139cd686}{moon\-P\-Shad} (\hyperlink{union_obj}{Obj} $\ast$eop, \hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{satmoon_8c_ac01aad6b4dcb43b07a9a5334a9d2138e}{moon\-Trans} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+void \hyperlink{satmoon_8c_af7deff10e5c5d4fb01397d176c190432}{saturn\-\_\-data} (double Mjd, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{union_obj}{Obj} $\ast$eop, \hyperlink{union_obj}{Obj} $\ast$sop, double $\ast$sizep, double $\ast$etiltp, double $\ast$stiltp, double $\ast$polera, double $\ast$poledec, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static int \hyperlink{satmoon_8c_aeebda5628148ef2538e9f980d0a23589}{use\-\_\-bdl} (double J\-D, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{satmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{mdmjd} = -\/123456
+\item 
+static \hyperlink{struct_moon_data}{Moon\-Data} \hyperlink{satmoon_8c_a29e50d8e6e71b149e3922527f98771d6}{smd} \mbox{[}\hyperlink{astro_8h_a5878d29a6316d7d762b6326a0949faafa3058927e9687af8253fc6ec7cce9cc3e}{S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}
+\item 
+static double \hyperlink{satmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{sizemjd}
+\item 
+static double \hyperlink{satmoon_8c_a43be41b8bbe2612a814a0da61f899650}{etiltmjd}
+\item 
+static double \hyperlink{satmoon_8c_ab0271ccb70c0d87207f204feb7ebea28}{stiltmjd}
+\item 
+static char $\ast$ \hyperlink{satmoon_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{satmoon.\-c},v \$ \$Date\-: 2007/07/24 18\-:15\-:28 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{satmoon_8c_a26e668489fb528456f4bc54ba908d5b4}{\index{satmoon.\-c@{satmoon.\-c}!A\-B\-S@{A\-B\-S}}
+\index{A\-B\-S@{A\-B\-S}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{A\-B\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-S~fabs}}\label{satmoon_8c_a26e668489fb528456f4bc54ba908d5b4}
+
+
+Definition at line 208 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_aea909158791869e412489f94e406bf49}{\index{satmoon.\-c@{satmoon.\-c}!A\-T\-N@{A\-T\-N}}
+\index{A\-T\-N@{A\-T\-N}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{A\-T\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-N~atan}}\label{satmoon_8c_aea909158791869e412489f94e406bf49}
+
+
+Definition at line 207 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_af1af2de870caad797b91210f0fc6fe78}{\index{satmoon.\-c@{satmoon.\-c}!C\-O\-S@{C\-O\-S}}
+\index{C\-O\-S@{C\-O\-S}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{C\-O\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-S~cos}}\label{satmoon_8c_af1af2de870caad797b91210f0fc6fe78}
+
+
+Definition at line 204 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a0a70ee0cbf5b1738be4c9463c529ce72}{\index{satmoon.\-c@{satmoon.\-c}!E\-L\-S\-E@{E\-L\-S\-E}}
+\index{E\-L\-S\-E@{E\-L\-S\-E}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{E\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-L\-S\-E~else}}\label{satmoon_8c_a0a70ee0cbf5b1738be4c9463c529ce72}
+
+
+Definition at line 203 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a6634515171060cf2f7afd70a96cb9bde}{\index{satmoon.\-c@{satmoon.\-c}!F\-O\-R@{F\-O\-R}}
+\index{F\-O\-R@{F\-O\-R}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{F\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R~for}}\label{satmoon_8c_a6634515171060cf2f7afd70a96cb9bde}
+
+
+Definition at line 201 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_ac138c68a0709c57bc5f7567abc1558eb}{\index{satmoon.\-c@{satmoon.\-c}!I\-F@{I\-F}}
+\index{I\-F@{I\-F}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{I\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-F~if}}\label{satmoon_8c_ac138c68a0709c57bc5f7567abc1558eb}
+
+
+Definition at line 202 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{\index{satmoon.\-c@{satmoon.\-c}!P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}}
+\index{P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-D\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-D\-E\-C~{\bf degrad}(83.\-54)   /$\ast$ Dec of Saturn's north pole $\ast$/}}\label{satmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}
+
+
+Definition at line 41 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{\index{satmoon.\-c@{satmoon.\-c}!P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}}
+\index{P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-R\-A~{\bf degrad}(40.\-58)   /$\ast$ R\-A of Saturn's north pole $\ast$/}}\label{satmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}
+
+
+Definition at line 40 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a2dfcb59d184ee8e34dfd13c2dcad0f91}{\index{satmoon.\-c@{satmoon.\-c}!S\-A\-T\-R\-A\-U@{S\-A\-T\-R\-A\-U}}
+\index{S\-A\-T\-R\-A\-U@{S\-A\-T\-R\-A\-U}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{S\-A\-T\-R\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-T\-R\-A\-U~.\-0004014253	/$\ast$ saturn radius, A\-U $\ast$/}}\label{satmoon_8c_a2dfcb59d184ee8e34dfd13c2dcad0f91}
+\hypertarget{satmoon_8c_ac80ce9955a1af2ab7aa3a67251ec9f5c}{\index{satmoon.\-c@{satmoon.\-c}!S\-I\-N@{S\-I\-N}}
+\index{S\-I\-N@{S\-I\-N}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{S\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N~sin}}\label{satmoon_8c_ac80ce9955a1af2ab7aa3a67251ec9f5c}
+
+
+Definition at line 205 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a80f6a263043110b8f7c5da14fcea8d38}{\index{satmoon.\-c@{satmoon.\-c}!S\-Q\-R@{S\-Q\-R}}
+\index{S\-Q\-R@{S\-Q\-R}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{S\-Q\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Q\-R~sqrt}}\label{satmoon_8c_a80f6a263043110b8f7c5da14fcea8d38}
+
+
+Definition at line 209 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a3f6118fca436bd2827d5fd0f998f665d}{\index{satmoon.\-c@{satmoon.\-c}!T\-A\-N@{T\-A\-N}}
+\index{T\-A\-N@{T\-A\-N}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{T\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-N~tan}}\label{satmoon_8c_a3f6118fca436bd2827d5fd0f998f665d}
+
+
+Definition at line 206 of file satmoon.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{satmoon_8c_abf3045a92f0bcd728775d9edf82b1e31}{\index{satmoon.\-c@{satmoon.\-c}!bruton\-\_\-saturn@{bruton\-\_\-saturn}}
+\index{bruton\-\_\-saturn@{bruton\-\_\-saturn}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{bruton\-\_\-saturn}]{\setlength{\rightskip}{0pt plus 5cm}static void bruton\-\_\-saturn (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{double}]{J\-D, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_abf3045a92f0bcd728775d9edf82b1e31}
+
+
+Definition at line 217 of file satmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_abf3045a92f0bcd728775d9edf82b1e31_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_a7a5f542a2fe6889bbc7cfb246059b968}{\index{satmoon.\-c@{satmoon.\-c}!moon\-E\-Vis@{moon\-E\-Vis}}
+\index{moon\-E\-Vis@{moon\-E\-Vis}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{moon\-E\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-E\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a7a5f542a2fe6889bbc7cfb246059b968}
+
+
+Definition at line 468 of file satmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_a7a5f542a2fe6889bbc7cfb246059b968_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_a50631251333df4870ac80c97139cd686}{\index{satmoon.\-c@{satmoon.\-c}!moon\-P\-Shad@{moon\-P\-Shad}}
+\index{moon\-P\-Shad@{moon\-P\-Shad}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{moon\-P\-Shad}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-P\-Shad (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{eop, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a50631251333df4870ac80c97139cd686}
+
+
+Definition at line 482 of file satmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{satmoon_8c_a50631251333df4870ac80c97139cd686_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_a50631251333df4870ac80c97139cd686_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_a39736daddc2d64ad62e800ce73b5b949}{\index{satmoon.\-c@{satmoon.\-c}!moonradec@{moonradec}}
+\index{moonradec@{moonradec}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{moonradec}]{\setlength{\rightskip}{0pt plus 5cm}static void moonradec (
+\begin{DoxyParamCaption}
+\item[{double}]{satsize, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a39736daddc2d64ad62e800ce73b5b949}
+
+
+Definition at line 417 of file satmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_a39736daddc2d64ad62e800ce73b5b949_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_af87bd42fb6db114a2e1e2cde5bf789ad}{\index{satmoon.\-c@{satmoon.\-c}!moon\-S\-Vis@{moon\-S\-Vis}}
+\index{moon\-S\-Vis@{moon\-S\-Vis}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{moon\-S\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-S\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{eop, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_af87bd42fb6db114a2e1e2cde5bf789ad}
+
+
+Definition at line 436 of file satmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_af87bd42fb6db114a2e1e2cde5bf789ad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_ac01aad6b4dcb43b07a9a5334a9d2138e}{\index{satmoon.\-c@{satmoon.\-c}!moon\-Trans@{moon\-Trans}}
+\index{moon\-Trans@{moon\-Trans}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{moon\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-Trans (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_ac01aad6b4dcb43b07a9a5334a9d2138e}
+
+
+Definition at line 499 of file satmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_ac01aad6b4dcb43b07a9a5334a9d2138e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_af7deff10e5c5d4fb01397d176c190432}{\index{satmoon.\-c@{satmoon.\-c}!saturn\-\_\-data@{saturn\-\_\-data}}
+\index{saturn\-\_\-data@{saturn\-\_\-data}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{saturn\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void saturn\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{double}]{Mjd, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Obj} $\ast$}]{eop, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{double $\ast$}]{sizep, }
+\item[{double $\ast$}]{etiltp, }
+\item[{double $\ast$}]{stiltp, }
+\item[{double $\ast$}]{polera, }
+\item[{double $\ast$}]{poledec, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{satmoon_8c_af7deff10e5c5d4fb01397d176c190432}
+
+
+Definition at line 50 of file satmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_af7deff10e5c5d4fb01397d176c190432_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_af7deff10e5c5d4fb01397d176c190432_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_a89134b7574d62c5bd67ae205294186c4}{\index{satmoon.\-c@{satmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char $\ast$}]{dir, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a89134b7574d62c5bd67ae205294186c4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmoon_8c_a89134b7574d62c5bd67ae205294186c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satmoon_8c_aeebda5628148ef2538e9f980d0a23589}{\index{satmoon.\-c@{satmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-S\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_aeebda5628148ef2538e9f980d0a23589}
+
+
+Definition at line 127 of file satmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{satmoon_8c_aeebda5628148ef2538e9f980d0a23589_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{satmoon_8c_a43be41b8bbe2612a814a0da61f899650}{\index{satmoon.\-c@{satmoon.\-c}!etiltmjd@{etiltmjd}}
+\index{etiltmjd@{etiltmjd}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{etiltmjd}]{\setlength{\rightskip}{0pt plus 5cm}double etiltmjd\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a43be41b8bbe2612a814a0da61f899650}
+
+
+Definition at line 34 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{\index{satmoon.\-c@{satmoon.\-c}!mdmjd@{mdmjd}}
+\index{mdmjd@{mdmjd}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{mdmjd}]{\setlength{\rightskip}{0pt plus 5cm}double mdmjd = -\/123456\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}
+
+
+Definition at line 21 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_ae037a79cb31f056d04153837887f5813}{\index{satmoon.\-c@{satmoon.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf satmoon.\-c},v \$ \$Date\-: 2007/07/24 18\-:15\-:28 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 510 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{\index{satmoon.\-c@{satmoon.\-c}!sizemjd@{sizemjd}}
+\index{sizemjd@{sizemjd}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{sizemjd}]{\setlength{\rightskip}{0pt plus 5cm}double sizemjd\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}
+
+
+Definition at line 33 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_a29e50d8e6e71b149e3922527f98771d6}{\index{satmoon.\-c@{satmoon.\-c}!smd@{smd}}
+\index{smd@{smd}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{smd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Moon\-Data} smd\mbox{[}{\bf S\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_a29e50d8e6e71b149e3922527f98771d6}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"Saturn"},  NULL\},
+    \{\textcolor{stringliteral}{"Mimas"},   \textcolor{stringliteral}{"I"}\},
+    \{\textcolor{stringliteral}{"Enceladus"},\textcolor{stringliteral}{"II"}\},
+    \{\textcolor{stringliteral}{"Tethys"},  \textcolor{stringliteral}{"III"}\},
+    \{\textcolor{stringliteral}{"Dione"},   \textcolor{stringliteral}{"IV"}\},
+    \{\textcolor{stringliteral}{"Rhea"},    \textcolor{stringliteral}{"V"}\},
+    \{\textcolor{stringliteral}{"Titan"},   \textcolor{stringliteral}{"VI"}\},
+    \{\textcolor{stringliteral}{"Hyperion"},\textcolor{stringliteral}{"VII"}\},
+    \{\textcolor{stringliteral}{"Iapetus"}, \textcolor{stringliteral}{"VIII"}\},
+\}
+\end{DoxyCode}
+
+
+Definition at line 22 of file satmoon.\-c.
+
+\hypertarget{satmoon_8c_ab0271ccb70c0d87207f204feb7ebea28}{\index{satmoon.\-c@{satmoon.\-c}!stiltmjd@{stiltmjd}}
+\index{stiltmjd@{stiltmjd}!satmoon.c@{satmoon.\-c}}
+\subsubsection[{stiltmjd}]{\setlength{\rightskip}{0pt plus 5cm}double stiltmjd\hspace{0.3cm}{\ttfamily [static]}}}\label{satmoon_8c_ab0271ccb70c0d87207f204feb7ebea28}
+
+
+Definition at line 35 of file satmoon.\-c.
+

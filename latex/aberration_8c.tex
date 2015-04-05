@@ -1,0 +1,178 @@
+\hypertarget{aberration_8c}{\section{libastro/aberration.c File Reference}
+\label{aberration_8c}\index{libastro/aberration.\-c@{libastro/aberration.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for aberration.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{aberration_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{aberration_8c_a611277b15b655248eab0728261ebcab2}{A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T}~(20.\-49552/3600./180.$\ast$\hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I})  /$\ast$ aberr const in rad $\ast$/
+\item 
+\#define \hyperlink{aberration_8c_a382cb1176f2f63a3a7d590e0d4f276e3}{A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D}~0
+\item 
+\#define \hyperlink{aberration_8c_ac504414c7ed784d95dcff73337dd3ead}{A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{aberration_8c_aa11d6eb5cd66a91726a712ee4c6da790}{ab\-\_\-aux} (double mj, double $\ast$x, double $\ast$y, double lsn, int mode)
+\item 
+void \hyperlink{aberration_8c_ae7956416613e0710a66903afc8d58639}{ab\-\_\-ecl} (double mj, double lsn, double $\ast$lam, double $\ast$bet)
+\item 
+void \hyperlink{aberration_8c_a0a01774c4e097c9ef5e17054c4509fc0}{ab\-\_\-eq} (double mj, double lsn, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{aberration_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{aberration.\-c},v \$ \$Date\-: 2006/08/28 00\-:22\-:26 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{aberration_8c_a382cb1176f2f63a3a7d590e0d4f276e3}{\index{aberration.\-c@{aberration.\-c}!A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D@{A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D}}
+\index{A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D@{A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D}!aberration.c@{aberration.\-c}}
+\subsubsection[{A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-\_\-\-E\-C\-L\-\_\-\-E\-O\-D~0}}\label{aberration_8c_a382cb1176f2f63a3a7d590e0d4f276e3}
+
+
+Definition at line 15 of file aberration.\-c.
+
+\hypertarget{aberration_8c_ac504414c7ed784d95dcff73337dd3ead}{\index{aberration.\-c@{aberration.\-c}!A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D@{A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D}}
+\index{A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D@{A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D}!aberration.c@{aberration.\-c}}
+\subsubsection[{A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-\_\-\-E\-Q\-\_\-\-E\-O\-D~1}}\label{aberration_8c_ac504414c7ed784d95dcff73337dd3ead}
+
+
+Definition at line 16 of file aberration.\-c.
+
+\hypertarget{aberration_8c_a611277b15b655248eab0728261ebcab2}{\index{aberration.\-c@{aberration.\-c}!A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T@{A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T}}
+\index{A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T@{A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T}!aberration.c@{aberration.\-c}}
+\subsubsection[{A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-E\-R\-R\-\_\-\-C\-O\-N\-S\-T~(20.\-49552/3600./180.$\ast${\bf P\-I})  /$\ast$ aberr const in rad $\ast$/}}\label{aberration_8c_a611277b15b655248eab0728261ebcab2}
+
+
+Definition at line 14 of file aberration.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{aberration_8c_aa11d6eb5cd66a91726a712ee4c6da790}{\index{aberration.\-c@{aberration.\-c}!ab\-\_\-aux@{ab\-\_\-aux}}
+\index{ab\-\_\-aux@{ab\-\_\-aux}!aberration.c@{aberration.\-c}}
+\subsubsection[{ab\-\_\-aux}]{\setlength{\rightskip}{0pt plus 5cm}static void ab\-\_\-aux (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{x, }
+\item[{double $\ast$}]{y, }
+\item[{double}]{lsn, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{aberration_8c_aa11d6eb5cd66a91726a712ee4c6da790}
+
+
+Definition at line 80 of file aberration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{aberration_8c_aa11d6eb5cd66a91726a712ee4c6da790_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aberration_8c_aa11d6eb5cd66a91726a712ee4c6da790_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aberration_8c_ae7956416613e0710a66903afc8d58639}{\index{aberration.\-c@{aberration.\-c}!ab\-\_\-ecl@{ab\-\_\-ecl}}
+\index{ab\-\_\-ecl@{ab\-\_\-ecl}!aberration.c@{aberration.\-c}}
+\subsubsection[{ab\-\_\-ecl}]{\setlength{\rightskip}{0pt plus 5cm}void ab\-\_\-ecl (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{lsn, }
+\item[{double $\ast$}]{lam, }
+\item[{double $\ast$}]{bet}
+\end{DoxyParamCaption}
+)}}\label{aberration_8c_ae7956416613e0710a66903afc8d58639}
+
+
+Definition at line 25 of file aberration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aberration_8c_ae7956416613e0710a66903afc8d58639_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aberration_8c_a0a01774c4e097c9ef5e17054c4509fc0}{\index{aberration.\-c@{aberration.\-c}!ab\-\_\-eq@{ab\-\_\-eq}}
+\index{ab\-\_\-eq@{ab\-\_\-eq}!aberration.c@{aberration.\-c}}
+\subsubsection[{ab\-\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}void ab\-\_\-eq (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{lsn, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{aberration_8c_a0a01774c4e097c9ef5e17054c4509fc0}
+
+
+Definition at line 35 of file aberration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aberration_8c_a0a01774c4e097c9ef5e17054c4509fc0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aberration_8c_a0a01774c4e097c9ef5e17054c4509fc0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{aberration_8c_ae037a79cb31f056d04153837887f5813}{\index{aberration.\-c@{aberration.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!aberration.c@{aberration.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf aberration.\-c},v \$ \$Date\-: 2006/08/28 00\-:22\-:26 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{aberration_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 161 of file aberration.\-c.
+

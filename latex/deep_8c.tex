@@ -1,0 +1,1139 @@
+\hypertarget{deep_8c}{\section{libastro/deep.c File Reference}
+\label{deep_8c}\index{libastro/deep.\-c@{libastro/deep.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}deepconst.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}satspec.\-h\char`\"{}}\\*
+Include dependency graph for deep.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deep_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{deep_8c_acc36d10349aba51a39c734c78971db4a}{X\-M\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-M\-O)
+\item 
+\#define \hyperlink{deep_8c_a2d64b24a79f25ec1011d73750667046a}{X\-N\-O\-D\-E\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O\-D\-E\-O)
+\item 
+\#define \hyperlink{deep_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}{O\-M\-E\-G\-A\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-O\-M\-E\-G\-A\-O)
+\item 
+\#define \hyperlink{deep_8c_a480811ee866af438f0c349695b519aeb}{E\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-O)
+\item 
+\#define \hyperlink{deep_8c_a6b1225780ad91988d3615e97cfb7c479}{X\-I\-N\-C\-L}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-I\-N\-C\-L)
+\item 
+\#define \hyperlink{deep_8c_ad6196913c77cda307a7b8933ac7af1a9}{X\-N\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O)
+\item 
+\#define \hyperlink{deep_8c_ad32d3af57886f3f3f316121cbf81ea82}{X\-N\-D\-T20}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-T20)
+\item 
+\#define \hyperlink{deep_8c_ac84a934a6a44c7e04baa360084dfb2a1}{X\-N\-D\-D60}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-D60)
+\item 
+\#define \hyperlink{deep_8c_a2864174262f5e99d4ce236181eba6355}{B\-S\-T\-A\-R}~(sat-\/$>$elem-\/$>$se\-\_\-\-B\-S\-T\-A\-R)
+\item 
+\#define \hyperlink{deep_8c_a0ac447c7f69530e0caadc891c59d7244}{E\-P\-O\-C\-H}~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-P\-O\-C\-H)
+\item 
+\#define \hyperlink{deep_8c_a438cc3f9bbbb524cdf53c7343c028aea}{Z\-N\-S}~(1.\-19459\-E-\/5)
+\item 
+\#define \hyperlink{deep_8c_a88001eddaa4aa715999c98502e0e4d7f}{C1\-S\-S}~(2.\-9864797\-E-\/6)
+\item 
+\#define \hyperlink{deep_8c_acb65527ac3ba82b424d643b367db6de2}{Z\-E\-S}~(.\-01675)
+\item 
+\#define \hyperlink{deep_8c_aca9d2eb4419b6eb3066d39a414ea3c75}{Z\-N\-L}~(1.\-5835218\-E-\/4)
+\item 
+\#define \hyperlink{deep_8c_af1d487019e73ab7b05117d538e0fb4ef}{C1\-L}~(4.\-7968065\-E-\/7)
+\item 
+\#define \hyperlink{deep_8c_a7e1bd265cd0978ce8228815552572ada}{Z\-E\-L}~(.\-05490)
+\item 
+\#define \hyperlink{deep_8c_a165c8457d6ccbe709f2a1f297337cc13}{Z\-C\-O\-S\-I\-S}~(.\-91744867)
+\item 
+\#define \hyperlink{deep_8c_a3e1cdc97598bb69b6889b8c94badf527}{Z\-S\-I\-N\-I\-S}~(.\-39785416)
+\item 
+\#define \hyperlink{deep_8c_ad1391f1406c94d31cf32e819ff4aa69d}{Z\-S\-I\-N\-G\-S}~(-\/.\-98088458)
+\item 
+\#define \hyperlink{deep_8c_a6372f59a1a9b827f28c7694290fca4ad}{Z\-C\-O\-S\-G\-S}~(.\-1945905)
+\item 
+\#define \hyperlink{deep_8c_a44cbfaf1bca4a8dc4ba7dd14d7d087aa}{Z\-C\-O\-S\-H\-S}~(1.\-0)
+\item 
+\#define \hyperlink{deep_8c_aa7ea1d6bf69ac3779ed76da43872949b}{Z\-S\-I\-N\-H\-S}~(0.\-0)
+\item 
+\#define \hyperlink{deep_8c_ae92799bea6457224d138516adeeb30c1}{Q22}~(1.\-7891679\-E-\/6)
+\item 
+\#define \hyperlink{deep_8c_a44e06cb0d727905464985fb3f9fc806d}{Q31}~(2.\-1460748\-E-\/6)
+\item 
+\#define \hyperlink{deep_8c_a94b905b284d9b36f3ea6e6146bf92a76}{Q33}~(2.\-2123015\-E-\/7)
+\item 
+\#define \hyperlink{deep_8c_acbaf2ba6f8b6ad685148a4fb9739f68e}{G22}~(5.\-7686396)
+\item 
+\#define \hyperlink{deep_8c_a39592f73e00ba9d4035c4a9c848485d7}{G32}~(0.\-95240898)
+\item 
+\#define \hyperlink{deep_8c_ace55b55709d2a5684ad03cd964681c8b}{G44}~(1.\-8014998)
+\item 
+\#define \hyperlink{deep_8c_a37cc769199d337bf6c93d2748190c6e3}{G52}~(1.\-0508330)
+\item 
+\#define \hyperlink{deep_8c_a745dd04ac9473a32db6ce70dd453cf91}{G54}~(4.\-4108898)
+\item 
+\#define \hyperlink{deep_8c_a733b6db0101ebb6f07b0af40c39d1789}{R\-O\-O\-T22}~(1.\-7891679\-E-\/6)
+\item 
+\#define \hyperlink{deep_8c_a9dbe910a35d3d71905ccc4f5667dde78}{R\-O\-O\-T32}~(3.\-7393792\-E-\/7)
+\item 
+\#define \hyperlink{deep_8c_acb28c90991e423b20cad51ee3e8c3fd2}{R\-O\-O\-T44}~(7.\-3636953\-E-\/9)
+\item 
+\#define \hyperlink{deep_8c_a24d63c2c06d6f046eae4fc223ea405e4}{R\-O\-O\-T52}~(1.\-1428639\-E-\/7)
+\item 
+\#define \hyperlink{deep_8c_a7929239350643b7841586ef31d9635c3}{R\-O\-O\-T54}~(2.\-1765803\-E-\/9)
+\item 
+\#define \hyperlink{deep_8c_a250d7ed00e5beea54f8affbf5f979f97}{T\-H\-D\-T}~(4.\-3752691\-E-\/3)
+\item 
+\#define \hyperlink{deep_8c_a1c93ade532746811be06335e29b596ff}{I\-R\-E\-S\-F\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-flags.\-I\-R\-E\-S\-F\-L)
+\item 
+\#define \hyperlink{deep_8c_a0a06d95f264d7c90bb4bb8150d04c40b}{I\-S\-Y\-N\-F\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-flags.\-I\-S\-Y\-N\-F\-L)
+\item 
+\#define \hyperlink{deep_8c_af71d7b24fcdd7e30283a4efc21f247ea}{s\-\_\-\-S\-I\-N\-I\-Q}~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-S\-I\-N\-I\-Q)
+\item 
+\#define \hyperlink{deep_8c_a6165554056043dc00268c47b9d849f9d}{s\-\_\-\-C\-O\-S\-I\-Q}~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-C\-O\-S\-I\-Q)
+\item 
+\#define \hyperlink{deep_8c_ab2b63216e808eae6683c59f86c54de0e}{s\-\_\-\-O\-M\-G\-D\-T}~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-O\-M\-G\-D\-T)
+\item 
+\#define \hyperlink{deep_8c_a8361b4e7e1d2f9e1719397fa85ee761c}{A\-T\-I\-M\-E}~(sat-\/$>$deep-\/$>$deep\-\_\-\-A\-T\-I\-M\-E)
+\item 
+\#define \hyperlink{deep_8c_a6b7335826683faf04d92b8955b6dcf06}{D2201}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D2201)
+\item 
+\#define \hyperlink{deep_8c_ab2530c4a4ecd1cea37d66d92b63d95b6}{D2211}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D2211)
+\item 
+\#define \hyperlink{deep_8c_a10d8a5b0621936696d2b54985ad47728}{D3210}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D3210)
+\item 
+\#define \hyperlink{deep_8c_a053cd70a2b8a1d2c1d5c1fbb4f51374a}{D3222}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D3222)
+\item 
+\#define \hyperlink{deep_8c_ac97c2f3a02408c44f28d07ba32f352b5}{D4410}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D4410)
+\item 
+\#define \hyperlink{deep_8c_a6ba201b6dcaf33311426a2475de197bf}{D4422}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D4422)
+\item 
+\#define \hyperlink{deep_8c_af06dfd49da5119590ff7c624adc23d9e}{D5220}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5220)
+\item 
+\#define \hyperlink{deep_8c_a9c338489989fed09daa88553572dea0a}{D5232}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5232)
+\item 
+\#define \hyperlink{deep_8c_ab9a1231d954b7fff208285b6093e8348}{D5421}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5421)
+\item 
+\#define \hyperlink{deep_8c_ac144436d499829bf47a25e0f3e72fb89}{D5433}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5433)
+\item 
+\#define \hyperlink{deep_8c_a9006e92d6a4d6f16b583e37c3f33f30e}{D\-E\-L1}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L1)
+\item 
+\#define \hyperlink{deep_8c_a71e68286c924b841c35961253f0267bd}{D\-E\-L2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L2)
+\item 
+\#define \hyperlink{deep_8c_a3671cf14b9eb18cd41809a26e619633a}{D\-E\-L3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L3)
+\item 
+\#define \hyperlink{deep_8c_a31cbade3f8edb728b06a18b804010544}{E3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-E3)
+\item 
+\#define \hyperlink{deep_8c_a6987e5e1661ffcefebe700d8479767db}{E\-E2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-E\-E2)
+\item 
+\#define \hyperlink{deep_8c_a8e914235db3e5bad1eb113d0e13b4863}{F\-A\-S\-X2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X2)
+\item 
+\#define \hyperlink{deep_8c_a83d9604cba336aa1288e867427438195}{F\-A\-S\-X4}~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X4)
+\item 
+\#define \hyperlink{deep_8c_a87655d37725894bf61785ab51aed6bbb}{F\-A\-S\-X6}~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X6)
+\item 
+\#define \hyperlink{deep_8c_a2894319a2e9527de61ebb671ec8c348f}{O\-M\-E\-G\-A\-Q}~(sat-\/$>$deep-\/$>$deep\-\_\-\-O\-M\-E\-G\-A\-Q)
+\item 
+\#define \hyperlink{deep_8c_a211238ffe3627f42ca7b04bc96cc8fa6}{P\-E}~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-E)
+\item 
+\#define \hyperlink{deep_8c_a0545e73dc7ae14b1f62293c1feba3983}{P\-I\-N\-C}~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-I\-N\-C)
+\item 
+\#define \hyperlink{deep_8c_a726f623ff633b7060a6bbacefe6b5c5a}{P\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-L)
+\item 
+\#define \hyperlink{deep_8c_a61e1b39f666c7526adf962fe63157ba3}{S\-A\-V\-T\-S\-N}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-A\-V\-T\-S\-N)
+\item 
+\#define \hyperlink{deep_8c_ac2128d3bed6a6960cf94619669ed614d}{S\-E2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-E2)
+\item 
+\#define \hyperlink{deep_8c_a7dd8ae7072f0a7131b85bebdc0d7062a}{S\-E3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-E3)
+\item 
+\#define \hyperlink{deep_8c_a2fb58fa78a34bfe120019ce5e5d75013}{S\-G\-H2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H2)
+\item 
+\#define \hyperlink{deep_8c_a84cd5dd2b96f36babaed03c2fe8edebb}{S\-G\-H3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H3)
+\item 
+\#define \hyperlink{deep_8c_a250d7ffde1665dc2f3e74349d114d4bd}{S\-G\-H4}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H4)
+\item 
+\#define \hyperlink{deep_8c_ab0245cc53cf3613370e019a0fc968fc9}{S\-G\-H\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H\-L)
+\item 
+\#define \hyperlink{deep_8c_ad9f86f3caa0e04e04d7f93dd7e364193}{S\-G\-H\-S}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H\-S)
+\item 
+\#define \hyperlink{deep_8c_a02c9faf50f77b5fc5095ca8f90b2f8a4}{S\-H2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H2)
+\item 
+\#define \hyperlink{deep_8c_ac229dd35cafb9be386f3f693e3d929ef}{S\-H3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H3)
+\item 
+\#define \hyperlink{deep_8c_af1d58223a45c2ac7c16446e95b82183b}{S\-H\-S}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H\-S)
+\item 
+\#define \hyperlink{deep_8c_a3162cf2e5ee7fa6947b4fba2427158f2}{S\-H\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H\-L)
+\item 
+\#define \hyperlink{deep_8c_aa1fda2f29992525c415b62e5d6568ee2}{S\-I2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-I2)
+\item 
+\#define \hyperlink{deep_8c_ac6e6e28e441220e52edbe68c4652291e}{S\-I3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-I3)
+\item 
+\#define \hyperlink{deep_8c_af783c8962c292b3c92f6aaff72b10a93}{S\-L2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L2)
+\item 
+\#define \hyperlink{deep_8c_af0a7e00642e86b250242a4e561c36140}{S\-L3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L3)
+\item 
+\#define \hyperlink{deep_8c_aa9936c463985fa56831f57700542c988}{S\-L4}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L4)
+\item 
+\#define \hyperlink{deep_8c_ad518177eb0b052ffed6ce4d0d63e6ae4}{S\-S\-E}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-E)
+\item 
+\#define \hyperlink{deep_8c_a41f0c015eecf2d8dd771cd257d788503}{S\-S\-G}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-G)
+\item 
+\#define \hyperlink{deep_8c_a4fd18ead06e273bf1ff1bd7a60f5d048}{S\-S\-H}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-H)
+\item 
+\#define \hyperlink{deep_8c_a5b9615ac5bb07a63e566a69535df389c}{S\-S\-I}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-I)
+\item 
+\#define \hyperlink{deep_8c_adc3d9d4ae62abe565893e214a6e6401e}{S\-S\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-L)
+\item 
+\#define \hyperlink{deep_8c_ad6138f70b4a60e8b031ce44d728a898d}{S\-T\-E\-P2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P2)
+\item 
+\#define \hyperlink{deep_8c_a6770a27a37cf8195861cb5592278eba4}{S\-T\-E\-P\-N}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P\-N)
+\item 
+\#define \hyperlink{deep_8c_ad7e5a0b87fc8f5cfe8b161a5c2b520e9}{S\-T\-E\-P\-P}~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P\-P)
+\item 
+\#define \hyperlink{deep_8c_a98c27cc2aaf2599d5a9210efa3b66c1a}{T\-H\-G\-R}~(sat-\/$>$deep-\/$>$deep\-\_\-\-T\-H\-G\-R)
+\item 
+\#define \hyperlink{deep_8c_a67027a9cddec1bd34d5393428722fade}{X\-F\-A\-C\-T}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-F\-A\-C\-T)
+\item 
+\#define \hyperlink{deep_8c_aeb06dfc9a2072d33de7919432210107b}{X\-G\-H2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H2)
+\item 
+\#define \hyperlink{deep_8c_a7cba43f2f979ad1163b0e3136decb01c}{X\-G\-H3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H3)
+\item 
+\#define \hyperlink{deep_8c_a09c24daa91c236b6a0afc36302b31660}{X\-G\-H4}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H4)
+\item 
+\#define \hyperlink{deep_8c_a15536b0df7803614b1402f12c2621f12}{X\-H2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-H2)
+\item 
+\#define \hyperlink{deep_8c_a083194f37488663db653328cf762e5fa}{X\-H3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-H3)
+\item 
+\#define \hyperlink{deep_8c_a591258c721a79e08c1ffce4dc104345e}{X\-I2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-I2)
+\item 
+\#define \hyperlink{deep_8c_a9688a38a2f858e4397a559285743c22c}{X\-I3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-I3)
+\item 
+\#define \hyperlink{deep_8c_af3fa93a31198115e04d8a7764fbe23e3}{X\-L2}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L2)
+\item 
+\#define \hyperlink{deep_8c_ac59d274a9fbb93c45b4fce713ddcd8aa}{X\-L3}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L3)
+\item 
+\#define \hyperlink{deep_8c_a05679cab1fe3f847a44619d834fafc24}{X\-L4}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L4)
+\item 
+\#define \hyperlink{deep_8c_a6ecc50ad9a36f6c1971506132c061bd9}{X\-L\-A\-M\-O}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L\-A\-M\-O)
+\item 
+\#define \hyperlink{deep_8c_ae948a3f15bf00aea6f3f1360a3f1c89d}{X\-L\-I}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L\-I)
+\item 
+\#define \hyperlink{deep_8c_a4323265bae54f9a2f05f118488e68ac3}{X\-N\-I}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-N\-I)
+\item 
+\#define \hyperlink{deep_8c_a3a97d532ceda912fe6b1433b276fa9cc}{X\-N\-Q}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-N\-Q)
+\item 
+\#define \hyperlink{deep_8c_a821b2aa053bc9731e3a3a16591b14cce}{X\-Q\-N\-C\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-Q\-N\-C\-L)
+\item 
+\#define \hyperlink{deep_8c_acbf514495470b07ce9cc7a17b8fa255e}{Z\-M\-O\-L}~(sat-\/$>$deep-\/$>$deep\-\_\-\-Z\-M\-O\-L)
+\item 
+\#define \hyperlink{deep_8c_abb404ed50b2976d0bb96bfeea1de67fe}{Z\-M\-O\-S}~(sat-\/$>$deep-\/$>$deep\-\_\-\-Z\-M\-O\-S)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{deep_8c_a29630154aab8f09525df6db6a5d93255}{dpinit} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double E\-Q\-S\-Q, double S\-I\-N\-I\-Q, double C\-O\-S\-I\-Q, double R\-T\-E\-Q\-S\-Q, double A\-O, double C\-O\-S\-Q2, double S\-I\-N\-O\-M\-O, double C\-O\-S\-O\-M\-O, double B\-S\-Q, double X\-L\-L\-D\-O\-T, double O\-M\-G\-D\-T, double \hyperlink{sgp4_8c_a62b3086d7973b35924294995be4ef198}{X\-N\-O\-D\-O\-T}, double \hyperlink{sgp4_8c_acba739d1b9c250745858870abfc6688a}{X\-N\-O\-D\-P})
+\item 
+void \hyperlink{deep_8c_a83540349db5755bd5658b630dc6d6e44}{dpsec} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double $\ast$X\-L\-L, double $\ast$O\-M\-G\-A\-S\-M, double $\ast$X\-N\-O\-D\-E\-S, double $\ast$E\-M, double $\ast$X\-I\-N\-C, double $\ast$X\-N, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\item 
+void \hyperlink{deep_8c_a533103975f23d3e03ac4e7fb561464b5}{dpper} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double $\ast$E\-M, double $\ast$X\-I\-N\-C, double $\ast$O\-M\-G\-A\-S\-M, double $\ast$X\-N\-O\-D\-E\-S, double $\ast$X\-L\-L, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{deep_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{deep.\-c},v \$ \$Date\-: 2000/09/25 19\-:43\-:03 \$ \$Revision\-: 1.\-2 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{deep_8c_a8361b4e7e1d2f9e1719397fa85ee761c}{\index{deep.\-c@{deep.\-c}!A\-T\-I\-M\-E@{A\-T\-I\-M\-E}}
+\index{A\-T\-I\-M\-E@{A\-T\-I\-M\-E}!deep.c@{deep.\-c}}
+\subsubsection[{A\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-I\-M\-E~(sat-\/$>$deep-\/$>$deep\-\_\-\-A\-T\-I\-M\-E)}}\label{deep_8c_a8361b4e7e1d2f9e1719397fa85ee761c}
+
+
+Definition at line 79 of file deep.\-c.
+
+\hypertarget{deep_8c_a2864174262f5e99d4ce236181eba6355}{\index{deep.\-c@{deep.\-c}!B\-S\-T\-A\-R@{B\-S\-T\-A\-R}}
+\index{B\-S\-T\-A\-R@{B\-S\-T\-A\-R}!deep.c@{deep.\-c}}
+\subsubsection[{B\-S\-T\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-S\-T\-A\-R~(sat-\/$>$elem-\/$>$se\-\_\-\-B\-S\-T\-A\-R)}}\label{deep_8c_a2864174262f5e99d4ce236181eba6355}
+
+
+Definition at line 42 of file deep.\-c.
+
+\hypertarget{deep_8c_af1d487019e73ab7b05117d538e0fb4ef}{\index{deep.\-c@{deep.\-c}!C1\-L@{C1\-L}}
+\index{C1\-L@{C1\-L}!deep.c@{deep.\-c}}
+\subsubsection[{C1\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C1\-L~(4.\-7968065\-E-\/7)}}\label{deep_8c_af1d487019e73ab7b05117d538e0fb4ef}
+
+
+Definition at line 49 of file deep.\-c.
+
+\hypertarget{deep_8c_a88001eddaa4aa715999c98502e0e4d7f}{\index{deep.\-c@{deep.\-c}!C1\-S\-S@{C1\-S\-S}}
+\index{C1\-S\-S@{C1\-S\-S}!deep.c@{deep.\-c}}
+\subsubsection[{C1\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C1\-S\-S~(2.\-9864797\-E-\/6)}}\label{deep_8c_a88001eddaa4aa715999c98502e0e4d7f}
+
+
+Definition at line 46 of file deep.\-c.
+
+\hypertarget{deep_8c_a6b7335826683faf04d92b8955b6dcf06}{\index{deep.\-c@{deep.\-c}!D2201@{D2201}}
+\index{D2201@{D2201}!deep.c@{deep.\-c}}
+\subsubsection[{D2201}]{\setlength{\rightskip}{0pt plus 5cm}\#define D2201~(sat-\/$>$deep-\/$>$deep\-\_\-\-D2201)}}\label{deep_8c_a6b7335826683faf04d92b8955b6dcf06}
+
+
+Definition at line 80 of file deep.\-c.
+
+\hypertarget{deep_8c_ab2530c4a4ecd1cea37d66d92b63d95b6}{\index{deep.\-c@{deep.\-c}!D2211@{D2211}}
+\index{D2211@{D2211}!deep.c@{deep.\-c}}
+\subsubsection[{D2211}]{\setlength{\rightskip}{0pt plus 5cm}\#define D2211~(sat-\/$>$deep-\/$>$deep\-\_\-\-D2211)}}\label{deep_8c_ab2530c4a4ecd1cea37d66d92b63d95b6}
+
+
+Definition at line 81 of file deep.\-c.
+
+\hypertarget{deep_8c_a10d8a5b0621936696d2b54985ad47728}{\index{deep.\-c@{deep.\-c}!D3210@{D3210}}
+\index{D3210@{D3210}!deep.c@{deep.\-c}}
+\subsubsection[{D3210}]{\setlength{\rightskip}{0pt plus 5cm}\#define D3210~(sat-\/$>$deep-\/$>$deep\-\_\-\-D3210)}}\label{deep_8c_a10d8a5b0621936696d2b54985ad47728}
+
+
+Definition at line 82 of file deep.\-c.
+
+\hypertarget{deep_8c_a053cd70a2b8a1d2c1d5c1fbb4f51374a}{\index{deep.\-c@{deep.\-c}!D3222@{D3222}}
+\index{D3222@{D3222}!deep.c@{deep.\-c}}
+\subsubsection[{D3222}]{\setlength{\rightskip}{0pt plus 5cm}\#define D3222~(sat-\/$>$deep-\/$>$deep\-\_\-\-D3222)}}\label{deep_8c_a053cd70a2b8a1d2c1d5c1fbb4f51374a}
+
+
+Definition at line 83 of file deep.\-c.
+
+\hypertarget{deep_8c_ac97c2f3a02408c44f28d07ba32f352b5}{\index{deep.\-c@{deep.\-c}!D4410@{D4410}}
+\index{D4410@{D4410}!deep.c@{deep.\-c}}
+\subsubsection[{D4410}]{\setlength{\rightskip}{0pt plus 5cm}\#define D4410~(sat-\/$>$deep-\/$>$deep\-\_\-\-D4410)}}\label{deep_8c_ac97c2f3a02408c44f28d07ba32f352b5}
+
+
+Definition at line 84 of file deep.\-c.
+
+\hypertarget{deep_8c_a6ba201b6dcaf33311426a2475de197bf}{\index{deep.\-c@{deep.\-c}!D4422@{D4422}}
+\index{D4422@{D4422}!deep.c@{deep.\-c}}
+\subsubsection[{D4422}]{\setlength{\rightskip}{0pt plus 5cm}\#define D4422~(sat-\/$>$deep-\/$>$deep\-\_\-\-D4422)}}\label{deep_8c_a6ba201b6dcaf33311426a2475de197bf}
+
+
+Definition at line 85 of file deep.\-c.
+
+\hypertarget{deep_8c_af06dfd49da5119590ff7c624adc23d9e}{\index{deep.\-c@{deep.\-c}!D5220@{D5220}}
+\index{D5220@{D5220}!deep.c@{deep.\-c}}
+\subsubsection[{D5220}]{\setlength{\rightskip}{0pt plus 5cm}\#define D5220~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5220)}}\label{deep_8c_af06dfd49da5119590ff7c624adc23d9e}
+
+
+Definition at line 86 of file deep.\-c.
+
+\hypertarget{deep_8c_a9c338489989fed09daa88553572dea0a}{\index{deep.\-c@{deep.\-c}!D5232@{D5232}}
+\index{D5232@{D5232}!deep.c@{deep.\-c}}
+\subsubsection[{D5232}]{\setlength{\rightskip}{0pt plus 5cm}\#define D5232~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5232)}}\label{deep_8c_a9c338489989fed09daa88553572dea0a}
+
+
+Definition at line 87 of file deep.\-c.
+
+\hypertarget{deep_8c_ab9a1231d954b7fff208285b6093e8348}{\index{deep.\-c@{deep.\-c}!D5421@{D5421}}
+\index{D5421@{D5421}!deep.c@{deep.\-c}}
+\subsubsection[{D5421}]{\setlength{\rightskip}{0pt plus 5cm}\#define D5421~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5421)}}\label{deep_8c_ab9a1231d954b7fff208285b6093e8348}
+
+
+Definition at line 88 of file deep.\-c.
+
+\hypertarget{deep_8c_ac144436d499829bf47a25e0f3e72fb89}{\index{deep.\-c@{deep.\-c}!D5433@{D5433}}
+\index{D5433@{D5433}!deep.c@{deep.\-c}}
+\subsubsection[{D5433}]{\setlength{\rightskip}{0pt plus 5cm}\#define D5433~(sat-\/$>$deep-\/$>$deep\-\_\-\-D5433)}}\label{deep_8c_ac144436d499829bf47a25e0f3e72fb89}
+
+
+Definition at line 89 of file deep.\-c.
+
+\hypertarget{deep_8c_a9006e92d6a4d6f16b583e37c3f33f30e}{\index{deep.\-c@{deep.\-c}!D\-E\-L1@{D\-E\-L1}}
+\index{D\-E\-L1@{D\-E\-L1}!deep.c@{deep.\-c}}
+\subsubsection[{D\-E\-L1}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L1~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L1)}}\label{deep_8c_a9006e92d6a4d6f16b583e37c3f33f30e}
+
+
+Definition at line 90 of file deep.\-c.
+
+\hypertarget{deep_8c_a71e68286c924b841c35961253f0267bd}{\index{deep.\-c@{deep.\-c}!D\-E\-L2@{D\-E\-L2}}
+\index{D\-E\-L2@{D\-E\-L2}!deep.c@{deep.\-c}}
+\subsubsection[{D\-E\-L2}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L2~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L2)}}\label{deep_8c_a71e68286c924b841c35961253f0267bd}
+
+
+Definition at line 91 of file deep.\-c.
+
+\hypertarget{deep_8c_a3671cf14b9eb18cd41809a26e619633a}{\index{deep.\-c@{deep.\-c}!D\-E\-L3@{D\-E\-L3}}
+\index{D\-E\-L3@{D\-E\-L3}!deep.c@{deep.\-c}}
+\subsubsection[{D\-E\-L3}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L3~(sat-\/$>$deep-\/$>$deep\-\_\-\-D\-E\-L3)}}\label{deep_8c_a3671cf14b9eb18cd41809a26e619633a}
+
+
+Definition at line 92 of file deep.\-c.
+
+\hypertarget{deep_8c_a31cbade3f8edb728b06a18b804010544}{\index{deep.\-c@{deep.\-c}!E3@{E3}}
+\index{E3@{E3}!deep.c@{deep.\-c}}
+\subsubsection[{E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define E3~(sat-\/$>$deep-\/$>$deep\-\_\-\-E3)}}\label{deep_8c_a31cbade3f8edb728b06a18b804010544}
+
+
+Definition at line 93 of file deep.\-c.
+
+\hypertarget{deep_8c_a6987e5e1661ffcefebe700d8479767db}{\index{deep.\-c@{deep.\-c}!E\-E2@{E\-E2}}
+\index{E\-E2@{E\-E2}!deep.c@{deep.\-c}}
+\subsubsection[{E\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-E2~(sat-\/$>$deep-\/$>$deep\-\_\-\-E\-E2)}}\label{deep_8c_a6987e5e1661ffcefebe700d8479767db}
+
+
+Definition at line 94 of file deep.\-c.
+
+\hypertarget{deep_8c_a480811ee866af438f0c349695b519aeb}{\index{deep.\-c@{deep.\-c}!E\-O@{E\-O}}
+\index{E\-O@{E\-O}!deep.c@{deep.\-c}}
+\subsubsection[{E\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-O)}}\label{deep_8c_a480811ee866af438f0c349695b519aeb}
+
+
+Definition at line 37 of file deep.\-c.
+
+\hypertarget{deep_8c_a0ac447c7f69530e0caadc891c59d7244}{\index{deep.\-c@{deep.\-c}!E\-P\-O\-C\-H@{E\-P\-O\-C\-H}}
+\index{E\-P\-O\-C\-H@{E\-P\-O\-C\-H}!deep.c@{deep.\-c}}
+\subsubsection[{E\-P\-O\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-P\-O\-C\-H~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-P\-O\-C\-H)}}\label{deep_8c_a0ac447c7f69530e0caadc891c59d7244}
+
+
+Definition at line 43 of file deep.\-c.
+
+\hypertarget{deep_8c_a8e914235db3e5bad1eb113d0e13b4863}{\index{deep.\-c@{deep.\-c}!F\-A\-S\-X2@{F\-A\-S\-X2}}
+\index{F\-A\-S\-X2@{F\-A\-S\-X2}!deep.c@{deep.\-c}}
+\subsubsection[{F\-A\-S\-X2}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S\-X2~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X2)}}\label{deep_8c_a8e914235db3e5bad1eb113d0e13b4863}
+
+
+Definition at line 95 of file deep.\-c.
+
+\hypertarget{deep_8c_a83d9604cba336aa1288e867427438195}{\index{deep.\-c@{deep.\-c}!F\-A\-S\-X4@{F\-A\-S\-X4}}
+\index{F\-A\-S\-X4@{F\-A\-S\-X4}!deep.c@{deep.\-c}}
+\subsubsection[{F\-A\-S\-X4}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S\-X4~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X4)}}\label{deep_8c_a83d9604cba336aa1288e867427438195}
+
+
+Definition at line 96 of file deep.\-c.
+
+\hypertarget{deep_8c_a87655d37725894bf61785ab51aed6bbb}{\index{deep.\-c@{deep.\-c}!F\-A\-S\-X6@{F\-A\-S\-X6}}
+\index{F\-A\-S\-X6@{F\-A\-S\-X6}!deep.c@{deep.\-c}}
+\subsubsection[{F\-A\-S\-X6}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S\-X6~(sat-\/$>$deep-\/$>$deep\-\_\-\-F\-A\-S\-X6)}}\label{deep_8c_a87655d37725894bf61785ab51aed6bbb}
+
+
+Definition at line 97 of file deep.\-c.
+
+\hypertarget{deep_8c_acbaf2ba6f8b6ad685148a4fb9739f68e}{\index{deep.\-c@{deep.\-c}!G22@{G22}}
+\index{G22@{G22}!deep.c@{deep.\-c}}
+\subsubsection[{G22}]{\setlength{\rightskip}{0pt plus 5cm}\#define G22~(5.\-7686396)}}\label{deep_8c_acbaf2ba6f8b6ad685148a4fb9739f68e}
+
+
+Definition at line 61 of file deep.\-c.
+
+\hypertarget{deep_8c_a39592f73e00ba9d4035c4a9c848485d7}{\index{deep.\-c@{deep.\-c}!G32@{G32}}
+\index{G32@{G32}!deep.c@{deep.\-c}}
+\subsubsection[{G32}]{\setlength{\rightskip}{0pt plus 5cm}\#define G32~(0.\-95240898)}}\label{deep_8c_a39592f73e00ba9d4035c4a9c848485d7}
+
+
+Definition at line 62 of file deep.\-c.
+
+\hypertarget{deep_8c_ace55b55709d2a5684ad03cd964681c8b}{\index{deep.\-c@{deep.\-c}!G44@{G44}}
+\index{G44@{G44}!deep.c@{deep.\-c}}
+\subsubsection[{G44}]{\setlength{\rightskip}{0pt plus 5cm}\#define G44~(1.\-8014998)}}\label{deep_8c_ace55b55709d2a5684ad03cd964681c8b}
+
+
+Definition at line 63 of file deep.\-c.
+
+\hypertarget{deep_8c_a37cc769199d337bf6c93d2748190c6e3}{\index{deep.\-c@{deep.\-c}!G52@{G52}}
+\index{G52@{G52}!deep.c@{deep.\-c}}
+\subsubsection[{G52}]{\setlength{\rightskip}{0pt plus 5cm}\#define G52~(1.\-0508330)}}\label{deep_8c_a37cc769199d337bf6c93d2748190c6e3}
+
+
+Definition at line 64 of file deep.\-c.
+
+\hypertarget{deep_8c_a745dd04ac9473a32db6ce70dd453cf91}{\index{deep.\-c@{deep.\-c}!G54@{G54}}
+\index{G54@{G54}!deep.c@{deep.\-c}}
+\subsubsection[{G54}]{\setlength{\rightskip}{0pt plus 5cm}\#define G54~(4.\-4108898)}}\label{deep_8c_a745dd04ac9473a32db6ce70dd453cf91}
+
+
+Definition at line 65 of file deep.\-c.
+
+\hypertarget{deep_8c_a1c93ade532746811be06335e29b596ff}{\index{deep.\-c@{deep.\-c}!I\-R\-E\-S\-F\-L@{I\-R\-E\-S\-F\-L}}
+\index{I\-R\-E\-S\-F\-L@{I\-R\-E\-S\-F\-L}!deep.c@{deep.\-c}}
+\subsubsection[{I\-R\-E\-S\-F\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-R\-E\-S\-F\-L~(sat-\/$>$deep-\/$>$deep\-\_\-flags.\-I\-R\-E\-S\-F\-L)}}\label{deep_8c_a1c93ade532746811be06335e29b596ff}
+
+
+Definition at line 73 of file deep.\-c.
+
+\hypertarget{deep_8c_a0a06d95f264d7c90bb4bb8150d04c40b}{\index{deep.\-c@{deep.\-c}!I\-S\-Y\-N\-F\-L@{I\-S\-Y\-N\-F\-L}}
+\index{I\-S\-Y\-N\-F\-L@{I\-S\-Y\-N\-F\-L}!deep.c@{deep.\-c}}
+\subsubsection[{I\-S\-Y\-N\-F\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-S\-Y\-N\-F\-L~(sat-\/$>$deep-\/$>$deep\-\_\-flags.\-I\-S\-Y\-N\-F\-L)}}\label{deep_8c_a0a06d95f264d7c90bb4bb8150d04c40b}
+
+
+Definition at line 74 of file deep.\-c.
+
+\hypertarget{deep_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}{\index{deep.\-c@{deep.\-c}!O\-M\-E\-G\-A\-O@{O\-M\-E\-G\-A\-O}}
+\index{O\-M\-E\-G\-A\-O@{O\-M\-E\-G\-A\-O}!deep.c@{deep.\-c}}
+\subsubsection[{O\-M\-E\-G\-A\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-M\-E\-G\-A\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-O\-M\-E\-G\-A\-O)}}\label{deep_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}
+
+
+Definition at line 36 of file deep.\-c.
+
+\hypertarget{deep_8c_a2894319a2e9527de61ebb671ec8c348f}{\index{deep.\-c@{deep.\-c}!O\-M\-E\-G\-A\-Q@{O\-M\-E\-G\-A\-Q}}
+\index{O\-M\-E\-G\-A\-Q@{O\-M\-E\-G\-A\-Q}!deep.c@{deep.\-c}}
+\subsubsection[{O\-M\-E\-G\-A\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-M\-E\-G\-A\-Q~(sat-\/$>$deep-\/$>$deep\-\_\-\-O\-M\-E\-G\-A\-Q)}}\label{deep_8c_a2894319a2e9527de61ebb671ec8c348f}
+
+
+Definition at line 98 of file deep.\-c.
+
+\hypertarget{deep_8c_a211238ffe3627f42ca7b04bc96cc8fa6}{\index{deep.\-c@{deep.\-c}!P\-E@{P\-E}}
+\index{P\-E@{P\-E}!deep.c@{deep.\-c}}
+\subsubsection[{P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-E)}}\label{deep_8c_a211238ffe3627f42ca7b04bc96cc8fa6}
+
+
+Definition at line 99 of file deep.\-c.
+
+\hypertarget{deep_8c_a0545e73dc7ae14b1f62293c1feba3983}{\index{deep.\-c@{deep.\-c}!P\-I\-N\-C@{P\-I\-N\-C}}
+\index{P\-I\-N\-C@{P\-I\-N\-C}!deep.c@{deep.\-c}}
+\subsubsection[{P\-I\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-N\-C~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-I\-N\-C)}}\label{deep_8c_a0545e73dc7ae14b1f62293c1feba3983}
+
+
+Definition at line 100 of file deep.\-c.
+
+\hypertarget{deep_8c_a726f623ff633b7060a6bbacefe6b5c5a}{\index{deep.\-c@{deep.\-c}!P\-L@{P\-L}}
+\index{P\-L@{P\-L}!deep.c@{deep.\-c}}
+\subsubsection[{P\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-P\-L)}}\label{deep_8c_a726f623ff633b7060a6bbacefe6b5c5a}
+
+
+Definition at line 101 of file deep.\-c.
+
+\hypertarget{deep_8c_ae92799bea6457224d138516adeeb30c1}{\index{deep.\-c@{deep.\-c}!Q22@{Q22}}
+\index{Q22@{Q22}!deep.c@{deep.\-c}}
+\subsubsection[{Q22}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q22~(1.\-7891679\-E-\/6)}}\label{deep_8c_ae92799bea6457224d138516adeeb30c1}
+
+
+Definition at line 58 of file deep.\-c.
+
+\hypertarget{deep_8c_a44e06cb0d727905464985fb3f9fc806d}{\index{deep.\-c@{deep.\-c}!Q31@{Q31}}
+\index{Q31@{Q31}!deep.c@{deep.\-c}}
+\subsubsection[{Q31}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q31~(2.\-1460748\-E-\/6)}}\label{deep_8c_a44e06cb0d727905464985fb3f9fc806d}
+
+
+Definition at line 59 of file deep.\-c.
+
+\hypertarget{deep_8c_a94b905b284d9b36f3ea6e6146bf92a76}{\index{deep.\-c@{deep.\-c}!Q33@{Q33}}
+\index{Q33@{Q33}!deep.c@{deep.\-c}}
+\subsubsection[{Q33}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q33~(2.\-2123015\-E-\/7)}}\label{deep_8c_a94b905b284d9b36f3ea6e6146bf92a76}
+
+
+Definition at line 60 of file deep.\-c.
+
+\hypertarget{deep_8c_a733b6db0101ebb6f07b0af40c39d1789}{\index{deep.\-c@{deep.\-c}!R\-O\-O\-T22@{R\-O\-O\-T22}}
+\index{R\-O\-O\-T22@{R\-O\-O\-T22}!deep.c@{deep.\-c}}
+\subsubsection[{R\-O\-O\-T22}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T22~(1.\-7891679\-E-\/6)}}\label{deep_8c_a733b6db0101ebb6f07b0af40c39d1789}
+
+
+Definition at line 66 of file deep.\-c.
+
+\hypertarget{deep_8c_a9dbe910a35d3d71905ccc4f5667dde78}{\index{deep.\-c@{deep.\-c}!R\-O\-O\-T32@{R\-O\-O\-T32}}
+\index{R\-O\-O\-T32@{R\-O\-O\-T32}!deep.c@{deep.\-c}}
+\subsubsection[{R\-O\-O\-T32}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T32~(3.\-7393792\-E-\/7)}}\label{deep_8c_a9dbe910a35d3d71905ccc4f5667dde78}
+
+
+Definition at line 67 of file deep.\-c.
+
+\hypertarget{deep_8c_acb28c90991e423b20cad51ee3e8c3fd2}{\index{deep.\-c@{deep.\-c}!R\-O\-O\-T44@{R\-O\-O\-T44}}
+\index{R\-O\-O\-T44@{R\-O\-O\-T44}!deep.c@{deep.\-c}}
+\subsubsection[{R\-O\-O\-T44}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T44~(7.\-3636953\-E-\/9)}}\label{deep_8c_acb28c90991e423b20cad51ee3e8c3fd2}
+
+
+Definition at line 68 of file deep.\-c.
+
+\hypertarget{deep_8c_a24d63c2c06d6f046eae4fc223ea405e4}{\index{deep.\-c@{deep.\-c}!R\-O\-O\-T52@{R\-O\-O\-T52}}
+\index{R\-O\-O\-T52@{R\-O\-O\-T52}!deep.c@{deep.\-c}}
+\subsubsection[{R\-O\-O\-T52}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T52~(1.\-1428639\-E-\/7)}}\label{deep_8c_a24d63c2c06d6f046eae4fc223ea405e4}
+
+
+Definition at line 69 of file deep.\-c.
+
+\hypertarget{deep_8c_a7929239350643b7841586ef31d9635c3}{\index{deep.\-c@{deep.\-c}!R\-O\-O\-T54@{R\-O\-O\-T54}}
+\index{R\-O\-O\-T54@{R\-O\-O\-T54}!deep.c@{deep.\-c}}
+\subsubsection[{R\-O\-O\-T54}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T54~(2.\-1765803\-E-\/9)}}\label{deep_8c_a7929239350643b7841586ef31d9635c3}
+
+
+Definition at line 70 of file deep.\-c.
+
+\hypertarget{deep_8c_a6165554056043dc00268c47b9d849f9d}{\index{deep.\-c@{deep.\-c}!s\-\_\-\-C\-O\-S\-I\-Q@{s\-\_\-\-C\-O\-S\-I\-Q}}
+\index{s\-\_\-\-C\-O\-S\-I\-Q@{s\-\_\-\-C\-O\-S\-I\-Q}!deep.c@{deep.\-c}}
+\subsubsection[{s\-\_\-\-C\-O\-S\-I\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define s\-\_\-\-C\-O\-S\-I\-Q~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-C\-O\-S\-I\-Q)}}\label{deep_8c_a6165554056043dc00268c47b9d849f9d}
+
+
+Definition at line 77 of file deep.\-c.
+
+\hypertarget{deep_8c_ab2b63216e808eae6683c59f86c54de0e}{\index{deep.\-c@{deep.\-c}!s\-\_\-\-O\-M\-G\-D\-T@{s\-\_\-\-O\-M\-G\-D\-T}}
+\index{s\-\_\-\-O\-M\-G\-D\-T@{s\-\_\-\-O\-M\-G\-D\-T}!deep.c@{deep.\-c}}
+\subsubsection[{s\-\_\-\-O\-M\-G\-D\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define s\-\_\-\-O\-M\-G\-D\-T~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-O\-M\-G\-D\-T)}}\label{deep_8c_ab2b63216e808eae6683c59f86c54de0e}
+
+
+Definition at line 78 of file deep.\-c.
+
+\hypertarget{deep_8c_af71d7b24fcdd7e30283a4efc21f247ea}{\index{deep.\-c@{deep.\-c}!s\-\_\-\-S\-I\-N\-I\-Q@{s\-\_\-\-S\-I\-N\-I\-Q}}
+\index{s\-\_\-\-S\-I\-N\-I\-Q@{s\-\_\-\-S\-I\-N\-I\-Q}!deep.c@{deep.\-c}}
+\subsubsection[{s\-\_\-\-S\-I\-N\-I\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define s\-\_\-\-S\-I\-N\-I\-Q~(sat-\/$>$deep-\/$>$deep\-\_\-s\-\_\-\-S\-I\-N\-I\-Q)}}\label{deep_8c_af71d7b24fcdd7e30283a4efc21f247ea}
+
+
+Definition at line 76 of file deep.\-c.
+
+\hypertarget{deep_8c_a61e1b39f666c7526adf962fe63157ba3}{\index{deep.\-c@{deep.\-c}!S\-A\-V\-T\-S\-N@{S\-A\-V\-T\-S\-N}}
+\index{S\-A\-V\-T\-S\-N@{S\-A\-V\-T\-S\-N}!deep.c@{deep.\-c}}
+\subsubsection[{S\-A\-V\-T\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-V\-T\-S\-N~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-A\-V\-T\-S\-N)}}\label{deep_8c_a61e1b39f666c7526adf962fe63157ba3}
+
+
+Definition at line 102 of file deep.\-c.
+
+\hypertarget{deep_8c_ac2128d3bed6a6960cf94619669ed614d}{\index{deep.\-c@{deep.\-c}!S\-E2@{S\-E2}}
+\index{S\-E2@{S\-E2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-E2)}}\label{deep_8c_ac2128d3bed6a6960cf94619669ed614d}
+
+
+Definition at line 103 of file deep.\-c.
+
+\hypertarget{deep_8c_a7dd8ae7072f0a7131b85bebdc0d7062a}{\index{deep.\-c@{deep.\-c}!S\-E3@{S\-E3}}
+\index{S\-E3@{S\-E3}!deep.c@{deep.\-c}}
+\subsubsection[{S\-E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E3~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-E3)}}\label{deep_8c_a7dd8ae7072f0a7131b85bebdc0d7062a}
+
+
+Definition at line 104 of file deep.\-c.
+
+\hypertarget{deep_8c_a2fb58fa78a34bfe120019ce5e5d75013}{\index{deep.\-c@{deep.\-c}!S\-G\-H2@{S\-G\-H2}}
+\index{S\-G\-H2@{S\-G\-H2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-G\-H2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-H2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H2)}}\label{deep_8c_a2fb58fa78a34bfe120019ce5e5d75013}
+
+
+Definition at line 105 of file deep.\-c.
+
+\hypertarget{deep_8c_a84cd5dd2b96f36babaed03c2fe8edebb}{\index{deep.\-c@{deep.\-c}!S\-G\-H3@{S\-G\-H3}}
+\index{S\-G\-H3@{S\-G\-H3}!deep.c@{deep.\-c}}
+\subsubsection[{S\-G\-H3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-H3~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H3)}}\label{deep_8c_a84cd5dd2b96f36babaed03c2fe8edebb}
+
+
+Definition at line 106 of file deep.\-c.
+
+\hypertarget{deep_8c_a250d7ffde1665dc2f3e74349d114d4bd}{\index{deep.\-c@{deep.\-c}!S\-G\-H4@{S\-G\-H4}}
+\index{S\-G\-H4@{S\-G\-H4}!deep.c@{deep.\-c}}
+\subsubsection[{S\-G\-H4}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-H4~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H4)}}\label{deep_8c_a250d7ffde1665dc2f3e74349d114d4bd}
+
+
+Definition at line 107 of file deep.\-c.
+
+\hypertarget{deep_8c_ab0245cc53cf3613370e019a0fc968fc9}{\index{deep.\-c@{deep.\-c}!S\-G\-H\-L@{S\-G\-H\-L}}
+\index{S\-G\-H\-L@{S\-G\-H\-L}!deep.c@{deep.\-c}}
+\subsubsection[{S\-G\-H\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-H\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H\-L)}}\label{deep_8c_ab0245cc53cf3613370e019a0fc968fc9}
+
+
+Definition at line 108 of file deep.\-c.
+
+\hypertarget{deep_8c_ad9f86f3caa0e04e04d7f93dd7e364193}{\index{deep.\-c@{deep.\-c}!S\-G\-H\-S@{S\-G\-H\-S}}
+\index{S\-G\-H\-S@{S\-G\-H\-S}!deep.c@{deep.\-c}}
+\subsubsection[{S\-G\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-H\-S~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-G\-H\-S)}}\label{deep_8c_ad9f86f3caa0e04e04d7f93dd7e364193}
+
+
+Definition at line 109 of file deep.\-c.
+
+\hypertarget{deep_8c_a02c9faf50f77b5fc5095ca8f90b2f8a4}{\index{deep.\-c@{deep.\-c}!S\-H2@{S\-H2}}
+\index{S\-H2@{S\-H2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-H2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H2)}}\label{deep_8c_a02c9faf50f77b5fc5095ca8f90b2f8a4}
+
+
+Definition at line 110 of file deep.\-c.
+
+\hypertarget{deep_8c_ac229dd35cafb9be386f3f693e3d929ef}{\index{deep.\-c@{deep.\-c}!S\-H3@{S\-H3}}
+\index{S\-H3@{S\-H3}!deep.c@{deep.\-c}}
+\subsubsection[{S\-H3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H3~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H3)}}\label{deep_8c_ac229dd35cafb9be386f3f693e3d929ef}
+
+
+Definition at line 111 of file deep.\-c.
+
+\hypertarget{deep_8c_a3162cf2e5ee7fa6947b4fba2427158f2}{\index{deep.\-c@{deep.\-c}!S\-H\-L@{S\-H\-L}}
+\index{S\-H\-L@{S\-H\-L}!deep.c@{deep.\-c}}
+\subsubsection[{S\-H\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H\-L)}}\label{deep_8c_a3162cf2e5ee7fa6947b4fba2427158f2}
+
+
+Definition at line 113 of file deep.\-c.
+
+\hypertarget{deep_8c_af1d58223a45c2ac7c16446e95b82183b}{\index{deep.\-c@{deep.\-c}!S\-H\-S@{S\-H\-S}}
+\index{S\-H\-S@{S\-H\-S}!deep.c@{deep.\-c}}
+\subsubsection[{S\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-S~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-H\-S)}}\label{deep_8c_af1d58223a45c2ac7c16446e95b82183b}
+
+
+Definition at line 112 of file deep.\-c.
+
+\hypertarget{deep_8c_aa1fda2f29992525c415b62e5d6568ee2}{\index{deep.\-c@{deep.\-c}!S\-I2@{S\-I2}}
+\index{S\-I2@{S\-I2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-I2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-I2)}}\label{deep_8c_aa1fda2f29992525c415b62e5d6568ee2}
+
+
+Definition at line 114 of file deep.\-c.
+
+\hypertarget{deep_8c_ac6e6e28e441220e52edbe68c4652291e}{\index{deep.\-c@{deep.\-c}!S\-I3@{S\-I3}}
+\index{S\-I3@{S\-I3}!deep.c@{deep.\-c}}
+\subsubsection[{S\-I3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I3~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-I3)}}\label{deep_8c_ac6e6e28e441220e52edbe68c4652291e}
+
+
+Definition at line 115 of file deep.\-c.
+
+\hypertarget{deep_8c_af783c8962c292b3c92f6aaff72b10a93}{\index{deep.\-c@{deep.\-c}!S\-L2@{S\-L2}}
+\index{S\-L2@{S\-L2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-L2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L2)}}\label{deep_8c_af783c8962c292b3c92f6aaff72b10a93}
+
+
+Definition at line 116 of file deep.\-c.
+
+\hypertarget{deep_8c_af0a7e00642e86b250242a4e561c36140}{\index{deep.\-c@{deep.\-c}!S\-L3@{S\-L3}}
+\index{S\-L3@{S\-L3}!deep.c@{deep.\-c}}
+\subsubsection[{S\-L3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L3~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L3)}}\label{deep_8c_af0a7e00642e86b250242a4e561c36140}
+
+
+Definition at line 117 of file deep.\-c.
+
+\hypertarget{deep_8c_aa9936c463985fa56831f57700542c988}{\index{deep.\-c@{deep.\-c}!S\-L4@{S\-L4}}
+\index{S\-L4@{S\-L4}!deep.c@{deep.\-c}}
+\subsubsection[{S\-L4}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L4~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-L4)}}\label{deep_8c_aa9936c463985fa56831f57700542c988}
+
+
+Definition at line 118 of file deep.\-c.
+
+\hypertarget{deep_8c_ad518177eb0b052ffed6ce4d0d63e6ae4}{\index{deep.\-c@{deep.\-c}!S\-S\-E@{S\-S\-E}}
+\index{S\-S\-E@{S\-S\-E}!deep.c@{deep.\-c}}
+\subsubsection[{S\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-E~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-E)}}\label{deep_8c_ad518177eb0b052ffed6ce4d0d63e6ae4}
+
+
+Definition at line 119 of file deep.\-c.
+
+\hypertarget{deep_8c_a41f0c015eecf2d8dd771cd257d788503}{\index{deep.\-c@{deep.\-c}!S\-S\-G@{S\-S\-G}}
+\index{S\-S\-G@{S\-S\-G}!deep.c@{deep.\-c}}
+\subsubsection[{S\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-G~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-G)}}\label{deep_8c_a41f0c015eecf2d8dd771cd257d788503}
+
+
+Definition at line 120 of file deep.\-c.
+
+\hypertarget{deep_8c_a4fd18ead06e273bf1ff1bd7a60f5d048}{\index{deep.\-c@{deep.\-c}!S\-S\-H@{S\-S\-H}}
+\index{S\-S\-H@{S\-S\-H}!deep.c@{deep.\-c}}
+\subsubsection[{S\-S\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-H~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-H)}}\label{deep_8c_a4fd18ead06e273bf1ff1bd7a60f5d048}
+
+
+Definition at line 121 of file deep.\-c.
+
+\hypertarget{deep_8c_a5b9615ac5bb07a63e566a69535df389c}{\index{deep.\-c@{deep.\-c}!S\-S\-I@{S\-S\-I}}
+\index{S\-S\-I@{S\-S\-I}!deep.c@{deep.\-c}}
+\subsubsection[{S\-S\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-I~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-I)}}\label{deep_8c_a5b9615ac5bb07a63e566a69535df389c}
+
+
+Definition at line 122 of file deep.\-c.
+
+\hypertarget{deep_8c_adc3d9d4ae62abe565893e214a6e6401e}{\index{deep.\-c@{deep.\-c}!S\-S\-L@{S\-S\-L}}
+\index{S\-S\-L@{S\-S\-L}!deep.c@{deep.\-c}}
+\subsubsection[{S\-S\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-S\-L)}}\label{deep_8c_adc3d9d4ae62abe565893e214a6e6401e}
+
+
+Definition at line 123 of file deep.\-c.
+
+\hypertarget{deep_8c_ad6138f70b4a60e8b031ce44d728a898d}{\index{deep.\-c@{deep.\-c}!S\-T\-E\-P2@{S\-T\-E\-P2}}
+\index{S\-T\-E\-P2@{S\-T\-E\-P2}!deep.c@{deep.\-c}}
+\subsubsection[{S\-T\-E\-P2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-E\-P2~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P2)}}\label{deep_8c_ad6138f70b4a60e8b031ce44d728a898d}
+
+
+Definition at line 124 of file deep.\-c.
+
+\hypertarget{deep_8c_a6770a27a37cf8195861cb5592278eba4}{\index{deep.\-c@{deep.\-c}!S\-T\-E\-P\-N@{S\-T\-E\-P\-N}}
+\index{S\-T\-E\-P\-N@{S\-T\-E\-P\-N}!deep.c@{deep.\-c}}
+\subsubsection[{S\-T\-E\-P\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-E\-P\-N~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P\-N)}}\label{deep_8c_a6770a27a37cf8195861cb5592278eba4}
+
+
+Definition at line 125 of file deep.\-c.
+
+\hypertarget{deep_8c_ad7e5a0b87fc8f5cfe8b161a5c2b520e9}{\index{deep.\-c@{deep.\-c}!S\-T\-E\-P\-P@{S\-T\-E\-P\-P}}
+\index{S\-T\-E\-P\-P@{S\-T\-E\-P\-P}!deep.c@{deep.\-c}}
+\subsubsection[{S\-T\-E\-P\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-E\-P\-P~(sat-\/$>$deep-\/$>$deep\-\_\-\-S\-T\-E\-P\-P)}}\label{deep_8c_ad7e5a0b87fc8f5cfe8b161a5c2b520e9}
+
+
+Definition at line 126 of file deep.\-c.
+
+\hypertarget{deep_8c_a250d7ed00e5beea54f8affbf5f979f97}{\index{deep.\-c@{deep.\-c}!T\-H\-D\-T@{T\-H\-D\-T}}
+\index{T\-H\-D\-T@{T\-H\-D\-T}!deep.c@{deep.\-c}}
+\subsubsection[{T\-H\-D\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-D\-T~(4.\-3752691\-E-\/3)}}\label{deep_8c_a250d7ed00e5beea54f8affbf5f979f97}
+
+
+Definition at line 71 of file deep.\-c.
+
+\hypertarget{deep_8c_a98c27cc2aaf2599d5a9210efa3b66c1a}{\index{deep.\-c@{deep.\-c}!T\-H\-G\-R@{T\-H\-G\-R}}
+\index{T\-H\-G\-R@{T\-H\-G\-R}!deep.c@{deep.\-c}}
+\subsubsection[{T\-H\-G\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-G\-R~(sat-\/$>$deep-\/$>$deep\-\_\-\-T\-H\-G\-R)}}\label{deep_8c_a98c27cc2aaf2599d5a9210efa3b66c1a}
+
+
+Definition at line 127 of file deep.\-c.
+
+\hypertarget{deep_8c_a67027a9cddec1bd34d5393428722fade}{\index{deep.\-c@{deep.\-c}!X\-F\-A\-C\-T@{X\-F\-A\-C\-T}}
+\index{X\-F\-A\-C\-T@{X\-F\-A\-C\-T}!deep.c@{deep.\-c}}
+\subsubsection[{X\-F\-A\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-F\-A\-C\-T~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-F\-A\-C\-T)}}\label{deep_8c_a67027a9cddec1bd34d5393428722fade}
+
+
+Definition at line 128 of file deep.\-c.
+
+\hypertarget{deep_8c_aeb06dfc9a2072d33de7919432210107b}{\index{deep.\-c@{deep.\-c}!X\-G\-H2@{X\-G\-H2}}
+\index{X\-G\-H2@{X\-G\-H2}!deep.c@{deep.\-c}}
+\subsubsection[{X\-G\-H2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-G\-H2~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H2)}}\label{deep_8c_aeb06dfc9a2072d33de7919432210107b}
+
+
+Definition at line 129 of file deep.\-c.
+
+\hypertarget{deep_8c_a7cba43f2f979ad1163b0e3136decb01c}{\index{deep.\-c@{deep.\-c}!X\-G\-H3@{X\-G\-H3}}
+\index{X\-G\-H3@{X\-G\-H3}!deep.c@{deep.\-c}}
+\subsubsection[{X\-G\-H3}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-G\-H3~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H3)}}\label{deep_8c_a7cba43f2f979ad1163b0e3136decb01c}
+
+
+Definition at line 130 of file deep.\-c.
+
+\hypertarget{deep_8c_a09c24daa91c236b6a0afc36302b31660}{\index{deep.\-c@{deep.\-c}!X\-G\-H4@{X\-G\-H4}}
+\index{X\-G\-H4@{X\-G\-H4}!deep.c@{deep.\-c}}
+\subsubsection[{X\-G\-H4}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-G\-H4~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-G\-H4)}}\label{deep_8c_a09c24daa91c236b6a0afc36302b31660}
+
+
+Definition at line 131 of file deep.\-c.
+
+\hypertarget{deep_8c_a15536b0df7803614b1402f12c2621f12}{\index{deep.\-c@{deep.\-c}!X\-H2@{X\-H2}}
+\index{X\-H2@{X\-H2}!deep.c@{deep.\-c}}
+\subsubsection[{X\-H2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-H2~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-H2)}}\label{deep_8c_a15536b0df7803614b1402f12c2621f12}
+
+
+Definition at line 132 of file deep.\-c.
+
+\hypertarget{deep_8c_a083194f37488663db653328cf762e5fa}{\index{deep.\-c@{deep.\-c}!X\-H3@{X\-H3}}
+\index{X\-H3@{X\-H3}!deep.c@{deep.\-c}}
+\subsubsection[{X\-H3}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-H3~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-H3)}}\label{deep_8c_a083194f37488663db653328cf762e5fa}
+
+
+Definition at line 133 of file deep.\-c.
+
+\hypertarget{deep_8c_a591258c721a79e08c1ffce4dc104345e}{\index{deep.\-c@{deep.\-c}!X\-I2@{X\-I2}}
+\index{X\-I2@{X\-I2}!deep.c@{deep.\-c}}
+\subsubsection[{X\-I2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-I2~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-I2)}}\label{deep_8c_a591258c721a79e08c1ffce4dc104345e}
+
+
+Definition at line 134 of file deep.\-c.
+
+\hypertarget{deep_8c_a9688a38a2f858e4397a559285743c22c}{\index{deep.\-c@{deep.\-c}!X\-I3@{X\-I3}}
+\index{X\-I3@{X\-I3}!deep.c@{deep.\-c}}
+\subsubsection[{X\-I3}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-I3~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-I3)}}\label{deep_8c_a9688a38a2f858e4397a559285743c22c}
+
+
+Definition at line 135 of file deep.\-c.
+
+\hypertarget{deep_8c_a6b1225780ad91988d3615e97cfb7c479}{\index{deep.\-c@{deep.\-c}!X\-I\-N\-C\-L@{X\-I\-N\-C\-L}}
+\index{X\-I\-N\-C\-L@{X\-I\-N\-C\-L}!deep.c@{deep.\-c}}
+\subsubsection[{X\-I\-N\-C\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-I\-N\-C\-L~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-I\-N\-C\-L)}}\label{deep_8c_a6b1225780ad91988d3615e97cfb7c479}
+
+
+Definition at line 38 of file deep.\-c.
+
+\hypertarget{deep_8c_af3fa93a31198115e04d8a7764fbe23e3}{\index{deep.\-c@{deep.\-c}!X\-L2@{X\-L2}}
+\index{X\-L2@{X\-L2}!deep.c@{deep.\-c}}
+\subsubsection[{X\-L2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L2~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L2)}}\label{deep_8c_af3fa93a31198115e04d8a7764fbe23e3}
+
+
+Definition at line 136 of file deep.\-c.
+
+\hypertarget{deep_8c_ac59d274a9fbb93c45b4fce713ddcd8aa}{\index{deep.\-c@{deep.\-c}!X\-L3@{X\-L3}}
+\index{X\-L3@{X\-L3}!deep.c@{deep.\-c}}
+\subsubsection[{X\-L3}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L3~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L3)}}\label{deep_8c_ac59d274a9fbb93c45b4fce713ddcd8aa}
+
+
+Definition at line 137 of file deep.\-c.
+
+\hypertarget{deep_8c_a05679cab1fe3f847a44619d834fafc24}{\index{deep.\-c@{deep.\-c}!X\-L4@{X\-L4}}
+\index{X\-L4@{X\-L4}!deep.c@{deep.\-c}}
+\subsubsection[{X\-L4}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L4~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L4)}}\label{deep_8c_a05679cab1fe3f847a44619d834fafc24}
+
+
+Definition at line 138 of file deep.\-c.
+
+\hypertarget{deep_8c_a6ecc50ad9a36f6c1971506132c061bd9}{\index{deep.\-c@{deep.\-c}!X\-L\-A\-M\-O@{X\-L\-A\-M\-O}}
+\index{X\-L\-A\-M\-O@{X\-L\-A\-M\-O}!deep.c@{deep.\-c}}
+\subsubsection[{X\-L\-A\-M\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L\-A\-M\-O~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L\-A\-M\-O)}}\label{deep_8c_a6ecc50ad9a36f6c1971506132c061bd9}
+
+
+Definition at line 139 of file deep.\-c.
+
+\hypertarget{deep_8c_ae948a3f15bf00aea6f3f1360a3f1c89d}{\index{deep.\-c@{deep.\-c}!X\-L\-I@{X\-L\-I}}
+\index{X\-L\-I@{X\-L\-I}!deep.c@{deep.\-c}}
+\subsubsection[{X\-L\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L\-I~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-L\-I)}}\label{deep_8c_ae948a3f15bf00aea6f3f1360a3f1c89d}
+
+
+Definition at line 140 of file deep.\-c.
+
+\hypertarget{deep_8c_acc36d10349aba51a39c734c78971db4a}{\index{deep.\-c@{deep.\-c}!X\-M\-O@{X\-M\-O}}
+\index{X\-M\-O@{X\-M\-O}!deep.c@{deep.\-c}}
+\subsubsection[{X\-M\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-M\-O)}}\label{deep_8c_acc36d10349aba51a39c734c78971db4a}
+
+
+Definition at line 34 of file deep.\-c.
+
+\hypertarget{deep_8c_ac84a934a6a44c7e04baa360084dfb2a1}{\index{deep.\-c@{deep.\-c}!X\-N\-D\-D60@{X\-N\-D\-D60}}
+\index{X\-N\-D\-D60@{X\-N\-D\-D60}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-D\-D60}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-D\-D60~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-D60)}}\label{deep_8c_ac84a934a6a44c7e04baa360084dfb2a1}
+
+
+Definition at line 41 of file deep.\-c.
+
+\hypertarget{deep_8c_ad32d3af57886f3f3f316121cbf81ea82}{\index{deep.\-c@{deep.\-c}!X\-N\-D\-T20@{X\-N\-D\-T20}}
+\index{X\-N\-D\-T20@{X\-N\-D\-T20}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-D\-T20}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-D\-T20~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-T20)}}\label{deep_8c_ad32d3af57886f3f3f316121cbf81ea82}
+
+
+Definition at line 40 of file deep.\-c.
+
+\hypertarget{deep_8c_a4323265bae54f9a2f05f118488e68ac3}{\index{deep.\-c@{deep.\-c}!X\-N\-I@{X\-N\-I}}
+\index{X\-N\-I@{X\-N\-I}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-I~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-N\-I)}}\label{deep_8c_a4323265bae54f9a2f05f118488e68ac3}
+
+
+Definition at line 141 of file deep.\-c.
+
+\hypertarget{deep_8c_ad6196913c77cda307a7b8933ac7af1a9}{\index{deep.\-c@{deep.\-c}!X\-N\-O@{X\-N\-O}}
+\index{X\-N\-O@{X\-N\-O}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O)}}\label{deep_8c_ad6196913c77cda307a7b8933ac7af1a9}
+
+
+Definition at line 39 of file deep.\-c.
+
+\hypertarget{deep_8c_a2d64b24a79f25ec1011d73750667046a}{\index{deep.\-c@{deep.\-c}!X\-N\-O\-D\-E\-O@{X\-N\-O\-D\-E\-O}}
+\index{X\-N\-O\-D\-E\-O@{X\-N\-O\-D\-E\-O}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-O\-D\-E\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O\-D\-E\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O\-D\-E\-O)}}\label{deep_8c_a2d64b24a79f25ec1011d73750667046a}
+
+
+Definition at line 35 of file deep.\-c.
+
+\hypertarget{deep_8c_a3a97d532ceda912fe6b1433b276fa9cc}{\index{deep.\-c@{deep.\-c}!X\-N\-Q@{X\-N\-Q}}
+\index{X\-N\-Q@{X\-N\-Q}!deep.c@{deep.\-c}}
+\subsubsection[{X\-N\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-Q~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-N\-Q)}}\label{deep_8c_a3a97d532ceda912fe6b1433b276fa9cc}
+
+
+Definition at line 142 of file deep.\-c.
+
+\hypertarget{deep_8c_a821b2aa053bc9731e3a3a16591b14cce}{\index{deep.\-c@{deep.\-c}!X\-Q\-N\-C\-L@{X\-Q\-N\-C\-L}}
+\index{X\-Q\-N\-C\-L@{X\-Q\-N\-C\-L}!deep.c@{deep.\-c}}
+\subsubsection[{X\-Q\-N\-C\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-Q\-N\-C\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-X\-Q\-N\-C\-L)}}\label{deep_8c_a821b2aa053bc9731e3a3a16591b14cce}
+
+
+Definition at line 143 of file deep.\-c.
+
+\hypertarget{deep_8c_a6372f59a1a9b827f28c7694290fca4ad}{\index{deep.\-c@{deep.\-c}!Z\-C\-O\-S\-G\-S@{Z\-C\-O\-S\-G\-S}}
+\index{Z\-C\-O\-S\-G\-S@{Z\-C\-O\-S\-G\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-C\-O\-S\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-C\-O\-S\-G\-S~(.\-1945905)}}\label{deep_8c_a6372f59a1a9b827f28c7694290fca4ad}
+
+
+Definition at line 54 of file deep.\-c.
+
+\hypertarget{deep_8c_a44cbfaf1bca4a8dc4ba7dd14d7d087aa}{\index{deep.\-c@{deep.\-c}!Z\-C\-O\-S\-H\-S@{Z\-C\-O\-S\-H\-S}}
+\index{Z\-C\-O\-S\-H\-S@{Z\-C\-O\-S\-H\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-C\-O\-S\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-C\-O\-S\-H\-S~(1.\-0)}}\label{deep_8c_a44cbfaf1bca4a8dc4ba7dd14d7d087aa}
+
+
+Definition at line 55 of file deep.\-c.
+
+\hypertarget{deep_8c_a165c8457d6ccbe709f2a1f297337cc13}{\index{deep.\-c@{deep.\-c}!Z\-C\-O\-S\-I\-S@{Z\-C\-O\-S\-I\-S}}
+\index{Z\-C\-O\-S\-I\-S@{Z\-C\-O\-S\-I\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-C\-O\-S\-I\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-C\-O\-S\-I\-S~(.\-91744867)}}\label{deep_8c_a165c8457d6ccbe709f2a1f297337cc13}
+
+
+Definition at line 51 of file deep.\-c.
+
+\hypertarget{deep_8c_a7e1bd265cd0978ce8228815552572ada}{\index{deep.\-c@{deep.\-c}!Z\-E\-L@{Z\-E\-L}}
+\index{Z\-E\-L@{Z\-E\-L}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-E\-L~(.\-05490)}}\label{deep_8c_a7e1bd265cd0978ce8228815552572ada}
+
+
+Definition at line 50 of file deep.\-c.
+
+\hypertarget{deep_8c_acb65527ac3ba82b424d643b367db6de2}{\index{deep.\-c@{deep.\-c}!Z\-E\-S@{Z\-E\-S}}
+\index{Z\-E\-S@{Z\-E\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-E\-S~(.\-01675)}}\label{deep_8c_acb65527ac3ba82b424d643b367db6de2}
+
+
+Definition at line 47 of file deep.\-c.
+
+\hypertarget{deep_8c_acbf514495470b07ce9cc7a17b8fa255e}{\index{deep.\-c@{deep.\-c}!Z\-M\-O\-L@{Z\-M\-O\-L}}
+\index{Z\-M\-O\-L@{Z\-M\-O\-L}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-M\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-M\-O\-L~(sat-\/$>$deep-\/$>$deep\-\_\-\-Z\-M\-O\-L)}}\label{deep_8c_acbf514495470b07ce9cc7a17b8fa255e}
+
+
+Definition at line 144 of file deep.\-c.
+
+\hypertarget{deep_8c_abb404ed50b2976d0bb96bfeea1de67fe}{\index{deep.\-c@{deep.\-c}!Z\-M\-O\-S@{Z\-M\-O\-S}}
+\index{Z\-M\-O\-S@{Z\-M\-O\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-M\-O\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-M\-O\-S~(sat-\/$>$deep-\/$>$deep\-\_\-\-Z\-M\-O\-S)}}\label{deep_8c_abb404ed50b2976d0bb96bfeea1de67fe}
+
+
+Definition at line 145 of file deep.\-c.
+
+\hypertarget{deep_8c_aca9d2eb4419b6eb3066d39a414ea3c75}{\index{deep.\-c@{deep.\-c}!Z\-N\-L@{Z\-N\-L}}
+\index{Z\-N\-L@{Z\-N\-L}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-N\-L~(1.\-5835218\-E-\/4)}}\label{deep_8c_aca9d2eb4419b6eb3066d39a414ea3c75}
+
+
+Definition at line 48 of file deep.\-c.
+
+\hypertarget{deep_8c_a438cc3f9bbbb524cdf53c7343c028aea}{\index{deep.\-c@{deep.\-c}!Z\-N\-S@{Z\-N\-S}}
+\index{Z\-N\-S@{Z\-N\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-N\-S~(1.\-19459\-E-\/5)}}\label{deep_8c_a438cc3f9bbbb524cdf53c7343c028aea}
+
+
+Definition at line 45 of file deep.\-c.
+
+\hypertarget{deep_8c_ad1391f1406c94d31cf32e819ff4aa69d}{\index{deep.\-c@{deep.\-c}!Z\-S\-I\-N\-G\-S@{Z\-S\-I\-N\-G\-S}}
+\index{Z\-S\-I\-N\-G\-S@{Z\-S\-I\-N\-G\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-S\-I\-N\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-S\-I\-N\-G\-S~(-\/.\-98088458)}}\label{deep_8c_ad1391f1406c94d31cf32e819ff4aa69d}
+
+
+Definition at line 53 of file deep.\-c.
+
+\hypertarget{deep_8c_aa7ea1d6bf69ac3779ed76da43872949b}{\index{deep.\-c@{deep.\-c}!Z\-S\-I\-N\-H\-S@{Z\-S\-I\-N\-H\-S}}
+\index{Z\-S\-I\-N\-H\-S@{Z\-S\-I\-N\-H\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-S\-I\-N\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-S\-I\-N\-H\-S~(0.\-0)}}\label{deep_8c_aa7ea1d6bf69ac3779ed76da43872949b}
+
+
+Definition at line 56 of file deep.\-c.
+
+\hypertarget{deep_8c_a3e1cdc97598bb69b6889b8c94badf527}{\index{deep.\-c@{deep.\-c}!Z\-S\-I\-N\-I\-S@{Z\-S\-I\-N\-I\-S}}
+\index{Z\-S\-I\-N\-I\-S@{Z\-S\-I\-N\-I\-S}!deep.c@{deep.\-c}}
+\subsubsection[{Z\-S\-I\-N\-I\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-S\-I\-N\-I\-S~(.\-39785416)}}\label{deep_8c_a3e1cdc97598bb69b6889b8c94badf527}
+
+
+Definition at line 52 of file deep.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{deep_8c_a29630154aab8f09525df6db6a5d93255}{\index{deep.\-c@{deep.\-c}!dpinit@{dpinit}}
+\index{dpinit@{dpinit}!deep.c@{deep.\-c}}
+\subsubsection[{dpinit}]{\setlength{\rightskip}{0pt plus 5cm}void dpinit (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double}]{E\-Q\-S\-Q, }
+\item[{double}]{S\-I\-N\-I\-Q, }
+\item[{double}]{C\-O\-S\-I\-Q, }
+\item[{double}]{R\-T\-E\-Q\-S\-Q, }
+\item[{double}]{A\-O, }
+\item[{double}]{C\-O\-S\-Q2, }
+\item[{double}]{S\-I\-N\-O\-M\-O, }
+\item[{double}]{C\-O\-S\-O\-M\-O, }
+\item[{double}]{B\-S\-Q, }
+\item[{double}]{X\-L\-L\-D\-O\-T, }
+\item[{double}]{O\-M\-G\-D\-T, }
+\item[{double}]{X\-N\-O\-D\-O\-T, }
+\item[{double}]{X\-N\-O\-D\-P}
+\end{DoxyParamCaption}
+)}}\label{deep_8c_a29630154aab8f09525df6db6a5d93255}
+
+
+Definition at line 153 of file deep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{deep_8c_a29630154aab8f09525df6db6a5d93255_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deep_8c_a29630154aab8f09525df6db6a5d93255_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{deep_8c_a533103975f23d3e03ac4e7fb561464b5}{\index{deep.\-c@{deep.\-c}!dpper@{dpper}}
+\index{dpper@{dpper}!deep.c@{deep.\-c}}
+\subsubsection[{dpper}]{\setlength{\rightskip}{0pt plus 5cm}void dpper (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double $\ast$}]{E\-M, }
+\item[{double $\ast$}]{X\-I\-N\-C, }
+\item[{double $\ast$}]{O\-M\-G\-A\-S\-M, }
+\item[{double $\ast$}]{X\-N\-O\-D\-E\-S, }
+\item[{double $\ast$}]{X\-L\-L, }
+\item[{double}]{T}
+\end{DoxyParamCaption}
+)}}\label{deep_8c_a533103975f23d3e03ac4e7fb561464b5}
+
+
+Definition at line 700 of file deep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{deep_8c_a533103975f23d3e03ac4e7fb561464b5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deep_8c_a533103975f23d3e03ac4e7fb561464b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{deep_8c_a83540349db5755bd5658b630dc6d6e44}{\index{deep.\-c@{deep.\-c}!dpsec@{dpsec}}
+\index{dpsec@{dpsec}!deep.c@{deep.\-c}}
+\subsubsection[{dpsec}]{\setlength{\rightskip}{0pt plus 5cm}void dpsec (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double $\ast$}]{X\-L\-L, }
+\item[{double $\ast$}]{O\-M\-G\-A\-S\-M, }
+\item[{double $\ast$}]{X\-N\-O\-D\-E\-S, }
+\item[{double $\ast$}]{E\-M, }
+\item[{double $\ast$}]{X\-I\-N\-C, }
+\item[{double $\ast$}]{X\-N, }
+\item[{double}]{T}
+\end{DoxyParamCaption}
+)}}\label{deep_8c_a83540349db5755bd5658b630dc6d6e44}
+
+
+Definition at line 504 of file deep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deep_8c_a83540349db5755bd5658b630dc6d6e44_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{deep_8c_ae037a79cb31f056d04153837887f5813}{\index{deep.\-c@{deep.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!deep.c@{deep.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf deep.\-c},v \$ \$Date\-: 2000/09/25 19\-:43\-:03 \$ \$Revision\-: 1.\-2 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{deep_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 790 of file deep.\-c.
+

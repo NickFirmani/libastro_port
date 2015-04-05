@@ -1,0 +1,9 @@
+<map id="uranus_data" name="uranus_data">
+<area shape="rect" id="node2" href="$umoon_8c.html#a1d6d94b1923bb08aae8b61a80aaa84ff" title="use_bdl" alt="" coords="163,5,231,33"/>
+<area shape="rect" id="node3" href="$umoon_8c.html#ad087ed7af13a2f61c9e21b8fb77c54c1" title="moonSVis" alt="" coords="156,57,238,85"/>
+<area shape="rect" id="node4" href="$umoon_8c.html#a233a112bfb0d89b591cf1c3ffd331a08" title="moonPShad" alt="" coords="150,109,245,137"/>
+<area shape="rect" id="node6" href="$umoon_8c.html#a2f1102d989e0e0d06502fc3ba06bee35" title="moonEVis" alt="" coords="156,161,238,189"/>
+<area shape="rect" id="node7" href="$umoon_8c.html#a19ecd675d37ed2f2e04952995de8a5fe" title="moonTrans" alt="" coords="153,213,241,241"/>
+<area shape="rect" id="node8" href="$umoon_8c.html#a8c59a696cc35ba08ec794dad640813ce" title="moonradec" alt="" coords="153,265,241,293"/>
+<area shape="rect" id="node5" href="$astro_8h.html#a260684a186196c6eb829f4f9dfe358c0" title="plshadow" alt="" coords="293,109,371,137"/>
+</map>

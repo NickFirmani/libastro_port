@@ -1,0 +1,659 @@
+\hypertarget{sgp4_8c}{\section{libastro/sgp4.c File Reference}
+\label{sgp4_8c}\index{libastro/sgp4.\-c@{libastro/sgp4.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sattypes.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}satspec.\-h\char`\"{}}\\*
+Include dependency graph for sgp4.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sgp4_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sgp4_8c_acc36d10349aba51a39c734c78971db4a}{X\-M\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-M\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a2d64b24a79f25ec1011d73750667046a}{X\-N\-O\-D\-E\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O\-D\-E\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}{O\-M\-E\-G\-A\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-O\-M\-E\-G\-A\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a480811ee866af438f0c349695b519aeb}{E\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a6b1225780ad91988d3615e97cfb7c479}{X\-I\-N\-C\-L}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-I\-N\-C\-L)
+\item 
+\#define \hyperlink{sgp4_8c_ad6196913c77cda307a7b8933ac7af1a9}{X\-N\-O}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O)
+\item 
+\#define \hyperlink{sgp4_8c_ad32d3af57886f3f3f316121cbf81ea82}{X\-N\-D\-T20}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-T20)
+\item 
+\#define \hyperlink{sgp4_8c_ac84a934a6a44c7e04baa360084dfb2a1}{X\-N\-D\-D60}~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-D60)
+\item 
+\#define \hyperlink{sgp4_8c_a2864174262f5e99d4ce236181eba6355}{B\-S\-T\-A\-R}~(sat-\/$>$elem-\/$>$se\-\_\-\-B\-S\-T\-A\-R)
+\item 
+\#define \hyperlink{sgp4_8c_a0ac447c7f69530e0caadc891c59d7244}{E\-P\-O\-C\-H}~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-P\-O\-C\-H)
+\item 
+\#define \hyperlink{sgp4_8c_a207fd5507206d307cd63f95374fcd00d}{X}~(pos-\/$>$sl\-\_\-\-X)
+\item 
+\#define \hyperlink{sgp4_8c_a34b3d057d053dcdc6271678ea0c9db71}{X\-D\-O\-T}~(pos-\/$>$sl\-\_\-\-X\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_a798e4073d613ca5ba9618e1b3253df14}{Y}~(pos-\/$>$sl\-\_\-\-Y)
+\item 
+\#define \hyperlink{sgp4_8c_a6fd664195241fc945a420c89f994dec3}{Y\-D\-O\-T}~(pos-\/$>$sl\-\_\-\-Y\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_a51591cf51bdd6c1f6015532422e7770e}{Z}~(pos-\/$>$sl\-\_\-\-Z)
+\item 
+\#define \hyperlink{sgp4_8c_a3df9f2e015ecbbd26d8bdc6bb825ef01}{Z\-D\-O\-T}~(pos-\/$>$sl\-\_\-\-Z\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_a1549a63058e212a043c1045098117c0f}{A\-O\-D\-P}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-A\-O\-D\-P)
+\item 
+\#define \hyperlink{sgp4_8c_a9dc59ef890782af33074e1c45126832c}{A\-Y\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-A\-Y\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a44779f18d87e71c78fc9fbf9dc88537d}{C1}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-C1)
+\item 
+\#define \hyperlink{sgp4_8c_acc39015f57b2efb8810b603f188bdf15}{C4}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-C4)
+\item 
+\#define \hyperlink{sgp4_8c_a3b69b61d9deb37b13911faf2cf5cf1d5}{C5}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-C5)
+\item 
+\#define \hyperlink{sgp4_8c_a8d9dce0a990993d885287b4e74a5577f}{C\-O\-S\-I\-O}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-C\-O\-S\-I\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a7537ecd0f0af6ccc5b85d5df80f4aee7}{D2}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-D2)
+\item 
+\#define \hyperlink{sgp4_8c_afea037e4c6e9187610b538bd6a34b8ff}{D3}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-D3)
+\item 
+\#define \hyperlink{sgp4_8c_a3d9bb178282c3cb69740c94ba1e48fed}{D4}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-D4)
+\item 
+\#define \hyperlink{sgp4_8c_acc34a79cdae1a8cd403b36a58b5a32ec}{D\-E\-L\-M\-O}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-D\-E\-L\-M\-O)
+\item 
+\#define \hyperlink{sgp4_8c_af77edc1f833593caecfc032dcc5953a6}{E\-T\-A}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-E\-T\-A)
+\item 
+\#define \hyperlink{sgp4_8c_a746356befd56394d71f1432d9a317df0}{O\-M\-G\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-O\-M\-G\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a59222688db66af66103aacafd20281c9}{O\-M\-G\-D\-O\-T}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-O\-M\-G\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_a0c02c61db5709a5f6ec5e9464f56b0ce}{S\-I\-N\-I\-O}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-S\-I\-N\-I\-O)
+\item 
+\#define \hyperlink{sgp4_8c_aa4e8335b3a91c92bea38cac08d995986}{S\-I\-N\-M\-O}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-S\-I\-N\-M\-O)
+\item 
+\#define \hyperlink{sgp4_8c_a5f8f6aba9bc3c88739ad779da1221ea2}{T2\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-T2\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_ad922f9d0f67af639f1dbb4749d9112cf}{T3\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-T3\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_ac207ed8888a0800aca48efee65da2cd9}{T4\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-T4\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a8dca5207304c8afcbcd290f8bcab44c6}{T5\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-T5\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a28ee960e0b49cdbf6412801972e0e2c1}{X1\-M\-T\-H2}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X1\-M\-T\-H2)
+\item 
+\#define \hyperlink{sgp4_8c_a1bc2a0fe45982f04310597c2e32930dc}{X3\-T\-H\-M1}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X3\-T\-H\-M1)
+\item 
+\#define \hyperlink{sgp4_8c_a0f52f6d06c012d267f06db7c39e16ce8}{X7\-T\-H\-M1}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X7\-T\-H\-M1)
+\item 
+\#define \hyperlink{sgp4_8c_a6689ca16d4219f9331581ccc10d483ea}{X\-L\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-L\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_afeaa182bb596a3ed0b022999217cc2bc}{X\-M\-C\-O\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-M\-C\-O\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a56fdf4bb674b0c09354978530f114188}{X\-M\-D\-O\-T}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-M\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_aeaea7ccb339f459b20663e8730f844fd}{X\-N\-O\-D\-C\-F}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-C\-F)
+\item 
+\#define \hyperlink{sgp4_8c_a62b3086d7973b35924294995be4ef198}{X\-N\-O\-D\-O\-T}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-O\-T)
+\item 
+\#define \hyperlink{sgp4_8c_acba739d1b9c250745858870abfc6688a}{X\-N\-O\-D\-P}~(sat-\/$>$\hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-P)
+\item 
+\#define \hyperlink{sgp4_8c_a83a59f4d0c1e64d90ff241b801015f1b}{C\-K2}~(5.\-413080e-\/04)
+\item 
+\#define \hyperlink{sgp4_8c_ac3eda9f7e575754f8b916dbbdea88463}{C\-K4}~(6.\-209887e-\/07)
+\item 
+\#define \hyperlink{sgp4_8c_a98278b7ad47a972a3ddea96c3b5c8f94}{Q\-O\-M\-S2\-T}~(1.\-880279e-\/09)
+\item 
+\#define \hyperlink{sgp4_8c_af933676109efed7ab34cea71d748a517}{S}~(1.\-012229e+00)
+\item 
+\#define \hyperlink{sgp4_8c_a158b080acb83ee02d2ff57bb9d16b888}{A\-E}~(1.\-0)
+\item 
+\#define \hyperlink{sgp4_8c_a0a16d0bedb570cfecd4fd7470caa5bf0}{D\-E2\-R\-A}~(.\-174532925\-E-\/1)
+\item 
+\#define \hyperlink{sgp4_8c_a9cb87d7c8e4c729f61502bcaef6ca0a4}{E6\-A}~(1.E-\/12)
+\item 
+\#define \hyperlink{sgp4_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I}~(3.\-14159265)
+\item 
+\#define \hyperlink{sgp4_8c_a51748a840c42f3194f8bd1f991b9a0ad}{P\-I\-O2}~(1.\-57079633)
+\item 
+\#define \hyperlink{sgp4_8c_aef9a4147f699dbaf0e43f4589a65dd00}{Q\-O}~(120.\-0)
+\item 
+\#define \hyperlink{sgp4_8c_a02cc6d026fad97c4a8c84675a0619d03}{S\-O}~(78.\-0)
+\item 
+\#define \hyperlink{sgp4_8c_aff90f43d9ca7e4fb49224bc035e4278e}{T\-O\-T\-H\-R\-D}~(.\-66666667)
+\item 
+\#define \hyperlink{sgp4_8c_a4912c64aec0c943b7985db6cb61ff83a}{T\-W\-O\-P\-I}~(6.\-2831853)
+\item 
+\#define \hyperlink{sgp4_8c_a8e02e78dce7db0de58dd3cbfe27da586}{X3\-P\-I\-O2}~(4.\-71238898)
+\item 
+\#define \hyperlink{sgp4_8c_a70a302d1df92ae0c190944a66ed8c7da}{X\-J2}~(1.\-082616\-E-\/3)
+\item 
+\#define \hyperlink{sgp4_8c_a0fc33ac2e66531df69695590c1c1ff41}{X\-J3}~(-\/.\-253881\-E-\/5)
+\item 
+\#define \hyperlink{sgp4_8c_ad7adce82c36789f4399f1e4a731c4dea}{X\-J4}~(-\/1.\-65597\-E-\/6)
+\item 
+\#define \hyperlink{sgp4_8c_ad3e66bcce67579b4b411a70928de7d1a}{X\-K\-E}~(.\-743669161\-E-\/1)
+\item 
+\#define \hyperlink{sgp4_8c_a90005b838a7bf67ae53ade3ed4f8c01f}{X\-K\-M\-P\-E\-R}~(6378.\-135)
+\item 
+\#define \hyperlink{sgp4_8c_a6d4167c0bcb7dd17df08e8958785b7eb}{X\-M\-N\-P\-D\-A}~(1440.\-0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{sgp4} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$pos, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$dpos, double T\-S\-I\-N\-C\-E)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{sgp4_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{sgp4.\-c},v \$ \$Date\-: 2012/10/01 00\-:05\-:23 \$ \$Revision\-: 1.\-5 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sgp4_8c_a158b080acb83ee02d2ff57bb9d16b888}{\index{sgp4.\-c@{sgp4.\-c}!A\-E@{A\-E}}
+\index{A\-E@{A\-E}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{A\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-E~(1.\-0)}}\label{sgp4_8c_a158b080acb83ee02d2ff57bb9d16b888}
+
+
+Definition at line 60 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a1549a63058e212a043c1045098117c0f}{\index{sgp4.\-c@{sgp4.\-c}!A\-O\-D\-P@{A\-O\-D\-P}}
+\index{A\-O\-D\-P@{A\-O\-D\-P}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{A\-O\-D\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-O\-D\-P~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-A\-O\-D\-P)}}\label{sgp4_8c_a1549a63058e212a043c1045098117c0f}
+
+
+Definition at line 26 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a9dc59ef890782af33074e1c45126832c}{\index{sgp4.\-c@{sgp4.\-c}!A\-Y\-C\-O\-F@{A\-Y\-C\-O\-F}}
+\index{A\-Y\-C\-O\-F@{A\-Y\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{A\-Y\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-Y\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-A\-Y\-C\-O\-F)}}\label{sgp4_8c_a9dc59ef890782af33074e1c45126832c}
+
+
+Definition at line 27 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a2864174262f5e99d4ce236181eba6355}{\index{sgp4.\-c@{sgp4.\-c}!B\-S\-T\-A\-R@{B\-S\-T\-A\-R}}
+\index{B\-S\-T\-A\-R@{B\-S\-T\-A\-R}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{B\-S\-T\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-S\-T\-A\-R~(sat-\/$>$elem-\/$>$se\-\_\-\-B\-S\-T\-A\-R)}}\label{sgp4_8c_a2864174262f5e99d4ce236181eba6355}
+
+
+Definition at line 16 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a44779f18d87e71c78fc9fbf9dc88537d}{\index{sgp4.\-c@{sgp4.\-c}!C1@{C1}}
+\index{C1@{C1}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C1}]{\setlength{\rightskip}{0pt plus 5cm}\#define C1~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-C1)}}\label{sgp4_8c_a44779f18d87e71c78fc9fbf9dc88537d}
+
+
+Definition at line 28 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_acc39015f57b2efb8810b603f188bdf15}{\index{sgp4.\-c@{sgp4.\-c}!C4@{C4}}
+\index{C4@{C4}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C4}]{\setlength{\rightskip}{0pt plus 5cm}\#define C4~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-C4)}}\label{sgp4_8c_acc39015f57b2efb8810b603f188bdf15}
+
+
+Definition at line 29 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a3b69b61d9deb37b13911faf2cf5cf1d5}{\index{sgp4.\-c@{sgp4.\-c}!C5@{C5}}
+\index{C5@{C5}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C5}]{\setlength{\rightskip}{0pt plus 5cm}\#define C5~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-C5)}}\label{sgp4_8c_a3b69b61d9deb37b13911faf2cf5cf1d5}
+
+
+Definition at line 30 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a83a59f4d0c1e64d90ff241b801015f1b}{\index{sgp4.\-c@{sgp4.\-c}!C\-K2@{C\-K2}}
+\index{C\-K2@{C\-K2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C\-K2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-K2~(5.\-413080e-\/04)}}\label{sgp4_8c_a83a59f4d0c1e64d90ff241b801015f1b}
+
+
+Definition at line 55 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ac3eda9f7e575754f8b916dbbdea88463}{\index{sgp4.\-c@{sgp4.\-c}!C\-K4@{C\-K4}}
+\index{C\-K4@{C\-K4}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C\-K4}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-K4~(6.\-209887e-\/07)}}\label{sgp4_8c_ac3eda9f7e575754f8b916dbbdea88463}
+
+
+Definition at line 56 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a8d9dce0a990993d885287b4e74a5577f}{\index{sgp4.\-c@{sgp4.\-c}!C\-O\-S\-I\-O@{C\-O\-S\-I\-O}}
+\index{C\-O\-S\-I\-O@{C\-O\-S\-I\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{C\-O\-S\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-S\-I\-O~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-C\-O\-S\-I\-O)}}\label{sgp4_8c_a8d9dce0a990993d885287b4e74a5577f}
+
+
+Definition at line 31 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a7537ecd0f0af6ccc5b85d5df80f4aee7}{\index{sgp4.\-c@{sgp4.\-c}!D2@{D2}}
+\index{D2@{D2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{D2}]{\setlength{\rightskip}{0pt plus 5cm}\#define D2~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-D2)}}\label{sgp4_8c_a7537ecd0f0af6ccc5b85d5df80f4aee7}
+
+
+Definition at line 32 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_afea037e4c6e9187610b538bd6a34b8ff}{\index{sgp4.\-c@{sgp4.\-c}!D3@{D3}}
+\index{D3@{D3}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{D3}]{\setlength{\rightskip}{0pt plus 5cm}\#define D3~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-D3)}}\label{sgp4_8c_afea037e4c6e9187610b538bd6a34b8ff}
+
+
+Definition at line 33 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a3d9bb178282c3cb69740c94ba1e48fed}{\index{sgp4.\-c@{sgp4.\-c}!D4@{D4}}
+\index{D4@{D4}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{D4}]{\setlength{\rightskip}{0pt plus 5cm}\#define D4~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-D4)}}\label{sgp4_8c_a3d9bb178282c3cb69740c94ba1e48fed}
+
+
+Definition at line 34 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0a16d0bedb570cfecd4fd7470caa5bf0}{\index{sgp4.\-c@{sgp4.\-c}!D\-E2\-R\-A@{D\-E2\-R\-A}}
+\index{D\-E2\-R\-A@{D\-E2\-R\-A}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{D\-E2\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E2\-R\-A~(.\-174532925\-E-\/1)}}\label{sgp4_8c_a0a16d0bedb570cfecd4fd7470caa5bf0}
+
+
+Definition at line 61 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_acc34a79cdae1a8cd403b36a58b5a32ec}{\index{sgp4.\-c@{sgp4.\-c}!D\-E\-L\-M\-O@{D\-E\-L\-M\-O}}
+\index{D\-E\-L\-M\-O@{D\-E\-L\-M\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{D\-E\-L\-M\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L\-M\-O~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-D\-E\-L\-M\-O)}}\label{sgp4_8c_acc34a79cdae1a8cd403b36a58b5a32ec}
+
+
+Definition at line 35 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a9cb87d7c8e4c729f61502bcaef6ca0a4}{\index{sgp4.\-c@{sgp4.\-c}!E6\-A@{E6\-A}}
+\index{E6\-A@{E6\-A}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{E6\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E6\-A~(1.E-\/12)}}\label{sgp4_8c_a9cb87d7c8e4c729f61502bcaef6ca0a4}
+
+
+Definition at line 62 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a480811ee866af438f0c349695b519aeb}{\index{sgp4.\-c@{sgp4.\-c}!E\-O@{E\-O}}
+\index{E\-O@{E\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{E\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-O)}}\label{sgp4_8c_a480811ee866af438f0c349695b519aeb}
+
+
+Definition at line 11 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0ac447c7f69530e0caadc891c59d7244}{\index{sgp4.\-c@{sgp4.\-c}!E\-P\-O\-C\-H@{E\-P\-O\-C\-H}}
+\index{E\-P\-O\-C\-H@{E\-P\-O\-C\-H}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{E\-P\-O\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-P\-O\-C\-H~(sat-\/$>$elem-\/$>$se\-\_\-\-E\-P\-O\-C\-H)}}\label{sgp4_8c_a0ac447c7f69530e0caadc891c59d7244}
+
+
+Definition at line 17 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_af77edc1f833593caecfc032dcc5953a6}{\index{sgp4.\-c@{sgp4.\-c}!E\-T\-A@{E\-T\-A}}
+\index{E\-T\-A@{E\-T\-A}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{E\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-T\-A~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-E\-T\-A)}}\label{sgp4_8c_af77edc1f833593caecfc032dcc5953a6}
+
+
+Definition at line 36 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}{\index{sgp4.\-c@{sgp4.\-c}!O\-M\-E\-G\-A\-O@{O\-M\-E\-G\-A\-O}}
+\index{O\-M\-E\-G\-A\-O@{O\-M\-E\-G\-A\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{O\-M\-E\-G\-A\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-M\-E\-G\-A\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-O\-M\-E\-G\-A\-O)}}\label{sgp4_8c_a0ee9cbd3ee68c033928abd105f2c1c0d}
+
+
+Definition at line 10 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a746356befd56394d71f1432d9a317df0}{\index{sgp4.\-c@{sgp4.\-c}!O\-M\-G\-C\-O\-F@{O\-M\-G\-C\-O\-F}}
+\index{O\-M\-G\-C\-O\-F@{O\-M\-G\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{O\-M\-G\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-M\-G\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-O\-M\-G\-C\-O\-F)}}\label{sgp4_8c_a746356befd56394d71f1432d9a317df0}
+
+
+Definition at line 37 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a59222688db66af66103aacafd20281c9}{\index{sgp4.\-c@{sgp4.\-c}!O\-M\-G\-D\-O\-T@{O\-M\-G\-D\-O\-T}}
+\index{O\-M\-G\-D\-O\-T@{O\-M\-G\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{O\-M\-G\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-M\-G\-D\-O\-T~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-O\-M\-G\-D\-O\-T)}}\label{sgp4_8c_a59222688db66af66103aacafd20281c9}
+
+
+Definition at line 38 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a598a3330b3c21701223ee0ca14316eca}{\index{sgp4.\-c@{sgp4.\-c}!P\-I@{P\-I}}
+\index{P\-I@{P\-I}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I~(3.\-14159265)}}\label{sgp4_8c_a598a3330b3c21701223ee0ca14316eca}
+
+
+Definition at line 63 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a51748a840c42f3194f8bd1f991b9a0ad}{\index{sgp4.\-c@{sgp4.\-c}!P\-I\-O2@{P\-I\-O2}}
+\index{P\-I\-O2@{P\-I\-O2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{P\-I\-O2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-O2~(1.\-57079633)}}\label{sgp4_8c_a51748a840c42f3194f8bd1f991b9a0ad}
+
+
+Definition at line 64 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_aef9a4147f699dbaf0e43f4589a65dd00}{\index{sgp4.\-c@{sgp4.\-c}!Q\-O@{Q\-O}}
+\index{Q\-O@{Q\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Q\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\-O~(120.\-0)}}\label{sgp4_8c_aef9a4147f699dbaf0e43f4589a65dd00}
+
+
+Definition at line 65 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a98278b7ad47a972a3ddea96c3b5c8f94}{\index{sgp4.\-c@{sgp4.\-c}!Q\-O\-M\-S2\-T@{Q\-O\-M\-S2\-T}}
+\index{Q\-O\-M\-S2\-T@{Q\-O\-M\-S2\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Q\-O\-M\-S2\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\-O\-M\-S2\-T~(1.\-880279e-\/09)}}\label{sgp4_8c_a98278b7ad47a972a3ddea96c3b5c8f94}
+
+
+Definition at line 57 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_af933676109efed7ab34cea71d748a517}{\index{sgp4.\-c@{sgp4.\-c}!S@{S}}
+\index{S@{S}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S~(1.\-012229e+00)}}\label{sgp4_8c_af933676109efed7ab34cea71d748a517}
+
+
+Definition at line 58 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0c02c61db5709a5f6ec5e9464f56b0ce}{\index{sgp4.\-c@{sgp4.\-c}!S\-I\-N\-I\-O@{S\-I\-N\-I\-O}}
+\index{S\-I\-N\-I\-O@{S\-I\-N\-I\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{S\-I\-N\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-I\-O~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-S\-I\-N\-I\-O)}}\label{sgp4_8c_a0c02c61db5709a5f6ec5e9464f56b0ce}
+
+
+Definition at line 39 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_aa4e8335b3a91c92bea38cac08d995986}{\index{sgp4.\-c@{sgp4.\-c}!S\-I\-N\-M\-O@{S\-I\-N\-M\-O}}
+\index{S\-I\-N\-M\-O@{S\-I\-N\-M\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{S\-I\-N\-M\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-M\-O~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-S\-I\-N\-M\-O)}}\label{sgp4_8c_aa4e8335b3a91c92bea38cac08d995986}
+
+
+Definition at line 40 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a02cc6d026fad97c4a8c84675a0619d03}{\index{sgp4.\-c@{sgp4.\-c}!S\-O@{S\-O}}
+\index{S\-O@{S\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{S\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-O~(78.\-0)}}\label{sgp4_8c_a02cc6d026fad97c4a8c84675a0619d03}
+
+
+Definition at line 66 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a5f8f6aba9bc3c88739ad779da1221ea2}{\index{sgp4.\-c@{sgp4.\-c}!T2\-C\-O\-F@{T2\-C\-O\-F}}
+\index{T2\-C\-O\-F@{T2\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T2\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T2\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-T2\-C\-O\-F)}}\label{sgp4_8c_a5f8f6aba9bc3c88739ad779da1221ea2}
+
+
+Definition at line 41 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ad922f9d0f67af639f1dbb4749d9112cf}{\index{sgp4.\-c@{sgp4.\-c}!T3\-C\-O\-F@{T3\-C\-O\-F}}
+\index{T3\-C\-O\-F@{T3\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T3\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T3\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-T3\-C\-O\-F)}}\label{sgp4_8c_ad922f9d0f67af639f1dbb4749d9112cf}
+
+
+Definition at line 42 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ac207ed8888a0800aca48efee65da2cd9}{\index{sgp4.\-c@{sgp4.\-c}!T4\-C\-O\-F@{T4\-C\-O\-F}}
+\index{T4\-C\-O\-F@{T4\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T4\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T4\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-T4\-C\-O\-F)}}\label{sgp4_8c_ac207ed8888a0800aca48efee65da2cd9}
+
+
+Definition at line 43 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a8dca5207304c8afcbcd290f8bcab44c6}{\index{sgp4.\-c@{sgp4.\-c}!T5\-C\-O\-F@{T5\-C\-O\-F}}
+\index{T5\-C\-O\-F@{T5\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T5\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T5\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-T5\-C\-O\-F)}}\label{sgp4_8c_a8dca5207304c8afcbcd290f8bcab44c6}
+
+
+Definition at line 44 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_aff90f43d9ca7e4fb49224bc035e4278e}{\index{sgp4.\-c@{sgp4.\-c}!T\-O\-T\-H\-R\-D@{T\-O\-T\-H\-R\-D}}
+\index{T\-O\-T\-H\-R\-D@{T\-O\-T\-H\-R\-D}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T\-O\-T\-H\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-T\-H\-R\-D~(.\-66666667)}}\label{sgp4_8c_aff90f43d9ca7e4fb49224bc035e4278e}
+
+
+Definition at line 67 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a4912c64aec0c943b7985db6cb61ff83a}{\index{sgp4.\-c@{sgp4.\-c}!T\-W\-O\-P\-I@{T\-W\-O\-P\-I}}
+\index{T\-W\-O\-P\-I@{T\-W\-O\-P\-I}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{T\-W\-O\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-W\-O\-P\-I~(6.\-2831853)}}\label{sgp4_8c_a4912c64aec0c943b7985db6cb61ff83a}
+
+
+Definition at line 68 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a207fd5507206d307cd63f95374fcd00d}{\index{sgp4.\-c@{sgp4.\-c}!X@{X}}
+\index{X@{X}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}\#define X~(pos-\/$>$sl\-\_\-\-X)}}\label{sgp4_8c_a207fd5507206d307cd63f95374fcd00d}
+
+
+Definition at line 19 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a28ee960e0b49cdbf6412801972e0e2c1}{\index{sgp4.\-c@{sgp4.\-c}!X1\-M\-T\-H2@{X1\-M\-T\-H2}}
+\index{X1\-M\-T\-H2@{X1\-M\-T\-H2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X1\-M\-T\-H2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X1\-M\-T\-H2~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X1\-M\-T\-H2)}}\label{sgp4_8c_a28ee960e0b49cdbf6412801972e0e2c1}
+
+
+Definition at line 45 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a8e02e78dce7db0de58dd3cbfe27da586}{\index{sgp4.\-c@{sgp4.\-c}!X3\-P\-I\-O2@{X3\-P\-I\-O2}}
+\index{X3\-P\-I\-O2@{X3\-P\-I\-O2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X3\-P\-I\-O2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X3\-P\-I\-O2~(4.\-71238898)}}\label{sgp4_8c_a8e02e78dce7db0de58dd3cbfe27da586}
+
+
+Definition at line 69 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a1bc2a0fe45982f04310597c2e32930dc}{\index{sgp4.\-c@{sgp4.\-c}!X3\-T\-H\-M1@{X3\-T\-H\-M1}}
+\index{X3\-T\-H\-M1@{X3\-T\-H\-M1}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X3\-T\-H\-M1}]{\setlength{\rightskip}{0pt plus 5cm}\#define X3\-T\-H\-M1~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X3\-T\-H\-M1)}}\label{sgp4_8c_a1bc2a0fe45982f04310597c2e32930dc}
+
+
+Definition at line 46 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0f52f6d06c012d267f06db7c39e16ce8}{\index{sgp4.\-c@{sgp4.\-c}!X7\-T\-H\-M1@{X7\-T\-H\-M1}}
+\index{X7\-T\-H\-M1@{X7\-T\-H\-M1}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X7\-T\-H\-M1}]{\setlength{\rightskip}{0pt plus 5cm}\#define X7\-T\-H\-M1~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X7\-T\-H\-M1)}}\label{sgp4_8c_a0f52f6d06c012d267f06db7c39e16ce8}
+
+
+Definition at line 47 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a34b3d057d053dcdc6271678ea0c9db71}{\index{sgp4.\-c@{sgp4.\-c}!X\-D\-O\-T@{X\-D\-O\-T}}
+\index{X\-D\-O\-T@{X\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-D\-O\-T~(pos-\/$>$sl\-\_\-\-X\-D\-O\-T)}}\label{sgp4_8c_a34b3d057d053dcdc6271678ea0c9db71}
+
+
+Definition at line 20 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a6b1225780ad91988d3615e97cfb7c479}{\index{sgp4.\-c@{sgp4.\-c}!X\-I\-N\-C\-L@{X\-I\-N\-C\-L}}
+\index{X\-I\-N\-C\-L@{X\-I\-N\-C\-L}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-I\-N\-C\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-I\-N\-C\-L~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-I\-N\-C\-L)}}\label{sgp4_8c_a6b1225780ad91988d3615e97cfb7c479}
+
+
+Definition at line 12 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a70a302d1df92ae0c190944a66ed8c7da}{\index{sgp4.\-c@{sgp4.\-c}!X\-J2@{X\-J2}}
+\index{X\-J2@{X\-J2}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-J2}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-J2~(1.\-082616\-E-\/3)}}\label{sgp4_8c_a70a302d1df92ae0c190944a66ed8c7da}
+
+
+Definition at line 70 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a0fc33ac2e66531df69695590c1c1ff41}{\index{sgp4.\-c@{sgp4.\-c}!X\-J3@{X\-J3}}
+\index{X\-J3@{X\-J3}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-J3}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-J3~(-\/.\-253881\-E-\/5)}}\label{sgp4_8c_a0fc33ac2e66531df69695590c1c1ff41}
+
+
+Definition at line 71 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ad7adce82c36789f4399f1e4a731c4dea}{\index{sgp4.\-c@{sgp4.\-c}!X\-J4@{X\-J4}}
+\index{X\-J4@{X\-J4}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-J4}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-J4~(-\/1.\-65597\-E-\/6)}}\label{sgp4_8c_ad7adce82c36789f4399f1e4a731c4dea}
+
+
+Definition at line 72 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ad3e66bcce67579b4b411a70928de7d1a}{\index{sgp4.\-c@{sgp4.\-c}!X\-K\-E@{X\-K\-E}}
+\index{X\-K\-E@{X\-K\-E}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-K\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-K\-E~(.\-743669161\-E-\/1)}}\label{sgp4_8c_ad3e66bcce67579b4b411a70928de7d1a}
+
+
+Definition at line 73 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a90005b838a7bf67ae53ade3ed4f8c01f}{\index{sgp4.\-c@{sgp4.\-c}!X\-K\-M\-P\-E\-R@{X\-K\-M\-P\-E\-R}}
+\index{X\-K\-M\-P\-E\-R@{X\-K\-M\-P\-E\-R}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-K\-M\-P\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-K\-M\-P\-E\-R~(6378.\-135)}}\label{sgp4_8c_a90005b838a7bf67ae53ade3ed4f8c01f}
+
+
+Definition at line 74 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a6689ca16d4219f9331581ccc10d483ea}{\index{sgp4.\-c@{sgp4.\-c}!X\-L\-C\-O\-F@{X\-L\-C\-O\-F}}
+\index{X\-L\-C\-O\-F@{X\-L\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-L\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-L\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-L\-C\-O\-F)}}\label{sgp4_8c_a6689ca16d4219f9331581ccc10d483ea}
+
+
+Definition at line 48 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_afeaa182bb596a3ed0b022999217cc2bc}{\index{sgp4.\-c@{sgp4.\-c}!X\-M\-C\-O\-F@{X\-M\-C\-O\-F}}
+\index{X\-M\-C\-O\-F@{X\-M\-C\-O\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-M\-C\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-C\-O\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-M\-C\-O\-F)}}\label{sgp4_8c_afeaa182bb596a3ed0b022999217cc2bc}
+
+
+Definition at line 49 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a56fdf4bb674b0c09354978530f114188}{\index{sgp4.\-c@{sgp4.\-c}!X\-M\-D\-O\-T@{X\-M\-D\-O\-T}}
+\index{X\-M\-D\-O\-T@{X\-M\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-M\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-D\-O\-T~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-M\-D\-O\-T)}}\label{sgp4_8c_a56fdf4bb674b0c09354978530f114188}
+
+
+Definition at line 50 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a6d4167c0bcb7dd17df08e8958785b7eb}{\index{sgp4.\-c@{sgp4.\-c}!X\-M\-N\-P\-D\-A@{X\-M\-N\-P\-D\-A}}
+\index{X\-M\-N\-P\-D\-A@{X\-M\-N\-P\-D\-A}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-M\-N\-P\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-N\-P\-D\-A~(1440.\-0)}}\label{sgp4_8c_a6d4167c0bcb7dd17df08e8958785b7eb}
+
+
+Definition at line 75 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_acc36d10349aba51a39c734c78971db4a}{\index{sgp4.\-c@{sgp4.\-c}!X\-M\-O@{X\-M\-O}}
+\index{X\-M\-O@{X\-M\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-M\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-M\-O)}}\label{sgp4_8c_acc36d10349aba51a39c734c78971db4a}
+
+
+Definition at line 8 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ac84a934a6a44c7e04baa360084dfb2a1}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-D\-D60@{X\-N\-D\-D60}}
+\index{X\-N\-D\-D60@{X\-N\-D\-D60}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-D\-D60}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-D\-D60~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-D60)}}\label{sgp4_8c_ac84a934a6a44c7e04baa360084dfb2a1}
+
+
+Definition at line 15 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ad32d3af57886f3f3f316121cbf81ea82}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-D\-T20@{X\-N\-D\-T20}}
+\index{X\-N\-D\-T20@{X\-N\-D\-T20}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-D\-T20}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-D\-T20~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-D\-T20)}}\label{sgp4_8c_ad32d3af57886f3f3f316121cbf81ea82}
+
+
+Definition at line 14 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_ad6196913c77cda307a7b8933ac7af1a9}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-O@{X\-N\-O}}
+\index{X\-N\-O@{X\-N\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O)}}\label{sgp4_8c_ad6196913c77cda307a7b8933ac7af1a9}
+
+
+Definition at line 13 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_aeaea7ccb339f459b20663e8730f844fd}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-O\-D\-C\-F@{X\-N\-O\-D\-C\-F}}
+\index{X\-N\-O\-D\-C\-F@{X\-N\-O\-D\-C\-F}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-O\-D\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O\-D\-C\-F~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-C\-F)}}\label{sgp4_8c_aeaea7ccb339f459b20663e8730f844fd}
+
+
+Definition at line 51 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a2d64b24a79f25ec1011d73750667046a}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-O\-D\-E\-O@{X\-N\-O\-D\-E\-O}}
+\index{X\-N\-O\-D\-E\-O@{X\-N\-O\-D\-E\-O}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-O\-D\-E\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O\-D\-E\-O~(sat-\/$>$elem-\/$>$se\-\_\-\-X\-N\-O\-D\-E\-O)}}\label{sgp4_8c_a2d64b24a79f25ec1011d73750667046a}
+
+
+Definition at line 9 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a62b3086d7973b35924294995be4ef198}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-O\-D\-O\-T@{X\-N\-O\-D\-O\-T}}
+\index{X\-N\-O\-D\-O\-T@{X\-N\-O\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-O\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O\-D\-O\-T~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-O\-T)}}\label{sgp4_8c_a62b3086d7973b35924294995be4ef198}
+
+
+Definition at line 52 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_acba739d1b9c250745858870abfc6688a}{\index{sgp4.\-c@{sgp4.\-c}!X\-N\-O\-D\-P@{X\-N\-O\-D\-P}}
+\index{X\-N\-O\-D\-P@{X\-N\-O\-D\-P}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{X\-N\-O\-D\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-N\-O\-D\-P~(sat-\/$>${\bf prop.\-sgp4}-\/$>$sgp4\-\_\-\-X\-N\-O\-D\-P)}}\label{sgp4_8c_acba739d1b9c250745858870abfc6688a}
+
+
+Definition at line 53 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a798e4073d613ca5ba9618e1b3253df14}{\index{sgp4.\-c@{sgp4.\-c}!Y@{Y}}
+\index{Y@{Y}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y~(pos-\/$>$sl\-\_\-\-Y)}}\label{sgp4_8c_a798e4073d613ca5ba9618e1b3253df14}
+
+
+Definition at line 21 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a6fd664195241fc945a420c89f994dec3}{\index{sgp4.\-c@{sgp4.\-c}!Y\-D\-O\-T@{Y\-D\-O\-T}}
+\index{Y\-D\-O\-T@{Y\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Y\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-D\-O\-T~(pos-\/$>$sl\-\_\-\-Y\-D\-O\-T)}}\label{sgp4_8c_a6fd664195241fc945a420c89f994dec3}
+
+
+Definition at line 22 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a51591cf51bdd6c1f6015532422e7770e}{\index{sgp4.\-c@{sgp4.\-c}!Z@{Z}}
+\index{Z@{Z}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z~(pos-\/$>$sl\-\_\-\-Z)}}\label{sgp4_8c_a51591cf51bdd6c1f6015532422e7770e}
+
+
+Definition at line 23 of file sgp4.\-c.
+
+\hypertarget{sgp4_8c_a3df9f2e015ecbbd26d8bdc6bb825ef01}{\index{sgp4.\-c@{sgp4.\-c}!Z\-D\-O\-T@{Z\-D\-O\-T}}
+\index{Z\-D\-O\-T@{Z\-D\-O\-T}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{Z\-D\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\-D\-O\-T~(pos-\/$>$sl\-\_\-\-Z\-D\-O\-T)}}\label{sgp4_8c_a3df9f2e015ecbbd26d8bdc6bb825ef01}
+
+
+Definition at line 24 of file sgp4.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}{\index{sgp4.\-c@{sgp4.\-c}!sgp4@{sgp4}}
+\index{sgp4@{sgp4}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{sgp4}]{\setlength{\rightskip}{0pt plus 5cm}void sgp4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{{\bf Vec3} $\ast$}]{pos, }
+\item[{{\bf Vec3} $\ast$}]{dpos, }
+\item[{double}]{T\-S\-I\-N\-C\-E}
+\end{DoxyParamCaption}
+)}}\label{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377}
+
+
+Definition at line 81 of file sgp4.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sgp4_8c_ad71c6c545a98c9685a87a7e2ec558377_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{sgp4_8c_ae037a79cb31f056d04153837887f5813}{\index{sgp4.\-c@{sgp4.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!sgp4.c@{sgp4.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf sgp4.\-c},v \$ \$Date\-: 2012/10/01 00\-:05\-:23 \$ \$Revision\-: 1.\-5 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{sgp4_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 401 of file sgp4.\-c.
+

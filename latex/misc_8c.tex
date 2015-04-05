@@ -1,0 +1,405 @@
+\hypertarget{misc_8c}{\section{libastro/misc.c File Reference}
+\label{misc_8c}\index{libastro/misc.\-c@{libastro/misc.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for misc.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{misc_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{misc_8c_a539a1f8e2ffa1a4568533d977dc7e243}{N\-F\-C\-M}~((int)(sizeof(fixed\-\_\-class\-\_\-map)/sizeof(fixed\-\_\-class\-\_\-map\mbox{[}0\mbox{]})))
+\item 
+\#define \hyperlink{misc_8c_a4044b1642824d22cc6d7a8bd9cb4ab10}{N\-B\-C\-M}~((int)(sizeof(binary\-\_\-class\-\_\-map)/sizeof(binary\-\_\-class\-\_\-map\mbox{[}0\mbox{]})))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{misc_8c_a9cd2e9e57c391b6d1d3bb20af232bdd6}{zero\-\_\-mem} (void $\ast$loc, unsigned len)
+\item 
+int \hyperlink{misc_8c_a36ff4e1da9f9f833b1256ab3ae9050df}{tickmarks} (double min, double max, int numdiv, double ticks\mbox{[}$\,$\mbox{]})
+\item 
+char $\ast$ \hyperlink{misc_8c_ac4299d6955dec032146edcdb03d20f82}{obj\-\_\-description} (\hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+void \hyperlink{misc_8c_a523b0a2df5b35cd9da39a4d5bd1ff1d6}{now\-\_\-lst} (\hyperlink{struct_now}{Now} $\ast$np, double $\ast$lstp)
+\item 
+void \hyperlink{misc_8c_a44d4b3df87d6ef5556b4d7b2d65b105f}{radec2ha} (\hyperlink{struct_now}{Now} $\ast$np, double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, double $\ast$hap)
+\item 
+void \hyperlink{misc_8c_a6efd883b3f96c6bc244d5da7fe50e8f8}{gha} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op, double $\ast$ghap)
+\item 
+int \hyperlink{misc_8c_a444e1490c6862e31db0cd54fb2fd9534}{lc} (int cx, int cy, int cw, int x1, int y1, int x2, int y2, int $\ast$sx1, int $\ast$sy1, int $\ast$sx2, int $\ast$sy2)
+\item 
+void \hyperlink{misc_8c_a2138a902426608f08fbba29150ad7541}{hg\-\_\-mag} (double h, double g, double rp, double rho, double rsn, double $\ast$mp)
+\item 
+int \hyperlink{misc_8c_a21e061ae8563510de4bf8344d28ca66b}{magdiam} (int fmag, int magstp, double scale, double mag, double size)
+\item 
+void \hyperlink{misc_8c_a5e139c87095944a279aaded2b007dc0f}{gk\-\_\-mag} (double g, double k, double rp, double rho, double $\ast$mp)
+\item 
+double \hyperlink{misc_8c_aa6d912aad096356910df21a7371278b6}{atod} (char $\ast$buf)
+\item 
+void \hyperlink{misc_8c_a168c47c3557b97703bb5300b9a2ef470}{solve\-\_\-sphere} (double A, double b, double \hyperlink{moon_8c_a1312c8e1d34158f8e3fe0cffb3308cb5}{cc}, double sc, double $\ast$cap, double $\ast$Bp)
+\item 
+double \hyperlink{misc_8c_a8da023a45b428e345a893ef645591742}{delra} (double dra)
+\item 
+int \hyperlink{misc_8c_ab3dce3d5ba37b8fdcea3d9396f2632e3}{is\-\_\-deepsky} (\hyperlink{union_obj}{Obj} $\ast$op)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{misc_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{misc.\-c},v \$ \$Date\-: 2005/03/11 16\-:47\-:46 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{misc_8c_a4044b1642824d22cc6d7a8bd9cb4ab10}{\index{misc.\-c@{misc.\-c}!N\-B\-C\-M@{N\-B\-C\-M}}
+\index{N\-B\-C\-M@{N\-B\-C\-M}!misc.c@{misc.\-c}}
+\subsubsection[{N\-B\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-B\-C\-M~((int)(sizeof(binary\-\_\-class\-\_\-map)/sizeof(binary\-\_\-class\-\_\-map\mbox{[}0\mbox{]})))}}\label{misc_8c_a4044b1642824d22cc6d7a8bd9cb4ab10}
+\hypertarget{misc_8c_a539a1f8e2ffa1a4568533d977dc7e243}{\index{misc.\-c@{misc.\-c}!N\-F\-C\-M@{N\-F\-C\-M}}
+\index{N\-F\-C\-M@{N\-F\-C\-M}!misc.c@{misc.\-c}}
+\subsubsection[{N\-F\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-F\-C\-M~((int)(sizeof(fixed\-\_\-class\-\_\-map)/sizeof(fixed\-\_\-class\-\_\-map\mbox{[}0\mbox{]})))}}\label{misc_8c_a539a1f8e2ffa1a4568533d977dc7e243}
+
+
+\subsection{Function Documentation}
+\hypertarget{misc_8c_aa6d912aad096356910df21a7371278b6}{\index{misc.\-c@{misc.\-c}!atod@{atod}}
+\index{atod@{atod}!misc.c@{misc.\-c}}
+\subsubsection[{atod}]{\setlength{\rightskip}{0pt plus 5cm}double atod (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_aa6d912aad096356910df21a7371278b6}
+
+
+Definition at line 357 of file misc.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_aa6d912aad096356910df21a7371278b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a8da023a45b428e345a893ef645591742}{\index{misc.\-c@{misc.\-c}!delra@{delra}}
+\index{delra@{delra}!misc.c@{misc.\-c}}
+\subsubsection[{delra}]{\setlength{\rightskip}{0pt plus 5cm}double delra (
+\begin{DoxyParamCaption}
+\item[{double}]{dra}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a8da023a45b428e345a893ef645591742}
+
+
+Definition at line 467 of file misc.\-c.
+
+\hypertarget{misc_8c_a6efd883b3f96c6bc244d5da7fe50e8f8}{\index{misc.\-c@{misc.\-c}!gha@{gha}}
+\index{gha@{gha}!misc.c@{misc.\-c}}
+\subsubsection[{gha}]{\setlength{\rightskip}{0pt plus 5cm}void gha (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{double $\ast$}]{ghap}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a6efd883b3f96c6bc244d5da7fe50e8f8}
+
+
+Definition at line 202 of file misc.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{misc_8c_a6efd883b3f96c6bc244d5da7fe50e8f8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a5e139c87095944a279aaded2b007dc0f}{\index{misc.\-c@{misc.\-c}!gk\-\_\-mag@{gk\-\_\-mag}}
+\index{gk\-\_\-mag@{gk\-\_\-mag}!misc.c@{misc.\-c}}
+\subsubsection[{gk\-\_\-mag}]{\setlength{\rightskip}{0pt plus 5cm}void gk\-\_\-mag (
+\begin{DoxyParamCaption}
+\item[{double}]{g, }
+\item[{double}]{k, }
+\item[{double}]{rp, }
+\item[{double}]{rho, }
+\item[{double $\ast$}]{mp}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a5e139c87095944a279aaded2b007dc0f}
+
+
+Definition at line 343 of file misc.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a5e139c87095944a279aaded2b007dc0f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a2138a902426608f08fbba29150ad7541}{\index{misc.\-c@{misc.\-c}!hg\-\_\-mag@{hg\-\_\-mag}}
+\index{hg\-\_\-mag@{hg\-\_\-mag}!misc.c@{misc.\-c}}
+\subsubsection[{hg\-\_\-mag}]{\setlength{\rightskip}{0pt plus 5cm}void hg\-\_\-mag (
+\begin{DoxyParamCaption}
+\item[{double}]{h, }
+\item[{double}]{g, }
+\item[{double}]{rp, }
+\item[{double}]{rho, }
+\item[{double}]{rsn, }
+\item[{double $\ast$}]{mp}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a2138a902426608f08fbba29150ad7541}
+
+
+Definition at line 287 of file misc.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a2138a902426608f08fbba29150ad7541_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_ab3dce3d5ba37b8fdcea3d9396f2632e3}{\index{misc.\-c@{misc.\-c}!is\-\_\-deepsky@{is\-\_\-deepsky}}
+\index{is\-\_\-deepsky@{is\-\_\-deepsky}!misc.c@{misc.\-c}}
+\subsubsection[{is\-\_\-deepsky}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-deepsky (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_ab3dce3d5ba37b8fdcea3d9396f2632e3}
+
+
+Definition at line 480 of file misc.\-c.
+
+\hypertarget{misc_8c_a444e1490c6862e31db0cd54fb2fd9534}{\index{misc.\-c@{misc.\-c}!lc@{lc}}
+\index{lc@{lc}!misc.c@{misc.\-c}}
+\subsubsection[{lc}]{\setlength{\rightskip}{0pt plus 5cm}int lc (
+\begin{DoxyParamCaption}
+\item[{int}]{cx, }
+\item[{int}]{cy, }
+\item[{int}]{cw, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{int $\ast$}]{sx1, }
+\item[{int $\ast$}]{sy1, }
+\item[{int $\ast$}]{sx2, }
+\item[{int $\ast$}]{sy2}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a444e1490c6862e31db0cd54fb2fd9534}
+
+
+Definition at line 229 of file misc.\-c.
+
+\hypertarget{misc_8c_a21e061ae8563510de4bf8344d28ca66b}{\index{misc.\-c@{misc.\-c}!magdiam@{magdiam}}
+\index{magdiam@{magdiam}!misc.c@{misc.\-c}}
+\subsubsection[{magdiam}]{\setlength{\rightskip}{0pt plus 5cm}int magdiam (
+\begin{DoxyParamCaption}
+\item[{int}]{fmag, }
+\item[{int}]{magstp, }
+\item[{double}]{scale, }
+\item[{double}]{mag, }
+\item[{double}]{size}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a21e061ae8563510de4bf8344d28ca66b}
+
+
+Definition at line 321 of file misc.\-c.
+
+\hypertarget{misc_8c_a523b0a2df5b35cd9da39a4d5bd1ff1d6}{\index{misc.\-c@{misc.\-c}!now\-\_\-lst@{now\-\_\-lst}}
+\index{now\-\_\-lst@{now\-\_\-lst}!misc.c@{misc.\-c}}
+\subsubsection[{now\-\_\-lst}]{\setlength{\rightskip}{0pt plus 5cm}void now\-\_\-lst (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{double $\ast$}]{lstp}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a523b0a2df5b35cd9da39a4d5bd1ff1d6}
+
+
+Definition at line 158 of file misc.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a523b0a2df5b35cd9da39a4d5bd1ff1d6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a523b0a2df5b35cd9da39a4d5bd1ff1d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_ac4299d6955dec032146edcdb03d20f82}{\index{misc.\-c@{misc.\-c}!obj\-\_\-description@{obj\-\_\-description}}
+\index{obj\-\_\-description@{obj\-\_\-description}!misc.c@{misc.\-c}}
+\subsubsection[{obj\-\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ obj\-\_\-description (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_ac4299d6955dec032146edcdb03d20f82}
+
+
+Definition at line 57 of file misc.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_ac4299d6955dec032146edcdb03d20f82_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a44d4b3df87d6ef5556b4d7b2d65b105f}{\index{misc.\-c@{misc.\-c}!radec2ha@{radec2ha}}
+\index{radec2ha@{radec2ha}!misc.c@{misc.\-c}}
+\subsubsection[{radec2ha}]{\setlength{\rightskip}{0pt plus 5cm}void radec2ha (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{double}]{ra, }
+\item[{double}]{dec, }
+\item[{double $\ast$}]{hap}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a44d4b3df87d6ef5556b4d7b2d65b105f}
+
+
+Definition at line 186 of file misc.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a44d4b3df87d6ef5556b4d7b2d65b105f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a168c47c3557b97703bb5300b9a2ef470}{\index{misc.\-c@{misc.\-c}!solve\-\_\-sphere@{solve\-\_\-sphere}}
+\index{solve\-\_\-sphere@{solve\-\_\-sphere}!misc.c@{misc.\-c}}
+\subsubsection[{solve\-\_\-sphere}]{\setlength{\rightskip}{0pt plus 5cm}void solve\-\_\-sphere (
+\begin{DoxyParamCaption}
+\item[{double}]{A, }
+\item[{double}]{b, }
+\item[{double}]{cc, }
+\item[{double}]{sc, }
+\item[{double $\ast$}]{cap, }
+\item[{double $\ast$}]{Bp}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a168c47c3557b97703bb5300b9a2ef470}
+
+
+Definition at line 378 of file misc.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{misc_8c_a168c47c3557b97703bb5300b9a2ef470_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a168c47c3557b97703bb5300b9a2ef470_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{misc_8c_a36ff4e1da9f9f833b1256ab3ae9050df}{\index{misc.\-c@{misc.\-c}!tickmarks@{tickmarks}}
+\index{tickmarks@{tickmarks}!misc.c@{misc.\-c}}
+\subsubsection[{tickmarks}]{\setlength{\rightskip}{0pt plus 5cm}int tickmarks (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max, }
+\item[{int}]{numdiv, }
+\item[{double}]{ticks\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a36ff4e1da9f9f833b1256ab3ae9050df}
+
+
+Definition at line 26 of file misc.\-c.
+
+\hypertarget{misc_8c_a9cd2e9e57c391b6d1d3bb20af232bdd6}{\index{misc.\-c@{misc.\-c}!zero\-\_\-mem@{zero\-\_\-mem}}
+\index{zero\-\_\-mem@{zero\-\_\-mem}!misc.c@{misc.\-c}}
+\subsubsection[{zero\-\_\-mem}]{\setlength{\rightskip}{0pt plus 5cm}void zero\-\_\-mem (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{loc, }
+\item[{unsigned}]{len}
+\end{DoxyParamCaption}
+)}}\label{misc_8c_a9cd2e9e57c391b6d1d3bb20af232bdd6}
+
+
+Definition at line 15 of file misc.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{misc_8c_a9cd2e9e57c391b6d1d3bb20af232bdd6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{misc_8c_ae037a79cb31f056d04153837887f5813}{\index{misc.\-c@{misc.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!misc.c@{misc.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf misc.\-c},v \$ \$Date\-: 2005/03/11 16\-:47\-:46 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{misc_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 503 of file misc.\-c.
+

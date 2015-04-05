@@ -1,0 +1,651 @@
+\hypertarget{moon_8c}{\section{libastro/moon.c File Reference}
+\label{moon_8c}\index{libastro/moon.\-c@{libastro/moon.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for moon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{moon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structplantbl}{plantbl}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R}~short
+\item 
+\#define \hyperlink{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}{N\-A\-R\-G\-S}~18
+\item 
+\#define \hyperlink{moon_8c_a9a0443b0de552b5fb605b9065b81a25d}{M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000}~(2451545.\-0)
+\item 
+\#define \hyperlink{moon_8c_a82dcf1972d41efc8765d94b96c79963d}{M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N}~(1221000.\-5 -\/ \hyperlink{astro_8h_a17c22d077b2c872fa05d3482ea45caac}{M\-J\-D0}) /$\ast$ directly from above $\ast$/
+\item 
+\#define \hyperlink{moon_8c_a4ad9c3373ff883bddd0ee088b5cc2b8f}{M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D}~(2798525.\-5 -\/ \hyperlink{astro_8h_a17c22d077b2c872fa05d3482ea45caac}{M\-J\-D0}) /$\ast$ 2950.\-0; from libration table $\ast$/
+\item 
+\#define \hyperlink{moon_8c_a67198df5376db153ccd642a81d2623ad}{D\-T\-R}~1.\-7453292519943295769e-\/2
+\item 
+\#define \hyperlink{moon_8c_ab6b71477e5e01a9588d5176b73bc346e}{R\-T\-D}~5.\-7295779513082320877e1
+\item 
+\#define \hyperlink{moon_8c_a5da46cdb9a2133d1b4f0db71a332ba2e}{R\-T\-S}~2.\-0626480624709635516e5	/$\ast$ arc seconds per radian $\ast$/
+\item 
+\#define \hyperlink{moon_8c_a87f23f9d76e3a2d5658da8dae25f38c4}{S\-T\-R}~4.\-8481368110953599359e-\/6	/$\ast$ radians per arc second $\ast$/
+\item 
+\#define \hyperlink{moon_8c_aef671798e386f5cec7ea5819f0450e84}{A\-U\-K\-M}~1.\-4959787e8
+\item 
+\#define \hyperlink{moon_8c_a7e26bb7ee3b2d75f69cbf3a614125211}{Earth\-Radius}~6378.\-16             /$\ast$ Kilometers           $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{moon_8c_a131d4b6e19ef668d9d3be5b03f767890}{mods3600} (double x)
+\item 
+static void \hyperlink{moon_8c_aaaa6040429ad1b04c34be60817964b9e}{mean\-\_\-elements} (double J\-E\-D)
+\item 
+static int \hyperlink{moon_8c_a8b353c6ad0158b5d2904d3f613f48e5d}{sscc} (int k, double arg, int \hyperlink{atlas_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{n})
+\item 
+static int \hyperlink{moon_8c_add1144567e6b52d997b43ee60229acb1}{g2plan} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$plan, double $\ast$pobj, int flag)
+\item 
+static double \hyperlink{moon_8c_af4e585c250ee56f383003df5de4268d3}{g1plan} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$plan)
+\item 
+static int \hyperlink{moon_8c_abd50f88e282e35791a8ec43542d739e0}{gecmoon} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$lrtab, struct \hyperlink{structplantbl}{plantbl} $\ast$lattab, double $\ast$pobj)
+\item 
+static int \hyperlink{moon_8c_ac95b909e062b213590c7bc1c4ac8b900}{g2plan} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$plan, double pobj\mbox{[}$\,$\mbox{]}, int flag)
+\item 
+static int \hyperlink{moon_8c_a6b041ad920076306d172e64d6be163cf}{gecmoon} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$lrtab, struct \hyperlink{structplantbl}{plantbl} $\ast$lattab, double pobj\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{moon_8c_acadec2ec935ec4a3f6ec1fd0aee3bbe1}{moon\-\_\-fast} (double mj, double $\ast$lam, double $\ast$bet, double $\ast$hp, double $\ast$msp, double $\ast$mdp)
+\item 
+void \hyperlink{moon_8c_a31d7a91387fe83d44db48e120627254c}{moon} (double mj, double $\ast$lam, double $\ast$bet, double $\ast$rho, double $\ast$msp, double $\ast$mdp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{moon_8c_aeeed3350d7a37ab647f4212b402d5b26}{Args} \mbox{[}\hyperlink{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}{N\-A\-R\-G\-S}\mbox{]}
+\item 
+static double \hyperlink{moon_8c_a3fafaada41d45b7b6db7a28f76b49c67}{L\-P\-\_\-equinox}
+\item 
+static double \hyperlink{moon_8c_a0e480e9141e8e0461c775d3198b3aa27}{N\-F\-\_\-arcsec}
+\item 
+static double \hyperlink{moon_8c_a52d8f3eace54e15573da9ec2769492a8}{Ea\-\_\-arcsec}
+\item 
+static double \hyperlink{moon_8c_a76ea6a29572b29b34feaab9e3e9e7fb5}{p\-A\-\_\-precession}
+\item 
+double \hyperlink{moon_8c_a4f28cd04a8e1f94bed46b7fc29120396}{ss} \mbox{[}\hyperlink{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}{N\-A\-R\-G\-S}\mbox{]}\mbox{[}30\mbox{]}
+\item 
+double \hyperlink{moon_8c_a1312c8e1d34158f8e3fe0cffb3308cb5}{cc} \mbox{[}\hyperlink{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}{N\-A\-R\-G\-S}\mbox{]}\mbox{[}30\mbox{]}
+\item 
+static double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}
+\item 
+static long \hyperlink{moon_8c_ad624e6d26fe3ee8f70b232638bbcaecc}{lrtabl} \mbox{[}$\,$\mbox{]}
+\item 
+static long \hyperlink{moon_8c_a0c8513ecc938e1e0dd6621e3390ba045}{lrtabb} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static long \hyperlink{moon_8c_aaedb6139050f0e7ddb74ba45ca91bad6}{lrtabr} \mbox{[}$\,$\mbox{]}
+\item 
+static \hyperlink{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R} \hyperlink{moon_8c_a18decb82566c0e17b24c1ebc9d39517c}{lrargs} \mbox{[}$\,$\mbox{]}
+\item 
+static long \hyperlink{moon_8c_a0be85e36820742f2a739f57ac3eb0556}{btabr} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static long \hyperlink{moon_8c_a29f77206534dc69f36ae39e5aee62bdb}{btabb} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static long \hyperlink{moon_8c_a95e77ba9294f42c18d72bcacd2c344a2}{btabl} \mbox{[}$\,$\mbox{]}
+\item 
+static \hyperlink{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R} \hyperlink{moon_8c_ae1c0a0432cdfa7cf02ab88f370de8133}{bargs} \mbox{[}$\,$\mbox{]}
+\item 
+struct \hyperlink{structplantbl}{plantbl} \hyperlink{moon_8c_a2ab8afb65e08ecc89cc38a91bafa1cde}{moonlr}
+\item 
+struct \hyperlink{structplantbl}{plantbl} \hyperlink{moon_8c_a55d708aed88612918a528d783d67ecd0}{moonlat}
+\item 
+static char $\ast$ \hyperlink{moon_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{moon.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{moon_8c_aef671798e386f5cec7ea5819f0450e84}{\index{moon.\-c@{moon.\-c}!A\-U\-K\-M@{A\-U\-K\-M}}
+\index{A\-U\-K\-M@{A\-U\-K\-M}!moon.c@{moon.\-c}}
+\subsubsection[{A\-U\-K\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-U\-K\-M~1.\-4959787e8}}\label{moon_8c_aef671798e386f5cec7ea5819f0450e84}
+
+
+Definition at line 120 of file moon.\-c.
+
+\hypertarget{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{\index{moon.\-c@{moon.\-c}!C\-H\-A\-R@{C\-H\-A\-R}}
+\index{C\-H\-A\-R@{C\-H\-A\-R}!moon.c@{moon.\-c}}
+\subsubsection[{C\-H\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-R~short}}\label{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}
+
+
+Definition at line 70 of file moon.\-c.
+
+\hypertarget{moon_8c_a67198df5376db153ccd642a81d2623ad}{\index{moon.\-c@{moon.\-c}!D\-T\-R@{D\-T\-R}}
+\index{D\-T\-R@{D\-T\-R}!moon.c@{moon.\-c}}
+\subsubsection[{D\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-T\-R~1.\-7453292519943295769e-\/2}}\label{moon_8c_a67198df5376db153ccd642a81d2623ad}
+
+
+Definition at line 116 of file moon.\-c.
+
+\hypertarget{moon_8c_a7e26bb7ee3b2d75f69cbf3a614125211}{\index{moon.\-c@{moon.\-c}!Earth\-Radius@{Earth\-Radius}}
+\index{Earth\-Radius@{Earth\-Radius}!moon.c@{moon.\-c}}
+\subsubsection[{Earth\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}\#define Earth\-Radius~6378.\-16             /$\ast$ Kilometers           $\ast$/}}\label{moon_8c_a7e26bb7ee3b2d75f69cbf3a614125211}
+
+
+Definition at line 3422 of file moon.\-c.
+
+\hypertarget{moon_8c_a82dcf1972d41efc8765d94b96c79963d}{\index{moon.\-c@{moon.\-c}!M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N@{M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N}}
+\index{M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N@{M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N}!moon.c@{moon.\-c}}
+\subsubsection[{M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-S\-H\-I\-E\-R\-\_\-\-B\-E\-G\-I\-N~(1221000.\-5 -\/ {\bf M\-J\-D0}) /$\ast$ directly from above $\ast$/}}\label{moon_8c_a82dcf1972d41efc8765d94b96c79963d}
+
+
+Definition at line 97 of file moon.\-c.
+
+\hypertarget{moon_8c_a4ad9c3373ff883bddd0ee088b5cc2b8f}{\index{moon.\-c@{moon.\-c}!M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D@{M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D}}
+\index{M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D@{M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D}!moon.c@{moon.\-c}}
+\subsubsection[{M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-S\-H\-I\-E\-R\-\_\-\-E\-N\-D~(2798525.\-5 -\/ {\bf M\-J\-D0}) /$\ast$ 2950.\-0; from libration table $\ast$/}}\label{moon_8c_a4ad9c3373ff883bddd0ee088b5cc2b8f}
+
+
+Definition at line 98 of file moon.\-c.
+
+\hypertarget{moon_8c_a9a0443b0de552b5fb605b9065b81a25d}{\index{moon.\-c@{moon.\-c}!M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000@{M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000}}
+\index{M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000@{M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000}!moon.c@{moon.\-c}}
+\subsubsection[{M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-S\-H\-I\-E\-R\-\_\-\-J2000~(2451545.\-0)}}\label{moon_8c_a9a0443b0de552b5fb605b9065b81a25d}
+
+
+Definition at line 95 of file moon.\-c.
+
+\hypertarget{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}{\index{moon.\-c@{moon.\-c}!N\-A\-R\-G\-S@{N\-A\-R\-G\-S}}
+\index{N\-A\-R\-G\-S@{N\-A\-R\-G\-S}!moon.c@{moon.\-c}}
+\subsubsection[{N\-A\-R\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-A\-R\-G\-S~18}}\label{moon_8c_af6bc052e7a74799c9816534cd8d0b49f}
+
+
+Definition at line 72 of file moon.\-c.
+
+\hypertarget{moon_8c_ab6b71477e5e01a9588d5176b73bc346e}{\index{moon.\-c@{moon.\-c}!R\-T\-D@{R\-T\-D}}
+\index{R\-T\-D@{R\-T\-D}!moon.c@{moon.\-c}}
+\subsubsection[{R\-T\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-D~5.\-7295779513082320877e1}}\label{moon_8c_ab6b71477e5e01a9588d5176b73bc346e}
+
+
+Definition at line 117 of file moon.\-c.
+
+\hypertarget{moon_8c_a5da46cdb9a2133d1b4f0db71a332ba2e}{\index{moon.\-c@{moon.\-c}!R\-T\-S@{R\-T\-S}}
+\index{R\-T\-S@{R\-T\-S}!moon.c@{moon.\-c}}
+\subsubsection[{R\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-S~2.\-0626480624709635516e5	/$\ast$ arc seconds per radian $\ast$/}}\label{moon_8c_a5da46cdb9a2133d1b4f0db71a332ba2e}
+
+
+Definition at line 118 of file moon.\-c.
+
+\hypertarget{moon_8c_a87f23f9d76e3a2d5658da8dae25f38c4}{\index{moon.\-c@{moon.\-c}!S\-T\-R@{S\-T\-R}}
+\index{S\-T\-R@{S\-T\-R}!moon.c@{moon.\-c}}
+\subsubsection[{S\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-R~4.\-8481368110953599359e-\/6	/$\ast$ radians per arc second $\ast$/}}\label{moon_8c_a87f23f9d76e3a2d5658da8dae25f38c4}
+
+
+Definition at line 119 of file moon.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{moon_8c_af4e585c250ee56f383003df5de4268d3}{\index{moon.\-c@{moon.\-c}!g1plan@{g1plan}}
+\index{g1plan@{g1plan}!moon.c@{moon.\-c}}
+\subsubsection[{g1plan}]{\setlength{\rightskip}{0pt plus 5cm}static double g1plan (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{plan}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_af4e585c250ee56f383003df5de4268d3}
+
+
+Definition at line 3159 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_af4e585c250ee56f383003df5de4268d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{moon_8c_af4e585c250ee56f383003df5de4268d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_add1144567e6b52d997b43ee60229acb1}{\index{moon.\-c@{moon.\-c}!g2plan@{g2plan}}
+\index{g2plan@{g2plan}!moon.c@{moon.\-c}}
+\subsubsection[{g2plan}]{\setlength{\rightskip}{0pt plus 5cm}static int g2plan (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{plan, }
+\item[{double $\ast$}]{pobj, }
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_add1144567e6b52d997b43ee60229acb1}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{moon_8c_add1144567e6b52d997b43ee60229acb1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_ac95b909e062b213590c7bc1c4ac8b900}{\index{moon.\-c@{moon.\-c}!g2plan@{g2plan}}
+\index{g2plan@{g2plan}!moon.c@{moon.\-c}}
+\subsubsection[{g2plan}]{\setlength{\rightskip}{0pt plus 5cm}static int g2plan (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{plan, }
+\item[{double}]{pobj\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_ac95b909e062b213590c7bc1c4ac8b900}
+
+
+Definition at line 3035 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_ac95b909e062b213590c7bc1c4ac8b900_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_abd50f88e282e35791a8ec43542d739e0}{\index{moon.\-c@{moon.\-c}!gecmoon@{gecmoon}}
+\index{gecmoon@{gecmoon}!moon.c@{moon.\-c}}
+\subsubsection[{gecmoon}]{\setlength{\rightskip}{0pt plus 5cm}static int gecmoon (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{lrtab, }
+\item[{struct {\bf plantbl} $\ast$}]{lattab, }
+\item[{double $\ast$}]{pobj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_abd50f88e282e35791a8ec43542d739e0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_abd50f88e282e35791a8ec43542d739e0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_a6b041ad920076306d172e64d6be163cf}{\index{moon.\-c@{moon.\-c}!gecmoon@{gecmoon}}
+\index{gecmoon@{gecmoon}!moon.c@{moon.\-c}}
+\subsubsection[{gecmoon}]{\setlength{\rightskip}{0pt plus 5cm}static int gecmoon (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{lrtab, }
+\item[{struct {\bf plantbl} $\ast$}]{lattab, }
+\item[{double}]{pobj\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a6b041ad920076306d172e64d6be163cf}
+
+
+Definition at line 3260 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_a6b041ad920076306d172e64d6be163cf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_aaaa6040429ad1b04c34be60817964b9e}{\index{moon.\-c@{moon.\-c}!mean\-\_\-elements@{mean\-\_\-elements}}
+\index{mean\-\_\-elements@{mean\-\_\-elements}!moon.c@{moon.\-c}}
+\subsubsection[{mean\-\_\-elements}]{\setlength{\rightskip}{0pt plus 5cm}static void mean\-\_\-elements (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-E\-D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_aaaa6040429ad1b04c34be60817964b9e}
+
+
+Definition at line 2847 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{moon_8c_aaaa6040429ad1b04c34be60817964b9e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{moon_8c_aaaa6040429ad1b04c34be60817964b9e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_a131d4b6e19ef668d9d3be5b03f767890}{\index{moon.\-c@{moon.\-c}!mods3600@{mods3600}}
+\index{mods3600@{mods3600}!moon.c@{moon.\-c}}
+\subsubsection[{mods3600}]{\setlength{\rightskip}{0pt plus 5cm}static double mods3600 (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a131d4b6e19ef668d9d3be5b03f767890}
+
+
+Definition at line 2832 of file moon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_a131d4b6e19ef668d9d3be5b03f767890_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_a31d7a91387fe83d44db48e120627254c}{\index{moon.\-c@{moon.\-c}!moon@{moon}}
+\index{moon@{moon}!moon.c@{moon.\-c}}
+\subsubsection[{moon}]{\setlength{\rightskip}{0pt plus 5cm}void moon (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{lam, }
+\item[{double $\ast$}]{bet, }
+\item[{double $\ast$}]{rho, }
+\item[{double $\ast$}]{msp, }
+\item[{double $\ast$}]{mdp}
+\end{DoxyParamCaption}
+)}}\label{moon_8c_a31d7a91387fe83d44db48e120627254c}
+
+
+Definition at line 3440 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{moon_8c_a31d7a91387fe83d44db48e120627254c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_a31d7a91387fe83d44db48e120627254c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_acadec2ec935ec4a3f6ec1fd0aee3bbe1}{\index{moon.\-c@{moon.\-c}!moon\-\_\-fast@{moon\-\_\-fast}}
+\index{moon\-\_\-fast@{moon\-\_\-fast}!moon.c@{moon.\-c}}
+\subsubsection[{moon\-\_\-fast}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-\_\-fast (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{lam, }
+\item[{double $\ast$}]{bet, }
+\item[{double $\ast$}]{hp, }
+\item[{double $\ast$}]{msp, }
+\item[{double $\ast$}]{mdp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_acadec2ec935ec4a3f6ec1fd0aee3bbe1}
+
+
+Definition at line 3295 of file moon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{moon_8c_acadec2ec935ec4a3f6ec1fd0aee3bbe1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moon_8c_acadec2ec935ec4a3f6ec1fd0aee3bbe1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moon_8c_a8b353c6ad0158b5d2904d3f613f48e5d}{\index{moon.\-c@{moon.\-c}!sscc@{sscc}}
+\index{sscc@{sscc}!moon.c@{moon.\-c}}
+\subsubsection[{sscc}]{\setlength{\rightskip}{0pt plus 5cm}static int sscc (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{double}]{arg, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a8b353c6ad0158b5d2904d3f613f48e5d}
+
+
+Definition at line 3006 of file moon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{moon_8c_a8b353c6ad0158b5d2904d3f613f48e5d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{moon_8c_aeeed3350d7a37ab647f4212b402d5b26}{\index{moon.\-c@{moon.\-c}!Args@{Args}}
+\index{Args@{Args}!moon.c@{moon.\-c}}
+\subsubsection[{Args}]{\setlength{\rightskip}{0pt plus 5cm}double Args\mbox{[}{\bf N\-A\-R\-G\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_aeeed3350d7a37ab647f4212b402d5b26}
+
+
+Definition at line 101 of file moon.\-c.
+
+\hypertarget{moon_8c_ae1c0a0432cdfa7cf02ab88f370de8133}{\index{moon.\-c@{moon.\-c}!bargs@{bargs}}
+\index{bargs@{bargs}!moon.c@{moon.\-c}}
+\subsubsection[{bargs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-H\-A\-R} bargs\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_ae1c0a0432cdfa7cf02ab88f370de8133}
+
+
+Definition at line 2440 of file moon.\-c.
+
+\hypertarget{moon_8c_a29f77206534dc69f36ae39e5aee62bdb}{\index{moon.\-c@{moon.\-c}!btabb@{btabb}}
+\index{btabb@{btabb}!moon.c@{moon.\-c}}
+\subsubsection[{btabb}]{\setlength{\rightskip}{0pt plus 5cm}long btabb\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a29f77206534dc69f36ae39e5aee62bdb}
+
+
+Definition at line 2075 of file moon.\-c.
+
+\hypertarget{moon_8c_a95e77ba9294f42c18d72bcacd2c344a2}{\index{moon.\-c@{moon.\-c}!btabl@{btabl}}
+\index{btabl@{btabl}!moon.c@{moon.\-c}}
+\subsubsection[{btabl}]{\setlength{\rightskip}{0pt plus 5cm}long btabl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a95e77ba9294f42c18d72bcacd2c344a2}
+
+
+Definition at line 2076 of file moon.\-c.
+
+\hypertarget{moon_8c_a0be85e36820742f2a739f57ac3eb0556}{\index{moon.\-c@{moon.\-c}!btabr@{btabr}}
+\index{btabr@{btabr}!moon.c@{moon.\-c}}
+\subsubsection[{btabr}]{\setlength{\rightskip}{0pt plus 5cm}long btabr\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a0be85e36820742f2a739f57ac3eb0556}
+
+
+Definition at line 2074 of file moon.\-c.
+
+\hypertarget{moon_8c_a1312c8e1d34158f8e3fe0cffb3308cb5}{\index{moon.\-c@{moon.\-c}!cc@{cc}}
+\index{cc@{cc}!moon.c@{moon.\-c}}
+\subsubsection[{cc}]{\setlength{\rightskip}{0pt plus 5cm}double cc\mbox{[}{\bf N\-A\-R\-G\-S}\mbox{]}\mbox{[}30\mbox{]}}}\label{moon_8c_a1312c8e1d34158f8e3fe0cffb3308cb5}
+
+
+Definition at line 110 of file moon.\-c.
+
+\hypertarget{moon_8c_a52d8f3eace54e15573da9ec2769492a8}{\index{moon.\-c@{moon.\-c}!Ea\-\_\-arcsec@{Ea\-\_\-arcsec}}
+\index{Ea\-\_\-arcsec@{Ea\-\_\-arcsec}!moon.c@{moon.\-c}}
+\subsubsection[{Ea\-\_\-arcsec}]{\setlength{\rightskip}{0pt plus 5cm}double Ea\-\_\-arcsec\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a52d8f3eace54e15573da9ec2769492a8}
+
+
+Definition at line 104 of file moon.\-c.
+
+\hypertarget{moon_8c_a3fafaada41d45b7b6db7a28f76b49c67}{\index{moon.\-c@{moon.\-c}!L\-P\-\_\-equinox@{L\-P\-\_\-equinox}}
+\index{L\-P\-\_\-equinox@{L\-P\-\_\-equinox}!moon.c@{moon.\-c}}
+\subsubsection[{L\-P\-\_\-equinox}]{\setlength{\rightskip}{0pt plus 5cm}double L\-P\-\_\-equinox\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a3fafaada41d45b7b6db7a28f76b49c67}
+
+
+Definition at line 102 of file moon.\-c.
+
+\hypertarget{moon_8c_a18decb82566c0e17b24c1ebc9d39517c}{\index{moon.\-c@{moon.\-c}!lrargs@{lrargs}}
+\index{lrargs@{lrargs}!moon.c@{moon.\-c}}
+\subsubsection[{lrargs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-H\-A\-R} lrargs\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a18decb82566c0e17b24c1ebc9d39517c}
+
+
+Definition at line 1438 of file moon.\-c.
+
+\hypertarget{moon_8c_a0c8513ecc938e1e0dd6621e3390ba045}{\index{moon.\-c@{moon.\-c}!lrtabb@{lrtabb}}
+\index{lrtabb@{lrtabb}!moon.c@{moon.\-c}}
+\subsubsection[{lrtabb}]{\setlength{\rightskip}{0pt plus 5cm}long lrtabb\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a0c8513ecc938e1e0dd6621e3390ba045}
+
+
+Definition at line 780 of file moon.\-c.
+
+\hypertarget{moon_8c_ad624e6d26fe3ee8f70b232638bbcaecc}{\index{moon.\-c@{moon.\-c}!lrtabl@{lrtabl}}
+\index{lrtabl@{lrtabl}!moon.c@{moon.\-c}}
+\subsubsection[{lrtabl}]{\setlength{\rightskip}{0pt plus 5cm}long lrtabl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_ad624e6d26fe3ee8f70b232638bbcaecc}
+
+
+Definition at line 123 of file moon.\-c.
+
+\hypertarget{moon_8c_aaedb6139050f0e7ddb74ba45ca91bad6}{\index{moon.\-c@{moon.\-c}!lrtabr@{lrtabr}}
+\index{lrtabr@{lrtabr}!moon.c@{moon.\-c}}
+\subsubsection[{lrtabr}]{\setlength{\rightskip}{0pt plus 5cm}long lrtabr\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_aaedb6139050f0e7ddb74ba45ca91bad6}
+
+
+Definition at line 781 of file moon.\-c.
+
+\hypertarget{moon_8c_a55d708aed88612918a528d783d67ecd0}{\index{moon.\-c@{moon.\-c}!moonlat@{moonlat}}
+\index{moonlat@{moonlat}!moon.c@{moon.\-c}}
+\subsubsection[{moonlat}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf plantbl} moonlat}}\label{moon_8c_a55d708aed88612918a528d783d67ecd0}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  \{  0, 26, 29,  8,  3,  5,  0,  0,  0,  6,  5,  3,  5,  1,  0,  0,  0,  0,\},
+ 3,
+ \hyperlink{moon_8c_ae1c0a0432cdfa7cf02ab88f370de8133}{bargs},
+ \hyperlink{moon_8c_a95e77ba9294f42c18d72bcacd2c344a2}{btabl},
+ \hyperlink{moon_8c_a29f77206534dc69f36ae39e5aee62bdb}{btabb},
+ \hyperlink{moon_8c_a0be85e36820742f2a739f57ac3eb0556}{btabr},
+ 0.0000000000000000e+00,
+ 3.6525000000000000e+06,
+ 1.0000000000000000e-04,
+\}
+\end{DoxyCode}
+
+
+Definition at line 2816 of file moon.\-c.
+
+\hypertarget{moon_8c_a2ab8afb65e08ecc89cc38a91bafa1cde}{\index{moon.\-c@{moon.\-c}!moonlr@{moonlr}}
+\index{moonlr@{moonlr}!moon.c@{moon.\-c}}
+\subsubsection[{moonlr}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf plantbl} moonlr}}\label{moon_8c_a2ab8afb65e08ecc89cc38a91bafa1cde}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  \{  3, 26, 29, 23,  5, 10,  0,  0,  0,  8,  4,  4,  6,  2,  0,  0,  0,  0,\},
+ 3,
+ \hyperlink{moon_8c_a18decb82566c0e17b24c1ebc9d39517c}{lrargs},
+ \hyperlink{moon_8c_ad624e6d26fe3ee8f70b232638bbcaecc}{lrtabl},
+ \hyperlink{moon_8c_a0c8513ecc938e1e0dd6621e3390ba045}{lrtabb},
+ \hyperlink{moon_8c_aaedb6139050f0e7ddb74ba45ca91bad6}{lrtabr},
+ 2.5735686895300000e-03,
+ 3.6525000000000000e+06,
+ 1.0000000000000000e-04,
+\}
+\end{DoxyCode}
+
+
+Definition at line 2804 of file moon.\-c.
+
+\hypertarget{moon_8c_a0e480e9141e8e0461c775d3198b3aa27}{\index{moon.\-c@{moon.\-c}!N\-F\-\_\-arcsec@{N\-F\-\_\-arcsec}}
+\index{N\-F\-\_\-arcsec@{N\-F\-\_\-arcsec}!moon.c@{moon.\-c}}
+\subsubsection[{N\-F\-\_\-arcsec}]{\setlength{\rightskip}{0pt plus 5cm}double N\-F\-\_\-arcsec\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a0e480e9141e8e0461c775d3198b3aa27}
+
+
+Definition at line 103 of file moon.\-c.
+
+\hypertarget{moon_8c_a76ea6a29572b29b34feaab9e3e9e7fb5}{\index{moon.\-c@{moon.\-c}!p\-A\-\_\-precession@{p\-A\-\_\-precession}}
+\index{p\-A\-\_\-precession@{p\-A\-\_\-precession}!moon.c@{moon.\-c}}
+\subsubsection[{p\-A\-\_\-precession}]{\setlength{\rightskip}{0pt plus 5cm}double p\-A\-\_\-precession\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_a76ea6a29572b29b34feaab9e3e9e7fb5}
+
+
+Definition at line 105 of file moon.\-c.
+
+\hypertarget{moon_8c_ae037a79cb31f056d04153837887f5813}{\index{moon.\-c@{moon.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!moon.c@{moon.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf moon.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 3467 of file moon.\-c.
+
+\hypertarget{moon_8c_a4f28cd04a8e1f94bed46b7fc29120396}{\index{moon.\-c@{moon.\-c}!ss@{ss}}
+\index{ss@{ss}!moon.c@{moon.\-c}}
+\subsubsection[{ss}]{\setlength{\rightskip}{0pt plus 5cm}double ss\mbox{[}{\bf N\-A\-R\-G\-S}\mbox{]}\mbox{[}30\mbox{]}}}\label{moon_8c_a4f28cd04a8e1f94bed46b7fc29120396}
+
+
+Definition at line 109 of file moon.\-c.
+
+\hypertarget{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{\index{moon.\-c@{moon.\-c}!T@{T}}
+\index{T@{T}!moon.c@{moon.\-c}}
+\subsubsection[{T}]{\setlength{\rightskip}{0pt plus 5cm}double T\hspace{0.3cm}{\ttfamily [static]}}}\label{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}
+
+
+Definition at line 113 of file moon.\-c.
+

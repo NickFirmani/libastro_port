@@ -1,0 +1,243 @@
+\hypertarget{eq__gal_8c}{\section{libastro/eq\-\_\-gal.c File Reference}
+\label{eq__gal_8c}\index{libastro/eq\-\_\-gal.\-c@{libastro/eq\-\_\-gal.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for eq\-\_\-gal.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{eq__gal_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eq__gal_8c_a663a202d2899b09f225e672d0766e0a7}{E\-Qto\-G\-A\-L}~1
+\item 
+\#define \hyperlink{eq__gal_8c_ab82085ada2042e01f2268d4d42c74030}{G\-A\-Lto\-E\-Q}~(-\/1)
+\item 
+\#define \hyperlink{eq__gal_8c_a09c78d2f8feb311dd9fc969a0bf84979}{S\-M\-A\-L\-L}~(1e-\/20)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{eq__gal_8c_adf8c30860ed84095d96835c19cd60c81}{galeq\-\_\-aux} (int sw, double x, double y, double $\ast$p, double $\ast$q)
+\item 
+static void \hyperlink{eq__gal_8c_a5862050738a8529c167fc673bfdcd50d}{galeq\-\_\-init} (void)
+\item 
+void \hyperlink{eq__gal_8c_ac46ced3e9cb4623ec20beebc283b3fec}{eq\-\_\-gal} (double mj, double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, double $\ast$lt, double $\ast$lg)
+\item 
+void \hyperlink{eq__gal_8c_a4af420eaf36a9b946d445b26bb1aa90c}{gal\-\_\-eq} (double mj, double lt, double lg, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{eq__gal_8c_ad356e0181e33fb3c1d6bf220ce45f961}{an} = \hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(32.\-93192)
+\item 
+static double \hyperlink{eq__gal_8c_af8e1234c248fc7cb691b0f7150556c43}{gpr} = \hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(192.\-85948)
+\item 
+static double \hyperlink{eq__gal_8c_a52a4fa17e8a2c3d30f1a6082fa5b3b50}{gpd} = \hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(27.\-12825)
+\item 
+static double \hyperlink{eq__gal_8c_a7bfc1254488ee6577db4580b4f291508}{cgpd}
+\item 
+static double \hyperlink{eq__gal_8c_a78d9f182c01ec336a913d2b84f9a5c65}{sgpd}
+\item 
+static double \hyperlink{eq__gal_8c_a7d885ca7876dedcb18c4618c4e6b05d4}{mj2000}
+\item 
+static int \hyperlink{eq__gal_8c_a98f0e62710c1bdbf9a7b509ba35ca006}{before}
+\item 
+static char $\ast$ \hyperlink{eq__gal_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{eq\-\_\-gal.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eq__gal_8c_a663a202d2899b09f225e672d0766e0a7}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!E\-Qto\-G\-A\-L@{E\-Qto\-G\-A\-L}}
+\index{E\-Qto\-G\-A\-L@{E\-Qto\-G\-A\-L}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{E\-Qto\-G\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-Qto\-G\-A\-L~1}}\label{eq__gal_8c_a663a202d2899b09f225e672d0766e0a7}
+
+
+Definition at line 11 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_ab82085ada2042e01f2268d4d42c74030}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!G\-A\-Lto\-E\-Q@{G\-A\-Lto\-E\-Q}}
+\index{G\-A\-Lto\-E\-Q@{G\-A\-Lto\-E\-Q}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{G\-A\-Lto\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-A\-Lto\-E\-Q~(-\/1)}}\label{eq__gal_8c_ab82085ada2042e01f2268d4d42c74030}
+
+
+Definition at line 12 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a09c78d2f8feb311dd9fc969a0bf84979}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!S\-M\-A\-L\-L@{S\-M\-A\-L\-L}}
+\index{S\-M\-A\-L\-L@{S\-M\-A\-L\-L}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{S\-M\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-M\-A\-L\-L~(1e-\/20)}}\label{eq__gal_8c_a09c78d2f8feb311dd9fc969a0bf84979}
+
+
+Definition at line 13 of file eq\-\_\-gal.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{eq__gal_8c_ac46ced3e9cb4623ec20beebc283b3fec}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!eq\-\_\-gal@{eq\-\_\-gal}}
+\index{eq\-\_\-gal@{eq\-\_\-gal}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{eq\-\_\-gal}]{\setlength{\rightskip}{0pt plus 5cm}void eq\-\_\-gal (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{ra, }
+\item[{double}]{dec, }
+\item[{double $\ast$}]{lt, }
+\item[{double $\ast$}]{lg}
+\end{DoxyParamCaption}
+)}}\label{eq__gal_8c_ac46ced3e9cb4623ec20beebc283b3fec}
+
+
+Definition at line 27 of file eq\-\_\-gal.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eq__gal_8c_ac46ced3e9cb4623ec20beebc283b3fec_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eq__gal_8c_a4af420eaf36a9b946d445b26bb1aa90c}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!gal\-\_\-eq@{gal\-\_\-eq}}
+\index{gal\-\_\-eq@{gal\-\_\-eq}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{gal\-\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}void gal\-\_\-eq (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{lt, }
+\item[{double}]{lg, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{eq__gal_8c_a4af420eaf36a9b946d445b26bb1aa90c}
+
+
+Definition at line 39 of file eq\-\_\-gal.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eq__gal_8c_a4af420eaf36a9b946d445b26bb1aa90c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eq__gal_8c_adf8c30860ed84095d96835c19cd60c81}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!galeq\-\_\-aux@{galeq\-\_\-aux}}
+\index{galeq\-\_\-aux@{galeq\-\_\-aux}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{galeq\-\_\-aux}]{\setlength{\rightskip}{0pt plus 5cm}static void galeq\-\_\-aux (
+\begin{DoxyParamCaption}
+\item[{int}]{sw, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double $\ast$}]{p, }
+\item[{double $\ast$}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_adf8c30860ed84095d96835c19cd60c81}
+
+
+Definition at line 47 of file eq\-\_\-gal.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{eq__gal_8c_adf8c30860ed84095d96835c19cd60c81_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eq__gal_8c_a5862050738a8529c167fc673bfdcd50d}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!galeq\-\_\-init@{galeq\-\_\-init}}
+\index{galeq\-\_\-init@{galeq\-\_\-init}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{galeq\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}static void galeq\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a5862050738a8529c167fc673bfdcd50d}
+
+
+Definition at line 88 of file eq\-\_\-gal.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{eq__gal_8c_a5862050738a8529c167fc673bfdcd50d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{eq__gal_8c_ad356e0181e33fb3c1d6bf220ce45f961}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!an@{an}}
+\index{an@{an}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{an}]{\setlength{\rightskip}{0pt plus 5cm}double an = {\bf degrad}(32.\-93192)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_ad356e0181e33fb3c1d6bf220ce45f961}
+
+
+Definition at line 15 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a98f0e62710c1bdbf9a7b509ba35ca006}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!before@{before}}
+\index{before@{before}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{before}]{\setlength{\rightskip}{0pt plus 5cm}int before\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a98f0e62710c1bdbf9a7b509ba35ca006}
+
+
+Definition at line 20 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a7bfc1254488ee6577db4580b4f291508}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!cgpd@{cgpd}}
+\index{cgpd@{cgpd}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{cgpd}]{\setlength{\rightskip}{0pt plus 5cm}double cgpd\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a7bfc1254488ee6577db4580b4f291508}
+
+
+Definition at line 18 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a52a4fa17e8a2c3d30f1a6082fa5b3b50}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!gpd@{gpd}}
+\index{gpd@{gpd}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{gpd}]{\setlength{\rightskip}{0pt plus 5cm}double gpd = {\bf degrad}(27.\-12825)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a52a4fa17e8a2c3d30f1a6082fa5b3b50}
+
+
+Definition at line 17 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_af8e1234c248fc7cb691b0f7150556c43}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!gpr@{gpr}}
+\index{gpr@{gpr}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{gpr}]{\setlength{\rightskip}{0pt plus 5cm}double gpr = {\bf degrad}(192.\-85948)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_af8e1234c248fc7cb691b0f7150556c43}
+
+
+Definition at line 16 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a7d885ca7876dedcb18c4618c4e6b05d4}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!mj2000@{mj2000}}
+\index{mj2000@{mj2000}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{mj2000}]{\setlength{\rightskip}{0pt plus 5cm}double mj2000\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a7d885ca7876dedcb18c4618c4e6b05d4}
+
+
+Definition at line 19 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_ae037a79cb31f056d04153837887f5813}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf eq\-\_\-gal.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 99 of file eq\-\_\-gal.\-c.
+
+\hypertarget{eq__gal_8c_a78d9f182c01ec336a913d2b84f9a5c65}{\index{eq\-\_\-gal.\-c@{eq\-\_\-gal.\-c}!sgpd@{sgpd}}
+\index{sgpd@{sgpd}!eq_gal.c@{eq\-\_\-gal.\-c}}
+\subsubsection[{sgpd}]{\setlength{\rightskip}{0pt plus 5cm}double sgpd\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__gal_8c_a78d9f182c01ec336a913d2b84f9a5c65}
+
+
+Definition at line 18 of file eq\-\_\-gal.\-c.
+

@@ -1,0 +1,342 @@
+\hypertarget{umoon_8c}{\section{libastro/umoon.c File Reference}
+\label{umoon_8c}\index{libastro/umoon.\-c@{libastro/umoon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bdl.\-h\char`\"{}}\\*
+Include dependency graph for umoon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{umoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{P\-O\-L\-E\-\_\-\-R\-A}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(257.\-43)  /$\ast$ R\-A of Uranus' north pole $\ast$/
+\item 
+\#define \hyperlink{umoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{P\-O\-L\-E\-\_\-\-D\-E\-C}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(-\/15.\-10)  /$\ast$ Dec of Uranus' north pole $\ast$/
+\item 
+\#define \hyperlink{umoon_8c_aed52887b83ad09abffed9df9efdffe8e}{U\-R\-A\-U}~.\-0001597        /$\ast$ Uranus radius, A\-U $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{umoon_8c_a1d6d94b1923bb08aae8b61a80aaa84ff}{use\-\_\-bdl} (double jd, char $\ast$dir, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{umoon_8c_a8c59a696cc35ba08ec794dad640813ce}{moonradec} (double usize, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{umoon_8c_ad087ed7af13a2f61c9e21b8fb77c54c1}{moon\-S\-Vis} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$uop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{umoon_8c_a2f1102d989e0e0d06502fc3ba06bee35}{moon\-E\-Vis} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{umoon_8c_a233a112bfb0d89b591cf1c3ffd331a08}{moon\-P\-Shad} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$uop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{umoon_8c_a19ecd675d37ed2f2e04952995de8a5fe}{moon\-Trans} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+void \hyperlink{umoon_8c_a24dbedc846ded0bdb0c3f7008341229c}{uranus\-\_\-data} (double Mjd, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$uop, double $\ast$sizep, double $\ast$polera, double $\ast$poledec, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static int \hyperlink{umoon_8c_a5f6d4f108d6eb3bec1b3e60b72218e22}{use\-\_\-bdl} (double J\-D, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{umoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{mdmjd} = -\/123456
+\item 
+static \hyperlink{struct_moon_data}{Moon\-Data} \hyperlink{umoon_8c_af1cf25acbc325ca54d9a2f73f7f9f9d1}{umd} \mbox{[}\hyperlink{astro_8h_a19cf1f394aeb15ac823c4343c241ea42a5e13c0a645171c94f216d7a68b67fa4d}{U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}
+\item 
+static double \hyperlink{umoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{sizemjd}
+\item 
+static char $\ast$ \hyperlink{umoon_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{umoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-10 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{umoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{\index{umoon.\-c@{umoon.\-c}!P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}}
+\index{P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}!umoon.c@{umoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-D\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-D\-E\-C~{\bf degrad}(-\/15.\-10)  /$\ast$ Dec of Uranus' north pole $\ast$/}}\label{umoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}
+
+
+Definition at line 35 of file umoon.\-c.
+
+\hypertarget{umoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{\index{umoon.\-c@{umoon.\-c}!P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}}
+\index{P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}!umoon.c@{umoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-R\-A~{\bf degrad}(257.\-43)  /$\ast$ R\-A of Uranus' north pole $\ast$/}}\label{umoon_8c_a83a6f96ccb90e690856b0f23796d7a53}
+
+
+Definition at line 34 of file umoon.\-c.
+
+\hypertarget{umoon_8c_aed52887b83ad09abffed9df9efdffe8e}{\index{umoon.\-c@{umoon.\-c}!U\-R\-A\-U@{U\-R\-A\-U}}
+\index{U\-R\-A\-U@{U\-R\-A\-U}!umoon.c@{umoon.\-c}}
+\subsubsection[{U\-R\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-R\-A\-U~.\-0001597        /$\ast$ Uranus radius, A\-U $\ast$/}}\label{umoon_8c_aed52887b83ad09abffed9df9efdffe8e}
+
+
+\subsection{Function Documentation}
+\hypertarget{umoon_8c_a2f1102d989e0e0d06502fc3ba06bee35}{\index{umoon.\-c@{umoon.\-c}!moon\-E\-Vis@{moon\-E\-Vis}}
+\index{moon\-E\-Vis@{moon\-E\-Vis}!umoon.c@{umoon.\-c}}
+\subsubsection[{moon\-E\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-E\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a2f1102d989e0e0d06502fc3ba06bee35}
+
+
+Definition at line 228 of file umoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a2f1102d989e0e0d06502fc3ba06bee35_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a233a112bfb0d89b591cf1c3ffd331a08}{\index{umoon.\-c@{umoon.\-c}!moon\-P\-Shad@{moon\-P\-Shad}}
+\index{moon\-P\-Shad@{moon\-P\-Shad}!umoon.c@{umoon.\-c}}
+\subsubsection[{moon\-P\-Shad}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-P\-Shad (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{uop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a233a112bfb0d89b591cf1c3ffd331a08}
+
+
+Definition at line 242 of file umoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{umoon_8c_a233a112bfb0d89b591cf1c3ffd331a08_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a233a112bfb0d89b591cf1c3ffd331a08_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a8c59a696cc35ba08ec794dad640813ce}{\index{umoon.\-c@{umoon.\-c}!moonradec@{moonradec}}
+\index{moonradec@{moonradec}!umoon.c@{umoon.\-c}}
+\subsubsection[{moonradec}]{\setlength{\rightskip}{0pt plus 5cm}static void moonradec (
+\begin{DoxyParamCaption}
+\item[{double}]{usize, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a8c59a696cc35ba08ec794dad640813ce}
+
+
+Definition at line 177 of file umoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a8c59a696cc35ba08ec794dad640813ce_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_ad087ed7af13a2f61c9e21b8fb77c54c1}{\index{umoon.\-c@{umoon.\-c}!moon\-S\-Vis@{moon\-S\-Vis}}
+\index{moon\-S\-Vis@{moon\-S\-Vis}!umoon.c@{umoon.\-c}}
+\subsubsection[{moon\-S\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-S\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{uop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_ad087ed7af13a2f61c9e21b8fb77c54c1}
+
+
+Definition at line 196 of file umoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_ad087ed7af13a2f61c9e21b8fb77c54c1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a19ecd675d37ed2f2e04952995de8a5fe}{\index{umoon.\-c@{umoon.\-c}!moon\-Trans@{moon\-Trans}}
+\index{moon\-Trans@{moon\-Trans}!umoon.c@{umoon.\-c}}
+\subsubsection[{moon\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-Trans (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a19ecd675d37ed2f2e04952995de8a5fe}
+
+
+Definition at line 258 of file umoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a19ecd675d37ed2f2e04952995de8a5fe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a24dbedc846ded0bdb0c3f7008341229c}{\index{umoon.\-c@{umoon.\-c}!uranus\-\_\-data@{uranus\-\_\-data}}
+\index{uranus\-\_\-data@{uranus\-\_\-data}!umoon.c@{umoon.\-c}}
+\subsubsection[{uranus\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void uranus\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{double}]{Mjd, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{uop, }
+\item[{double $\ast$}]{sizep, }
+\item[{double $\ast$}]{polera, }
+\item[{double $\ast$}]{poledec, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{umoon_8c_a24dbedc846ded0bdb0c3f7008341229c}
+
+
+Definition at line 43 of file umoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a24dbedc846ded0bdb0c3f7008341229c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a24dbedc846ded0bdb0c3f7008341229c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a1d6d94b1923bb08aae8b61a80aaa84ff}{\index{umoon.\-c@{umoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!umoon.c@{umoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{jd, }
+\item[{char $\ast$}]{dir, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a1d6d94b1923bb08aae8b61a80aaa84ff}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{umoon_8c_a1d6d94b1923bb08aae8b61a80aaa84ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{umoon_8c_a5f6d4f108d6eb3bec1b3e60b72218e22}{\index{umoon.\-c@{umoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!umoon.c@{umoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-U\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a5f6d4f108d6eb3bec1b3e60b72218e22}
+
+
+Definition at line 118 of file umoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{umoon_8c_a5f6d4f108d6eb3bec1b3e60b72218e22_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{umoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{\index{umoon.\-c@{umoon.\-c}!mdmjd@{mdmjd}}
+\index{mdmjd@{mdmjd}!umoon.c@{umoon.\-c}}
+\subsubsection[{mdmjd}]{\setlength{\rightskip}{0pt plus 5cm}double mdmjd = -\/123456\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}
+
+
+Definition at line 20 of file umoon.\-c.
+
+\hypertarget{umoon_8c_ae037a79cb31f056d04153837887f5813}{\index{umoon.\-c@{umoon.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!umoon.c@{umoon.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf umoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-10 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 270 of file umoon.\-c.
+
+\hypertarget{umoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{\index{umoon.\-c@{umoon.\-c}!sizemjd@{sizemjd}}
+\index{sizemjd@{sizemjd}!umoon.c@{umoon.\-c}}
+\subsubsection[{sizemjd}]{\setlength{\rightskip}{0pt plus 5cm}double sizemjd\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_ab8ab7b4495f6c38e333b804d69144a89}
+
+
+Definition at line 29 of file umoon.\-c.
+
+\hypertarget{umoon_8c_af1cf25acbc325ca54d9a2f73f7f9f9d1}{\index{umoon.\-c@{umoon.\-c}!umd@{umd}}
+\index{umd@{umd}!umoon.c@{umoon.\-c}}
+\subsubsection[{umd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Moon\-Data} umd\mbox{[}{\bf U\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{umoon_8c_af1cf25acbc325ca54d9a2f73f7f9f9d1}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"Uranus"}, NULL\},
+    \{\textcolor{stringliteral}{"Ariel"}, \textcolor{stringliteral}{"I"}\},
+    \{\textcolor{stringliteral}{"Umbriel"}, \textcolor{stringliteral}{"II"}\},
+    \{\textcolor{stringliteral}{"Titania"}, \textcolor{stringliteral}{"III"}\},
+    \{\textcolor{stringliteral}{"Oberon"}, \textcolor{stringliteral}{"IV"}\},
+    \{\textcolor{stringliteral}{"Miranda"}, \textcolor{stringliteral}{"V"}\},
+\}
+\end{DoxyCode}
+
+
+Definition at line 21 of file umoon.\-c.
+

@@ -1,0 +1,11 @@
+<map id="saturn_data" name="saturn_data">
+<area shape="rect" id="node2" href="$astro_8h.html#a9c0ca5565dae34b08d33a8b63c18ebe2" title="satrings" alt="" coords="165,5,233,33"/>
+<area shape="rect" id="node3" href="$satmoon_8c.html#a89134b7574d62c5bd67ae205294186c4" title="use_bdl" alt="" coords="165,57,233,85"/>
+<area shape="rect" id="node4" href="$satmoon_8c.html#abf3045a92f0bcd728775d9edf82b1e31" title="bruton_saturn" alt="" coords="147,109,250,137"/>
+<area shape="rect" id="node5" href="$satmoon_8c.html#af87bd42fb6db114a2e1e2cde5bf789ad" title="moonSVis" alt="" coords="158,161,240,189"/>
+<area shape="rect" id="node6" href="$satmoon_8c.html#a50631251333df4870ac80c97139cd686" title="moonPShad" alt="" coords="151,213,246,241"/>
+<area shape="rect" id="node8" href="$satmoon_8c.html#a7a5f542a2fe6889bbc7cfb246059b968" title="moonEVis" alt="" coords="158,265,240,293"/>
+<area shape="rect" id="node9" href="$satmoon_8c.html#ac01aad6b4dcb43b07a9a5334a9d2138e" title="moonTrans" alt="" coords="155,317,243,345"/>
+<area shape="rect" id="node10" href="$satmoon_8c.html#a39736daddc2d64ad62e800ce73b5b949" title="moonradec" alt="" coords="155,369,243,397"/>
+<area shape="rect" id="node7" href="$astro_8h.html#a260684a186196c6eb829f4f9dfe358c0" title="plshadow" alt="" coords="298,213,376,241"/>
+</map>

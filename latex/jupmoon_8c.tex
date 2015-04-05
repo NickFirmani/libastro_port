@@ -1,0 +1,419 @@
+\hypertarget{jupmoon_8c}{\section{libastro/jupmoon.c File Reference}
+\label{jupmoon_8c}\index{libastro/jupmoon.\-c@{libastro/jupmoon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bdl.\-h\char`\"{}}\\*
+Include dependency graph for jupmoon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{jupmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{P\-O\-L\-E\-\_\-\-R\-A}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(268.\-05)	 /$\ast$ R\-A of Jupiter's north pole $\ast$/
+\item 
+\#define \hyperlink{jupmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{P\-O\-L\-E\-\_\-\-D\-E\-C}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(64.\-50)		/$\ast$ Dec of Jupiter's north pole $\ast$/
+\item 
+\#define \hyperlink{jupmoon_8c_a02b5970fb30bcdd0fedb62f54dbf442a}{J\-U\-P\-R\-A\-U}~.\-0004769108	/$\ast$ jupiter radius, A\-U $\ast$/
+\item 
+\#define \hyperlink{jupmoon_8c_a21f12547076a01c64d80b01904dc1ee9}{dsin}(x)~sin(\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(x))
+\item 
+\#define \hyperlink{jupmoon_8c_abde757cf04fd623e837d047bf53ec15b}{dcos}(x)~cos(\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(x))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{jupmoon_8c_a363aa7b4b034d8fef73c58b88e9635b4}{use\-\_\-bdl} (double jd, char $\ast$dir, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_a6a34bd9cfe6d6e003ed5d9b795a45cf2}{meeus\-\_\-jupiter} (double d, double $\ast$cml\-I, double $\ast$cml\-I\-I, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_a3118f284248e6cfb9e51dc42355551ea}{moonradec} (double jupsize, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_a233175cb9ac979465a5cbf3e99d02414}{moon\-S\-Vis} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$jop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_ae0a54aac22ead72aa9a21ee06d6d6b7c}{moon\-E\-Vis} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_a42d3fa802be3207caedae42328431ad9}{moon\-P\-Shad} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$jop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{jupmoon_8c_a02fe88398aa81552fd5623d6931ce6b0}{moon\-Trans} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+void \hyperlink{jupmoon_8c_ac9c4fd29e19e9d565aaa282773623a67}{jupiter\-\_\-data} (double Mjd, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$jop, double $\ast$sizep, double $\ast$cml\-I, double $\ast$cml\-I\-I, double $\ast$polera, double $\ast$poledec, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static int \hyperlink{jupmoon_8c_a3fe0eb1f7e2b5e4e418b6b43e8dc7ca8}{use\-\_\-bdl} (double J\-D, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{jupmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{mdmjd} = -\/123456
+\item 
+static \hyperlink{struct_moon_data}{Moon\-Data} \hyperlink{jupmoon_8c_afe0f0e79d91fc9dfc952a12ce938ec62}{jmd} \mbox{[}\hyperlink{astro_8h_a68d8fcc7d6fb107812e1afbb4100a61fac735d88505905bf3ba8309a38e0ae7ef}{J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}
+\item 
+static double \hyperlink{jupmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{sizemjd}
+\item 
+static double \hyperlink{jupmoon_8c_a886504e6b0ff9f1a9dc99e2c277520ea}{cml\-Imjd}
+\item 
+static double \hyperlink{jupmoon_8c_ace9022cd2d6939e87a12f733b8e1da6f}{cml\-I\-Imjd}
+\item 
+static char $\ast$ \hyperlink{jupmoon_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{jupmoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-7 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{jupmoon_8c_abde757cf04fd623e837d047bf53ec15b}{\index{jupmoon.\-c@{jupmoon.\-c}!dcos@{dcos}}
+\index{dcos@{dcos}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{dcos}]{\setlength{\rightskip}{0pt plus 5cm}\#define dcos(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~cos({\bf degrad}(x))}}\label{jupmoon_8c_abde757cf04fd623e837d047bf53ec15b}
+\hypertarget{jupmoon_8c_a21f12547076a01c64d80b01904dc1ee9}{\index{jupmoon.\-c@{jupmoon.\-c}!dsin@{dsin}}
+\index{dsin@{dsin}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{dsin}]{\setlength{\rightskip}{0pt plus 5cm}\#define dsin(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~sin({\bf degrad}(x))}}\label{jupmoon_8c_a21f12547076a01c64d80b01904dc1ee9}
+\hypertarget{jupmoon_8c_a02b5970fb30bcdd0fedb62f54dbf442a}{\index{jupmoon.\-c@{jupmoon.\-c}!J\-U\-P\-R\-A\-U@{J\-U\-P\-R\-A\-U}}
+\index{J\-U\-P\-R\-A\-U@{J\-U\-P\-R\-A\-U}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{J\-U\-P\-R\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define J\-U\-P\-R\-A\-U~.\-0004769108	/$\ast$ jupiter radius, A\-U $\ast$/}}\label{jupmoon_8c_a02b5970fb30bcdd0fedb62f54dbf442a}
+\hypertarget{jupmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{\index{jupmoon.\-c@{jupmoon.\-c}!P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}}
+\index{P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-D\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-D\-E\-C~{\bf degrad}(64.\-50)		/$\ast$ Dec of Jupiter's north pole $\ast$/}}\label{jupmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}
+
+
+Definition at line 38 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{\index{jupmoon.\-c@{jupmoon.\-c}!P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}}
+\index{P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-R\-A~{\bf degrad}(268.\-05)	 /$\ast$ R\-A of Jupiter's north pole $\ast$/}}\label{jupmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}
+
+
+Definition at line 37 of file jupmoon.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{jupmoon_8c_ac9c4fd29e19e9d565aaa282773623a67}{\index{jupmoon.\-c@{jupmoon.\-c}!jupiter\-\_\-data@{jupiter\-\_\-data}}
+\index{jupiter\-\_\-data@{jupiter\-\_\-data}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{jupiter\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void jupiter\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{double}]{Mjd, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{jop, }
+\item[{double $\ast$}]{sizep, }
+\item[{double $\ast$}]{cml\-I, }
+\item[{double $\ast$}]{cml\-I\-I, }
+\item[{double $\ast$}]{polera, }
+\item[{double $\ast$}]{poledec, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{jupmoon_8c_ac9c4fd29e19e9d565aaa282773623a67}
+
+
+Definition at line 47 of file jupmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_ac9c4fd29e19e9d565aaa282773623a67_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_ac9c4fd29e19e9d565aaa282773623a67_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a6a34bd9cfe6d6e003ed5d9b795a45cf2}{\index{jupmoon.\-c@{jupmoon.\-c}!meeus\-\_\-jupiter@{meeus\-\_\-jupiter}}
+\index{meeus\-\_\-jupiter@{meeus\-\_\-jupiter}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{meeus\-\_\-jupiter}]{\setlength{\rightskip}{0pt plus 5cm}static void meeus\-\_\-jupiter (
+\begin{DoxyParamCaption}
+\item[{double}]{d, }
+\item[{double $\ast$}]{cml\-I, }
+\item[{double $\ast$}]{cml\-I\-I, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a6a34bd9cfe6d6e003ed5d9b795a45cf2}
+
+
+Definition at line 186 of file jupmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{jupmoon_8c_a6a34bd9cfe6d6e003ed5d9b795a45cf2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a6a34bd9cfe6d6e003ed5d9b795a45cf2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_ae0a54aac22ead72aa9a21ee06d6d6b7c}{\index{jupmoon.\-c@{jupmoon.\-c}!moon\-E\-Vis@{moon\-E\-Vis}}
+\index{moon\-E\-Vis@{moon\-E\-Vis}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{moon\-E\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-E\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_ae0a54aac22ead72aa9a21ee06d6d6b7c}
+
+
+Definition at line 350 of file jupmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_ae0a54aac22ead72aa9a21ee06d6d6b7c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a42d3fa802be3207caedae42328431ad9}{\index{jupmoon.\-c@{jupmoon.\-c}!moon\-P\-Shad@{moon\-P\-Shad}}
+\index{moon\-P\-Shad@{moon\-P\-Shad}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{moon\-P\-Shad}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-P\-Shad (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{jop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a42d3fa802be3207caedae42328431ad9}
+
+
+Definition at line 364 of file jupmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{jupmoon_8c_a42d3fa802be3207caedae42328431ad9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a42d3fa802be3207caedae42328431ad9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a3118f284248e6cfb9e51dc42355551ea}{\index{jupmoon.\-c@{jupmoon.\-c}!moonradec@{moonradec}}
+\index{moonradec@{moonradec}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{moonradec}]{\setlength{\rightskip}{0pt plus 5cm}static void moonradec (
+\begin{DoxyParamCaption}
+\item[{double}]{jupsize, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a3118f284248e6cfb9e51dc42355551ea}
+
+
+Definition at line 299 of file jupmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a3118f284248e6cfb9e51dc42355551ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a233175cb9ac979465a5cbf3e99d02414}{\index{jupmoon.\-c@{jupmoon.\-c}!moon\-S\-Vis@{moon\-S\-Vis}}
+\index{moon\-S\-Vis@{moon\-S\-Vis}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{moon\-S\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-S\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{jop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a233175cb9ac979465a5cbf3e99d02414}
+
+
+Definition at line 318 of file jupmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a233175cb9ac979465a5cbf3e99d02414_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a02fe88398aa81552fd5623d6931ce6b0}{\index{jupmoon.\-c@{jupmoon.\-c}!moon\-Trans@{moon\-Trans}}
+\index{moon\-Trans@{moon\-Trans}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{moon\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-Trans (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a02fe88398aa81552fd5623d6931ce6b0}
+
+
+Definition at line 380 of file jupmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a02fe88398aa81552fd5623d6931ce6b0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a363aa7b4b034d8fef73c58b88e9635b4}{\index{jupmoon.\-c@{jupmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{jd, }
+\item[{char $\ast$}]{dir, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a363aa7b4b034d8fef73c58b88e9635b4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jupmoon_8c_a363aa7b4b034d8fef73c58b88e9635b4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jupmoon_8c_a3fe0eb1f7e2b5e4e418b6b43e8dc7ca8}{\index{jupmoon.\-c@{jupmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-J\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a3fe0eb1f7e2b5e4e418b6b43e8dc7ca8}
+
+
+Definition at line 125 of file jupmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{jupmoon_8c_a3fe0eb1f7e2b5e4e418b6b43e8dc7ca8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{jupmoon_8c_ace9022cd2d6939e87a12f733b8e1da6f}{\index{jupmoon.\-c@{jupmoon.\-c}!cml\-I\-Imjd@{cml\-I\-Imjd}}
+\index{cml\-I\-Imjd@{cml\-I\-Imjd}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{cml\-I\-Imjd}]{\setlength{\rightskip}{0pt plus 5cm}double cml\-I\-Imjd\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_ace9022cd2d6939e87a12f733b8e1da6f}
+
+
+Definition at line 32 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_a886504e6b0ff9f1a9dc99e2c277520ea}{\index{jupmoon.\-c@{jupmoon.\-c}!cml\-Imjd@{cml\-Imjd}}
+\index{cml\-Imjd@{cml\-Imjd}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{cml\-Imjd}]{\setlength{\rightskip}{0pt plus 5cm}double cml\-Imjd\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a886504e6b0ff9f1a9dc99e2c277520ea}
+
+
+Definition at line 31 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_afe0f0e79d91fc9dfc952a12ce938ec62}{\index{jupmoon.\-c@{jupmoon.\-c}!jmd@{jmd}}
+\index{jmd@{jmd}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{jmd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Moon\-Data} jmd\mbox{[}{\bf J\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_afe0f0e79d91fc9dfc952a12ce938ec62}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"Jupiter"}, NULL\},
+    \{\textcolor{stringliteral}{"Io"}, \textcolor{stringliteral}{"I"}\},
+    \{\textcolor{stringliteral}{"Europa"}, \textcolor{stringliteral}{"II"}\},
+    \{\textcolor{stringliteral}{"Ganymede"}, \textcolor{stringliteral}{"III"}\},
+    \{\textcolor{stringliteral}{"Callisto"}, \textcolor{stringliteral}{"IV"}\}
+\}
+\end{DoxyCode}
+
+
+Definition at line 23 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{\index{jupmoon.\-c@{jupmoon.\-c}!mdmjd@{mdmjd}}
+\index{mdmjd@{mdmjd}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{mdmjd}]{\setlength{\rightskip}{0pt plus 5cm}double mdmjd = -\/123456\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}
+
+
+Definition at line 22 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_ae037a79cb31f056d04153837887f5813}{\index{jupmoon.\-c@{jupmoon.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf jupmoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-7 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 391 of file jupmoon.\-c.
+
+\hypertarget{jupmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{\index{jupmoon.\-c@{jupmoon.\-c}!sizemjd@{sizemjd}}
+\index{sizemjd@{sizemjd}!jupmoon.c@{jupmoon.\-c}}
+\subsubsection[{sizemjd}]{\setlength{\rightskip}{0pt plus 5cm}double sizemjd\hspace{0.3cm}{\ttfamily [static]}}}\label{jupmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}
+
+
+Definition at line 30 of file jupmoon.\-c.
+

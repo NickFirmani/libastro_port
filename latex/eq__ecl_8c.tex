@@ -1,0 +1,183 @@
+\hypertarget{eq__ecl_8c}{\section{libastro/eq\-\_\-ecl.c File Reference}
+\label{eq__ecl_8c}\index{libastro/eq\-\_\-ecl.\-c@{libastro/eq\-\_\-ecl.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for eq\-\_\-ecl.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{eq__ecl_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eq__ecl_8c_a666ef2ca74cedbd16dea418e46884cff}{E\-Qto\-E\-C\-L}~1
+\item 
+\#define \hyperlink{eq__ecl_8c_ae3fa176cccac1b3d00384e98427c674a}{E\-C\-Lto\-E\-Q}~(-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{eq__ecl_8c_ab94e450cc69df2ce80350d2353c4b959}{ecleq\-\_\-aux} (int sw, double mj, double x, double y, double $\ast$p, double $\ast$q)
+\item 
+void \hyperlink{eq__ecl_8c_a55d1f452cc97d89ed1ccbcf068dd56c0}{eq\-\_\-ecl} (double mj, double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, double $\ast$lt, double $\ast$lg)
+\item 
+void \hyperlink{eq__ecl_8c_ae39e9d995dbc7ce237baf07f81d4acb0}{ecl\-\_\-eq} (double mj, double lt, double lg, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{eq__ecl_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{eq\-\_\-ecl.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eq__ecl_8c_ae3fa176cccac1b3d00384e98427c674a}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!E\-C\-Lto\-E\-Q@{E\-C\-Lto\-E\-Q}}
+\index{E\-C\-Lto\-E\-Q@{E\-C\-Lto\-E\-Q}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{E\-C\-Lto\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-C\-Lto\-E\-Q~(-\/1)}}\label{eq__ecl_8c_ae3fa176cccac1b3d00384e98427c674a}
+
+
+Definition at line 10 of file eq\-\_\-ecl.\-c.
+
+\hypertarget{eq__ecl_8c_a666ef2ca74cedbd16dea418e46884cff}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!E\-Qto\-E\-C\-L@{E\-Qto\-E\-C\-L}}
+\index{E\-Qto\-E\-C\-L@{E\-Qto\-E\-C\-L}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{E\-Qto\-E\-C\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-Qto\-E\-C\-L~1}}\label{eq__ecl_8c_a666ef2ca74cedbd16dea418e46884cff}
+
+
+Definition at line 9 of file eq\-\_\-ecl.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{eq__ecl_8c_ae39e9d995dbc7ce237baf07f81d4acb0}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!ecl\-\_\-eq@{ecl\-\_\-eq}}
+\index{ecl\-\_\-eq@{ecl\-\_\-eq}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{ecl\-\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}void ecl\-\_\-eq (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{lt, }
+\item[{double}]{lg, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{eq__ecl_8c_ae39e9d995dbc7ce237baf07f81d4acb0}
+
+
+Definition at line 32 of file eq\-\_\-ecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{eq__ecl_8c_ae39e9d995dbc7ce237baf07f81d4acb0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eq__ecl_8c_ae39e9d995dbc7ce237baf07f81d4acb0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eq__ecl_8c_ab94e450cc69df2ce80350d2353c4b959}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!ecleq\-\_\-aux@{ecleq\-\_\-aux}}
+\index{ecleq\-\_\-aux@{ecleq\-\_\-aux}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{ecleq\-\_\-aux}]{\setlength{\rightskip}{0pt plus 5cm}static void ecleq\-\_\-aux (
+\begin{DoxyParamCaption}
+\item[{int}]{sw, }
+\item[{double}]{mj, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double $\ast$}]{p, }
+\item[{double $\ast$}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__ecl_8c_ab94e450cc69df2ce80350d2353c4b959}
+
+
+Definition at line 38 of file eq\-\_\-ecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{eq__ecl_8c_ab94e450cc69df2ce80350d2353c4b959_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eq__ecl_8c_ab94e450cc69df2ce80350d2353c4b959_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eq__ecl_8c_a55d1f452cc97d89ed1ccbcf068dd56c0}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!eq\-\_\-ecl@{eq\-\_\-ecl}}
+\index{eq\-\_\-ecl@{eq\-\_\-ecl}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{eq\-\_\-ecl}]{\setlength{\rightskip}{0pt plus 5cm}void eq\-\_\-ecl (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double}]{ra, }
+\item[{double}]{dec, }
+\item[{double $\ast$}]{lt, }
+\item[{double $\ast$}]{lg}
+\end{DoxyParamCaption}
+)}}\label{eq__ecl_8c_a55d1f452cc97d89ed1ccbcf068dd56c0}
+
+
+Definition at line 20 of file eq\-\_\-ecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{eq__ecl_8c_a55d1f452cc97d89ed1ccbcf068dd56c0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eq__ecl_8c_a55d1f452cc97d89ed1ccbcf068dd56c0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{eq__ecl_8c_ae037a79cb31f056d04153837887f5813}{\index{eq\-\_\-ecl.\-c@{eq\-\_\-ecl.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!eq_ecl.c@{eq\-\_\-ecl.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf eq\-\_\-ecl.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{eq__ecl_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 72 of file eq\-\_\-ecl.\-c.
+

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['g1plan',['g1plan',['../moon_8c.html#af4e585c250ee56f383003df5de4268d3',1,'moon.c']]],
+  ['g2plan',['g2plan',['../moon_8c.html#add1144567e6b52d997b43ee60229acb1',1,'g2plan(double J, struct plantbl *plan, double *pobj, int flag):&#160;moon.c'],['../moon_8c.html#ac95b909e062b213590c7bc1c4ac8b900',1,'g2plan(double J, struct plantbl *plan, double pobj[], int flag):&#160;moon.c']]],
+  ['gal_5feq',['gal_eq',['../astro_8h.html#a2c1a6a7369f932ae047ea0f6b54ef12a',1,'gal_eq(double m, double lt, double lg, double *ra, double *dec):&#160;eq_gal.c'],['../eq__gal_8c.html#a4af420eaf36a9b946d445b26bb1aa90c',1,'gal_eq(double mj, double lt, double lg, double *ra, double *dec):&#160;eq_gal.c']]],
+  ['galeq_5faux',['galeq_aux',['../eq__gal_8c.html#adf8c30860ed84095d96835c19cd60c81',1,'eq_gal.c']]],
+  ['galeq_5finit',['galeq_init',['../eq__gal_8c.html#a5862050738a8529c167fc673bfdcd50d',1,'eq_gal.c']]],
+  ['gecmoon',['gecmoon',['../moon_8c.html#abd50f88e282e35791a8ec43542d739e0',1,'gecmoon(double J, struct plantbl *lrtab, struct plantbl *lattab, double *pobj):&#160;moon.c'],['../moon_8c.html#a6b041ad920076306d172e64d6be163cf',1,'gecmoon(double J, struct plantbl *lrtab, struct plantbl *lattab, double pobj[]):&#160;moon.c']]],
+  ['geomag',['geomag',['../magdecl_8c.html#a853ba2eb9b7cd078844f60b12a927d2d',1,'magdecl.c']]],
+  ['geomg1',['geomg1',['../magdecl_8c.html#a4a92c8e017bbdff326efe067af9ce01c',1,'magdecl.c']]],
+  ['get_5ffields',['get_fields',['../astro_8h.html#af9cb216dc50fbdba951f4dbe7f4c098e',1,'get_fields(char *s, int delim, char *fields[]):&#160;dbfmt.c'],['../dbfmt_8c.html#af9cb216dc50fbdba951f4dbe7f4c098e',1,'get_fields(char *s, int delim, char *fields[]):&#160;dbfmt.c']]],
+  ['get_5fokdates',['get_okdates',['../dbfmt_8c.html#a6d7870458b7aaeeaf09f9443334e7619',1,'dbfmt.c']]],
+  ['getbearings',['GetBearings',['../earthsat_8c.html#a7b575639753d8b194ddf29ea7a98bc02',1,'earthsat.c']]],
+  ['getbuiltinobjs',['getBuiltInObjs',['../astro_8h.html#a402a3716f4b9767a1503543aa416bc10',1,'getBuiltInObjs(Obj **opp):&#160;plmoon.c'],['../plmoon_8c.html#a402a3716f4b9767a1503543aa416bc10',1,'getBuiltInObjs(Obj **opp):&#160;plmoon.c']]],
+  ['getrange',['GetRange',['../earthsat_8c.html#affbbd08603375ebf32cfe64cee26b567',1,'earthsat.c']]],
+  ['getsatelliteparams',['GetSatelliteParams',['../earthsat_8c.html#a67d1bce8693822fae12a1212366e2509',1,'earthsat.c']]],
+  ['getsatposition',['GetSatPosition',['../earthsat_8c.html#a2ee73cc32016dff700f6a220961c91fd',1,'earthsat.c']]],
+  ['getsiteparams',['GetSiteParams',['../earthsat_8c.html#a4d31f9d276b42b2a64839b681b18226a',1,'earthsat.c']]],
+  ['getsitposition',['GetSitPosition',['../earthsat_8c.html#aaee68dd9a6be2cf2ce4d407fadcd1854',1,'earthsat.c']]],
+  ['getsubsatpoint',['GetSubSatPoint',['../earthsat_8c.html#ad2c83cef6ceaa0b65ba31eb5c1627c1f',1,'earthsat.c']]],
+  ['gettopocentric',['GetTopocentric',['../earthsat_8c.html#a24358fa929cc2abd3bf25a715c863b8f',1,'earthsat.c']]],
+  ['gha',['gha',['../astro_8h.html#a6efd883b3f96c6bc244d5da7fe50e8f8',1,'gha(Now *np, Obj *op, double *ghap):&#160;misc.c'],['../misc_8c.html#a6efd883b3f96c6bc244d5da7fe50e8f8',1,'gha(Now *np, Obj *op, double *ghap):&#160;misc.c']]],
+  ['gk_5fmag',['gk_mag',['../astro_8h.html#a5e139c87095944a279aaded2b007dc0f',1,'gk_mag(double g, double k, double rp, double rho, double *mp):&#160;misc.c'],['../misc_8c.html#a5e139c87095944a279aaded2b007dc0f',1,'gk_mag(double g, double k, double rp, double rho, double *mp):&#160;misc.c']]],
+  ['gmst0',['gmst0',['../utc__gst_8c.html#a62e6028d24b07f0dfeb1f8a171eb56bd',1,'utc_gst.c']]],
+  ['gplan',['gplan',['../libration_8c.html#ad3909906b99a9c0258063e23ef79e474',1,'libration.c']]],
+  ['gst_5futc',['gst_utc',['../astro_8h.html#a948bae37b3103770aaeb0b98b919449c',1,'gst_utc(double m, double gst, double *utc):&#160;utc_gst.c'],['../utc__gst_8c.html#a30695025e8fedaa5f43ddac3131fedc0',1,'gst_utc(double mj, double gst, double *utc):&#160;utc_gst.c']]]
+];

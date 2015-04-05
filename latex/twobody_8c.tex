@@ -1,0 +1,336 @@
+\hypertarget{twobody_8c}{\section{libastro/twobody.c File Reference}
+\label{twobody_8c}\index{libastro/twobody.\-c@{libastro/twobody.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+Include dependency graph for twobody.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{twobody_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{twobody_8c_a002b2f4894492820fe708b1b7e7c5e70}{E\-P\-S\-I\-L\-O\-N}~3\-E-\/8
+\item 
+\#define \hyperlink{twobody_8c_a956e2723d559858d08644ac99146e910}{I\-N\-F\-I\-N\-I\-T\-Y}~1\-E+10
+\item 
+\#define \hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I}~3.\-14159265358979323846
+\item 
+\#define \hyperlink{twobody_8c_a0e4b7f46121b1e51bb52ac02671598e4}{R\-A\-D\-E\-G}~( 180.\-0 / \hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I} )
+\item 
+\#define \hyperlink{twobody_8c_ac377a5fa64fdef02d0048cf0e27aca2c}{D\-E\-G\-R\-A\-D}~( \hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I} / 180.\-0 )
+\item 
+\#define \hyperlink{twobody_8c_ad0827f80a4727ba1e433b37a59b61571}{sind}(x)~sin(x$\ast$\hyperlink{twobody_8c_ac377a5fa64fdef02d0048cf0e27aca2c}{D\-E\-G\-R\-A\-D})
+\item 
+\#define \hyperlink{twobody_8c_a1625c90afe10ff713ffaa43a64e137ad}{cosd}(x)~cos(x$\ast$\hyperlink{twobody_8c_ac377a5fa64fdef02d0048cf0e27aca2c}{D\-E\-G\-R\-A\-D})
+\item 
+\#define \hyperlink{twobody_8c_aa7e632ef989b90ae1f316c7aa7e3d285}{atand}(x)~(\hyperlink{twobody_8c_a0e4b7f46121b1e51bb52ac02671598e4}{R\-A\-D\-E\-G}$\ast$atan(x))
+\item 
+\#define \hyperlink{twobody_8c_a53d5f059d22537584b94fa671ec91cb1}{atan2d}(y, x)~(\hyperlink{twobody_8c_a0e4b7f46121b1e51bb52ac02671598e4}{R\-A\-D\-E\-G}$\ast$atan2(y,x))
+\item 
+\#define \hyperlink{twobody_8c_a97d832ae23af4f215e801e37e4f94254}{K}~1.\-720209895\-E-\/2
+\item 
+\#define \hyperlink{twobody_8c_ad4f9673d16d231643789f081068d2372}{K\-D}~( \hyperlink{twobody_8c_a97d832ae23af4f215e801e37e4f94254}{K} $\ast$ 180.\-0 / \hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I} )
+\item 
+\#define \hyperlink{twobody_8c_ab6d0e745059aded06587e4b6933bca0b}{K2}~( \hyperlink{twobody_8c_a97d832ae23af4f215e801e37e4f94254}{K} / 2.\-0 )
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{twobody_8c_ab574e81c2808a156d24e841526d6cc72}{cubroot} (double x)
+\item 
+static double \hyperlink{twobody_8c_a0683b427af69c45945f8536a90a35d13}{rev180} (double ang)
+\item 
+static double \hyperlink{twobody_8c_a3df88ee183e03fea8aa10b2750a858fb}{kepler} (double \hyperlink{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{m}, double ex)
+\item 
+static void \hyperlink{twobody_8c_ac26cc55b52962f80a4be80c8888c7406}{vr} (double $\ast$v, double $\ast$r, double \hyperlink{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{m}, double e, double a)
+\item 
+int \hyperlink{twobody_8c_ab9eea3f2a27e7d34c0806766dab7cce0}{vrc} (double $\ast$v, double $\ast$r, double tp, double e, double q)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{twobody_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{twobody.\-c},v \$ \$Date\-: 2004/04/20 04\-:17\-:08 \$ \$Revision\-: 1.\-3 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{twobody_8c_a53d5f059d22537584b94fa671ec91cb1}{\index{twobody.\-c@{twobody.\-c}!atan2d@{atan2d}}
+\index{atan2d@{atan2d}!twobody.c@{twobody.\-c}}
+\subsubsection[{atan2d}]{\setlength{\rightskip}{0pt plus 5cm}\#define atan2d(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~({\bf R\-A\-D\-E\-G}$\ast$atan2(y,x))}}\label{twobody_8c_a53d5f059d22537584b94fa671ec91cb1}
+
+
+Definition at line 39 of file twobody.\-c.
+
+\hypertarget{twobody_8c_aa7e632ef989b90ae1f316c7aa7e3d285}{\index{twobody.\-c@{twobody.\-c}!atand@{atand}}
+\index{atand@{atand}!twobody.c@{twobody.\-c}}
+\subsubsection[{atand}]{\setlength{\rightskip}{0pt plus 5cm}\#define atand(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~({\bf R\-A\-D\-E\-G}$\ast$atan(x))}}\label{twobody_8c_aa7e632ef989b90ae1f316c7aa7e3d285}
+
+
+Definition at line 38 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a1625c90afe10ff713ffaa43a64e137ad}{\index{twobody.\-c@{twobody.\-c}!cosd@{cosd}}
+\index{cosd@{cosd}!twobody.c@{twobody.\-c}}
+\subsubsection[{cosd}]{\setlength{\rightskip}{0pt plus 5cm}\#define cosd(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~cos(x$\ast${\bf D\-E\-G\-R\-A\-D})}}\label{twobody_8c_a1625c90afe10ff713ffaa43a64e137ad}
+
+
+Definition at line 37 of file twobody.\-c.
+
+\hypertarget{twobody_8c_ac377a5fa64fdef02d0048cf0e27aca2c}{\index{twobody.\-c@{twobody.\-c}!D\-E\-G\-R\-A\-D@{D\-E\-G\-R\-A\-D}}
+\index{D\-E\-G\-R\-A\-D@{D\-E\-G\-R\-A\-D}!twobody.c@{twobody.\-c}}
+\subsubsection[{D\-E\-G\-R\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-G\-R\-A\-D~( {\bf P\-I} / 180.\-0 )}}\label{twobody_8c_ac377a5fa64fdef02d0048cf0e27aca2c}
+
+
+Definition at line 33 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a002b2f4894492820fe708b1b7e7c5e70}{\index{twobody.\-c@{twobody.\-c}!E\-P\-S\-I\-L\-O\-N@{E\-P\-S\-I\-L\-O\-N}}
+\index{E\-P\-S\-I\-L\-O\-N@{E\-P\-S\-I\-L\-O\-N}!twobody.c@{twobody.\-c}}
+\subsubsection[{E\-P\-S\-I\-L\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-P\-S\-I\-L\-O\-N~3\-E-\/8}}\label{twobody_8c_a002b2f4894492820fe708b1b7e7c5e70}
+
+
+Definition at line 25 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a956e2723d559858d08644ac99146e910}{\index{twobody.\-c@{twobody.\-c}!I\-N\-F\-I\-N\-I\-T\-Y@{I\-N\-F\-I\-N\-I\-T\-Y}}
+\index{I\-N\-F\-I\-N\-I\-T\-Y@{I\-N\-F\-I\-N\-I\-T\-Y}!twobody.c@{twobody.\-c}}
+\subsubsection[{I\-N\-F\-I\-N\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-F\-I\-N\-I\-T\-Y~1\-E+10}}\label{twobody_8c_a956e2723d559858d08644ac99146e910}
+
+
+Definition at line 27 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a97d832ae23af4f215e801e37e4f94254}{\index{twobody.\-c@{twobody.\-c}!K@{K}}
+\index{K@{K}!twobody.c@{twobody.\-c}}
+\subsubsection[{K}]{\setlength{\rightskip}{0pt plus 5cm}\#define K~1.\-720209895\-E-\/2}}\label{twobody_8c_a97d832ae23af4f215e801e37e4f94254}
+
+
+Definition at line 42 of file twobody.\-c.
+
+\hypertarget{twobody_8c_ab6d0e745059aded06587e4b6933bca0b}{\index{twobody.\-c@{twobody.\-c}!K2@{K2}}
+\index{K2@{K2}!twobody.c@{twobody.\-c}}
+\subsubsection[{K2}]{\setlength{\rightskip}{0pt plus 5cm}\#define K2~( {\bf K} / 2.\-0 )}}\label{twobody_8c_ab6d0e745059aded06587e4b6933bca0b}
+
+
+Definition at line 44 of file twobody.\-c.
+
+\hypertarget{twobody_8c_ad4f9673d16d231643789f081068d2372}{\index{twobody.\-c@{twobody.\-c}!K\-D@{K\-D}}
+\index{K\-D@{K\-D}!twobody.c@{twobody.\-c}}
+\subsubsection[{K\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-D~( {\bf K} $\ast$ 180.\-0 / {\bf P\-I} )}}\label{twobody_8c_ad4f9673d16d231643789f081068d2372}
+
+
+Definition at line 43 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{\index{twobody.\-c@{twobody.\-c}!P\-I@{P\-I}}
+\index{P\-I@{P\-I}!twobody.c@{twobody.\-c}}
+\subsubsection[{P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I~3.\-14159265358979323846}}\label{twobody_8c_a598a3330b3c21701223ee0ca14316eca}
+
+
+Definition at line 31 of file twobody.\-c.
+
+\hypertarget{twobody_8c_a0e4b7f46121b1e51bb52ac02671598e4}{\index{twobody.\-c@{twobody.\-c}!R\-A\-D\-E\-G@{R\-A\-D\-E\-G}}
+\index{R\-A\-D\-E\-G@{R\-A\-D\-E\-G}!twobody.c@{twobody.\-c}}
+\subsubsection[{R\-A\-D\-E\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-D\-E\-G~( 180.\-0 / {\bf P\-I} )}}\label{twobody_8c_a0e4b7f46121b1e51bb52ac02671598e4}
+
+
+Definition at line 32 of file twobody.\-c.
+
+\hypertarget{twobody_8c_ad0827f80a4727ba1e433b37a59b61571}{\index{twobody.\-c@{twobody.\-c}!sind@{sind}}
+\index{sind@{sind}!twobody.c@{twobody.\-c}}
+\subsubsection[{sind}]{\setlength{\rightskip}{0pt plus 5cm}\#define sind(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~sin(x$\ast${\bf D\-E\-G\-R\-A\-D})}}\label{twobody_8c_ad0827f80a4727ba1e433b37a59b61571}
+
+
+Definition at line 36 of file twobody.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{twobody_8c_ab574e81c2808a156d24e841526d6cc72}{\index{twobody.\-c@{twobody.\-c}!cubroot@{cubroot}}
+\index{cubroot@{cubroot}!twobody.c@{twobody.\-c}}
+\subsubsection[{cubroot}]{\setlength{\rightskip}{0pt plus 5cm}static double cubroot (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{twobody_8c_ab574e81c2808a156d24e841526d6cc72}
+
+
+Definition at line 49 of file twobody.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_ab574e81c2808a156d24e841526d6cc72_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{twobody_8c_a3df88ee183e03fea8aa10b2750a858fb}{\index{twobody.\-c@{twobody.\-c}!kepler@{kepler}}
+\index{kepler@{kepler}!twobody.c@{twobody.\-c}}
+\subsubsection[{kepler}]{\setlength{\rightskip}{0pt plus 5cm}static double kepler (
+\begin{DoxyParamCaption}
+\item[{double}]{m, }
+\item[{double}]{ex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{twobody_8c_a3df88ee183e03fea8aa10b2750a858fb}
+
+
+Definition at line 73 of file twobody.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{twobody_8c_a3df88ee183e03fea8aa10b2750a858fb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_a3df88ee183e03fea8aa10b2750a858fb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{twobody_8c_a0683b427af69c45945f8536a90a35d13}{\index{twobody.\-c@{twobody.\-c}!rev180@{rev180}}
+\index{rev180@{rev180}!twobody.c@{twobody.\-c}}
+\subsubsection[{rev180}]{\setlength{\rightskip}{0pt plus 5cm}static double rev180 (
+\begin{DoxyParamCaption}
+\item[{double}]{ang}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{twobody_8c_a0683b427af69c45945f8536a90a35d13}
+
+
+Definition at line 65 of file twobody.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_a0683b427af69c45945f8536a90a35d13_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{twobody_8c_ac26cc55b52962f80a4be80c8888c7406}{\index{twobody.\-c@{twobody.\-c}!vr@{vr}}
+\index{vr@{vr}!twobody.c@{twobody.\-c}}
+\subsubsection[{vr}]{\setlength{\rightskip}{0pt plus 5cm}static void vr (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{v, }
+\item[{double $\ast$}]{r, }
+\item[{double}]{m, }
+\item[{double}]{e, }
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{twobody_8c_ac26cc55b52962f80a4be80c8888c7406}
+
+
+Definition at line 110 of file twobody.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{twobody_8c_ac26cc55b52962f80a4be80c8888c7406_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_ac26cc55b52962f80a4be80c8888c7406_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{twobody_8c_ab9eea3f2a27e7d34c0806766dab7cce0}{\index{twobody.\-c@{twobody.\-c}!vrc@{vrc}}
+\index{vrc@{vrc}!twobody.c@{twobody.\-c}}
+\subsubsection[{vrc}]{\setlength{\rightskip}{0pt plus 5cm}int vrc (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{v, }
+\item[{double $\ast$}]{r, }
+\item[{double}]{tp, }
+\item[{double}]{e, }
+\item[{double}]{q}
+\end{DoxyParamCaption}
+)}}\label{twobody_8c_ab9eea3f2a27e7d34c0806766dab7cce0}
+
+
+Definition at line 131 of file twobody.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_ab9eea3f2a27e7d34c0806766dab7cce0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{twobody_8c_ab9eea3f2a27e7d34c0806766dab7cce0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{twobody_8c_ae037a79cb31f056d04153837887f5813}{\index{twobody.\-c@{twobody.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!twobody.c@{twobody.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf twobody.\-c},v \$ \$Date\-: 2004/04/20 04\-:17\-:08 \$ \$Revision\-: 1.\-3 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{twobody_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 243 of file twobody.\-c.
+

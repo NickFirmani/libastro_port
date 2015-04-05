@@ -1,0 +1,174 @@
+\hypertarget{precess_8c}{\section{libastro/precess.c File Reference}
+\label{precess_8c}\index{libastro/precess.\-c@{libastro/precess.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for precess.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{precess_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{precess_8c_ab5263fe8b4034adaa87390477bacd874}{D\-C\-O\-S}(x)~cos(\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(x))
+\item 
+\#define \hyperlink{precess_8c_aff931f8163297e4b4d26cff78c29621d}{D\-S\-I\-N}(x)~sin(\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(x))
+\item 
+\#define \hyperlink{precess_8c_a0d7f1d879501873bf3477409898f2c77}{D\-A\-S\-I\-N}(x)~\hyperlink{astro_8h_a14e9da27d3ef91d14d3f049dc591f220}{raddeg}(asin(x))
+\item 
+\#define \hyperlink{precess_8c_a3c3f6c06c99f5f2aa436f253104fc99f}{D\-A\-T\-A\-N2}(y, x)~\hyperlink{astro_8h_a14e9da27d3ef91d14d3f049dc591f220}{raddeg}(atan2((y),(x)))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{precess_8c_a43ceb3170195ecba07ab3bbabe2983e6}{precess\-\_\-hiprec} (double mjd1, double mjd2, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+void \hyperlink{precess_8c_a9f5e4e6f7eb27a864f2620d9a2b9b855}{precess} (double mjd1, double mjd2, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{precess_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{precess.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{precess_8c_a0d7f1d879501873bf3477409898f2c77}{\index{precess.\-c@{precess.\-c}!D\-A\-S\-I\-N@{D\-A\-S\-I\-N}}
+\index{D\-A\-S\-I\-N@{D\-A\-S\-I\-N}!precess.c@{precess.\-c}}
+\subsubsection[{D\-A\-S\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-S\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf raddeg}(asin(x))}}\label{precess_8c_a0d7f1d879501873bf3477409898f2c77}
+
+
+Definition at line 11 of file precess.\-c.
+
+\hypertarget{precess_8c_a3c3f6c06c99f5f2aa436f253104fc99f}{\index{precess.\-c@{precess.\-c}!D\-A\-T\-A\-N2@{D\-A\-T\-A\-N2}}
+\index{D\-A\-T\-A\-N2@{D\-A\-T\-A\-N2}!precess.c@{precess.\-c}}
+\subsubsection[{D\-A\-T\-A\-N2}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-N2(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf raddeg}(atan2((y),(x)))}}\label{precess_8c_a3c3f6c06c99f5f2aa436f253104fc99f}
+
+
+Definition at line 12 of file precess.\-c.
+
+\hypertarget{precess_8c_ab5263fe8b4034adaa87390477bacd874}{\index{precess.\-c@{precess.\-c}!D\-C\-O\-S@{D\-C\-O\-S}}
+\index{D\-C\-O\-S@{D\-C\-O\-S}!precess.c@{precess.\-c}}
+\subsubsection[{D\-C\-O\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-O\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~cos({\bf degrad}(x))}}\label{precess_8c_ab5263fe8b4034adaa87390477bacd874}
+
+
+Definition at line 9 of file precess.\-c.
+
+\hypertarget{precess_8c_aff931f8163297e4b4d26cff78c29621d}{\index{precess.\-c@{precess.\-c}!D\-S\-I\-N@{D\-S\-I\-N}}
+\index{D\-S\-I\-N@{D\-S\-I\-N}!precess.c@{precess.\-c}}
+\subsubsection[{D\-S\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-S\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~sin({\bf degrad}(x))}}\label{precess_8c_aff931f8163297e4b4d26cff78c29621d}
+
+
+Definition at line 10 of file precess.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{precess_8c_a9f5e4e6f7eb27a864f2620d9a2b9b855}{\index{precess.\-c@{precess.\-c}!precess@{precess}}
+\index{precess@{precess}!precess.c@{precess.\-c}}
+\subsubsection[{precess}]{\setlength{\rightskip}{0pt plus 5cm}void precess (
+\begin{DoxyParamCaption}
+\item[{double}]{mjd1, }
+\item[{double}]{mjd2, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{precess_8c_a9f5e4e6f7eb27a864f2620d9a2b9b855}
+
+
+Definition at line 19 of file precess.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{precess_8c_a9f5e4e6f7eb27a864f2620d9a2b9b855_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{precess_8c_a9f5e4e6f7eb27a864f2620d9a2b9b855_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{precess_8c_a43ceb3170195ecba07ab3bbabe2983e6}{\index{precess.\-c@{precess.\-c}!precess\-\_\-hiprec@{precess\-\_\-hiprec}}
+\index{precess\-\_\-hiprec@{precess\-\_\-hiprec}!precess.c@{precess.\-c}}
+\subsubsection[{precess\-\_\-hiprec}]{\setlength{\rightskip}{0pt plus 5cm}static void precess\-\_\-hiprec (
+\begin{DoxyParamCaption}
+\item[{double}]{mjd1, }
+\item[{double}]{mjd2, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{precess_8c_a43ceb3170195ecba07ab3bbabe2983e6}
+
+
+Definition at line 42 of file precess.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{precess_8c_a43ceb3170195ecba07ab3bbabe2983e6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{precess_8c_a43ceb3170195ecba07ab3bbabe2983e6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{precess_8c_ae037a79cb31f056d04153837887f5813}{\index{precess.\-c@{precess.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!precess.c@{precess.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf precess.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{precess_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 146 of file precess.\-c.
+

@@ -1,0 +1,937 @@
+\hypertarget{earthsat_8c}{\section{libastro/earthsat.c File Reference}
+\label{earthsat_8c}\index{libastro/earthsat.\-c@{libastro/earthsat.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sattypes.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}satlib.\-h\char`\"{}}\\*
+Include dependency graph for earthsat.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{earthsat_8c_a15315568b23fd0ed71c9e598c5479bcd}{E\-S\-A\-T\-\_\-\-M\-A\-G}~2       /$\ast$ fake satellite magnitude $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a2750dfdda752269a036f487a4a34b849}{P\-I2}~(\hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I}$\ast$2)
+\item 
+\#define \hyperlink{earthsat_8c_a3dcc93573a3cbbf3d772b99ce5263d13}{Minutes\-Per\-Day}~(24$\ast$60.\-0)
+\item 
+\#define \hyperlink{earthsat_8c_a58d4adff8213e131ddee9de379ebd54a}{Seconds\-Per\-Day}~(60$\ast$\hyperlink{earthsat_8c_a3dcc93573a3cbbf3d772b99ce5263d13}{Minutes\-Per\-Day})
+\item 
+\#define \hyperlink{earthsat_8c_aa1681b5e3dece1b695d700a471154944}{Half\-Second}~(0.\-5/\hyperlink{earthsat_8c_a58d4adff8213e131ddee9de379ebd54a}{Seconds\-Per\-Day})
+\item 
+\#define \hyperlink{earthsat_8c_a7e26bb7ee3b2d75f69cbf3a614125211}{Earth\-Radius}~6378.\-16             /$\ast$ Kilometers           $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}~2.\-997925e5                    /$\ast$ Kilometers/\-Second    $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a6d29f52d88d5ca4ca87a0c18ea341816}{Radians\-Per\-Degree}~(\hyperlink{twobody_8c_a598a3330b3c21701223ee0ca14316eca}{P\-I}/180)
+\item 
+\#define \hyperlink{earthsat_8c_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S}(x)~((x) $<$ 0 ? (-\/(x)) \-: (x))
+\item 
+\#define \hyperlink{earthsat_8c_aa7866fa5e4e0ee9b034e9dab6599a9cc}{S\-Q\-R}(x)~((x)$\ast$(x))
+\item 
+\#define \hyperlink{earthsat_8c_af103a9b0f894f41d8c458fba8f3d7938}{Earth\-Flat}~(1/298.\-25)            /$\ast$ Earth Flattening Coeff. $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a6b30ee720c1427a219a5bbe5b32a93e5}{Sidereal\-Solar}~1.\-0027379093
+\item 
+\#define \hyperlink{earthsat_8c_acfb5d247845900c926e7255d76d6e86f}{Sid\-Rate}~(\hyperlink{earthsat_8c_a2750dfdda752269a036f487a4a34b849}{P\-I2}$\ast$\hyperlink{earthsat_8c_a6b30ee720c1427a219a5bbe5b32a93e5}{Sidereal\-Solar}/\hyperlink{earthsat_8c_a58d4adff8213e131ddee9de379ebd54a}{Seconds\-Per\-Day})	/$\ast$ radians/second $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a225f033481a4247d0a2853d327cc6f65}{G\-M}~398600			/$\ast$ Kilometers$^\wedge$3/seconds$^\wedge$2 $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a374328334281d6863559da9b44f127e0}{Epsilon}~(\hyperlink{earthsat_8c_a6d29f52d88d5ca4ca87a0c18ea341816}{Radians\-Per\-Degree}/3600)     /$\ast$ 1 arc second $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a920320945e3e5cb6d5259c3a69874aa2}{Sun\-Radius}~695000
+\item 
+\#define \hyperlink{earthsat_8c_ad48716e1a9dfcdfa54d0ac27d95b4335}{Sun\-Semi\-Major\-Axis}~149598845.\-0  	    /$\ast$ Kilometers 		   $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a78167862a3cde5a54d88f7556d8a3db2}{M\-P\-D}~1440.\-0		/$\ast$ minutes per day $\ast$/
+\item 
+\#define \hyperlink{earthsat_8c_a562a204c6e70ae4e3812364825580863}{S\-S\-P\-E\-L\-L\-I\-P\-S\-E}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double \hyperlink{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}{M\-A\-T3x3} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{earthsat_8c_acd5a1a525e32c6e1dfeb1c48f23af03d}{crazy\-Op} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static void \hyperlink{earthsat_8c_a00b33c7151c61372f445e59d4c629c20}{esat\-\_\-prop} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op, double $\ast$Sat\-X, double $\ast$Sat\-Y, double $\ast$Sat\-Z, double $\ast$Sat\-V\-X, double $\ast$Sat\-V\-Y, double $\ast$Sat\-V\-Z)
+\item 
+static void \hyperlink{earthsat_8c_a67d1bce8693822fae12a1212366e2509}{Get\-Satellite\-Params} (\hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static void \hyperlink{earthsat_8c_a4d31f9d276b42b2a64839b681b18226a}{Get\-Site\-Params} (\hyperlink{struct_now}{Now} $\ast$np)
+\item 
+static double \hyperlink{earthsat_8c_a72d0a441dad77e08a07019c8b6124d48}{Kepler} (double Mean\-Anomaly, double \hyperlink{earthsat_8c_a9e8627236231ee5feff425a382c3cc0d}{Eccentricity})
+\item 
+static void \hyperlink{earthsat_8c_ad2c83cef6ceaa0b65ba31eb5c1627c1f}{Get\-Sub\-Sat\-Point} (double Sat\-X, double Sat\-Y, double Sat\-Z, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}, double $\ast$Latitude, double $\ast$Longitude, double $\ast$Height)
+\item 
+static void \hyperlink{earthsat_8c_a2ee73cc32016dff700f6a220961c91fd}{Get\-Sat\-Position} (double Epoch\-Time, double \hyperlink{earthsat_8c_ab03ff6acc31cc4453b913eaadaebca63}{Epoch\-R\-A\-A\-N}, double \hyperlink{earthsat_8c_ae1bef94e75c75cf186184d02ca7bcf51}{Epoch\-Arg\-Perigee}, double Semi\-Major\-Axis, double \hyperlink{earthsat_8c_adc4143d3dcc5a8a32498a8d172e0d394}{Inclination}, double \hyperlink{earthsat_8c_a9e8627236231ee5feff425a382c3cc0d}{Eccentricity}, double R\-A\-A\-N\-Precession, double Perigee\-Precession, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}, double True\-Anomaly, double $\ast$\hyperlink{sgp4_8c_a207fd5507206d307cd63f95374fcd00d}{X}, double $\ast$\hyperlink{sgp4_8c_a798e4073d613ca5ba9618e1b3253df14}{Y}, double $\ast$\hyperlink{sgp4_8c_a51591cf51bdd6c1f6015532422e7770e}{Z}, double $\ast$Radius, double $\ast$V\-X, double $\ast$V\-Y, double $\ast$V\-Z)
+\item 
+static void \hyperlink{earthsat_8c_aaee68dd9a6be2cf2ce4d407fadcd1854}{Get\-Sit\-Position} (double \hyperlink{earthsat_8c_aaa9678b4f379c240d452a1e8fe202292}{Site\-Lat}, double \hyperlink{earthsat_8c_aea36a67ba51fc52a5bb52129531234f4}{Site\-Long}, double Site\-Elevation, double Crnt\-Time, double $\ast$Site\-X, double $\ast$Site\-Y, double $\ast$Site\-Z, double $\ast$Site\-V\-X, double $\ast$Site\-V\-Y, \hyperlink{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}{M\-A\-T3x3} Site\-Matrix)
+\item 
+static void \hyperlink{earthsat_8c_affbbd08603375ebf32cfe64cee26b567}{Get\-Range} (double Site\-X, double Site\-Y, double Site\-Z, double Site\-V\-X, double Site\-V\-Y, double Sat\-X, double Sat\-Y, double Sat\-Z, double Sat\-V\-X, double Sat\-V\-Y, double Sat\-V\-Z, double $\ast$Range, double $\ast$Range\-Rate)
+\item 
+static void \hyperlink{earthsat_8c_a24358fa929cc2abd3bf25a715c863b8f}{Get\-Topocentric} (double Sat\-X, double Sat\-Y, double Sat\-Z, double Site\-X, double Site\-Y, double Site\-Z, \hyperlink{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}{M\-A\-T3x3} Site\-Matrix, double $\ast$\hyperlink{sgp4_8c_a207fd5507206d307cd63f95374fcd00d}{X}, double $\ast$\hyperlink{sgp4_8c_a798e4073d613ca5ba9618e1b3253df14}{Y}, double $\ast$\hyperlink{sgp4_8c_a51591cf51bdd6c1f6015532422e7770e}{Z})
+\item 
+static void \hyperlink{earthsat_8c_a7b575639753d8b194ddf29ea7a98bc02}{Get\-Bearings} (double Sat\-X, double Sat\-Y, double Sat\-Z, double Site\-X, double Site\-Y, double Site\-Z, \hyperlink{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}{M\-A\-T3x3} Site\-Matrix, double $\ast$Azimuth, double $\ast$Elevation)
+\item 
+static int \hyperlink{earthsat_8c_a688e4abe4d8c36075450d2b1de9db843}{Eclipsed} (double Sat\-X, double Sat\-Y, double Sat\-Z, double Sat\-Radius, double Crnt\-Time)
+\item 
+static void \hyperlink{earthsat_8c_ad4bf84e2ec5df2ad81214b66ebf7ad6c}{Init\-Orbit\-Routines} (double \hyperlink{earthsat_8c_abea003ffa5c826c64d67f75c3fb9e0bf}{Epoch\-Day}, int At\-Eod)
+\item 
+int \hyperlink{earthsat_8c_a33e16bf55d33a63934a19835b20784f0}{obj\-\_\-earthsat} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{earthsat_8c_abea003ffa5c826c64d67f75c3fb9e0bf}{Epoch\-Day}
+\item 
+static double \hyperlink{earthsat_8c_a5952ce20e4ab0a57bee67a2e950d0b44}{Epoch\-Mean\-Anomaly}
+\item 
+static long \hyperlink{earthsat_8c_aed8775b4d8f50058baa40c017f701a7f}{Epoch\-Orbit\-Num}
+\item 
+static double \hyperlink{earthsat_8c_ab03ff6acc31cc4453b913eaadaebca63}{Epoch\-R\-A\-A\-N}
+\item 
+static double \hyperlink{earthsat_8c_a6ffd166a640e104fc8f8cfaf6b331dde}{epoch\-Mean\-Motion}
+\item 
+static double \hyperlink{earthsat_8c_a703ca737ebbe5834750146f7e43b07aa}{Orbital\-Decay}
+\item 
+static double \hyperlink{earthsat_8c_ae1bef94e75c75cf186184d02ca7bcf51}{Epoch\-Arg\-Perigee}
+\item 
+static double \hyperlink{earthsat_8c_a9e8627236231ee5feff425a382c3cc0d}{Eccentricity}
+\item 
+static double \hyperlink{earthsat_8c_adc4143d3dcc5a8a32498a8d172e0d394}{Inclination}
+\item 
+static double \hyperlink{earthsat_8c_aaa9678b4f379c240d452a1e8fe202292}{Site\-Lat}
+\item 
+static double \hyperlink{earthsat_8c_aea36a67ba51fc52a5bb52129531234f4}{Site\-Long}
+\item 
+static double \hyperlink{earthsat_8c_a29935943b70882f7c9eaecb7dadfa138}{Site\-Altitude}
+\item 
+static double \hyperlink{earthsat_8c_af07cbf1e637badbbb49bd65dcf3d60f5}{Sid\-Day}
+\item 
+static double \hyperlink{earthsat_8c_a815c3c05b997fd02525a5cf1c06bdfd5}{Sid\-Reference}
+\item 
+static double \hyperlink{earthsat_8c_a45ea83fe5eb3c5e44769179da6019583}{Sun\-Epoch\-Time}
+\item 
+static double \hyperlink{earthsat_8c_a2458f7e62ea75be9ea969108bcd044a1}{Sun\-Inclination}
+\item 
+static double \hyperlink{earthsat_8c_aa316e37f8f62cec5d9394f24de6230eb}{Sun\-R\-A\-A\-N}
+\item 
+static double \hyperlink{earthsat_8c_af46c41460c39169571751471657ffe36}{Sun\-Eccentricity}
+\item 
+static double \hyperlink{earthsat_8c_a788921496f0bbf0852719bea0933526f}{Sun\-Arg\-Perigee}
+\item 
+static double \hyperlink{earthsat_8c_a488b4bee5103ca5108716027d991563a}{Sun\-Mean\-Anomaly}
+\item 
+static double \hyperlink{earthsat_8c_add2848a89fce6a2fc61b036412a8627a}{Sun\-Mean\-Motion}
+\item 
+static double \hyperlink{earthsat_8c_a6f8084e801dbd473b4627112e9116a64}{Sin\-Penumbra}
+\item 
+static double \hyperlink{earthsat_8c_afd1eddd70c7eceecc1dbe4312cdc8cc7}{Cos\-Penumbra}
+\item 
+static char $\ast$ \hyperlink{earthsat_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{earthsat.\-c},v \$ \$Date\-: 2012/10/01 00\-:05\-:10 \$ \$Revision\-: 1.\-13 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{earthsat_8c_a996f7be338ccb40d1a2a5abc1ad61759}{\index{earthsat.\-c@{earthsat.\-c}!A\-B\-S@{A\-B\-S}}
+\index{A\-B\-S@{A\-B\-S}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{A\-B\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x) $<$ 0 ? (-\/(x)) \-: (x))}}\label{earthsat_8c_a996f7be338ccb40d1a2a5abc1ad61759}
+
+
+Definition at line 89 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{\index{earthsat.\-c@{earthsat.\-c}!C@{C}}
+\index{C@{C}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C~2.\-997925e5                    /$\ast$ Kilometers/\-Second    $\ast$/}}\label{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}
+
+
+Definition at line 87 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_af103a9b0f894f41d8c458fba8f3d7938}{\index{earthsat.\-c@{earthsat.\-c}!Earth\-Flat@{Earth\-Flat}}
+\index{Earth\-Flat@{Earth\-Flat}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Earth\-Flat}]{\setlength{\rightskip}{0pt plus 5cm}\#define Earth\-Flat~(1/298.\-25)            /$\ast$ Earth Flattening Coeff. $\ast$/}}\label{earthsat_8c_af103a9b0f894f41d8c458fba8f3d7938}
+
+
+Definition at line 92 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a7e26bb7ee3b2d75f69cbf3a614125211}{\index{earthsat.\-c@{earthsat.\-c}!Earth\-Radius@{Earth\-Radius}}
+\index{Earth\-Radius@{Earth\-Radius}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Earth\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}\#define Earth\-Radius~6378.\-16             /$\ast$ Kilometers           $\ast$/}}\label{earthsat_8c_a7e26bb7ee3b2d75f69cbf3a614125211}
+
+
+Definition at line 86 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a374328334281d6863559da9b44f127e0}{\index{earthsat.\-c@{earthsat.\-c}!Epsilon@{Epsilon}}
+\index{Epsilon@{Epsilon}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epsilon}]{\setlength{\rightskip}{0pt plus 5cm}\#define Epsilon~({\bf Radians\-Per\-Degree}/3600)     /$\ast$ 1 arc second $\ast$/}}\label{earthsat_8c_a374328334281d6863559da9b44f127e0}
+
+
+Definition at line 97 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a15315568b23fd0ed71c9e598c5479bcd}{\index{earthsat.\-c@{earthsat.\-c}!E\-S\-A\-T\-\_\-\-M\-A\-G@{E\-S\-A\-T\-\_\-\-M\-A\-G}}
+\index{E\-S\-A\-T\-\_\-\-M\-A\-G@{E\-S\-A\-T\-\_\-\-M\-A\-G}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{E\-S\-A\-T\-\_\-\-M\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-S\-A\-T\-\_\-\-M\-A\-G~2       /$\ast$ fake satellite magnitude $\ast$/}}\label{earthsat_8c_a15315568b23fd0ed71c9e598c5479bcd}
+
+
+Definition at line 35 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a225f033481a4247d0a2853d327cc6f65}{\index{earthsat.\-c@{earthsat.\-c}!G\-M@{G\-M}}
+\index{G\-M@{G\-M}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{G\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-M~398600			/$\ast$ Kilometers$^\wedge$3/seconds$^\wedge$2 $\ast$/}}\label{earthsat_8c_a225f033481a4247d0a2853d327cc6f65}
+
+
+Definition at line 95 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aa1681b5e3dece1b695d700a471154944}{\index{earthsat.\-c@{earthsat.\-c}!Half\-Second@{Half\-Second}}
+\index{Half\-Second@{Half\-Second}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Half\-Second}]{\setlength{\rightskip}{0pt plus 5cm}\#define Half\-Second~(0.\-5/{\bf Seconds\-Per\-Day})}}\label{earthsat_8c_aa1681b5e3dece1b695d700a471154944}
+
+
+Definition at line 85 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a3dcc93573a3cbbf3d772b99ce5263d13}{\index{earthsat.\-c@{earthsat.\-c}!Minutes\-Per\-Day@{Minutes\-Per\-Day}}
+\index{Minutes\-Per\-Day@{Minutes\-Per\-Day}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Minutes\-Per\-Day}]{\setlength{\rightskip}{0pt plus 5cm}\#define Minutes\-Per\-Day~(24$\ast$60.\-0)}}\label{earthsat_8c_a3dcc93573a3cbbf3d772b99ce5263d13}
+
+
+Definition at line 83 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a78167862a3cde5a54d88f7556d8a3db2}{\index{earthsat.\-c@{earthsat.\-c}!M\-P\-D@{M\-P\-D}}
+\index{M\-P\-D@{M\-P\-D}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{M\-P\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-D~1440.\-0		/$\ast$ minutes per day $\ast$/}}\label{earthsat_8c_a78167862a3cde5a54d88f7556d8a3db2}
+\hypertarget{earthsat_8c_a2750dfdda752269a036f487a4a34b849}{\index{earthsat.\-c@{earthsat.\-c}!P\-I2@{P\-I2}}
+\index{P\-I2@{P\-I2}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{P\-I2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I2~({\bf P\-I}$\ast$2)}}\label{earthsat_8c_a2750dfdda752269a036f487a4a34b849}
+
+
+Definition at line 81 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a6d29f52d88d5ca4ca87a0c18ea341816}{\index{earthsat.\-c@{earthsat.\-c}!Radians\-Per\-Degree@{Radians\-Per\-Degree}}
+\index{Radians\-Per\-Degree@{Radians\-Per\-Degree}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Radians\-Per\-Degree}]{\setlength{\rightskip}{0pt plus 5cm}\#define Radians\-Per\-Degree~({\bf P\-I}/180)}}\label{earthsat_8c_a6d29f52d88d5ca4ca87a0c18ea341816}
+
+
+Definition at line 88 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a58d4adff8213e131ddee9de379ebd54a}{\index{earthsat.\-c@{earthsat.\-c}!Seconds\-Per\-Day@{Seconds\-Per\-Day}}
+\index{Seconds\-Per\-Day@{Seconds\-Per\-Day}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Seconds\-Per\-Day}]{\setlength{\rightskip}{0pt plus 5cm}\#define Seconds\-Per\-Day~(60$\ast${\bf Minutes\-Per\-Day})}}\label{earthsat_8c_a58d4adff8213e131ddee9de379ebd54a}
+
+
+Definition at line 84 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a6b30ee720c1427a219a5bbe5b32a93e5}{\index{earthsat.\-c@{earthsat.\-c}!Sidereal\-Solar@{Sidereal\-Solar}}
+\index{Sidereal\-Solar@{Sidereal\-Solar}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sidereal\-Solar}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sidereal\-Solar~1.\-0027379093}}\label{earthsat_8c_a6b30ee720c1427a219a5bbe5b32a93e5}
+
+
+Definition at line 93 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_acfb5d247845900c926e7255d76d6e86f}{\index{earthsat.\-c@{earthsat.\-c}!Sid\-Rate@{Sid\-Rate}}
+\index{Sid\-Rate@{Sid\-Rate}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sid\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sid\-Rate~({\bf P\-I2}$\ast${\bf Sidereal\-Solar}/{\bf Seconds\-Per\-Day})	/$\ast$ radians/second $\ast$/}}\label{earthsat_8c_acfb5d247845900c926e7255d76d6e86f}
+
+
+Definition at line 94 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aa7866fa5e4e0ee9b034e9dab6599a9cc}{\index{earthsat.\-c@{earthsat.\-c}!S\-Q\-R@{S\-Q\-R}}
+\index{S\-Q\-R@{S\-Q\-R}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{S\-Q\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Q\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x)$\ast$(x))}}\label{earthsat_8c_aa7866fa5e4e0ee9b034e9dab6599a9cc}
+
+
+Definition at line 90 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a562a204c6e70ae4e3812364825580863}{\index{earthsat.\-c@{earthsat.\-c}!S\-S\-P\-E\-L\-L\-I\-P\-S\-E@{S\-S\-P\-E\-L\-L\-I\-P\-S\-E}}
+\index{S\-S\-P\-E\-L\-L\-I\-P\-S\-E@{S\-S\-P\-E\-L\-L\-I\-P\-S\-E}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{S\-S\-P\-E\-L\-L\-I\-P\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-S\-P\-E\-L\-L\-I\-P\-S\-E}}\label{earthsat_8c_a562a204c6e70ae4e3812364825580863}
+\hypertarget{earthsat_8c_a920320945e3e5cb6d5259c3a69874aa2}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Radius@{Sun\-Radius}}
+\index{Sun\-Radius@{Sun\-Radius}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sun\-Radius~695000}}\label{earthsat_8c_a920320945e3e5cb6d5259c3a69874aa2}
+
+
+Definition at line 98 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_ad48716e1a9dfcdfa54d0ac27d95b4335}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Semi\-Major\-Axis@{Sun\-Semi\-Major\-Axis}}
+\index{Sun\-Semi\-Major\-Axis@{Sun\-Semi\-Major\-Axis}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Semi\-Major\-Axis}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sun\-Semi\-Major\-Axis~149598845.\-0  	    /$\ast$ Kilometers 		   $\ast$/}}\label{earthsat_8c_ad48716e1a9dfcdfa54d0ac27d95b4335}
+
+
+Definition at line 99 of file earthsat.\-c.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}{\index{earthsat.\-c@{earthsat.\-c}!M\-A\-T3x3@{M\-A\-T3x3}}
+\index{M\-A\-T3x3@{M\-A\-T3x3}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{M\-A\-T3x3}]{\setlength{\rightskip}{0pt plus 5cm}typedef double M\-A\-T3x3\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}}\label{earthsat_8c_abefbfcf4ace20376a8e913278d5927dd}
+
+
+Definition at line 37 of file earthsat.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{earthsat_8c_acd5a1a525e32c6e1dfeb1c48f23af03d}{\index{earthsat.\-c@{earthsat.\-c}!crazy\-Op@{crazy\-Op}}
+\index{crazy\-Op@{crazy\-Op}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{crazy\-Op}]{\setlength{\rightskip}{0pt plus 5cm}static int crazy\-Op (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_acd5a1a525e32c6e1dfeb1c48f23af03d}
+
+
+Definition at line 397 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_acd5a1a525e32c6e1dfeb1c48f23af03d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a688e4abe4d8c36075450d2b1de9db843}{\index{earthsat.\-c@{earthsat.\-c}!Eclipsed@{Eclipsed}}
+\index{Eclipsed@{Eclipsed}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Eclipsed}]{\setlength{\rightskip}{0pt plus 5cm}static int Eclipsed (
+\begin{DoxyParamCaption}
+\item[{double}]{Sat\-X, }
+\item[{double}]{Sat\-Y, }
+\item[{double}]{Sat\-Z, }
+\item[{double}]{Sat\-Radius, }
+\item[{double}]{Crnt\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a688e4abe4d8c36075450d2b1de9db843}
+
+
+Definition at line 714 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{earthsat_8c_a688e4abe4d8c36075450d2b1de9db843_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a688e4abe4d8c36075450d2b1de9db843_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a00b33c7151c61372f445e59d4c629c20}{\index{earthsat.\-c@{earthsat.\-c}!esat\-\_\-prop@{esat\-\_\-prop}}
+\index{esat\-\_\-prop@{esat\-\_\-prop}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{esat\-\_\-prop}]{\setlength{\rightskip}{0pt plus 5cm}static void esat\-\_\-prop (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{double $\ast$}]{Sat\-X, }
+\item[{double $\ast$}]{Sat\-Y, }
+\item[{double $\ast$}]{Sat\-Z, }
+\item[{double $\ast$}]{Sat\-V\-X, }
+\item[{double $\ast$}]{Sat\-V\-Y, }
+\item[{double $\ast$}]{Sat\-V\-Z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a00b33c7151c61372f445e59d4c629c20}
+
+
+Definition at line 263 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a00b33c7151c61372f445e59d4c629c20_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a00b33c7151c61372f445e59d4c629c20_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a7b575639753d8b194ddf29ea7a98bc02}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Bearings@{Get\-Bearings}}
+\index{Get\-Bearings@{Get\-Bearings}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Bearings}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Bearings (
+\begin{DoxyParamCaption}
+\item[{double}]{Sat\-X, }
+\item[{double}]{Sat\-Y, }
+\item[{double}]{Sat\-Z, }
+\item[{double}]{Site\-X, }
+\item[{double}]{Site\-Y, }
+\item[{double}]{Site\-Z, }
+\item[{{\bf M\-A\-T3x3}}]{Site\-Matrix, }
+\item[{double $\ast$}]{Azimuth, }
+\item[{double $\ast$}]{Elevation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a7b575639753d8b194ddf29ea7a98bc02}
+
+
+Definition at line 697 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{earthsat_8c_a7b575639753d8b194ddf29ea7a98bc02_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a7b575639753d8b194ddf29ea7a98bc02_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_affbbd08603375ebf32cfe64cee26b567}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Range@{Get\-Range}}
+\index{Get\-Range@{Get\-Range}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Range}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Range (
+\begin{DoxyParamCaption}
+\item[{double}]{Site\-X, }
+\item[{double}]{Site\-Y, }
+\item[{double}]{Site\-Z, }
+\item[{double}]{Site\-V\-X, }
+\item[{double}]{Site\-V\-Y, }
+\item[{double}]{Sat\-X, }
+\item[{double}]{Sat\-Y, }
+\item[{double}]{Sat\-Z, }
+\item[{double}]{Sat\-V\-X, }
+\item[{double}]{Sat\-V\-Y, }
+\item[{double}]{Sat\-V\-Z, }
+\item[{double $\ast$}]{Range, }
+\item[{double $\ast$}]{Range\-Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_affbbd08603375ebf32cfe64cee26b567}
+
+
+Definition at line 662 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_affbbd08603375ebf32cfe64cee26b567_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a67d1bce8693822fae12a1212366e2509}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Satellite\-Params@{Get\-Satellite\-Params}}
+\index{Get\-Satellite\-Params@{Get\-Satellite\-Params}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Satellite\-Params}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Satellite\-Params (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a67d1bce8693822fae12a1212366e2509}
+
+
+Definition at line 406 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a67d1bce8693822fae12a1212366e2509_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a2ee73cc32016dff700f6a220961c91fd}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Sat\-Position@{Get\-Sat\-Position}}
+\index{Get\-Sat\-Position@{Get\-Sat\-Position}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Sat\-Position}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Sat\-Position (
+\begin{DoxyParamCaption}
+\item[{double}]{Epoch\-Time, }
+\item[{double}]{Epoch\-R\-A\-A\-N, }
+\item[{double}]{Epoch\-Arg\-Perigee, }
+\item[{double}]{Semi\-Major\-Axis, }
+\item[{double}]{Inclination, }
+\item[{double}]{Eccentricity, }
+\item[{double}]{R\-A\-A\-N\-Precession, }
+\item[{double}]{Perigee\-Precession, }
+\item[{double}]{T, }
+\item[{double}]{True\-Anomaly, }
+\item[{double $\ast$}]{X, }
+\item[{double $\ast$}]{Y, }
+\item[{double $\ast$}]{Z, }
+\item[{double $\ast$}]{Radius, }
+\item[{double $\ast$}]{V\-X, }
+\item[{double $\ast$}]{V\-Y, }
+\item[{double $\ast$}]{V\-Z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a2ee73cc32016dff700f6a220961c91fd}
+
+
+Definition at line 550 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a2ee73cc32016dff700f6a220961c91fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a4d31f9d276b42b2a64839b681b18226a}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Site\-Params@{Get\-Site\-Params}}
+\index{Get\-Site\-Params@{Get\-Site\-Params}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Site\-Params}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Site\-Params (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a4d31f9d276b42b2a64839b681b18226a}
+
+
+Definition at line 438 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a4d31f9d276b42b2a64839b681b18226a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_aaee68dd9a6be2cf2ce4d407fadcd1854}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Sit\-Position@{Get\-Sit\-Position}}
+\index{Get\-Sit\-Position@{Get\-Sit\-Position}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Sit\-Position}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Sit\-Position (
+\begin{DoxyParamCaption}
+\item[{double}]{Site\-Lat, }
+\item[{double}]{Site\-Long, }
+\item[{double}]{Site\-Elevation, }
+\item[{double}]{Crnt\-Time, }
+\item[{double $\ast$}]{Site\-X, }
+\item[{double $\ast$}]{Site\-Y, }
+\item[{double $\ast$}]{Site\-Z, }
+\item[{double $\ast$}]{Site\-V\-X, }
+\item[{double $\ast$}]{Site\-V\-Y, }
+\item[{{\bf M\-A\-T3x3}}]{Site\-Matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_aaee68dd9a6be2cf2ce4d407fadcd1854}
+
+
+Definition at line 610 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_aaee68dd9a6be2cf2ce4d407fadcd1854_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_ad2c83cef6ceaa0b65ba31eb5c1627c1f}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Sub\-Sat\-Point@{Get\-Sub\-Sat\-Point}}
+\index{Get\-Sub\-Sat\-Point@{Get\-Sub\-Sat\-Point}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Sub\-Sat\-Point}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Sub\-Sat\-Point (
+\begin{DoxyParamCaption}
+\item[{double}]{Sat\-X, }
+\item[{double}]{Sat\-Y, }
+\item[{double}]{Sat\-Z, }
+\item[{double}]{T, }
+\item[{double $\ast$}]{Latitude, }
+\item[{double $\ast$}]{Longitude, }
+\item[{double $\ast$}]{Height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_ad2c83cef6ceaa0b65ba31eb5c1627c1f}
+
+
+Definition at line 500 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{earthsat_8c_ad2c83cef6ceaa0b65ba31eb5c1627c1f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_ad2c83cef6ceaa0b65ba31eb5c1627c1f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a24358fa929cc2abd3bf25a715c863b8f}{\index{earthsat.\-c@{earthsat.\-c}!Get\-Topocentric@{Get\-Topocentric}}
+\index{Get\-Topocentric@{Get\-Topocentric}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Get\-Topocentric}]{\setlength{\rightskip}{0pt plus 5cm}static void Get\-Topocentric (
+\begin{DoxyParamCaption}
+\item[{double}]{Sat\-X, }
+\item[{double}]{Sat\-Y, }
+\item[{double}]{Sat\-Z, }
+\item[{double}]{Site\-X, }
+\item[{double}]{Site\-Y, }
+\item[{double}]{Site\-Z, }
+\item[{{\bf M\-A\-T3x3}}]{Site\-Matrix, }
+\item[{double $\ast$}]{X, }
+\item[{double $\ast$}]{Y, }
+\item[{double $\ast$}]{Z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a24358fa929cc2abd3bf25a715c863b8f}
+
+
+Definition at line 680 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a24358fa929cc2abd3bf25a715c863b8f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_ad4bf84e2ec5df2ad81214b66ebf7ad6c}{\index{earthsat.\-c@{earthsat.\-c}!Init\-Orbit\-Routines@{Init\-Orbit\-Routines}}
+\index{Init\-Orbit\-Routines@{Init\-Orbit\-Routines}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Init\-Orbit\-Routines}]{\setlength{\rightskip}{0pt plus 5cm}static void Init\-Orbit\-Routines (
+\begin{DoxyParamCaption}
+\item[{double}]{Epoch\-Day, }
+\item[{int}]{At\-Eod}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_ad4bf84e2ec5df2ad81214b66ebf7ad6c}
+
+
+Definition at line 745 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{earthsat_8c_ad4bf84e2ec5df2ad81214b66ebf7ad6c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_ad4bf84e2ec5df2ad81214b66ebf7ad6c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a72d0a441dad77e08a07019c8b6124d48}{\index{earthsat.\-c@{earthsat.\-c}!Kepler@{Kepler}}
+\index{Kepler@{Kepler}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Kepler}]{\setlength{\rightskip}{0pt plus 5cm}static double Kepler (
+\begin{DoxyParamCaption}
+\item[{double}]{Mean\-Anomaly, }
+\item[{double}]{Eccentricity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a72d0a441dad77e08a07019c8b6124d48}
+
+
+Definition at line 473 of file earthsat.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a72d0a441dad77e08a07019c8b6124d48_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{earthsat_8c_a33e16bf55d33a63934a19835b20784f0}{\index{earthsat.\-c@{earthsat.\-c}!obj\-\_\-earthsat@{obj\-\_\-earthsat}}
+\index{obj\-\_\-earthsat@{obj\-\_\-earthsat}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{obj\-\_\-earthsat}]{\setlength{\rightskip}{0pt plus 5cm}int obj\-\_\-earthsat (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{earthsat_8c_a33e16bf55d33a63934a19835b20784f0}
+
+
+Definition at line 133 of file earthsat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a33e16bf55d33a63934a19835b20784f0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{earthsat_8c_a33e16bf55d33a63934a19835b20784f0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{earthsat_8c_afd1eddd70c7eceecc1dbe4312cdc8cc7}{\index{earthsat.\-c@{earthsat.\-c}!Cos\-Penumbra@{Cos\-Penumbra}}
+\index{Cos\-Penumbra@{Cos\-Penumbra}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Cos\-Penumbra}]{\setlength{\rightskip}{0pt plus 5cm}double Cos\-Penumbra\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_afd1eddd70c7eceecc1dbe4312cdc8cc7}
+
+
+Definition at line 123 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a9e8627236231ee5feff425a382c3cc0d}{\index{earthsat.\-c@{earthsat.\-c}!Eccentricity@{Eccentricity}}
+\index{Eccentricity@{Eccentricity}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Eccentricity}]{\setlength{\rightskip}{0pt plus 5cm}double Eccentricity\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a9e8627236231ee5feff425a382c3cc0d}
+
+
+Definition at line 109 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_ae1bef94e75c75cf186184d02ca7bcf51}{\index{earthsat.\-c@{earthsat.\-c}!Epoch\-Arg\-Perigee@{Epoch\-Arg\-Perigee}}
+\index{Epoch\-Arg\-Perigee@{Epoch\-Arg\-Perigee}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epoch\-Arg\-Perigee}]{\setlength{\rightskip}{0pt plus 5cm}double Epoch\-Arg\-Perigee\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_ae1bef94e75c75cf186184d02ca7bcf51}
+
+
+Definition at line 108 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_abea003ffa5c826c64d67f75c3fb9e0bf}{\index{earthsat.\-c@{earthsat.\-c}!Epoch\-Day@{Epoch\-Day}}
+\index{Epoch\-Day@{Epoch\-Day}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epoch\-Day}]{\setlength{\rightskip}{0pt plus 5cm}double Epoch\-Day\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_abea003ffa5c826c64d67f75c3fb9e0bf}
+
+
+Definition at line 102 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a5952ce20e4ab0a57bee67a2e950d0b44}{\index{earthsat.\-c@{earthsat.\-c}!Epoch\-Mean\-Anomaly@{Epoch\-Mean\-Anomaly}}
+\index{Epoch\-Mean\-Anomaly@{Epoch\-Mean\-Anomaly}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epoch\-Mean\-Anomaly}]{\setlength{\rightskip}{0pt plus 5cm}double Epoch\-Mean\-Anomaly\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a5952ce20e4ab0a57bee67a2e950d0b44}
+
+
+Definition at line 103 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a6ffd166a640e104fc8f8cfaf6b331dde}{\index{earthsat.\-c@{earthsat.\-c}!epoch\-Mean\-Motion@{epoch\-Mean\-Motion}}
+\index{epoch\-Mean\-Motion@{epoch\-Mean\-Motion}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{epoch\-Mean\-Motion}]{\setlength{\rightskip}{0pt plus 5cm}double epoch\-Mean\-Motion\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a6ffd166a640e104fc8f8cfaf6b331dde}
+
+
+Definition at line 106 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aed8775b4d8f50058baa40c017f701a7f}{\index{earthsat.\-c@{earthsat.\-c}!Epoch\-Orbit\-Num@{Epoch\-Orbit\-Num}}
+\index{Epoch\-Orbit\-Num@{Epoch\-Orbit\-Num}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epoch\-Orbit\-Num}]{\setlength{\rightskip}{0pt plus 5cm}long Epoch\-Orbit\-Num\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_aed8775b4d8f50058baa40c017f701a7f}
+
+
+Definition at line 104 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_ab03ff6acc31cc4453b913eaadaebca63}{\index{earthsat.\-c@{earthsat.\-c}!Epoch\-R\-A\-A\-N@{Epoch\-R\-A\-A\-N}}
+\index{Epoch\-R\-A\-A\-N@{Epoch\-R\-A\-A\-N}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Epoch\-R\-A\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}double Epoch\-R\-A\-A\-N\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_ab03ff6acc31cc4453b913eaadaebca63}
+
+
+Definition at line 105 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_adc4143d3dcc5a8a32498a8d172e0d394}{\index{earthsat.\-c@{earthsat.\-c}!Inclination@{Inclination}}
+\index{Inclination@{Inclination}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Inclination}]{\setlength{\rightskip}{0pt plus 5cm}double Inclination\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_adc4143d3dcc5a8a32498a8d172e0d394}
+
+
+Definition at line 110 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a703ca737ebbe5834750146f7e43b07aa}{\index{earthsat.\-c@{earthsat.\-c}!Orbital\-Decay@{Orbital\-Decay}}
+\index{Orbital\-Decay@{Orbital\-Decay}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Orbital\-Decay}]{\setlength{\rightskip}{0pt plus 5cm}double Orbital\-Decay\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a703ca737ebbe5834750146f7e43b07aa}
+
+
+Definition at line 107 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_ae037a79cb31f056d04153837887f5813}{\index{earthsat.\-c@{earthsat.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf earthsat.\-c},v \$ \$Date\-: 2012/10/01 00\-:05\-:10 \$ \$Revision\-: 1.\-13 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 789 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_af07cbf1e637badbbb49bd65dcf3d60f5}{\index{earthsat.\-c@{earthsat.\-c}!Sid\-Day@{Sid\-Day}}
+\index{Sid\-Day@{Sid\-Day}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sid\-Day}]{\setlength{\rightskip}{0pt plus 5cm}double Sid\-Day\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_af07cbf1e637badbbb49bd65dcf3d60f5}
+
+
+Definition at line 116 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a815c3c05b997fd02525a5cf1c06bdfd5}{\index{earthsat.\-c@{earthsat.\-c}!Sid\-Reference@{Sid\-Reference}}
+\index{Sid\-Reference@{Sid\-Reference}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sid\-Reference}]{\setlength{\rightskip}{0pt plus 5cm}double Sid\-Reference\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a815c3c05b997fd02525a5cf1c06bdfd5}
+
+
+Definition at line 116 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a6f8084e801dbd473b4627112e9116a64}{\index{earthsat.\-c@{earthsat.\-c}!Sin\-Penumbra@{Sin\-Penumbra}}
+\index{Sin\-Penumbra@{Sin\-Penumbra}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sin\-Penumbra}]{\setlength{\rightskip}{0pt plus 5cm}double Sin\-Penumbra\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a6f8084e801dbd473b4627112e9116a64}
+
+
+Definition at line 123 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a29935943b70882f7c9eaecb7dadfa138}{\index{earthsat.\-c@{earthsat.\-c}!Site\-Altitude@{Site\-Altitude}}
+\index{Site\-Altitude@{Site\-Altitude}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Site\-Altitude}]{\setlength{\rightskip}{0pt plus 5cm}double Site\-Altitude\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a29935943b70882f7c9eaecb7dadfa138}
+
+
+Definition at line 113 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aaa9678b4f379c240d452a1e8fe202292}{\index{earthsat.\-c@{earthsat.\-c}!Site\-Lat@{Site\-Lat}}
+\index{Site\-Lat@{Site\-Lat}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Site\-Lat}]{\setlength{\rightskip}{0pt plus 5cm}double Site\-Lat\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_aaa9678b4f379c240d452a1e8fe202292}
+
+
+Definition at line 113 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aea36a67ba51fc52a5bb52129531234f4}{\index{earthsat.\-c@{earthsat.\-c}!Site\-Long@{Site\-Long}}
+\index{Site\-Long@{Site\-Long}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Site\-Long}]{\setlength{\rightskip}{0pt plus 5cm}double Site\-Long\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_aea36a67ba51fc52a5bb52129531234f4}
+
+
+Definition at line 113 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a788921496f0bbf0852719bea0933526f}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Arg\-Perigee@{Sun\-Arg\-Perigee}}
+\index{Sun\-Arg\-Perigee@{Sun\-Arg\-Perigee}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Arg\-Perigee}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Arg\-Perigee\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a788921496f0bbf0852719bea0933526f}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_af46c41460c39169571751471657ffe36}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Eccentricity@{Sun\-Eccentricity}}
+\index{Sun\-Eccentricity@{Sun\-Eccentricity}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Eccentricity}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Eccentricity\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_af46c41460c39169571751471657ffe36}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a45ea83fe5eb3c5e44769179da6019583}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Epoch\-Time@{Sun\-Epoch\-Time}}
+\index{Sun\-Epoch\-Time@{Sun\-Epoch\-Time}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Epoch\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Epoch\-Time\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a45ea83fe5eb3c5e44769179da6019583}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a2458f7e62ea75be9ea969108bcd044a1}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Inclination@{Sun\-Inclination}}
+\index{Sun\-Inclination@{Sun\-Inclination}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Inclination}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Inclination\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a2458f7e62ea75be9ea969108bcd044a1}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_a488b4bee5103ca5108716027d991563a}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Mean\-Anomaly@{Sun\-Mean\-Anomaly}}
+\index{Sun\-Mean\-Anomaly@{Sun\-Mean\-Anomaly}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Mean\-Anomaly}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Mean\-Anomaly\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_a488b4bee5103ca5108716027d991563a}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_add2848a89fce6a2fc61b036412a8627a}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-Mean\-Motion@{Sun\-Mean\-Motion}}
+\index{Sun\-Mean\-Motion@{Sun\-Mean\-Motion}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-Mean\-Motion}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-Mean\-Motion\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_add2848a89fce6a2fc61b036412a8627a}
+
+
+Definition at line 119 of file earthsat.\-c.
+
+\hypertarget{earthsat_8c_aa316e37f8f62cec5d9394f24de6230eb}{\index{earthsat.\-c@{earthsat.\-c}!Sun\-R\-A\-A\-N@{Sun\-R\-A\-A\-N}}
+\index{Sun\-R\-A\-A\-N@{Sun\-R\-A\-A\-N}!earthsat.c@{earthsat.\-c}}
+\subsubsection[{Sun\-R\-A\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}double Sun\-R\-A\-A\-N\hspace{0.3cm}{\ttfamily [static]}}}\label{earthsat_8c_aa316e37f8f62cec5d9394f24de6230eb}
+
+
+Definition at line 119 of file earthsat.\-c.
+

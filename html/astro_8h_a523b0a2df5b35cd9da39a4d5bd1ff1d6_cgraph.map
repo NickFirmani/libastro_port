@@ -1,0 +1,10 @@
+<map id="now_lst" name="now_lst">
+<area shape="rect" id="node2" href="$astro_8h.html#abb0bc74b150250775c0b44d4d063ad07" title="utc_gst" alt="" coords="124,55,188,83"/>
+<area shape="rect" id="node4" href="$astro_8h.html#a95f97bc2c6a39966a664c3b924d5eacb" title="range" alt="" coords="360,57,416,85"/>
+<area shape="rect" id="node5" href="$astro_8h.html#a3cf3e9c878a1800e4b4bfe551d1ec392" title="mjd_day" alt="" coords="120,159,192,187"/>
+<area shape="rect" id="node6" href="$astro_8h.html#aa287e7d7be3e88eed3610d15deaaea5b" title="mjd_hr" alt="" coords="125,211,187,239"/>
+<area shape="rect" id="node8" href="$astro_8h.html#a3ac3532b3e3aa09dc34aaf1936cf4696" title="obliquity" alt="" coords="121,263,191,291"/>
+<area shape="rect" id="node9" href="$astro_8h.html#a96bb2600a9686001e9137555bd49ae16" title="nutation" alt="" coords="122,315,190,343"/>
+<area shape="rect" id="node3" href="$utc__gst_8c.html#a62e6028d24b07f0dfeb1f8a171eb56bd" title="gmst0" alt="" coords="247,5,305,33"/>
+<area shape="rect" id="node7" href="$mjd_8c.html#ae58fce00d34ce3f8282d3c9f556d1d05" title="mjd_day" alt="" coords="240,211,312,239"/>
+</map>

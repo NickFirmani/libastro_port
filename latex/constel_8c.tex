@@ -1,0 +1,1211 @@
+\hypertarget{constel_8c}{\section{libastro/constel.c File Reference}
+\label{constel_8c}\index{libastro/constel.\-c@{libastro/constel.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for constel.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constel_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_con_fig}{Con\-Fig}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{constel_8c_afec5402d2287326809af25825c44323d}{N\-B\-O\-U\-N\-D\-S}~357
+\item 
+\#define \hyperlink{constel_8c_ac6eed5dbfee898c2a9813e9afbadd89a}{And}~0
+\item 
+\#define \hyperlink{constel_8c_a75401438505ee0e30d75194c33093020}{Ant}~1
+\item 
+\#define \hyperlink{constel_8c_ad69c61806901aee71cbfe2f07c3ca359}{Aps}~2
+\item 
+\#define \hyperlink{constel_8c_afe5de33156a92cc4d99525cdf6a337f1}{Aql}~3
+\item 
+\#define \hyperlink{constel_8c_a2af6554843c98086c23162723e0d3316}{Aqr}~4
+\item 
+\#define \hyperlink{constel_8c_a8d72ec75479896d1dccda86a82158d57}{Ara}~5
+\item 
+\#define \hyperlink{constel_8c_aa931982c6943c64c4c430c965d0f465c}{Ari}~6
+\item 
+\#define \hyperlink{constel_8c_a42d7e7e0d7899a862c66606dee2abc23}{Aur}~7
+\item 
+\#define \hyperlink{constel_8c_a1ad2b8030d260431ba61cc834155b8b0}{Boo}~8
+\item 
+\#define \hyperlink{constel_8c_a99abb8662b065a0efe985bc577798a12}{C\-Ma}~9
+\item 
+\#define \hyperlink{constel_8c_a26eae82c379bf40bdb8339067518df86}{C\-Mi}~10
+\item 
+\#define \hyperlink{constel_8c_a9980539c10564943e3732fbf119150af}{C\-Vn}~11
+\item 
+\#define \hyperlink{constel_8c_a360719021eb4e3ceba075bb7baf3427f}{Cae}~12
+\item 
+\#define \hyperlink{constel_8c_ad6ce5aba48c823bd6c460da267effac9}{Cam}~13
+\item 
+\#define \hyperlink{constel_8c_a743e837262d72f061f110322b305ea91}{Cap}~14
+\item 
+\#define \hyperlink{constel_8c_a69413a9495deeac94f23535bdde2e49c}{Car}~15
+\item 
+\#define \hyperlink{constel_8c_a903b453a193ef9996777d2c445847a67}{Cas}~16
+\item 
+\#define \hyperlink{constel_8c_aea08ca16309f1333045ab5891747c968}{Cen}~17
+\item 
+\#define \hyperlink{constel_8c_ae82fcd9884b56678a2d3658746a3ad30}{Cep}~18
+\item 
+\#define \hyperlink{constel_8c_a99eb7290c8c7788061eea4467bbaa035}{Cet}~19
+\item 
+\#define \hyperlink{constel_8c_ab8c8a71401cf2787ea767db36f458c49}{Cha}~20
+\item 
+\#define \hyperlink{constel_8c_a7385c3f58a73692197480e02a8d90ace}{Cir}~21
+\item 
+\#define \hyperlink{constel_8c_ab88da283bee108818f0112fbd980a28e}{Cnc}~22
+\item 
+\#define \hyperlink{constel_8c_a4ec00b1920fd854afa2b021f76d355fb}{Col}~23
+\item 
+\#define \hyperlink{constel_8c_a814853e0fc89638b7c3abcf242097891}{Com}~24
+\item 
+\#define \hyperlink{constel_8c_a2770f7e733628192b0232cc441e6c0d1}{Cr\-A}~25
+\item 
+\#define \hyperlink{constel_8c_a8b816dd03d7f8639f3130e7a4552f2e2}{Cr\-B}~26
+\item 
+\#define \hyperlink{constel_8c_a77031cbdb7fd87167000fb431c624ad2}{Crt}~27
+\item 
+\#define \hyperlink{constel_8c_a5fd8a794ad29234acf426c48b1b62c7f}{Cru}~28
+\item 
+\#define \hyperlink{constel_8c_acd9fcf090b6105d18fa0aea34e584832}{Crv}~29
+\item 
+\#define \hyperlink{constel_8c_a47ae7815f62eaa11322db9a893c2b3a5}{Cyg}~30
+\item 
+\#define \hyperlink{constel_8c_ab1a08beea0b467be1e7b7045ece38782}{Del}~31
+\item 
+\#define \hyperlink{constel_8c_af640c119962ff15b7c0065276bbe39eb}{Dor}~32
+\item 
+\#define \hyperlink{constel_8c_ae6ea56aadc9bd84809bce683a38fd4b5}{Dra}~33
+\item 
+\#define \hyperlink{constel_8c_a46e7fab4ff4a14936911018511eae790}{Equ}~34
+\item 
+\#define \hyperlink{constel_8c_a24251434a140bc224ccae33d0868c96b}{Eri}~35
+\item 
+\#define \hyperlink{constel_8c_a03c0574a019b27c1f007d4d7f99e24c6}{For}~36
+\item 
+\#define \hyperlink{constel_8c_ab5e4a8f7b6e6b2c3e77f4792e8a22a24}{Gem}~37
+\item 
+\#define \hyperlink{constel_8c_ada1269f4176dc77ffee521535262f035}{Gru}~38
+\item 
+\#define \hyperlink{constel_8c_ac30ff7d33df0b80a9b1ec9a3c130f296}{Her}~39
+\item 
+\#define \hyperlink{constel_8c_a87686038d63a12128cbb0804a026e1d9}{Hor}~40
+\item 
+\#define \hyperlink{constel_8c_ab2511baf5acc86dd3ed2a618e89d8e6c}{Hya}~41
+\item 
+\#define \hyperlink{constel_8c_a43efa25f2829c14ca9123a6b08b50349}{Hyi}~42
+\item 
+\#define \hyperlink{constel_8c_ab516f955ec6e3def1f7da89335d2726b}{Ind}~43
+\item 
+\#define \hyperlink{constel_8c_a17728a620e24d9402d4080d3b21614b6}{L\-Mi}~44
+\item 
+\#define \hyperlink{constel_8c_af2316cdef00a62a0794cfa66155ea304}{Lac}~45
+\item 
+\#define \hyperlink{constel_8c_a27a568706abe2bbde69974124828f505}{Leo}~46
+\item 
+\#define \hyperlink{constel_8c_a48d0dd536548bed4b80fa41179749be3}{Lep}~47
+\item 
+\#define \hyperlink{constel_8c_ae0efa53158861702bb948d97cf2e155b}{Lib}~48
+\item 
+\#define \hyperlink{constel_8c_ac0d5350e80a2b0d37efd90fb172d8d0f}{Lup}~49
+\item 
+\#define \hyperlink{constel_8c_ad9dc64bd91f0dc07ad61eceadef5fa1e}{Lyn}~50
+\item 
+\#define \hyperlink{constel_8c_a5d645fcda013260bff73dce4ff541bf1}{Lyr}~51
+\item 
+\#define \hyperlink{constel_8c_a84644c1e67b5b849a835c4beec14eb2e}{Men}~52
+\item 
+\#define \hyperlink{constel_8c_a54d2c5b896f52ec82e12223c168d422c}{Mic}~53
+\item 
+\#define \hyperlink{constel_8c_ad22be04b5caf7fbbdfe65244627a1acd}{Mon}~54
+\item 
+\#define \hyperlink{constel_8c_a66493c79ebeaa0168af2494ed88d913b}{Mus}~55
+\item 
+\#define \hyperlink{constel_8c_a2e66d7cd616fad2bbccb56bc778bf0ec}{Nor}~56
+\item 
+\#define \hyperlink{constel_8c_a232cab68c39e8b6ebd209f41b15214a4}{Oct}~57
+\item 
+\#define \hyperlink{constel_8c_a0413c82124ff1bdde4f02682de0ca539}{Oph}~58
+\item 
+\#define \hyperlink{constel_8c_aa4acab6ac0f86ff5a7459694c452b626}{Ori}~59
+\item 
+\#define \hyperlink{constel_8c_a0ca23f282e5ed0c83d1ffed454692720}{Pav}~60
+\item 
+\#define \hyperlink{constel_8c_a356aa222e19e209cc6285e17c0c76214}{Peg}~61
+\item 
+\#define \hyperlink{constel_8c_a6da81ae12c11c9bdc0033539baaabbcf}{Per}~62
+\item 
+\#define \hyperlink{constel_8c_a901a3c1911fd01512ebe53e0e3ae50ca}{Phe}~63
+\item 
+\#define \hyperlink{constel_8c_a925390427a5ce1d6fd68173cfaa232c7}{Pic}~64
+\item 
+\#define \hyperlink{constel_8c_a2c5d772e3ffce8d4e69c8c53a2e5fd81}{Ps\-A}~65
+\item 
+\#define \hyperlink{constel_8c_abbcd958400de097c45667795a50d0a60}{Psc}~66
+\item 
+\#define \hyperlink{constel_8c_a8fc047d73cb0c7283c4f3ba55dd2aee6}{Pup}~67
+\item 
+\#define \hyperlink{constel_8c_a8ca54f8414c9acc0e7d1eb6dc92859fa}{Pyx}~68
+\item 
+\#define \hyperlink{constel_8c_a59344cfd8e79906139f38ff25173a1a1}{Ret}~69
+\item 
+\#define \hyperlink{constel_8c_aad929ddfa0d50e4c94455c747944daf7}{Scl}~70
+\item 
+\#define \hyperlink{constel_8c_a7d704d8202a73aea66227f7be86facf7}{Sco}~71
+\item 
+\#define \hyperlink{constel_8c_a352275cf2405d21f43907f0ddf00af08}{Sct}~72
+\item 
+\#define \hyperlink{constel_8c_a3875ebb5aa967a7ef7af8e61e4e8252e}{Se1}~73
+\item 
+\#define \hyperlink{constel_8c_a904d1fcb3200eea7d0a8933536295bf5}{Sex}~74
+\item 
+\#define \hyperlink{constel_8c_a878987631d2cd5d7b7ab6d8efdffbc4e}{Sge}~75
+\item 
+\#define \hyperlink{constel_8c_a6660c6ba7e82d943b119cb0caa7acd76}{Sgr}~76
+\item 
+\#define \hyperlink{constel_8c_ae3f326d8245af69fb6dbb78cbca4a8b3}{Tau}~77
+\item 
+\#define \hyperlink{constel_8c_aff331cbc715c1768b5f1df0bc0815571}{Tel}~78
+\item 
+\#define \hyperlink{constel_8c_a7681727334b135e213d5b4113229ee8d}{Tr\-A}~79
+\item 
+\#define \hyperlink{constel_8c_a6e027f092e06550622687c9bf0b4a9e4}{Tri}~80
+\item 
+\#define \hyperlink{constel_8c_ad223eea1a5e70edf8f98f9a51585c4ac}{Tuc}~81
+\item 
+\#define \hyperlink{constel_8c_af15ea5a3a34b65df999c572fe2b50f00}{U\-Ma}~82
+\item 
+\#define \hyperlink{constel_8c_a3fec08e18ff206625a20bc087783b587}{U\-Mi}~83
+\item 
+\#define \hyperlink{constel_8c_af02934fcf5848d729595b90eb083f505}{Vel}~84
+\item 
+\#define \hyperlink{constel_8c_a882fbd03b294d4222d140dcea9b83ba2}{Vir}~85
+\item 
+\#define \hyperlink{constel_8c_ab58d2b162778b7be7ee607e26de24fc4}{Vol}~86
+\item 
+\#define \hyperlink{constel_8c_a99154af8ceec3c67e48e08c61a52403f}{Vul}~87
+\item 
+\#define \hyperlink{constel_8c_a25824ba62c25d57b121209eda0d1d6f2}{Se2}~88
+\item 
+\#define \hyperlink{constel_8c_aed45460a683bf984280a1db3dff4e8f4}{N\-R\-A}~((int)(sizeof(\hyperlink{constel_8c_a84e6d4ea2499d93813ea4e99c0aac253}{ra\-\_\-edges})/sizeof(\hyperlink{constel_8c_a84e6d4ea2499d93813ea4e99c0aac253}{ra\-\_\-edges}\mbox{[}0\mbox{]})))
+\item 
+\#define \hyperlink{constel_8c_a40a35c2cd8b7967bde3c1eafd236c18d}{N\-D\-E\-C}~((int)(sizeof(\hyperlink{constel_8c_a4596eabdf86b4e01933ae69bd9cf338c}{dec\-\_\-edges})/sizeof(\hyperlink{constel_8c_a4596eabdf86b4e01933ae69bd9cf338c}{dec\-\_\-edges}\mbox{[}0\mbox{]})))
+\item 
+\#define \hyperlink{constel_8c_ae7ff4a0c9041b1e3b56ad781908a5bf0}{N\-E\-D\-G\-E\-S}~(\hyperlink{constel_8c_aed45460a683bf984280a1db3dff4e8f4}{N\-R\-A}+\hyperlink{constel_8c_a40a35c2cd8b7967bde3c1eafd236c18d}{N\-D\-E\-C})
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{constel_8c_a76033e94f3dda39f889bf9f0999e1287}{cns\-\_\-pick} (double r, double d, double e)
+\item 
+char $\ast$ \hyperlink{constel_8c_ac2ebcab9bbbcb07dd26dbcfc2e7a5571}{cns\-\_\-name} (int id)
+\item 
+int \hyperlink{constel_8c_a2fa52e582fb3bc39427f1724a1945003}{cns\-\_\-id} (char $\ast$abbrev)
+\item 
+int \hyperlink{constel_8c_a03e1b115ca90718115d025bc167ce6a8}{cns\-\_\-edges} (double e, double $\ast$$\ast$ra0p, double $\ast$$\ast$dec0p, double $\ast$$\ast$ra1p, double $\ast$$\ast$dec1p)
+\item 
+int \hyperlink{constel_8c_aa91f0872a2f28f469bddcb9463a7b023}{cns\-\_\-list} (double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, double e, double rad, int ids\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{constel_8c_a2e7b83416e09854b884522578f8f3fd1}{add\-Fig\-List} (\hyperlink{struct_con_fig}{Con\-Fig} $\ast$$\ast$new, int $\ast$nused, int \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{c}, int drawcode, double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+int \hyperlink{constel_8c_a97bcc0bb23d7ce8f030a37a13ee3984b}{cns\-\_\-loadfigs} (F\-I\-L\-E $\ast$fp, char $\ast$msg)
+\item 
+int \hyperlink{constel_8c_aa8601bb074905861837ddfda3f2bf0b1}{cns\-\_\-figure} (int id, double e, double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}\mbox{[}$\,$\mbox{]}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}\mbox{[}$\,$\mbox{]}, int dcodes\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{constel_8c_ad26de1b1c5b3540ca6296c1722327195}{cns\-\_\-namemap} \mbox{[}\hyperlink{astro_8h_ac5cded70557e19515ee4438a77c2884f}{N\-C\-N\-S}\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>unsigned short \hyperlink{constel_8c_a6e58061e39215b4dee2ab90bf86d8172}{lower\_ra}\\
+\>unsigned short \hyperlink{constel_8c_a83444cc1154df81e86d2f27594174f1a}{upper\_ra}\\
+\>short \hyperlink{constel_8c_a13e46bc188926b84428e58900954a6f3}{lower\_dec}\\
+\>short \hyperlink{constel_8c_a1b460e0e8374e88d858e8362e40a4d36}{index}\\
+\} \hyperlink{constel_8c_a03585e5f163d842983bbcff45703eb59}{cbound} \mbox{[}\hyperlink{constel_8c_afec5402d2287326809af25825c44323d}{NBOUNDS}\mbox{]}\\
+
+\end{tabbing}\item 
+static short \hyperlink{constel_8c_a10660a12dcc522823429e038f77dec69}{start} \mbox{[}$\,$\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>unsigned short \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}\\
+\>short \hyperlink{constel_8c_aba79a1d9a79c8847c5659ca90753c8ce}{dec0}\\
+\>short \hyperlink{constel_8c_affab04f24788932bd46dd7341fa57c31}{dec1}\\
+\} \hyperlink{constel_8c_a84e6d4ea2499d93813ea4e99c0aac253}{ra\_edges} \mbox{[}$\,$\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>short \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}\\
+\>unsigned short \hyperlink{constel_8c_a76e27139069bef23bedafe2b4b8346c4}{ra0}\\
+\>unsigned short \hyperlink{constel_8c_a19d3244a052a9d183c1782dfec2802d1}{ra1}\\
+\} \hyperlink{constel_8c_a4596eabdf86b4e01933ae69bd9cf338c}{dec\_edges} \mbox{[}$\,$\mbox{]}\\
+
+\end{tabbing}\item 
+static \hyperlink{struct_con_fig}{Con\-Fig} $\ast$ \hyperlink{constel_8c_a27d2e2bbd32f8724bbcbc3a1f1a27dd7}{figmap} \mbox{[}\hyperlink{astro_8h_ac5cded70557e19515ee4438a77c2884f}{N\-C\-N\-S}\mbox{]}
+\item 
+static char $\ast$ \hyperlink{constel_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{constel.\-c},v \$ \$Date\-: 2005/03/05 06\-:55\-:22 \$ \$Revision\-: 1.\-13 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{constel_8c_ac6eed5dbfee898c2a9813e9afbadd89a}{\index{constel.\-c@{constel.\-c}!And@{And}}
+\index{And@{And}!constel.c@{constel.\-c}}
+\subsubsection[{And}]{\setlength{\rightskip}{0pt plus 5cm}\#define And~0}}\label{constel_8c_ac6eed5dbfee898c2a9813e9afbadd89a}
+
+
+Definition at line 60 of file constel.\-c.
+
+\hypertarget{constel_8c_a75401438505ee0e30d75194c33093020}{\index{constel.\-c@{constel.\-c}!Ant@{Ant}}
+\index{Ant@{Ant}!constel.c@{constel.\-c}}
+\subsubsection[{Ant}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ant~1}}\label{constel_8c_a75401438505ee0e30d75194c33093020}
+
+
+Definition at line 61 of file constel.\-c.
+
+\hypertarget{constel_8c_ad69c61806901aee71cbfe2f07c3ca359}{\index{constel.\-c@{constel.\-c}!Aps@{Aps}}
+\index{Aps@{Aps}!constel.c@{constel.\-c}}
+\subsubsection[{Aps}]{\setlength{\rightskip}{0pt plus 5cm}\#define Aps~2}}\label{constel_8c_ad69c61806901aee71cbfe2f07c3ca359}
+
+
+Definition at line 62 of file constel.\-c.
+
+\hypertarget{constel_8c_afe5de33156a92cc4d99525cdf6a337f1}{\index{constel.\-c@{constel.\-c}!Aql@{Aql}}
+\index{Aql@{Aql}!constel.c@{constel.\-c}}
+\subsubsection[{Aql}]{\setlength{\rightskip}{0pt plus 5cm}\#define Aql~3}}\label{constel_8c_afe5de33156a92cc4d99525cdf6a337f1}
+
+
+Definition at line 63 of file constel.\-c.
+
+\hypertarget{constel_8c_a2af6554843c98086c23162723e0d3316}{\index{constel.\-c@{constel.\-c}!Aqr@{Aqr}}
+\index{Aqr@{Aqr}!constel.c@{constel.\-c}}
+\subsubsection[{Aqr}]{\setlength{\rightskip}{0pt plus 5cm}\#define Aqr~4}}\label{constel_8c_a2af6554843c98086c23162723e0d3316}
+
+
+Definition at line 64 of file constel.\-c.
+
+\hypertarget{constel_8c_a8d72ec75479896d1dccda86a82158d57}{\index{constel.\-c@{constel.\-c}!Ara@{Ara}}
+\index{Ara@{Ara}!constel.c@{constel.\-c}}
+\subsubsection[{Ara}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ara~5}}\label{constel_8c_a8d72ec75479896d1dccda86a82158d57}
+
+
+Definition at line 65 of file constel.\-c.
+
+\hypertarget{constel_8c_aa931982c6943c64c4c430c965d0f465c}{\index{constel.\-c@{constel.\-c}!Ari@{Ari}}
+\index{Ari@{Ari}!constel.c@{constel.\-c}}
+\subsubsection[{Ari}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ari~6}}\label{constel_8c_aa931982c6943c64c4c430c965d0f465c}
+
+
+Definition at line 66 of file constel.\-c.
+
+\hypertarget{constel_8c_a42d7e7e0d7899a862c66606dee2abc23}{\index{constel.\-c@{constel.\-c}!Aur@{Aur}}
+\index{Aur@{Aur}!constel.c@{constel.\-c}}
+\subsubsection[{Aur}]{\setlength{\rightskip}{0pt plus 5cm}\#define Aur~7}}\label{constel_8c_a42d7e7e0d7899a862c66606dee2abc23}
+
+
+Definition at line 67 of file constel.\-c.
+
+\hypertarget{constel_8c_a1ad2b8030d260431ba61cc834155b8b0}{\index{constel.\-c@{constel.\-c}!Boo@{Boo}}
+\index{Boo@{Boo}!constel.c@{constel.\-c}}
+\subsubsection[{Boo}]{\setlength{\rightskip}{0pt plus 5cm}\#define Boo~8}}\label{constel_8c_a1ad2b8030d260431ba61cc834155b8b0}
+
+
+Definition at line 68 of file constel.\-c.
+
+\hypertarget{constel_8c_a360719021eb4e3ceba075bb7baf3427f}{\index{constel.\-c@{constel.\-c}!Cae@{Cae}}
+\index{Cae@{Cae}!constel.c@{constel.\-c}}
+\subsubsection[{Cae}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cae~12}}\label{constel_8c_a360719021eb4e3ceba075bb7baf3427f}
+
+
+Definition at line 72 of file constel.\-c.
+
+\hypertarget{constel_8c_ad6ce5aba48c823bd6c460da267effac9}{\index{constel.\-c@{constel.\-c}!Cam@{Cam}}
+\index{Cam@{Cam}!constel.c@{constel.\-c}}
+\subsubsection[{Cam}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cam~13}}\label{constel_8c_ad6ce5aba48c823bd6c460da267effac9}
+
+
+Definition at line 73 of file constel.\-c.
+
+\hypertarget{constel_8c_a743e837262d72f061f110322b305ea91}{\index{constel.\-c@{constel.\-c}!Cap@{Cap}}
+\index{Cap@{Cap}!constel.c@{constel.\-c}}
+\subsubsection[{Cap}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cap~14}}\label{constel_8c_a743e837262d72f061f110322b305ea91}
+
+
+Definition at line 74 of file constel.\-c.
+
+\hypertarget{constel_8c_a69413a9495deeac94f23535bdde2e49c}{\index{constel.\-c@{constel.\-c}!Car@{Car}}
+\index{Car@{Car}!constel.c@{constel.\-c}}
+\subsubsection[{Car}]{\setlength{\rightskip}{0pt plus 5cm}\#define Car~15}}\label{constel_8c_a69413a9495deeac94f23535bdde2e49c}
+
+
+Definition at line 75 of file constel.\-c.
+
+\hypertarget{constel_8c_a903b453a193ef9996777d2c445847a67}{\index{constel.\-c@{constel.\-c}!Cas@{Cas}}
+\index{Cas@{Cas}!constel.c@{constel.\-c}}
+\subsubsection[{Cas}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cas~16}}\label{constel_8c_a903b453a193ef9996777d2c445847a67}
+
+
+Definition at line 76 of file constel.\-c.
+
+\hypertarget{constel_8c_aea08ca16309f1333045ab5891747c968}{\index{constel.\-c@{constel.\-c}!Cen@{Cen}}
+\index{Cen@{Cen}!constel.c@{constel.\-c}}
+\subsubsection[{Cen}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cen~17}}\label{constel_8c_aea08ca16309f1333045ab5891747c968}
+
+
+Definition at line 77 of file constel.\-c.
+
+\hypertarget{constel_8c_ae82fcd9884b56678a2d3658746a3ad30}{\index{constel.\-c@{constel.\-c}!Cep@{Cep}}
+\index{Cep@{Cep}!constel.c@{constel.\-c}}
+\subsubsection[{Cep}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cep~18}}\label{constel_8c_ae82fcd9884b56678a2d3658746a3ad30}
+
+
+Definition at line 78 of file constel.\-c.
+
+\hypertarget{constel_8c_a99eb7290c8c7788061eea4467bbaa035}{\index{constel.\-c@{constel.\-c}!Cet@{Cet}}
+\index{Cet@{Cet}!constel.c@{constel.\-c}}
+\subsubsection[{Cet}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cet~19}}\label{constel_8c_a99eb7290c8c7788061eea4467bbaa035}
+
+
+Definition at line 79 of file constel.\-c.
+
+\hypertarget{constel_8c_ab8c8a71401cf2787ea767db36f458c49}{\index{constel.\-c@{constel.\-c}!Cha@{Cha}}
+\index{Cha@{Cha}!constel.c@{constel.\-c}}
+\subsubsection[{Cha}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cha~20}}\label{constel_8c_ab8c8a71401cf2787ea767db36f458c49}
+
+
+Definition at line 80 of file constel.\-c.
+
+\hypertarget{constel_8c_a7385c3f58a73692197480e02a8d90ace}{\index{constel.\-c@{constel.\-c}!Cir@{Cir}}
+\index{Cir@{Cir}!constel.c@{constel.\-c}}
+\subsubsection[{Cir}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cir~21}}\label{constel_8c_a7385c3f58a73692197480e02a8d90ace}
+
+
+Definition at line 81 of file constel.\-c.
+
+\hypertarget{constel_8c_a99abb8662b065a0efe985bc577798a12}{\index{constel.\-c@{constel.\-c}!C\-Ma@{C\-Ma}}
+\index{C\-Ma@{C\-Ma}!constel.c@{constel.\-c}}
+\subsubsection[{C\-Ma}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-Ma~9}}\label{constel_8c_a99abb8662b065a0efe985bc577798a12}
+
+
+Definition at line 69 of file constel.\-c.
+
+\hypertarget{constel_8c_a26eae82c379bf40bdb8339067518df86}{\index{constel.\-c@{constel.\-c}!C\-Mi@{C\-Mi}}
+\index{C\-Mi@{C\-Mi}!constel.c@{constel.\-c}}
+\subsubsection[{C\-Mi}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-Mi~10}}\label{constel_8c_a26eae82c379bf40bdb8339067518df86}
+
+
+Definition at line 70 of file constel.\-c.
+
+\hypertarget{constel_8c_ab88da283bee108818f0112fbd980a28e}{\index{constel.\-c@{constel.\-c}!Cnc@{Cnc}}
+\index{Cnc@{Cnc}!constel.c@{constel.\-c}}
+\subsubsection[{Cnc}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cnc~22}}\label{constel_8c_ab88da283bee108818f0112fbd980a28e}
+
+
+Definition at line 82 of file constel.\-c.
+
+\hypertarget{constel_8c_a4ec00b1920fd854afa2b021f76d355fb}{\index{constel.\-c@{constel.\-c}!Col@{Col}}
+\index{Col@{Col}!constel.c@{constel.\-c}}
+\subsubsection[{Col}]{\setlength{\rightskip}{0pt plus 5cm}\#define Col~23}}\label{constel_8c_a4ec00b1920fd854afa2b021f76d355fb}
+
+
+Definition at line 83 of file constel.\-c.
+
+\hypertarget{constel_8c_a814853e0fc89638b7c3abcf242097891}{\index{constel.\-c@{constel.\-c}!Com@{Com}}
+\index{Com@{Com}!constel.c@{constel.\-c}}
+\subsubsection[{Com}]{\setlength{\rightskip}{0pt plus 5cm}\#define Com~24}}\label{constel_8c_a814853e0fc89638b7c3abcf242097891}
+
+
+Definition at line 84 of file constel.\-c.
+
+\hypertarget{constel_8c_a2770f7e733628192b0232cc441e6c0d1}{\index{constel.\-c@{constel.\-c}!Cr\-A@{Cr\-A}}
+\index{Cr\-A@{Cr\-A}!constel.c@{constel.\-c}}
+\subsubsection[{Cr\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cr\-A~25}}\label{constel_8c_a2770f7e733628192b0232cc441e6c0d1}
+
+
+Definition at line 85 of file constel.\-c.
+
+\hypertarget{constel_8c_a8b816dd03d7f8639f3130e7a4552f2e2}{\index{constel.\-c@{constel.\-c}!Cr\-B@{Cr\-B}}
+\index{Cr\-B@{Cr\-B}!constel.c@{constel.\-c}}
+\subsubsection[{Cr\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cr\-B~26}}\label{constel_8c_a8b816dd03d7f8639f3130e7a4552f2e2}
+
+
+Definition at line 86 of file constel.\-c.
+
+\hypertarget{constel_8c_a77031cbdb7fd87167000fb431c624ad2}{\index{constel.\-c@{constel.\-c}!Crt@{Crt}}
+\index{Crt@{Crt}!constel.c@{constel.\-c}}
+\subsubsection[{Crt}]{\setlength{\rightskip}{0pt plus 5cm}\#define Crt~27}}\label{constel_8c_a77031cbdb7fd87167000fb431c624ad2}
+
+
+Definition at line 87 of file constel.\-c.
+
+\hypertarget{constel_8c_a5fd8a794ad29234acf426c48b1b62c7f}{\index{constel.\-c@{constel.\-c}!Cru@{Cru}}
+\index{Cru@{Cru}!constel.c@{constel.\-c}}
+\subsubsection[{Cru}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cru~28}}\label{constel_8c_a5fd8a794ad29234acf426c48b1b62c7f}
+
+
+Definition at line 88 of file constel.\-c.
+
+\hypertarget{constel_8c_acd9fcf090b6105d18fa0aea34e584832}{\index{constel.\-c@{constel.\-c}!Crv@{Crv}}
+\index{Crv@{Crv}!constel.c@{constel.\-c}}
+\subsubsection[{Crv}]{\setlength{\rightskip}{0pt plus 5cm}\#define Crv~29}}\label{constel_8c_acd9fcf090b6105d18fa0aea34e584832}
+
+
+Definition at line 89 of file constel.\-c.
+
+\hypertarget{constel_8c_a9980539c10564943e3732fbf119150af}{\index{constel.\-c@{constel.\-c}!C\-Vn@{C\-Vn}}
+\index{C\-Vn@{C\-Vn}!constel.c@{constel.\-c}}
+\subsubsection[{C\-Vn}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-Vn~11}}\label{constel_8c_a9980539c10564943e3732fbf119150af}
+
+
+Definition at line 71 of file constel.\-c.
+
+\hypertarget{constel_8c_a47ae7815f62eaa11322db9a893c2b3a5}{\index{constel.\-c@{constel.\-c}!Cyg@{Cyg}}
+\index{Cyg@{Cyg}!constel.c@{constel.\-c}}
+\subsubsection[{Cyg}]{\setlength{\rightskip}{0pt plus 5cm}\#define Cyg~30}}\label{constel_8c_a47ae7815f62eaa11322db9a893c2b3a5}
+
+
+Definition at line 90 of file constel.\-c.
+
+\hypertarget{constel_8c_ab1a08beea0b467be1e7b7045ece38782}{\index{constel.\-c@{constel.\-c}!Del@{Del}}
+\index{Del@{Del}!constel.c@{constel.\-c}}
+\subsubsection[{Del}]{\setlength{\rightskip}{0pt plus 5cm}\#define Del~31}}\label{constel_8c_ab1a08beea0b467be1e7b7045ece38782}
+
+
+Definition at line 91 of file constel.\-c.
+
+\hypertarget{constel_8c_af640c119962ff15b7c0065276bbe39eb}{\index{constel.\-c@{constel.\-c}!Dor@{Dor}}
+\index{Dor@{Dor}!constel.c@{constel.\-c}}
+\subsubsection[{Dor}]{\setlength{\rightskip}{0pt plus 5cm}\#define Dor~32}}\label{constel_8c_af640c119962ff15b7c0065276bbe39eb}
+
+
+Definition at line 92 of file constel.\-c.
+
+\hypertarget{constel_8c_ae6ea56aadc9bd84809bce683a38fd4b5}{\index{constel.\-c@{constel.\-c}!Dra@{Dra}}
+\index{Dra@{Dra}!constel.c@{constel.\-c}}
+\subsubsection[{Dra}]{\setlength{\rightskip}{0pt plus 5cm}\#define Dra~33}}\label{constel_8c_ae6ea56aadc9bd84809bce683a38fd4b5}
+
+
+Definition at line 93 of file constel.\-c.
+
+\hypertarget{constel_8c_a46e7fab4ff4a14936911018511eae790}{\index{constel.\-c@{constel.\-c}!Equ@{Equ}}
+\index{Equ@{Equ}!constel.c@{constel.\-c}}
+\subsubsection[{Equ}]{\setlength{\rightskip}{0pt plus 5cm}\#define Equ~34}}\label{constel_8c_a46e7fab4ff4a14936911018511eae790}
+
+
+Definition at line 94 of file constel.\-c.
+
+\hypertarget{constel_8c_a24251434a140bc224ccae33d0868c96b}{\index{constel.\-c@{constel.\-c}!Eri@{Eri}}
+\index{Eri@{Eri}!constel.c@{constel.\-c}}
+\subsubsection[{Eri}]{\setlength{\rightskip}{0pt plus 5cm}\#define Eri~35}}\label{constel_8c_a24251434a140bc224ccae33d0868c96b}
+
+
+Definition at line 95 of file constel.\-c.
+
+\hypertarget{constel_8c_a03c0574a019b27c1f007d4d7f99e24c6}{\index{constel.\-c@{constel.\-c}!For@{For}}
+\index{For@{For}!constel.c@{constel.\-c}}
+\subsubsection[{For}]{\setlength{\rightskip}{0pt plus 5cm}\#define For~36}}\label{constel_8c_a03c0574a019b27c1f007d4d7f99e24c6}
+
+
+Definition at line 96 of file constel.\-c.
+
+\hypertarget{constel_8c_ab5e4a8f7b6e6b2c3e77f4792e8a22a24}{\index{constel.\-c@{constel.\-c}!Gem@{Gem}}
+\index{Gem@{Gem}!constel.c@{constel.\-c}}
+\subsubsection[{Gem}]{\setlength{\rightskip}{0pt plus 5cm}\#define Gem~37}}\label{constel_8c_ab5e4a8f7b6e6b2c3e77f4792e8a22a24}
+
+
+Definition at line 97 of file constel.\-c.
+
+\hypertarget{constel_8c_ada1269f4176dc77ffee521535262f035}{\index{constel.\-c@{constel.\-c}!Gru@{Gru}}
+\index{Gru@{Gru}!constel.c@{constel.\-c}}
+\subsubsection[{Gru}]{\setlength{\rightskip}{0pt plus 5cm}\#define Gru~38}}\label{constel_8c_ada1269f4176dc77ffee521535262f035}
+
+
+Definition at line 98 of file constel.\-c.
+
+\hypertarget{constel_8c_ac30ff7d33df0b80a9b1ec9a3c130f296}{\index{constel.\-c@{constel.\-c}!Her@{Her}}
+\index{Her@{Her}!constel.c@{constel.\-c}}
+\subsubsection[{Her}]{\setlength{\rightskip}{0pt plus 5cm}\#define Her~39}}\label{constel_8c_ac30ff7d33df0b80a9b1ec9a3c130f296}
+
+
+Definition at line 99 of file constel.\-c.
+
+\hypertarget{constel_8c_a87686038d63a12128cbb0804a026e1d9}{\index{constel.\-c@{constel.\-c}!Hor@{Hor}}
+\index{Hor@{Hor}!constel.c@{constel.\-c}}
+\subsubsection[{Hor}]{\setlength{\rightskip}{0pt plus 5cm}\#define Hor~40}}\label{constel_8c_a87686038d63a12128cbb0804a026e1d9}
+
+
+Definition at line 100 of file constel.\-c.
+
+\hypertarget{constel_8c_ab2511baf5acc86dd3ed2a618e89d8e6c}{\index{constel.\-c@{constel.\-c}!Hya@{Hya}}
+\index{Hya@{Hya}!constel.c@{constel.\-c}}
+\subsubsection[{Hya}]{\setlength{\rightskip}{0pt plus 5cm}\#define Hya~41}}\label{constel_8c_ab2511baf5acc86dd3ed2a618e89d8e6c}
+
+
+Definition at line 101 of file constel.\-c.
+
+\hypertarget{constel_8c_a43efa25f2829c14ca9123a6b08b50349}{\index{constel.\-c@{constel.\-c}!Hyi@{Hyi}}
+\index{Hyi@{Hyi}!constel.c@{constel.\-c}}
+\subsubsection[{Hyi}]{\setlength{\rightskip}{0pt plus 5cm}\#define Hyi~42}}\label{constel_8c_a43efa25f2829c14ca9123a6b08b50349}
+
+
+Definition at line 102 of file constel.\-c.
+
+\hypertarget{constel_8c_ab516f955ec6e3def1f7da89335d2726b}{\index{constel.\-c@{constel.\-c}!Ind@{Ind}}
+\index{Ind@{Ind}!constel.c@{constel.\-c}}
+\subsubsection[{Ind}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ind~43}}\label{constel_8c_ab516f955ec6e3def1f7da89335d2726b}
+
+
+Definition at line 103 of file constel.\-c.
+
+\hypertarget{constel_8c_af2316cdef00a62a0794cfa66155ea304}{\index{constel.\-c@{constel.\-c}!Lac@{Lac}}
+\index{Lac@{Lac}!constel.c@{constel.\-c}}
+\subsubsection[{Lac}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lac~45}}\label{constel_8c_af2316cdef00a62a0794cfa66155ea304}
+
+
+Definition at line 105 of file constel.\-c.
+
+\hypertarget{constel_8c_a27a568706abe2bbde69974124828f505}{\index{constel.\-c@{constel.\-c}!Leo@{Leo}}
+\index{Leo@{Leo}!constel.c@{constel.\-c}}
+\subsubsection[{Leo}]{\setlength{\rightskip}{0pt plus 5cm}\#define Leo~46}}\label{constel_8c_a27a568706abe2bbde69974124828f505}
+
+
+Definition at line 106 of file constel.\-c.
+
+\hypertarget{constel_8c_a48d0dd536548bed4b80fa41179749be3}{\index{constel.\-c@{constel.\-c}!Lep@{Lep}}
+\index{Lep@{Lep}!constel.c@{constel.\-c}}
+\subsubsection[{Lep}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lep~47}}\label{constel_8c_a48d0dd536548bed4b80fa41179749be3}
+
+
+Definition at line 107 of file constel.\-c.
+
+\hypertarget{constel_8c_ae0efa53158861702bb948d97cf2e155b}{\index{constel.\-c@{constel.\-c}!Lib@{Lib}}
+\index{Lib@{Lib}!constel.c@{constel.\-c}}
+\subsubsection[{Lib}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lib~48}}\label{constel_8c_ae0efa53158861702bb948d97cf2e155b}
+
+
+Definition at line 108 of file constel.\-c.
+
+\hypertarget{constel_8c_a17728a620e24d9402d4080d3b21614b6}{\index{constel.\-c@{constel.\-c}!L\-Mi@{L\-Mi}}
+\index{L\-Mi@{L\-Mi}!constel.c@{constel.\-c}}
+\subsubsection[{L\-Mi}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Mi~44}}\label{constel_8c_a17728a620e24d9402d4080d3b21614b6}
+
+
+Definition at line 104 of file constel.\-c.
+
+\hypertarget{constel_8c_ac0d5350e80a2b0d37efd90fb172d8d0f}{\index{constel.\-c@{constel.\-c}!Lup@{Lup}}
+\index{Lup@{Lup}!constel.c@{constel.\-c}}
+\subsubsection[{Lup}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lup~49}}\label{constel_8c_ac0d5350e80a2b0d37efd90fb172d8d0f}
+
+
+Definition at line 109 of file constel.\-c.
+
+\hypertarget{constel_8c_ad9dc64bd91f0dc07ad61eceadef5fa1e}{\index{constel.\-c@{constel.\-c}!Lyn@{Lyn}}
+\index{Lyn@{Lyn}!constel.c@{constel.\-c}}
+\subsubsection[{Lyn}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lyn~50}}\label{constel_8c_ad9dc64bd91f0dc07ad61eceadef5fa1e}
+
+
+Definition at line 110 of file constel.\-c.
+
+\hypertarget{constel_8c_a5d645fcda013260bff73dce4ff541bf1}{\index{constel.\-c@{constel.\-c}!Lyr@{Lyr}}
+\index{Lyr@{Lyr}!constel.c@{constel.\-c}}
+\subsubsection[{Lyr}]{\setlength{\rightskip}{0pt plus 5cm}\#define Lyr~51}}\label{constel_8c_a5d645fcda013260bff73dce4ff541bf1}
+
+
+Definition at line 111 of file constel.\-c.
+
+\hypertarget{constel_8c_a84644c1e67b5b849a835c4beec14eb2e}{\index{constel.\-c@{constel.\-c}!Men@{Men}}
+\index{Men@{Men}!constel.c@{constel.\-c}}
+\subsubsection[{Men}]{\setlength{\rightskip}{0pt plus 5cm}\#define Men~52}}\label{constel_8c_a84644c1e67b5b849a835c4beec14eb2e}
+
+
+Definition at line 112 of file constel.\-c.
+
+\hypertarget{constel_8c_a54d2c5b896f52ec82e12223c168d422c}{\index{constel.\-c@{constel.\-c}!Mic@{Mic}}
+\index{Mic@{Mic}!constel.c@{constel.\-c}}
+\subsubsection[{Mic}]{\setlength{\rightskip}{0pt plus 5cm}\#define Mic~53}}\label{constel_8c_a54d2c5b896f52ec82e12223c168d422c}
+
+
+Definition at line 113 of file constel.\-c.
+
+\hypertarget{constel_8c_ad22be04b5caf7fbbdfe65244627a1acd}{\index{constel.\-c@{constel.\-c}!Mon@{Mon}}
+\index{Mon@{Mon}!constel.c@{constel.\-c}}
+\subsubsection[{Mon}]{\setlength{\rightskip}{0pt plus 5cm}\#define Mon~54}}\label{constel_8c_ad22be04b5caf7fbbdfe65244627a1acd}
+
+
+Definition at line 114 of file constel.\-c.
+
+\hypertarget{constel_8c_a66493c79ebeaa0168af2494ed88d913b}{\index{constel.\-c@{constel.\-c}!Mus@{Mus}}
+\index{Mus@{Mus}!constel.c@{constel.\-c}}
+\subsubsection[{Mus}]{\setlength{\rightskip}{0pt plus 5cm}\#define Mus~55}}\label{constel_8c_a66493c79ebeaa0168af2494ed88d913b}
+
+
+Definition at line 115 of file constel.\-c.
+
+\hypertarget{constel_8c_afec5402d2287326809af25825c44323d}{\index{constel.\-c@{constel.\-c}!N\-B\-O\-U\-N\-D\-S@{N\-B\-O\-U\-N\-D\-S}}
+\index{N\-B\-O\-U\-N\-D\-S@{N\-B\-O\-U\-N\-D\-S}!constel.c@{constel.\-c}}
+\subsubsection[{N\-B\-O\-U\-N\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-B\-O\-U\-N\-D\-S~357}}\label{constel_8c_afec5402d2287326809af25825c44323d}
+
+
+Definition at line 57 of file constel.\-c.
+
+\hypertarget{constel_8c_a40a35c2cd8b7967bde3c1eafd236c18d}{\index{constel.\-c@{constel.\-c}!N\-D\-E\-C@{N\-D\-E\-C}}
+\index{N\-D\-E\-C@{N\-D\-E\-C}!constel.c@{constel.\-c}}
+\subsubsection[{N\-D\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-D\-E\-C~((int)(sizeof({\bf dec\-\_\-edges})/sizeof({\bf dec\-\_\-edges}\mbox{[}0\mbox{]})))}}\label{constel_8c_a40a35c2cd8b7967bde3c1eafd236c18d}
+
+
+Definition at line 1512 of file constel.\-c.
+
+\hypertarget{constel_8c_ae7ff4a0c9041b1e3b56ad781908a5bf0}{\index{constel.\-c@{constel.\-c}!N\-E\-D\-G\-E\-S@{N\-E\-D\-G\-E\-S}}
+\index{N\-E\-D\-G\-E\-S@{N\-E\-D\-G\-E\-S}!constel.c@{constel.\-c}}
+\subsubsection[{N\-E\-D\-G\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-D\-G\-E\-S~({\bf N\-R\-A}+{\bf N\-D\-E\-C})}}\label{constel_8c_ae7ff4a0c9041b1e3b56ad781908a5bf0}
+\hypertarget{constel_8c_a2e66d7cd616fad2bbccb56bc778bf0ec}{\index{constel.\-c@{constel.\-c}!Nor@{Nor}}
+\index{Nor@{Nor}!constel.c@{constel.\-c}}
+\subsubsection[{Nor}]{\setlength{\rightskip}{0pt plus 5cm}\#define Nor~56}}\label{constel_8c_a2e66d7cd616fad2bbccb56bc778bf0ec}
+
+
+Definition at line 116 of file constel.\-c.
+
+\hypertarget{constel_8c_aed45460a683bf984280a1db3dff4e8f4}{\index{constel.\-c@{constel.\-c}!N\-R\-A@{N\-R\-A}}
+\index{N\-R\-A@{N\-R\-A}!constel.c@{constel.\-c}}
+\subsubsection[{N\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-R\-A~((int)(sizeof({\bf ra\-\_\-edges})/sizeof({\bf ra\-\_\-edges}\mbox{[}0\mbox{]})))}}\label{constel_8c_aed45460a683bf984280a1db3dff4e8f4}
+
+
+Definition at line 1103 of file constel.\-c.
+
+\hypertarget{constel_8c_a232cab68c39e8b6ebd209f41b15214a4}{\index{constel.\-c@{constel.\-c}!Oct@{Oct}}
+\index{Oct@{Oct}!constel.c@{constel.\-c}}
+\subsubsection[{Oct}]{\setlength{\rightskip}{0pt plus 5cm}\#define Oct~57}}\label{constel_8c_a232cab68c39e8b6ebd209f41b15214a4}
+
+
+Definition at line 117 of file constel.\-c.
+
+\hypertarget{constel_8c_a0413c82124ff1bdde4f02682de0ca539}{\index{constel.\-c@{constel.\-c}!Oph@{Oph}}
+\index{Oph@{Oph}!constel.c@{constel.\-c}}
+\subsubsection[{Oph}]{\setlength{\rightskip}{0pt plus 5cm}\#define Oph~58}}\label{constel_8c_a0413c82124ff1bdde4f02682de0ca539}
+
+
+Definition at line 118 of file constel.\-c.
+
+\hypertarget{constel_8c_aa4acab6ac0f86ff5a7459694c452b626}{\index{constel.\-c@{constel.\-c}!Ori@{Ori}}
+\index{Ori@{Ori}!constel.c@{constel.\-c}}
+\subsubsection[{Ori}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ori~59}}\label{constel_8c_aa4acab6ac0f86ff5a7459694c452b626}
+
+
+Definition at line 119 of file constel.\-c.
+
+\hypertarget{constel_8c_a0ca23f282e5ed0c83d1ffed454692720}{\index{constel.\-c@{constel.\-c}!Pav@{Pav}}
+\index{Pav@{Pav}!constel.c@{constel.\-c}}
+\subsubsection[{Pav}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pav~60}}\label{constel_8c_a0ca23f282e5ed0c83d1ffed454692720}
+
+
+Definition at line 120 of file constel.\-c.
+
+\hypertarget{constel_8c_a356aa222e19e209cc6285e17c0c76214}{\index{constel.\-c@{constel.\-c}!Peg@{Peg}}
+\index{Peg@{Peg}!constel.c@{constel.\-c}}
+\subsubsection[{Peg}]{\setlength{\rightskip}{0pt plus 5cm}\#define Peg~61}}\label{constel_8c_a356aa222e19e209cc6285e17c0c76214}
+
+
+Definition at line 121 of file constel.\-c.
+
+\hypertarget{constel_8c_a6da81ae12c11c9bdc0033539baaabbcf}{\index{constel.\-c@{constel.\-c}!Per@{Per}}
+\index{Per@{Per}!constel.c@{constel.\-c}}
+\subsubsection[{Per}]{\setlength{\rightskip}{0pt plus 5cm}\#define Per~62}}\label{constel_8c_a6da81ae12c11c9bdc0033539baaabbcf}
+
+
+Definition at line 122 of file constel.\-c.
+
+\hypertarget{constel_8c_a901a3c1911fd01512ebe53e0e3ae50ca}{\index{constel.\-c@{constel.\-c}!Phe@{Phe}}
+\index{Phe@{Phe}!constel.c@{constel.\-c}}
+\subsubsection[{Phe}]{\setlength{\rightskip}{0pt plus 5cm}\#define Phe~63}}\label{constel_8c_a901a3c1911fd01512ebe53e0e3ae50ca}
+
+
+Definition at line 123 of file constel.\-c.
+
+\hypertarget{constel_8c_a925390427a5ce1d6fd68173cfaa232c7}{\index{constel.\-c@{constel.\-c}!Pic@{Pic}}
+\index{Pic@{Pic}!constel.c@{constel.\-c}}
+\subsubsection[{Pic}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pic~64}}\label{constel_8c_a925390427a5ce1d6fd68173cfaa232c7}
+
+
+Definition at line 124 of file constel.\-c.
+
+\hypertarget{constel_8c_a2c5d772e3ffce8d4e69c8c53a2e5fd81}{\index{constel.\-c@{constel.\-c}!Ps\-A@{Ps\-A}}
+\index{Ps\-A@{Ps\-A}!constel.c@{constel.\-c}}
+\subsubsection[{Ps\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ps\-A~65}}\label{constel_8c_a2c5d772e3ffce8d4e69c8c53a2e5fd81}
+
+
+Definition at line 125 of file constel.\-c.
+
+\hypertarget{constel_8c_abbcd958400de097c45667795a50d0a60}{\index{constel.\-c@{constel.\-c}!Psc@{Psc}}
+\index{Psc@{Psc}!constel.c@{constel.\-c}}
+\subsubsection[{Psc}]{\setlength{\rightskip}{0pt plus 5cm}\#define Psc~66}}\label{constel_8c_abbcd958400de097c45667795a50d0a60}
+
+
+Definition at line 126 of file constel.\-c.
+
+\hypertarget{constel_8c_a8fc047d73cb0c7283c4f3ba55dd2aee6}{\index{constel.\-c@{constel.\-c}!Pup@{Pup}}
+\index{Pup@{Pup}!constel.c@{constel.\-c}}
+\subsubsection[{Pup}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pup~67}}\label{constel_8c_a8fc047d73cb0c7283c4f3ba55dd2aee6}
+
+
+Definition at line 127 of file constel.\-c.
+
+\hypertarget{constel_8c_a8ca54f8414c9acc0e7d1eb6dc92859fa}{\index{constel.\-c@{constel.\-c}!Pyx@{Pyx}}
+\index{Pyx@{Pyx}!constel.c@{constel.\-c}}
+\subsubsection[{Pyx}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pyx~68}}\label{constel_8c_a8ca54f8414c9acc0e7d1eb6dc92859fa}
+
+
+Definition at line 128 of file constel.\-c.
+
+\hypertarget{constel_8c_a59344cfd8e79906139f38ff25173a1a1}{\index{constel.\-c@{constel.\-c}!Ret@{Ret}}
+\index{Ret@{Ret}!constel.c@{constel.\-c}}
+\subsubsection[{Ret}]{\setlength{\rightskip}{0pt plus 5cm}\#define Ret~69}}\label{constel_8c_a59344cfd8e79906139f38ff25173a1a1}
+
+
+Definition at line 129 of file constel.\-c.
+
+\hypertarget{constel_8c_aad929ddfa0d50e4c94455c747944daf7}{\index{constel.\-c@{constel.\-c}!Scl@{Scl}}
+\index{Scl@{Scl}!constel.c@{constel.\-c}}
+\subsubsection[{Scl}]{\setlength{\rightskip}{0pt plus 5cm}\#define Scl~70}}\label{constel_8c_aad929ddfa0d50e4c94455c747944daf7}
+
+
+Definition at line 130 of file constel.\-c.
+
+\hypertarget{constel_8c_a7d704d8202a73aea66227f7be86facf7}{\index{constel.\-c@{constel.\-c}!Sco@{Sco}}
+\index{Sco@{Sco}!constel.c@{constel.\-c}}
+\subsubsection[{Sco}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sco~71}}\label{constel_8c_a7d704d8202a73aea66227f7be86facf7}
+
+
+Definition at line 131 of file constel.\-c.
+
+\hypertarget{constel_8c_a352275cf2405d21f43907f0ddf00af08}{\index{constel.\-c@{constel.\-c}!Sct@{Sct}}
+\index{Sct@{Sct}!constel.c@{constel.\-c}}
+\subsubsection[{Sct}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sct~72}}\label{constel_8c_a352275cf2405d21f43907f0ddf00af08}
+
+
+Definition at line 132 of file constel.\-c.
+
+\hypertarget{constel_8c_a3875ebb5aa967a7ef7af8e61e4e8252e}{\index{constel.\-c@{constel.\-c}!Se1@{Se1}}
+\index{Se1@{Se1}!constel.c@{constel.\-c}}
+\subsubsection[{Se1}]{\setlength{\rightskip}{0pt plus 5cm}\#define Se1~73}}\label{constel_8c_a3875ebb5aa967a7ef7af8e61e4e8252e}
+
+
+Definition at line 133 of file constel.\-c.
+
+\hypertarget{constel_8c_a25824ba62c25d57b121209eda0d1d6f2}{\index{constel.\-c@{constel.\-c}!Se2@{Se2}}
+\index{Se2@{Se2}!constel.c@{constel.\-c}}
+\subsubsection[{Se2}]{\setlength{\rightskip}{0pt plus 5cm}\#define Se2~88}}\label{constel_8c_a25824ba62c25d57b121209eda0d1d6f2}
+
+
+Definition at line 148 of file constel.\-c.
+
+\hypertarget{constel_8c_a904d1fcb3200eea7d0a8933536295bf5}{\index{constel.\-c@{constel.\-c}!Sex@{Sex}}
+\index{Sex@{Sex}!constel.c@{constel.\-c}}
+\subsubsection[{Sex}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sex~74}}\label{constel_8c_a904d1fcb3200eea7d0a8933536295bf5}
+
+
+Definition at line 134 of file constel.\-c.
+
+\hypertarget{constel_8c_a878987631d2cd5d7b7ab6d8efdffbc4e}{\index{constel.\-c@{constel.\-c}!Sge@{Sge}}
+\index{Sge@{Sge}!constel.c@{constel.\-c}}
+\subsubsection[{Sge}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sge~75}}\label{constel_8c_a878987631d2cd5d7b7ab6d8efdffbc4e}
+
+
+Definition at line 135 of file constel.\-c.
+
+\hypertarget{constel_8c_a6660c6ba7e82d943b119cb0caa7acd76}{\index{constel.\-c@{constel.\-c}!Sgr@{Sgr}}
+\index{Sgr@{Sgr}!constel.c@{constel.\-c}}
+\subsubsection[{Sgr}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sgr~76}}\label{constel_8c_a6660c6ba7e82d943b119cb0caa7acd76}
+
+
+Definition at line 136 of file constel.\-c.
+
+\hypertarget{constel_8c_ae3f326d8245af69fb6dbb78cbca4a8b3}{\index{constel.\-c@{constel.\-c}!Tau@{Tau}}
+\index{Tau@{Tau}!constel.c@{constel.\-c}}
+\subsubsection[{Tau}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tau~77}}\label{constel_8c_ae3f326d8245af69fb6dbb78cbca4a8b3}
+
+
+Definition at line 137 of file constel.\-c.
+
+\hypertarget{constel_8c_aff331cbc715c1768b5f1df0bc0815571}{\index{constel.\-c@{constel.\-c}!Tel@{Tel}}
+\index{Tel@{Tel}!constel.c@{constel.\-c}}
+\subsubsection[{Tel}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tel~78}}\label{constel_8c_aff331cbc715c1768b5f1df0bc0815571}
+
+
+Definition at line 138 of file constel.\-c.
+
+\hypertarget{constel_8c_a7681727334b135e213d5b4113229ee8d}{\index{constel.\-c@{constel.\-c}!Tr\-A@{Tr\-A}}
+\index{Tr\-A@{Tr\-A}!constel.c@{constel.\-c}}
+\subsubsection[{Tr\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tr\-A~79}}\label{constel_8c_a7681727334b135e213d5b4113229ee8d}
+
+
+Definition at line 139 of file constel.\-c.
+
+\hypertarget{constel_8c_a6e027f092e06550622687c9bf0b4a9e4}{\index{constel.\-c@{constel.\-c}!Tri@{Tri}}
+\index{Tri@{Tri}!constel.c@{constel.\-c}}
+\subsubsection[{Tri}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tri~80}}\label{constel_8c_a6e027f092e06550622687c9bf0b4a9e4}
+
+
+Definition at line 140 of file constel.\-c.
+
+\hypertarget{constel_8c_ad223eea1a5e70edf8f98f9a51585c4ac}{\index{constel.\-c@{constel.\-c}!Tuc@{Tuc}}
+\index{Tuc@{Tuc}!constel.c@{constel.\-c}}
+\subsubsection[{Tuc}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tuc~81}}\label{constel_8c_ad223eea1a5e70edf8f98f9a51585c4ac}
+
+
+Definition at line 141 of file constel.\-c.
+
+\hypertarget{constel_8c_af15ea5a3a34b65df999c572fe2b50f00}{\index{constel.\-c@{constel.\-c}!U\-Ma@{U\-Ma}}
+\index{U\-Ma@{U\-Ma}!constel.c@{constel.\-c}}
+\subsubsection[{U\-Ma}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-Ma~82}}\label{constel_8c_af15ea5a3a34b65df999c572fe2b50f00}
+
+
+Definition at line 142 of file constel.\-c.
+
+\hypertarget{constel_8c_a3fec08e18ff206625a20bc087783b587}{\index{constel.\-c@{constel.\-c}!U\-Mi@{U\-Mi}}
+\index{U\-Mi@{U\-Mi}!constel.c@{constel.\-c}}
+\subsubsection[{U\-Mi}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-Mi~83}}\label{constel_8c_a3fec08e18ff206625a20bc087783b587}
+
+
+Definition at line 143 of file constel.\-c.
+
+\hypertarget{constel_8c_af02934fcf5848d729595b90eb083f505}{\index{constel.\-c@{constel.\-c}!Vel@{Vel}}
+\index{Vel@{Vel}!constel.c@{constel.\-c}}
+\subsubsection[{Vel}]{\setlength{\rightskip}{0pt plus 5cm}\#define Vel~84}}\label{constel_8c_af02934fcf5848d729595b90eb083f505}
+
+
+Definition at line 144 of file constel.\-c.
+
+\hypertarget{constel_8c_a882fbd03b294d4222d140dcea9b83ba2}{\index{constel.\-c@{constel.\-c}!Vir@{Vir}}
+\index{Vir@{Vir}!constel.c@{constel.\-c}}
+\subsubsection[{Vir}]{\setlength{\rightskip}{0pt plus 5cm}\#define Vir~85}}\label{constel_8c_a882fbd03b294d4222d140dcea9b83ba2}
+
+
+Definition at line 145 of file constel.\-c.
+
+\hypertarget{constel_8c_ab58d2b162778b7be7ee607e26de24fc4}{\index{constel.\-c@{constel.\-c}!Vol@{Vol}}
+\index{Vol@{Vol}!constel.c@{constel.\-c}}
+\subsubsection[{Vol}]{\setlength{\rightskip}{0pt plus 5cm}\#define Vol~86}}\label{constel_8c_ab58d2b162778b7be7ee607e26de24fc4}
+
+
+Definition at line 146 of file constel.\-c.
+
+\hypertarget{constel_8c_a99154af8ceec3c67e48e08c61a52403f}{\index{constel.\-c@{constel.\-c}!Vul@{Vul}}
+\index{Vul@{Vul}!constel.c@{constel.\-c}}
+\subsubsection[{Vul}]{\setlength{\rightskip}{0pt plus 5cm}\#define Vul~87}}\label{constel_8c_a99154af8ceec3c67e48e08c61a52403f}
+
+
+Definition at line 147 of file constel.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{constel_8c_a2e7b83416e09854b884522578f8f3fd1}{\index{constel.\-c@{constel.\-c}!add\-Fig\-List@{add\-Fig\-List}}
+\index{add\-Fig\-List@{add\-Fig\-List}!constel.c@{constel.\-c}}
+\subsubsection[{add\-Fig\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void add\-Fig\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf Con\-Fig} $\ast$$\ast$}]{new, }
+\item[{int $\ast$}]{nused, }
+\item[{int}]{c, }
+\item[{int}]{drawcode, }
+\item[{double}]{ra, }
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a2e7b83416e09854b884522578f8f3fd1}
+
+
+Definition at line 1633 of file constel.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{constel_8c_a2e7b83416e09854b884522578f8f3fd1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{constel_8c_a03e1b115ca90718115d025bc167ce6a8}{\index{constel.\-c@{constel.\-c}!cns\-\_\-edges@{cns\-\_\-edges}}
+\index{cns\-\_\-edges@{cns\-\_\-edges}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-edges (
+\begin{DoxyParamCaption}
+\item[{double}]{e, }
+\item[{double $\ast$$\ast$}]{ra0p, }
+\item[{double $\ast$$\ast$}]{dec0p, }
+\item[{double $\ast$$\ast$}]{ra1p, }
+\item[{double $\ast$$\ast$}]{dec1p}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_a03e1b115ca90718115d025bc167ce6a8}
+
+
+Definition at line 1519 of file constel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constel_8c_a03e1b115ca90718115d025bc167ce6a8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{constel_8c_aa8601bb074905861837ddfda3f2bf0b1}{\index{constel.\-c@{constel.\-c}!cns\-\_\-figure@{cns\-\_\-figure}}
+\index{cns\-\_\-figure@{cns\-\_\-figure}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-figure}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-figure (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{double}]{e, }
+\item[{double}]{ra\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{dec\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{dcodes\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_aa8601bb074905861837ddfda3f2bf0b1}
+
+
+Definition at line 1783 of file constel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constel_8c_aa8601bb074905861837ddfda3f2bf0b1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{constel_8c_a2fa52e582fb3bc39427f1724a1945003}{\index{constel.\-c@{constel.\-c}!cns\-\_\-id@{cns\-\_\-id}}
+\index{cns\-\_\-id@{cns\-\_\-id}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{abbrev}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_a2fa52e582fb3bc39427f1724a1945003}
+
+
+Definition at line 697 of file constel.\-c.
+
+\hypertarget{constel_8c_aa91f0872a2f28f469bddcb9463a7b023}{\index{constel.\-c@{constel.\-c}!cns\-\_\-list@{cns\-\_\-list}}
+\index{cns\-\_\-list@{cns\-\_\-list}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{double}]{ra, }
+\item[{double}]{dec, }
+\item[{double}]{e, }
+\item[{double}]{rad, }
+\item[{int}]{ids\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_aa91f0872a2f28f469bddcb9463a7b023}
+
+
+Definition at line 1608 of file constel.\-c.
+
+\hypertarget{constel_8c_a97bcc0bb23d7ce8f030a37a13ee3984b}{\index{constel.\-c@{constel.\-c}!cns\-\_\-loadfigs@{cns\-\_\-loadfigs}}
+\index{cns\-\_\-loadfigs@{cns\-\_\-loadfigs}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-loadfigs}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-loadfigs (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_a97bcc0bb23d7ce8f030a37a13ee3984b}
+
+
+Definition at line 1648 of file constel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{constel_8c_a97bcc0bb23d7ce8f030a37a13ee3984b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{constel_8c_ac2ebcab9bbbcb07dd26dbcfc2e7a5571}{\index{constel.\-c@{constel.\-c}!cns\-\_\-name@{cns\-\_\-name}}
+\index{cns\-\_\-name@{cns\-\_\-name}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cns\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_ac2ebcab9bbbcb07dd26dbcfc2e7a5571}
+
+
+Definition at line 687 of file constel.\-c.
+
+\hypertarget{constel_8c_a76033e94f3dda39f889bf9f0999e1287}{\index{constel.\-c@{constel.\-c}!cns\-\_\-pick@{cns\-\_\-pick}}
+\index{cns\-\_\-pick@{cns\-\_\-pick}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-pick}]{\setlength{\rightskip}{0pt plus 5cm}int cns\-\_\-pick (
+\begin{DoxyParamCaption}
+\item[{double}]{r, }
+\item[{double}]{d, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)}}\label{constel_8c_a76033e94f3dda39f889bf9f0999e1287}
+
+
+Definition at line 658 of file constel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{constel_8c_a76033e94f3dda39f889bf9f0999e1287_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{constel_8c_a03585e5f163d842983bbcff45703eb59}{\index{constel.\-c@{constel.\-c}!cbound@{cbound}}
+\index{cbound@{cbound}!constel.c@{constel.\-c}}
+\subsubsection[{cbound}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   cbound\mbox{[} {\bf N\-B\-O\-U\-N\-D\-S} \mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a03585e5f163d842983bbcff45703eb59}
+\hypertarget{constel_8c_ad26de1b1c5b3540ca6296c1722327195}{\index{constel.\-c@{constel.\-c}!cns\-\_\-namemap@{cns\-\_\-namemap}}
+\index{cns\-\_\-namemap@{cns\-\_\-namemap}!constel.c@{constel.\-c}}
+\subsubsection[{cns\-\_\-namemap}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cns\-\_\-namemap\mbox{[}{\bf N\-C\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_ad26de1b1c5b3540ca6296c1722327195}
+
+
+Definition at line 150 of file constel.\-c.
+
+\hypertarget{constel_8c_a69b9a761071ef54b54c6970eb304268f}{\index{constel.\-c@{constel.\-c}!dec@{dec}}
+\index{dec@{dec}!constel.c@{constel.\-c}}
+\subsubsection[{dec}]{\setlength{\rightskip}{0pt plus 5cm}short dec}}\label{constel_8c_a69b9a761071ef54b54c6970eb304268f}
+
+
+Definition at line 1107 of file constel.\-c.
+
+\hypertarget{constel_8c_aba79a1d9a79c8847c5659ca90753c8ce}{\index{constel.\-c@{constel.\-c}!dec0@{dec0}}
+\index{dec0@{dec0}!constel.c@{constel.\-c}}
+\subsubsection[{dec0}]{\setlength{\rightskip}{0pt plus 5cm}short dec0}}\label{constel_8c_aba79a1d9a79c8847c5659ca90753c8ce}
+
+
+Definition at line 710 of file constel.\-c.
+
+\hypertarget{constel_8c_affab04f24788932bd46dd7341fa57c31}{\index{constel.\-c@{constel.\-c}!dec1@{dec1}}
+\index{dec1@{dec1}!constel.c@{constel.\-c}}
+\subsubsection[{dec1}]{\setlength{\rightskip}{0pt plus 5cm}short dec1}}\label{constel_8c_affab04f24788932bd46dd7341fa57c31}
+
+
+Definition at line 710 of file constel.\-c.
+
+\hypertarget{constel_8c_a4596eabdf86b4e01933ae69bd9cf338c}{\index{constel.\-c@{constel.\-c}!dec\-\_\-edges@{dec\-\_\-edges}}
+\index{dec\-\_\-edges@{dec\-\_\-edges}!constel.c@{constel.\-c}}
+\subsubsection[{dec\-\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   dec\-\_\-edges\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a4596eabdf86b4e01933ae69bd9cf338c}
+\hypertarget{constel_8c_a27d2e2bbd32f8724bbcbc3a1f1a27dd7}{\index{constel.\-c@{constel.\-c}!figmap@{figmap}}
+\index{figmap@{figmap}!constel.c@{constel.\-c}}
+\subsubsection[{figmap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Con\-Fig}$\ast$ figmap\mbox{[}{\bf N\-C\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a27d2e2bbd32f8724bbcbc3a1f1a27dd7}
+
+
+Definition at line 1629 of file constel.\-c.
+
+\hypertarget{constel_8c_a1b460e0e8374e88d858e8362e40a4d36}{\index{constel.\-c@{constel.\-c}!index@{index}}
+\index{index@{index}!constel.c@{constel.\-c}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}short index}}\label{constel_8c_a1b460e0e8374e88d858e8362e40a4d36}
+
+
+Definition at line 246 of file constel.\-c.
+
+\hypertarget{constel_8c_a13e46bc188926b84428e58900954a6f3}{\index{constel.\-c@{constel.\-c}!lower\-\_\-dec@{lower\-\_\-dec}}
+\index{lower\-\_\-dec@{lower\-\_\-dec}!constel.c@{constel.\-c}}
+\subsubsection[{lower\-\_\-dec}]{\setlength{\rightskip}{0pt plus 5cm}short lower\-\_\-dec}}\label{constel_8c_a13e46bc188926b84428e58900954a6f3}
+
+
+Definition at line 245 of file constel.\-c.
+
+\hypertarget{constel_8c_a6e58061e39215b4dee2ab90bf86d8172}{\index{constel.\-c@{constel.\-c}!lower\-\_\-ra@{lower\-\_\-ra}}
+\index{lower\-\_\-ra@{lower\-\_\-ra}!constel.c@{constel.\-c}}
+\subsubsection[{lower\-\_\-ra}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short lower\-\_\-ra}}\label{constel_8c_a6e58061e39215b4dee2ab90bf86d8172}
+
+
+Definition at line 243 of file constel.\-c.
+
+\hypertarget{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{\index{constel.\-c@{constel.\-c}!ra@{ra}}
+\index{ra@{ra}!constel.c@{constel.\-c}}
+\subsubsection[{ra}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short ra}}\label{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}
+
+
+Definition at line 709 of file constel.\-c.
+
+\hypertarget{constel_8c_a76e27139069bef23bedafe2b4b8346c4}{\index{constel.\-c@{constel.\-c}!ra0@{ra0}}
+\index{ra0@{ra0}!constel.c@{constel.\-c}}
+\subsubsection[{ra0}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short ra0}}\label{constel_8c_a76e27139069bef23bedafe2b4b8346c4}
+
+
+Definition at line 1108 of file constel.\-c.
+
+\hypertarget{constel_8c_a19d3244a052a9d183c1782dfec2802d1}{\index{constel.\-c@{constel.\-c}!ra1@{ra1}}
+\index{ra1@{ra1}!constel.c@{constel.\-c}}
+\subsubsection[{ra1}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short ra1}}\label{constel_8c_a19d3244a052a9d183c1782dfec2802d1}
+
+
+Definition at line 1108 of file constel.\-c.
+
+\hypertarget{constel_8c_a84e6d4ea2499d93813ea4e99c0aac253}{\index{constel.\-c@{constel.\-c}!ra\-\_\-edges@{ra\-\_\-edges}}
+\index{ra\-\_\-edges@{ra\-\_\-edges}!constel.c@{constel.\-c}}
+\subsubsection[{ra\-\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   ra\-\_\-edges\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a84e6d4ea2499d93813ea4e99c0aac253}
+\hypertarget{constel_8c_ae037a79cb31f056d04153837887f5813}{\index{constel.\-c@{constel.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!constel.c@{constel.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf constel.\-c},v \$ \$Date\-: 2005/03/05 06\-:55\-:22 \$ \$Revision\-: 1.\-13 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 1803 of file constel.\-c.
+
+\hypertarget{constel_8c_a10660a12dcc522823429e038f77dec69}{\index{constel.\-c@{constel.\-c}!start@{start}}
+\index{start@{start}!constel.c@{constel.\-c}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}short start\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{constel_8c_a10660a12dcc522823429e038f77dec69}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+   355, 352, 343, 340, 332, 320,
+   303, 288, 277, 266, 257, 251,
+   239, 229, 221, 211, 203, 189,
+   177, 163, 149, 136, 124, 104,
+    87,  75,  69,  54,  43,  29,
+    23,  16,  12,   6,   4,   0,   0
+\}
+\end{DoxyCode}
+
+
+Definition at line 607 of file constel.\-c.
+
+\hypertarget{constel_8c_a83444cc1154df81e86d2f27594174f1a}{\index{constel.\-c@{constel.\-c}!upper\-\_\-ra@{upper\-\_\-ra}}
+\index{upper\-\_\-ra@{upper\-\_\-ra}!constel.c@{constel.\-c}}
+\subsubsection[{upper\-\_\-ra}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short upper\-\_\-ra}}\label{constel_8c_a83444cc1154df81e86d2f27594174f1a}
+
+
+Definition at line 244 of file constel.\-c.
+

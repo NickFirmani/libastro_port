@@ -1,0 +1,14 @@
+<map id="Obj" name="Obj">
+<area shape="rect" id="node2" href="$struct_obj_f.html" title="ObjF" alt="" coords="4,99,53,127"/>
+<area shape="rect" id="node3" href="$struct_obj_h.html" title="ObjH" alt="" coords="78,99,129,127"/>
+<area shape="rect" id="node4" href="$struct_obj_s_s.html" title="ObjSS" alt="" coords="154,99,213,127"/>
+<area shape="rect" id="node5" href="$struct_obj_any.html" title="ObjAny" alt="" coords="238,99,303,127"/>
+<area shape="rect" id="node6" href="$struct_obj_p.html" title="ObjP" alt="" coords="328,99,379,127"/>
+<area shape="rect" id="node7" href="$struct_obj_b.html" title="ObjB" alt="" coords="403,99,453,127"/>
+<area shape="rect" id="node8" href="$struct_bin_orbit.html" title="BinOrbit" alt="" coords="348,6,417,34"/>
+<area shape="rect" id="node9" href="$struct_bin_pos.html" title="BinPos" alt="" coords="442,6,504,34"/>
+<area shape="rect" id="node10" href="$struct_obj_pl.html" title="ObjPl" alt="" coords="477,99,531,127"/>
+<area shape="rect" id="node11" href="$struct_obj_e_s.html" title="ObjES" alt="" coords="555,99,615,127"/>
+<area shape="rect" id="node12" href="$struct_obj_e.html" title="ObjE" alt="" coords="640,99,691,127"/>
+<area shape="rect" id="node13" href="$struct_mag.html" title="Mag" alt="" coords="642,6,688,34"/>
+</map>

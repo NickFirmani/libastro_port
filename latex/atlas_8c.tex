@@ -1,0 +1,178 @@
+\hypertarget{atlas_8c}{\section{libastro/atlas.c File Reference}
+\label{atlas_8c}\index{libastro/atlas.\-c@{libastro/atlas.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for atlas.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{atlas_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{atlas_8c_ad9b069df7c280a1584d54cd0be01c585}{msa\-\_\-atlas} (double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+char $\ast$ \hyperlink{atlas_8c_ab8f78a0e6c0ea713b73c04f88e270480}{um\-\_\-atlas} (double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+char $\ast$ \hyperlink{atlas_8c_aefd0669ddbff5634f9d0fca4df003d52}{u2k\-\_\-atlas} (double \hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{atlas_8c_a7e1bfa42f2dc3eb01ee1dc5d6a72c3e2}{msa\-\_\-charts} \mbox{[}$\,$\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>double \hyperlink{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{l}\\
+\>int \hyperlink{atlas_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{n}\\
+\} \hyperlink{atlas_8c_a4faebabf32a40a9e44ee7ecff7cf4f8f}{um\_zones} \mbox{[}$\,$\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>double \hyperlink{atlas_8c_a628a15a751ba4ee28dddd0c0c8f89a62}{lowDec}\\
+\>int \hyperlink{atlas_8c_a1c21731780763f64edfdd3ae39da7004}{numZones}\\
+\} \hyperlink{atlas_8c_a0e4d00e97efeee58692eca6aec8e22fa}{u2k\_zones} \mbox{[}$\,$\mbox{]}\\
+
+\end{tabbing}\item 
+static char $\ast$ \hyperlink{atlas_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{atlas.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{atlas_8c_ad9b069df7c280a1584d54cd0be01c585}{\index{atlas.\-c@{atlas.\-c}!msa\-\_\-atlas@{msa\-\_\-atlas}}
+\index{msa\-\_\-atlas@{msa\-\_\-atlas}!atlas.c@{atlas.\-c}}
+\subsubsection[{msa\-\_\-atlas}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ msa\-\_\-atlas (
+\begin{DoxyParamCaption}
+\item[{double}]{ra, }
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)}}\label{atlas_8c_ad9b069df7c280a1584d54cd0be01c585}
+
+
+Definition at line 30 of file atlas.\-c.
+
+\hypertarget{atlas_8c_aefd0669ddbff5634f9d0fca4df003d52}{\index{atlas.\-c@{atlas.\-c}!u2k\-\_\-atlas@{u2k\-\_\-atlas}}
+\index{u2k\-\_\-atlas@{u2k\-\_\-atlas}!atlas.c@{atlas.\-c}}
+\subsubsection[{u2k\-\_\-atlas}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ u2k\-\_\-atlas (
+\begin{DoxyParamCaption}
+\item[{double}]{ra, }
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)}}\label{atlas_8c_aefd0669ddbff5634f9d0fca4df003d52}
+
+
+Definition at line 138 of file atlas.\-c.
+
+\hypertarget{atlas_8c_ab8f78a0e6c0ea713b73c04f88e270480}{\index{atlas.\-c@{atlas.\-c}!um\-\_\-atlas@{um\-\_\-atlas}}
+\index{um\-\_\-atlas@{um\-\_\-atlas}!atlas.c@{atlas.\-c}}
+\subsubsection[{um\-\_\-atlas}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ um\-\_\-atlas (
+\begin{DoxyParamCaption}
+\item[{double}]{ra, }
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)}}\label{atlas_8c_ab8f78a0e6c0ea713b73c04f88e270480}
+
+
+Definition at line 73 of file atlas.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{\index{atlas.\-c@{atlas.\-c}!l@{l}}
+\index{l@{l}!atlas.c@{atlas.\-c}}
+\subsubsection[{l}]{\setlength{\rightskip}{0pt plus 5cm}double l}}\label{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}
+
+
+Definition at line 52 of file atlas.\-c.
+
+\hypertarget{atlas_8c_a628a15a751ba4ee28dddd0c0c8f89a62}{\index{atlas.\-c@{atlas.\-c}!low\-Dec@{low\-Dec}}
+\index{low\-Dec@{low\-Dec}!atlas.c@{atlas.\-c}}
+\subsubsection[{low\-Dec}]{\setlength{\rightskip}{0pt plus 5cm}double low\-Dec}}\label{atlas_8c_a628a15a751ba4ee28dddd0c0c8f89a62}
+
+
+Definition at line 117 of file atlas.\-c.
+
+\hypertarget{atlas_8c_a7e1bfa42f2dc3eb01ee1dc5d6a72c3e2}{\index{atlas.\-c@{atlas.\-c}!msa\-\_\-charts@{msa\-\_\-charts}}
+\index{msa\-\_\-charts@{msa\-\_\-charts}!atlas.c@{atlas.\-c}}
+\subsubsection[{msa\-\_\-charts}]{\setlength{\rightskip}{0pt plus 5cm}int msa\-\_\-charts\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{atlas_8c_a7e1bfa42f2dc3eb01ee1dc5d6a72c3e2}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+      2,   4,   8,  10,  12,
+     14,  16,  20,  20,  22,
+     22,  24,  24,  24,  24,
+     24,
+     24,  24,  24,  24,  22,
+     22,  20,  20,  16,  14,
+     12,  10,   8,   4,   2
+\}
+\end{DoxyCode}
+
+
+Definition at line 14 of file atlas.\-c.
+
+\hypertarget{atlas_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{\index{atlas.\-c@{atlas.\-c}!n@{n}}
+\index{n@{n}!atlas.c@{atlas.\-c}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}int n}}\label{atlas_8c_a76f11d9a0a47b94f72c2d0e77fb32240}
+
+
+Definition at line 53 of file atlas.\-c.
+
+\hypertarget{atlas_8c_a1c21731780763f64edfdd3ae39da7004}{\index{atlas.\-c@{atlas.\-c}!num\-Zones@{num\-Zones}}
+\index{num\-Zones@{num\-Zones}!atlas.c@{atlas.\-c}}
+\subsubsection[{num\-Zones}]{\setlength{\rightskip}{0pt plus 5cm}int num\-Zones}}\label{atlas_8c_a1c21731780763f64edfdd3ae39da7004}
+
+
+Definition at line 118 of file atlas.\-c.
+
+\hypertarget{atlas_8c_ae037a79cb31f056d04153837887f5813}{\index{atlas.\-c@{atlas.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!atlas.c@{atlas.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf atlas.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{atlas_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 196 of file atlas.\-c.
+
+\hypertarget{atlas_8c_a0e4d00e97efeee58692eca6aec8e22fa}{\index{atlas.\-c@{atlas.\-c}!u2k\-\_\-zones@{u2k\-\_\-zones}}
+\index{u2k\-\_\-zones@{u2k\-\_\-zones}!atlas.c@{atlas.\-c}}
+\subsubsection[{u2k\-\_\-zones}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   u2k\-\_\-zones\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{atlas_8c_a0e4d00e97efeee58692eca6aec8e22fa}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{ 
+     \{ 84.5,  1\}, 
+     \{ 73.5,  6\},
+     \{ 62.0, 10\},
+     \{ 51.0, 12\},
+     \{ 40.0, 15\},
+     \{ 29.0, 18\},
+     \{ 17.0, 18\},
+     \{  5.5, 20\},
+     \{  0.0, 20\},
+                  \{  0.0,  0\} 
+\}
+\end{DoxyCode}
+\hypertarget{atlas_8c_a4faebabf32a40a9e44ee7ecff7cf4f8f}{\index{atlas.\-c@{atlas.\-c}!um\-\_\-zones@{um\-\_\-zones}}
+\index{um\-\_\-zones@{um\-\_\-zones}!atlas.c@{atlas.\-c}}
+\subsubsection[{um\-\_\-zones}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   um\-\_\-zones\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{atlas_8c_a4faebabf32a40a9e44ee7ecff7cf4f8f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+     \{ 84.5,  2\},
+     \{ 72.5, 12\},
+     \{ 61.0, 20\},
+     \{ 50.0, 24\},
+     \{ 39.0, 30\},
+     \{ 28.0, 36\},
+     \{ 17.0, 45\},
+     \{  5.5, 45\},
+     \{  0.0, 45\},
+          \{  0.0,  0\}
+\}
+\end{DoxyCode}

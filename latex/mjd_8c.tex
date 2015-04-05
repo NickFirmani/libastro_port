@@ -1,0 +1,422 @@
+\hypertarget{mjd_8c}{\section{libastro/mjd.c File Reference}
+\label{mjd_8c}\index{libastro/mjd.\-c@{libastro/mjd.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for mjd.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{mjd_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mjd_8c_aa9a18040f0386c0016db77547470520f}{cal\-\_\-mjd} (int mn, double dy, int yr, double $\ast$mjp)
+\item 
+void \hyperlink{mjd_8c_a0892d36d4d420cee7242296b777acd0c}{mjd\-\_\-cal} (double mj, int $\ast$mn, double $\ast$dy, int $\ast$yr)
+\item 
+int \hyperlink{mjd_8c_a456136e9f5c72a689a026deb052d5852}{mjd\-\_\-dow} (double mj, int $\ast$dow)
+\item 
+int \hyperlink{mjd_8c_a703824cf427db2ed309894d89f911eb3}{isleapyear} (int y)
+\item 
+void \hyperlink{mjd_8c_afabfda4493d751c51971972530e37362}{mjd\-\_\-dpm} (double mj, int $\ast$ndays)
+\item 
+void \hyperlink{mjd_8c_a565cdfb45f93c32a5e1b964f28372ac2}{mjd\-\_\-dayno} (double mj, int $\ast$yr, double $\ast$dy)
+\item 
+void \hyperlink{mjd_8c_ab9a2a05969d3acc58f8b9b3866e7e24c}{mjd\-\_\-year} (double mj, double $\ast$yr)
+\item 
+void \hyperlink{mjd_8c_a011d10d9ff83061dfb62fcf710d9b73c}{year\-\_\-mjd} (double y, double $\ast$mjp)
+\item 
+void \hyperlink{mjd_8c_aefd72441a582356b512d04442aef5a48}{rnd\-\_\-second} (double $\ast$t)
+\item 
+double \hyperlink{mjd_8c_ae58fce00d34ce3f8282d3c9f556d1d05}{mjd\-\_\-day} (double mj)
+\item 
+double \hyperlink{mjd_8c_af6e1cfdc6f1e133ac6f642b5d5a8c254}{mjd\-\_\-hr} (double mj)
+\item 
+void \hyperlink{mjd_8c_a95f97bc2c6a39966a664c3b924d5eacb}{range} (double $\ast$v, double r)
+\item 
+void \hyperlink{mjd_8c_a922ecef3048b96251931d5c9ebb3f25e}{radecrange} (double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{mjd_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{mjd.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mjd_8c_aa9a18040f0386c0016db77547470520f}{\index{mjd.\-c@{mjd.\-c}!cal\-\_\-mjd@{cal\-\_\-mjd}}
+\index{cal\-\_\-mjd@{cal\-\_\-mjd}!mjd.c@{mjd.\-c}}
+\subsubsection[{cal\-\_\-mjd}]{\setlength{\rightskip}{0pt plus 5cm}void cal\-\_\-mjd (
+\begin{DoxyParamCaption}
+\item[{int}]{mn, }
+\item[{double}]{dy, }
+\item[{int}]{yr, }
+\item[{double $\ast$}]{mjp}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_aa9a18040f0386c0016db77547470520f}
+
+
+Definition at line 13 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{mjd_8c_aa9a18040f0386c0016db77547470520f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_aa9a18040f0386c0016db77547470520f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a703824cf427db2ed309894d89f911eb3}{\index{mjd.\-c@{mjd.\-c}!isleapyear@{isleapyear}}
+\index{isleapyear@{isleapyear}!mjd.c@{mjd.\-c}}
+\subsubsection[{isleapyear}]{\setlength{\rightskip}{0pt plus 5cm}int isleapyear (
+\begin{DoxyParamCaption}
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a703824cf427db2ed309894d89f911eb3}
+
+
+Definition at line 142 of file mjd.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a703824cf427db2ed309894d89f911eb3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a0892d36d4d420cee7242296b777acd0c}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-cal@{mjd\-\_\-cal}}
+\index{mjd\-\_\-cal@{mjd\-\_\-cal}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-cal}]{\setlength{\rightskip}{0pt plus 5cm}void mjd\-\_\-cal (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{int $\ast$}]{mn, }
+\item[{double $\ast$}]{dy, }
+\item[{int $\ast$}]{yr}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a0892d36d4d420cee7242296b777acd0c}
+
+
+Definition at line 59 of file mjd.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a0892d36d4d420cee7242296b777acd0c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_ae58fce00d34ce3f8282d3c9f556d1d05}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-day@{mjd\-\_\-day}}
+\index{mjd\-\_\-day@{mjd\-\_\-day}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-day}]{\setlength{\rightskip}{0pt plus 5cm}double mjd\-\_\-day (
+\begin{DoxyParamCaption}
+\item[{double}]{mj}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_ae58fce00d34ce3f8282d3c9f556d1d05}
+
+
+Definition at line 219 of file mjd.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_ae58fce00d34ce3f8282d3c9f556d1d05_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a565cdfb45f93c32a5e1b964f28372ac2}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-dayno@{mjd\-\_\-dayno}}
+\index{mjd\-\_\-dayno@{mjd\-\_\-dayno}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-dayno}]{\setlength{\rightskip}{0pt plus 5cm}void mjd\-\_\-dayno (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{int $\ast$}]{yr, }
+\item[{double $\ast$}]{dy}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a565cdfb45f93c32a5e1b964f28372ac2}
+
+
+Definition at line 161 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a565cdfb45f93c32a5e1b964f28372ac2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a565cdfb45f93c32a5e1b964f28372ac2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a456136e9f5c72a689a026deb052d5852}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-dow@{mjd\-\_\-dow}}
+\index{mjd\-\_\-dow@{mjd\-\_\-dow}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-dow}]{\setlength{\rightskip}{0pt plus 5cm}int mjd\-\_\-dow (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{int $\ast$}]{dow}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a456136e9f5c72a689a026deb052d5852}
+
+
+Definition at line 121 of file mjd.\-c.
+
+\hypertarget{mjd_8c_afabfda4493d751c51971972530e37362}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-dpm@{mjd\-\_\-dpm}}
+\index{mjd\-\_\-dpm@{mjd\-\_\-dpm}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-dpm}]{\setlength{\rightskip}{0pt plus 5cm}void mjd\-\_\-dpm (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{int $\ast$}]{ndays}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_afabfda4493d751c51971972530e37362}
+
+
+Definition at line 149 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{mjd_8c_afabfda4493d751c51971972530e37362_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_af6e1cfdc6f1e133ac6f642b5d5a8c254}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-hr@{mjd\-\_\-hr}}
+\index{mjd\-\_\-hr@{mjd\-\_\-hr}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-hr}]{\setlength{\rightskip}{0pt plus 5cm}double mjd\-\_\-hr (
+\begin{DoxyParamCaption}
+\item[{double}]{mj}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_af6e1cfdc6f1e133ac6f642b5d5a8c254}
+
+
+Definition at line 226 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{mjd_8c_af6e1cfdc6f1e133ac6f642b5d5a8c254_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_af6e1cfdc6f1e133ac6f642b5d5a8c254_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_ab9a2a05969d3acc58f8b9b3866e7e24c}{\index{mjd.\-c@{mjd.\-c}!mjd\-\_\-year@{mjd\-\_\-year}}
+\index{mjd\-\_\-year@{mjd\-\_\-year}!mjd.c@{mjd.\-c}}
+\subsubsection[{mjd\-\_\-year}]{\setlength{\rightskip}{0pt plus 5cm}void mjd\-\_\-year (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{yr}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_ab9a2a05969d3acc58f8b9b3866e7e24c}
+
+
+Definition at line 175 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{mjd_8c_ab9a2a05969d3acc58f8b9b3866e7e24c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_ab9a2a05969d3acc58f8b9b3866e7e24c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a922ecef3048b96251931d5c9ebb3f25e}{\index{mjd.\-c@{mjd.\-c}!radecrange@{radecrange}}
+\index{radecrange@{radecrange}!mjd.c@{mjd.\-c}}
+\subsubsection[{radecrange}]{\setlength{\rightskip}{0pt plus 5cm}void radecrange (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a922ecef3048b96251931d5c9ebb3f25e}
+
+
+Definition at line 243 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{mjd_8c_a922ecef3048b96251931d5c9ebb3f25e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a922ecef3048b96251931d5c9ebb3f25e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_a95f97bc2c6a39966a664c3b924d5eacb}{\index{mjd.\-c@{mjd.\-c}!range@{range}}
+\index{range@{range}!mjd.c@{mjd.\-c}}
+\subsubsection[{range}]{\setlength{\rightskip}{0pt plus 5cm}void range (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{v, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a95f97bc2c6a39966a664c3b924d5eacb}
+
+
+Definition at line 234 of file mjd.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a95f97bc2c6a39966a664c3b924d5eacb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mjd_8c_aefd72441a582356b512d04442aef5a48}{\index{mjd.\-c@{mjd.\-c}!rnd\-\_\-second@{rnd\-\_\-second}}
+\index{rnd\-\_\-second@{rnd\-\_\-second}!mjd.c@{mjd.\-c}}
+\subsubsection[{rnd\-\_\-second}]{\setlength{\rightskip}{0pt plus 5cm}void rnd\-\_\-second (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_aefd72441a582356b512d04442aef5a48}
+
+
+Definition at line 212 of file mjd.\-c.
+
+\hypertarget{mjd_8c_a011d10d9ff83061dfb62fcf710d9b73c}{\index{mjd.\-c@{mjd.\-c}!year\-\_\-mjd@{year\-\_\-mjd}}
+\index{year\-\_\-mjd@{year\-\_\-mjd}!mjd.c@{mjd.\-c}}
+\subsubsection[{year\-\_\-mjd}]{\setlength{\rightskip}{0pt plus 5cm}void year\-\_\-mjd (
+\begin{DoxyParamCaption}
+\item[{double}]{y, }
+\item[{double $\ast$}]{mjp}
+\end{DoxyParamCaption}
+)}}\label{mjd_8c_a011d10d9ff83061dfb62fcf710d9b73c}
+
+
+Definition at line 199 of file mjd.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{mjd_8c_a011d10d9ff83061dfb62fcf710d9b73c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mjd_8c_a011d10d9ff83061dfb62fcf710d9b73c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{mjd_8c_ae037a79cb31f056d04153837887f5813}{\index{mjd.\-c@{mjd.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!mjd.c@{mjd.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf mjd.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{mjd_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 256 of file mjd.\-c.
+

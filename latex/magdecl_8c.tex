@@ -1,0 +1,207 @@
+\hypertarget{magdecl_8c}{\section{libastro/magdecl.c File Reference}
+\label{magdecl_8c}\index{libastro/magdecl.\-c@{libastro/magdecl.\-c}}
+}
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for magdecl.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{magdecl_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{magdecl_8c_a853ba2eb9b7cd078844f60b12a927d2d}{geomag} (F\-I\-L\-E $\ast$wmmdat, int $\ast$maxdeg)
+\item 
+static int \hyperlink{magdecl_8c_a4a92c8e017bbdff326efe067af9ce01c}{geomg1} (F\-I\-L\-E $\ast$wmmdat, float alt, float glat, float glon, float t, float $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, float $\ast$mdp, float $\ast$ti, float $\ast$gv)
+\item 
+int \hyperlink{magdecl_8c_ab59a2c744ed105416019b0280edf432d}{magdecl} (double \hyperlink{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{l}, double L, double e, double y, char $\ast$dir, double $\ast$mdp, char $\ast$err)
+\item 
+static int \hyperlink{magdecl_8c_ae3780b047d149bcae5fa92677e3819f6}{E0000} (F\-I\-L\-E $\ast$wmmdat, int I\-E\-N\-T\-R\-Y, int $\ast$maxdeg, float alt, float glat, float glon, float t, float $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, float $\ast$mdp, float $\ast$ti, float $\ast$gv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char \hyperlink{magdecl_8c_a2f540022d9da8446ddfe90070ce2ba67}{mfn} \mbox{[}$\,$\mbox{]} = \char`\"{}wmm.\-cof\char`\"{}
+\item 
+static char $\ast$ \hyperlink{magdecl_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{magdecl.\-c},v \$ \$Date\-: 2004/10/12 15\-:21\-:48 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{magdecl_8c_ae3780b047d149bcae5fa92677e3819f6}{\index{magdecl.\-c@{magdecl.\-c}!E0000@{E0000}}
+\index{E0000@{E0000}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{E0000}]{\setlength{\rightskip}{0pt plus 5cm}static int E0000 (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{wmmdat, }
+\item[{int}]{I\-E\-N\-T\-R\-Y, }
+\item[{int $\ast$}]{maxdeg, }
+\item[{float}]{alt, }
+\item[{float}]{glat, }
+\item[{float}]{glon, }
+\item[{float}]{t, }
+\item[{float $\ast$}]{dec, }
+\item[{float $\ast$}]{mdp, }
+\item[{float $\ast$}]{ti, }
+\item[{float $\ast$}]{gv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{magdecl_8c_ae3780b047d149bcae5fa92677e3819f6}
+
+
+Definition at line 114 of file magdecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{magdecl_8c_ae3780b047d149bcae5fa92677e3819f6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{magdecl_8c_ae3780b047d149bcae5fa92677e3819f6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{magdecl_8c_a853ba2eb9b7cd078844f60b12a927d2d}{\index{magdecl.\-c@{magdecl.\-c}!geomag@{geomag}}
+\index{geomag@{geomag}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{geomag}]{\setlength{\rightskip}{0pt plus 5cm}static int geomag (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{wmmdat, }
+\item[{int $\ast$}]{maxdeg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{magdecl_8c_a853ba2eb9b7cd078844f60b12a927d2d}
+
+
+Definition at line 366 of file magdecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{magdecl_8c_a853ba2eb9b7cd078844f60b12a927d2d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{magdecl_8c_a853ba2eb9b7cd078844f60b12a927d2d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{magdecl_8c_a4a92c8e017bbdff326efe067af9ce01c}{\index{magdecl.\-c@{magdecl.\-c}!geomg1@{geomg1}}
+\index{geomg1@{geomg1}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{geomg1}]{\setlength{\rightskip}{0pt plus 5cm}static int geomg1 (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{wmmdat, }
+\item[{float}]{alt, }
+\item[{float}]{glat, }
+\item[{float}]{glon, }
+\item[{float}]{t, }
+\item[{float $\ast$}]{dec, }
+\item[{float $\ast$}]{mdp, }
+\item[{float $\ast$}]{ti, }
+\item[{float $\ast$}]{gv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{magdecl_8c_a4a92c8e017bbdff326efe067af9ce01c}
+
+
+Definition at line 374 of file magdecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{magdecl_8c_a4a92c8e017bbdff326efe067af9ce01c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{magdecl_8c_a4a92c8e017bbdff326efe067af9ce01c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{magdecl_8c_ab59a2c744ed105416019b0280edf432d}{\index{magdecl.\-c@{magdecl.\-c}!magdecl@{magdecl}}
+\index{magdecl@{magdecl}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{magdecl}]{\setlength{\rightskip}{0pt plus 5cm}int magdecl (
+\begin{DoxyParamCaption}
+\item[{double}]{l, }
+\item[{double}]{L, }
+\item[{double}]{e, }
+\item[{double}]{y, }
+\item[{char $\ast$}]{dir, }
+\item[{double $\ast$}]{mdp, }
+\item[{char $\ast$}]{err}
+\end{DoxyParamCaption}
+)}}\label{magdecl_8c_ab59a2c744ed105416019b0280edf432d}
+
+
+Definition at line 27 of file magdecl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{magdecl_8c_ab59a2c744ed105416019b0280edf432d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{magdecl_8c_a2f540022d9da8446ddfe90070ce2ba67}{\index{magdecl.\-c@{magdecl.\-c}!mfn@{mfn}}
+\index{mfn@{mfn}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{mfn}]{\setlength{\rightskip}{0pt plus 5cm}char mfn\mbox{[}$\,$\mbox{]} = \char`\"{}wmm.\-cof\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{magdecl_8c_a2f540022d9da8446ddfe90070ce2ba67}
+
+
+Definition at line 15 of file magdecl.\-c.
+
+\hypertarget{magdecl_8c_ae037a79cb31f056d04153837887f5813}{\index{magdecl.\-c@{magdecl.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!magdecl.c@{magdecl.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf magdecl.\-c},v \$ \$Date\-: 2004/10/12 15\-:21\-:48 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{magdecl_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 381 of file magdecl.\-c.
+

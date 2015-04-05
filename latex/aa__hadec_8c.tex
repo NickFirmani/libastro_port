@@ -1,0 +1,158 @@
+\hypertarget{aa__hadec_8c}{\section{libastro/aa\-\_\-hadec.c File Reference}
+\label{aa__hadec_8c}\index{libastro/aa\-\_\-hadec.\-c@{libastro/aa\-\_\-hadec.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for aa\-\_\-hadec.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{aa__hadec_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{aa__hadec_8c_a11564f6f3dea0f39fe5e59f3ee90b6aa}{aaha\-\_\-aux} (double lt, double x, double y, double $\ast$p, double $\ast$q)
+\item 
+void \hyperlink{aa__hadec_8c_afb4e9b19dfbf97eaf03b05111e9e919d}{aa\-\_\-hadec} (double lt, double alt, double az, double $\ast$ha, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+void \hyperlink{aa__hadec_8c_a8ce2fb9152b3b6d728cda9ac4962378e}{hadec\-\_\-aa} (double lt, double ha, double \hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec}, double $\ast$alt, double $\ast$az)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{aa__hadec_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{aa\-\_\-hadec.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-3 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{aa__hadec_8c_afb4e9b19dfbf97eaf03b05111e9e919d}{\index{aa\-\_\-hadec.\-c@{aa\-\_\-hadec.\-c}!aa\-\_\-hadec@{aa\-\_\-hadec}}
+\index{aa\-\_\-hadec@{aa\-\_\-hadec}!aa_hadec.c@{aa\-\_\-hadec.\-c}}
+\subsubsection[{aa\-\_\-hadec}]{\setlength{\rightskip}{0pt plus 5cm}void aa\-\_\-hadec (
+\begin{DoxyParamCaption}
+\item[{double}]{lt, }
+\item[{double}]{alt, }
+\item[{double}]{az, }
+\item[{double $\ast$}]{ha, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{aa__hadec_8c_afb4e9b19dfbf97eaf03b05111e9e919d}
+
+
+Definition at line 16 of file aa\-\_\-hadec.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aa__hadec_8c_afb4e9b19dfbf97eaf03b05111e9e919d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aa__hadec_8c_afb4e9b19dfbf97eaf03b05111e9e919d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aa__hadec_8c_a11564f6f3dea0f39fe5e59f3ee90b6aa}{\index{aa\-\_\-hadec.\-c@{aa\-\_\-hadec.\-c}!aaha\-\_\-aux@{aaha\-\_\-aux}}
+\index{aaha\-\_\-aux@{aaha\-\_\-aux}!aa_hadec.c@{aa\-\_\-hadec.\-c}}
+\subsubsection[{aaha\-\_\-aux}]{\setlength{\rightskip}{0pt plus 5cm}static void aaha\-\_\-aux (
+\begin{DoxyParamCaption}
+\item[{double}]{lt, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double $\ast$}]{p, }
+\item[{double $\ast$}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{aa__hadec_8c_a11564f6f3dea0f39fe5e59f3ee90b6aa}
+
+
+Definition at line 57 of file aa\-\_\-hadec.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{aa__hadec_8c_a11564f6f3dea0f39fe5e59f3ee90b6aa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aa__hadec_8c_a11564f6f3dea0f39fe5e59f3ee90b6aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aa__hadec_8c_a8ce2fb9152b3b6d728cda9ac4962378e}{\index{aa\-\_\-hadec.\-c@{aa\-\_\-hadec.\-c}!hadec\-\_\-aa@{hadec\-\_\-aa}}
+\index{hadec\-\_\-aa@{hadec\-\_\-aa}!aa_hadec.c@{aa\-\_\-hadec.\-c}}
+\subsubsection[{hadec\-\_\-aa}]{\setlength{\rightskip}{0pt plus 5cm}void hadec\-\_\-aa (
+\begin{DoxyParamCaption}
+\item[{double}]{lt, }
+\item[{double}]{ha, }
+\item[{double}]{dec, }
+\item[{double $\ast$}]{alt, }
+\item[{double $\ast$}]{az}
+\end{DoxyParamCaption}
+)}}\label{aa__hadec_8c_a8ce2fb9152b3b6d728cda9ac4962378e}
+
+
+Definition at line 31 of file aa\-\_\-hadec.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aa__hadec_8c_a8ce2fb9152b3b6d728cda9ac4962378e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aa__hadec_8c_a8ce2fb9152b3b6d728cda9ac4962378e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{aa__hadec_8c_ae037a79cb31f056d04153837887f5813}{\index{aa\-\_\-hadec.\-c@{aa\-\_\-hadec.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!aa_hadec.c@{aa\-\_\-hadec.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf aa\-\_\-hadec.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-3 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{aa__hadec_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 77 of file aa\-\_\-hadec.\-c.
+

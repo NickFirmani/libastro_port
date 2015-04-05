@@ -1,0 +1,7 @@
+<map id="initNow" name="initNow">
+<area shape="rect" id="node2" href="$micro_8c.html#a388a68db1923c8ecfe72079294353217" title="setNowTime" alt="" coords="121,5,215,33"/>
+<area shape="rect" id="node5" href="$auxil_8c.html#adbbe129554255d53fbc37a4e546b2604" title="pref_set" alt="" coords="133,57,203,85"/>
+<area shape="rect" id="node3" href="$astro_8h.html#adfefefa5bc6c1d3a4d06cc4a88608dac" title="cal_mjd" alt="" coords="266,5,334,33"/>
+<area shape="rect" id="node4" href="$moonnf_8c.html#a0da0a4863fcd4c1f629fc7fc6e6a4dad" title="m" alt="" coords="385,5,423,33"/>
+<area shape="rect" id="node6" href="$auxil_8c.html#aeb02823236c174da4b590869214f40a7" title="pref_get" alt="" coords="265,57,335,85"/>
+</map>

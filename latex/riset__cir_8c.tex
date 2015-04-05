@@ -1,0 +1,315 @@
+\hypertarget{riset__cir_8c}{\section{libastro/riset\-\_\-cir.c File Reference}
+\label{riset__cir_8c}\index{libastro/riset\-\_\-cir.\-c@{libastro/riset\-\_\-cir.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for riset\-\_\-cir.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{riset__cir_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{riset__cir_8c_afbdd305c23a76848618d39b4f58b1406}{D\-E\-G\-S\-T\-E\-P}~2		/$\ast$ time step is about this many degrees $\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_ac2aa1ef41e6f4fb05b9cb298cba43ebb}{T\-M\-A\-C\-C}~(0.\-01/\hyperlink{astro_8h_a3fee30674709bf7cf2601f2e499372cf}{S\-P\-D})	/$\ast$ convergence accuracy, days; tight for stable az $\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_a77b058dd5ecc6662ac21dfffae32c580}{M\-A\-X\-P\-A\-S\-S\-E\-S}~20		/$\ast$ max iterations to try $\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_a1b0f785ef9c5ee5ad7f86cb69bc13d6c}{M\-A\-X\-S\-T\-E\-P}~(12.\-0/24.\-0)	/$\ast$ max time step,days (to detect flat)$\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}{M\-A\-X\-L\-O\-O\-P\-S}~10
+\item 
+\#define \hyperlink{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}{M\-A\-X\-E\-R\-R}~(1./3600.)		/$\ast$ hours $\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}{M\-A\-X\-L\-O\-O\-P\-S}~100	/$\ast$ max loops $\ast$/
+\item 
+\#define \hyperlink{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}{M\-A\-X\-E\-R\-R}~(1.\-0/\hyperlink{astro_8h_a3fee30674709bf7cf2601f2e499372cf}{S\-P\-D})	/$\ast$ days $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{riset__cir_8c_a1aa470b346744074422bbc250580c4da}{e\-\_\-riset\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op, double dis, \hyperlink{struct_rise_set}{Rise\-Set} $\ast$rp)
+\item 
+static int \hyperlink{riset__cir_8c_add6746d9454330fd0ffef261a2db0dfe}{find\-\_\-0alt} (double \hyperlink{deltat_8c_a364a5e6dbd1915b980097296b5d69b85}{dt}, double fstep, double dis, \hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{riset__cir_8c_aca86e4e62a1086874a60b59a5d7855f9}{find\-\_\-transit} (double \hyperlink{deltat_8c_a364a5e6dbd1915b980097296b5d69b85}{dt}, \hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{riset__cir_8c_ac3dbf8f1f58a5cf88d87f05c70f48689}{find\-\_\-maxalt} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op, double tr, double ts, double $\ast$tp, double $\ast$alp, double $\ast$azp)
+\item 
+void \hyperlink{riset__cir_8c_af8e6c7c17b7ac05ea2867fd998963863}{riset\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op, double dis, \hyperlink{struct_rise_set}{Rise\-Set} $\ast$rp)
+\item 
+void \hyperlink{riset__cir_8c_a6a98467ec72d49825b57dcccb77a2f78}{twilight\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, double dis, double $\ast$dawn, double $\ast$dusk, int $\ast$status)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{riset__cir_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{riset\-\_\-cir.\-c},v \$ \$Date\-: 2013/01/06 01\-:12\-:57 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{riset__cir_8c_afbdd305c23a76848618d39b4f58b1406}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!D\-E\-G\-S\-T\-E\-P@{D\-E\-G\-S\-T\-E\-P}}
+\index{D\-E\-G\-S\-T\-E\-P@{D\-E\-G\-S\-T\-E\-P}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{D\-E\-G\-S\-T\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-G\-S\-T\-E\-P~2		/$\ast$ time step is about this many degrees $\ast$/}}\label{riset__cir_8c_afbdd305c23a76848618d39b4f58b1406}
+\hypertarget{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-E\-R\-R@{M\-A\-X\-E\-R\-R}}
+\index{M\-A\-X\-E\-R\-R@{M\-A\-X\-E\-R\-R}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-E\-R\-R~(1./3600.)		/$\ast$ hours $\ast$/}}\label{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}
+\hypertarget{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-E\-R\-R@{M\-A\-X\-E\-R\-R}}
+\index{M\-A\-X\-E\-R\-R@{M\-A\-X\-E\-R\-R}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-E\-R\-R~(1.\-0/{\bf S\-P\-D})	/$\ast$ days $\ast$/}}\label{riset__cir_8c_afba4cc2bec8eb2d6fc2e4b48587b65d0}
+\hypertarget{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-L\-O\-O\-P\-S@{M\-A\-X\-L\-O\-O\-P\-S}}
+\index{M\-A\-X\-L\-O\-O\-P\-S@{M\-A\-X\-L\-O\-O\-P\-S}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-L\-O\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-L\-O\-O\-P\-S~10}}\label{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}
+\hypertarget{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-L\-O\-O\-P\-S@{M\-A\-X\-L\-O\-O\-P\-S}}
+\index{M\-A\-X\-L\-O\-O\-P\-S@{M\-A\-X\-L\-O\-O\-P\-S}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-L\-O\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-L\-O\-O\-P\-S~100	/$\ast$ max loops $\ast$/}}\label{riset__cir_8c_a1f977147000cd8a40ccfacafea826a8e}
+\hypertarget{riset__cir_8c_a77b058dd5ecc6662ac21dfffae32c580}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-P\-A\-S\-S\-E\-S@{M\-A\-X\-P\-A\-S\-S\-E\-S}}
+\index{M\-A\-X\-P\-A\-S\-S\-E\-S@{M\-A\-X\-P\-A\-S\-S\-E\-S}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-P\-A\-S\-S\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-P\-A\-S\-S\-E\-S~20		/$\ast$ max iterations to try $\ast$/}}\label{riset__cir_8c_a77b058dd5ecc6662ac21dfffae32c580}
+\hypertarget{riset__cir_8c_a1b0f785ef9c5ee5ad7f86cb69bc13d6c}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!M\-A\-X\-S\-T\-E\-P@{M\-A\-X\-S\-T\-E\-P}}
+\index{M\-A\-X\-S\-T\-E\-P@{M\-A\-X\-S\-T\-E\-P}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{M\-A\-X\-S\-T\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-S\-T\-E\-P~(12.\-0/24.\-0)	/$\ast$ max time step,days (to detect flat)$\ast$/}}\label{riset__cir_8c_a1b0f785ef9c5ee5ad7f86cb69bc13d6c}
+\hypertarget{riset__cir_8c_ac2aa1ef41e6f4fb05b9cb298cba43ebb}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!T\-M\-A\-C\-C@{T\-M\-A\-C\-C}}
+\index{T\-M\-A\-C\-C@{T\-M\-A\-C\-C}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{T\-M\-A\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-A\-C\-C~(0.\-01/{\bf S\-P\-D})	/$\ast$ convergence accuracy, days; tight for stable az $\ast$/}}\label{riset__cir_8c_ac2aa1ef41e6f4fb05b9cb298cba43ebb}
+
+
+\subsection{Function Documentation}
+\hypertarget{riset__cir_8c_a1aa470b346744074422bbc250580c4da}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!e\-\_\-riset\-\_\-cir@{e\-\_\-riset\-\_\-cir}}
+\index{e\-\_\-riset\-\_\-cir@{e\-\_\-riset\-\_\-cir}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{e\-\_\-riset\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}static void e\-\_\-riset\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{double}]{dis, }
+\item[{{\bf Rise\-Set} $\ast$}]{rp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{riset__cir_8c_a1aa470b346744074422bbc250580c4da}
+
+
+Definition at line 160 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{riset__cir_8c_a1aa470b346744074422bbc250580c4da_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{riset__cir_8c_a1aa470b346744074422bbc250580c4da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{riset__cir_8c_add6746d9454330fd0ffef261a2db0dfe}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!find\-\_\-0alt@{find\-\_\-0alt}}
+\index{find\-\_\-0alt@{find\-\_\-0alt}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{find\-\_\-0alt}]{\setlength{\rightskip}{0pt plus 5cm}static int find\-\_\-0alt (
+\begin{DoxyParamCaption}
+\item[{double}]{dt, }
+\item[{double}]{fstep, }
+\item[{double}]{dis, }
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{riset__cir_8c_add6746d9454330fd0ffef261a2db0dfe}
+
+
+Definition at line 268 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{riset__cir_8c_add6746d9454330fd0ffef261a2db0dfe_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{riset__cir_8c_add6746d9454330fd0ffef261a2db0dfe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{riset__cir_8c_ac3dbf8f1f58a5cf88d87f05c70f48689}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!find\-\_\-maxalt@{find\-\_\-maxalt}}
+\index{find\-\_\-maxalt@{find\-\_\-maxalt}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{find\-\_\-maxalt}]{\setlength{\rightskip}{0pt plus 5cm}static int find\-\_\-maxalt (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{double}]{tr, }
+\item[{double}]{ts, }
+\item[{double $\ast$}]{tp, }
+\item[{double $\ast$}]{alp, }
+\item[{double $\ast$}]{azp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{riset__cir_8c_ac3dbf8f1f58a5cf88d87f05c70f48689}
+
+
+Definition at line 371 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{riset__cir_8c_ac3dbf8f1f58a5cf88d87f05c70f48689_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{riset__cir_8c_ac3dbf8f1f58a5cf88d87f05c70f48689_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{riset__cir_8c_aca86e4e62a1086874a60b59a5d7855f9}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!find\-\_\-transit@{find\-\_\-transit}}
+\index{find\-\_\-transit@{find\-\_\-transit}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{find\-\_\-transit}]{\setlength{\rightskip}{0pt plus 5cm}static int find\-\_\-transit (
+\begin{DoxyParamCaption}
+\item[{double}]{dt, }
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{riset__cir_8c_aca86e4e62a1086874a60b59a5d7855f9}
+
+
+Definition at line 328 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{riset__cir_8c_aca86e4e62a1086874a60b59a5d7855f9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{riset__cir_8c_aca86e4e62a1086874a60b59a5d7855f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{riset__cir_8c_af8e6c7c17b7ac05ea2867fd998963863}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!riset\-\_\-cir@{riset\-\_\-cir}}
+\index{riset\-\_\-cir@{riset\-\_\-cir}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{riset\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}void riset\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{double}]{dis, }
+\item[{{\bf Rise\-Set} $\ast$}]{rp}
+\end{DoxyParamCaption}
+)}}\label{riset__cir_8c_af8e6c7c17b7ac05ea2867fd998963863}
+
+
+Definition at line 23 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{riset__cir_8c_af8e6c7c17b7ac05ea2867fd998963863_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{riset__cir_8c_af8e6c7c17b7ac05ea2867fd998963863_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{riset__cir_8c_a6a98467ec72d49825b57dcccb77a2f78}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!twilight\-\_\-cir@{twilight\-\_\-cir}}
+\index{twilight\-\_\-cir@{twilight\-\_\-cir}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{twilight\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}void twilight\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{double}]{dis, }
+\item[{double $\ast$}]{dawn, }
+\item[{double $\ast$}]{dusk, }
+\item[{int $\ast$}]{status}
+\end{DoxyParamCaption}
+)}}\label{riset__cir_8c_a6a98467ec72d49825b57dcccb77a2f78}
+
+
+Definition at line 136 of file riset\-\_\-cir.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{riset__cir_8c_a6a98467ec72d49825b57dcccb77a2f78_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{riset__cir_8c_ae037a79cb31f056d04153837887f5813}{\index{riset\-\_\-cir.\-c@{riset\-\_\-cir.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!riset_cir.c@{riset\-\_\-cir.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf riset\-\_\-cir.\-c},v \$ \$Date\-: 2013/01/06 01\-:12\-:57 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{riset__cir_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 426 of file riset\-\_\-cir.\-c.
+

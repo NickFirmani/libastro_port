@@ -1,0 +1,689 @@
+\hypertarget{circum_8c}{\section{libastro/circum.c File Reference}
+\label{circum_8c}\index{libastro/circum.\-c@{libastro/circum.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+Include dependency graph for circum.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{circum_8c_aed9ea78689ecce0b7264c02c7f8a9a54}{G}~1.\-32712438e20	/$\ast$ heliocentric grav const; in m$^\wedge$3$\ast$s$^\wedge$-\/2 $\ast$/
+\item 
+\#define \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{c}~299792458.\-0	/$\ast$ speed of light in \hyperlink{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{m}/s $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{circum_8c_a8918cfa34631c99b8e0a216a9df405e9}{obj\-\_\-planet} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a4ddddf150bbe9f8dbbec4921cc420d8d}{obj\-\_\-binary} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_aec974235d305daa006e1d353d454130d}{obj\-\_\-2binary} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a57488973ace6632bf1da1323fdfaa809}{obj\-\_\-fixed} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a680495c015fdec011421c87e00c44ff9}{obj\-\_\-elliptical} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a6a63eaf7b724886a5bf3f8544d3e454c}{obj\-\_\-hyperbolic} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a7a5909a2d1f9435fe3f2812991d28146}{obj\-\_\-parabolic} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_af9c557934690d0724fdcd181f4628aec}{sun\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static int \hyperlink{circum_8c_a6da841ac5a67295535f42040504d7d08}{moon\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static double \hyperlink{circum_8c_afd684eac057e93b880036f3f27a7b324}{solve\-Kepler} (double M, double e)
+\item 
+static void \hyperlink{circum_8c_ace763630e325fdddbc8535031982d6d3}{binary\-Star\-Orbit} (double t, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}, double e, double o, double O, double i, double a, double P, double $\ast$thetap, double $\ast$rhop)
+\item 
+static void \hyperlink{circum_8c_a405a35549fca217604950217696faaca}{cir\-\_\-sky} (\hyperlink{struct_now}{Now} $\ast$np, double lpd, double psi, double rp, double $\ast$rho, double lam, double bet, double lsn, double rsn, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static void \hyperlink{circum_8c_a803dddc9489f871a7c4ed3b77ee59d24}{cir\-\_\-pos} (\hyperlink{struct_now}{Now} $\ast$np, double bet, double lam, double $\ast$rho, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+static void \hyperlink{circum_8c_a00fc2c4ad9b8a575929f8b2afcfac425}{elongation} (double lam, double bet, double lsn, double $\ast$el)
+\item 
+static void \hyperlink{circum_8c_a09d88c693435e13facc11293839a9024}{deflect} (double mjd1, double lpd, double psi, double rsn, double lsn, double rho, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\item 
+static double \hyperlink{circum_8c_a6b1a7b381a2e7f6dfe858f2116ac3b1d}{h\-\_\-albsize} (double H)
+\item 
+int \hyperlink{circum_8c_a88029bd0976d52e82ec40e1b9230d54a}{obj\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{circum_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{circum.\-c},v \$ \$Date\-: 2004/11/25 20\-:49\-:44 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{\index{circum.\-c@{circum.\-c}!c@{c}}
+\index{c@{c}!circum.c@{circum.\-c}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}\#define c~299792458.\-0	/$\ast$ speed of light in {\bf m}/s $\ast$/}}\label{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}
+\hypertarget{circum_8c_aed9ea78689ecce0b7264c02c7f8a9a54}{\index{circum.\-c@{circum.\-c}!G@{G}}
+\index{G@{G}!circum.c@{circum.\-c}}
+\subsubsection[{G}]{\setlength{\rightskip}{0pt plus 5cm}\#define G~1.\-32712438e20	/$\ast$ heliocentric grav const; in m$^\wedge$3$\ast$s$^\wedge$-\/2 $\ast$/}}\label{circum_8c_aed9ea78689ecce0b7264c02c7f8a9a54}
+
+
+\subsection{Function Documentation}
+\hypertarget{circum_8c_ace763630e325fdddbc8535031982d6d3}{\index{circum.\-c@{circum.\-c}!binary\-Star\-Orbit@{binary\-Star\-Orbit}}
+\index{binary\-Star\-Orbit@{binary\-Star\-Orbit}!circum.c@{circum.\-c}}
+\subsubsection[{binary\-Star\-Orbit}]{\setlength{\rightskip}{0pt plus 5cm}static void binary\-Star\-Orbit (
+\begin{DoxyParamCaption}
+\item[{double}]{t, }
+\item[{double}]{T, }
+\item[{double}]{e, }
+\item[{double}]{o, }
+\item[{double}]{O, }
+\item[{double}]{i, }
+\item[{double}]{a, }
+\item[{double}]{P, }
+\item[{double $\ast$}]{thetap, }
+\item[{double $\ast$}]{rhop}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_ace763630e325fdddbc8535031982d6d3}
+
+
+Definition at line 148 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{circum_8c_ace763630e325fdddbc8535031982d6d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_ace763630e325fdddbc8535031982d6d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a803dddc9489f871a7c4ed3b77ee59d24}{\index{circum.\-c@{circum.\-c}!cir\-\_\-pos@{cir\-\_\-pos}}
+\index{cir\-\_\-pos@{cir\-\_\-pos}!circum.c@{circum.\-c}}
+\subsubsection[{cir\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}static void cir\-\_\-pos (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{double}]{bet, }
+\item[{double}]{lam, }
+\item[{double $\ast$}]{rho, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a803dddc9489f871a7c4ed3b77ee59d24}
+
+
+Definition at line 673 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a803dddc9489f871a7c4ed3b77ee59d24_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a803dddc9489f871a7c4ed3b77ee59d24_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a405a35549fca217604950217696faaca}{\index{circum.\-c@{circum.\-c}!cir\-\_\-sky@{cir\-\_\-sky}}
+\index{cir\-\_\-sky@{cir\-\_\-sky}!circum.c@{circum.\-c}}
+\subsubsection[{cir\-\_\-sky}]{\setlength{\rightskip}{0pt plus 5cm}static void cir\-\_\-sky (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{double}]{lpd, }
+\item[{double}]{psi, }
+\item[{double}]{rp, }
+\item[{double $\ast$}]{rho, }
+\item[{double}]{lam, }
+\item[{double}]{bet, }
+\item[{double}]{lsn, }
+\item[{double}]{rsn, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a405a35549fca217604950217696faaca}
+
+
+Definition at line 612 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a405a35549fca217604950217696faaca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a405a35549fca217604950217696faaca_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a09d88c693435e13facc11293839a9024}{\index{circum.\-c@{circum.\-c}!deflect@{deflect}}
+\index{deflect@{deflect}!circum.c@{circum.\-c}}
+\subsubsection[{deflect}]{\setlength{\rightskip}{0pt plus 5cm}static void deflect (
+\begin{DoxyParamCaption}
+\item[{double}]{mjd1, }
+\item[{double}]{lpd, }
+\item[{double}]{psi, }
+\item[{double}]{rsn, }
+\item[{double}]{lsn, }
+\item[{double}]{rho, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a09d88c693435e13facc11293839a9024}
+
+
+Definition at line 789 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a09d88c693435e13facc11293839a9024_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a09d88c693435e13facc11293839a9024_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a00fc2c4ad9b8a575929f8b2afcfac425}{\index{circum.\-c@{circum.\-c}!elongation@{elongation}}
+\index{elongation@{elongation}!circum.c@{circum.\-c}}
+\subsubsection[{elongation}]{\setlength{\rightskip}{0pt plus 5cm}static void elongation (
+\begin{DoxyParamCaption}
+\item[{double}]{lam, }
+\item[{double}]{bet, }
+\item[{double}]{lsn, }
+\item[{double $\ast$}]{el}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a00fc2c4ad9b8a575929f8b2afcfac425}
+
+
+Definition at line 765 of file circum.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a00fc2c4ad9b8a575929f8b2afcfac425_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a6b1a7b381a2e7f6dfe858f2116ac3b1d}{\index{circum.\-c@{circum.\-c}!h\-\_\-albsize@{h\-\_\-albsize}}
+\index{h\-\_\-albsize@{h\-\_\-albsize}!circum.c@{circum.\-c}}
+\subsubsection[{h\-\_\-albsize}]{\setlength{\rightskip}{0pt plus 5cm}static double h\-\_\-albsize (
+\begin{DoxyParamCaption}
+\item[{double}]{H}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a6b1a7b381a2e7f6dfe858f2116ac3b1d}
+
+
+Definition at line 857 of file circum.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a6b1a7b381a2e7f6dfe858f2116ac3b1d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a6da841ac5a67295535f42040504d7d08}{\index{circum.\-c@{circum.\-c}!moon\-\_\-cir@{moon\-\_\-cir}}
+\index{moon\-\_\-cir@{moon\-\_\-cir}!circum.c@{circum.\-c}}
+\subsubsection[{moon\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}static int moon\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a6da841ac5a67295535f42040504d7d08}
+
+
+Definition at line 564 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a6da841ac5a67295535f42040504d7d08_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a6da841ac5a67295535f42040504d7d08_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_aec974235d305daa006e1d353d454130d}{\index{circum.\-c@{circum.\-c}!obj\-\_\-2binary@{obj\-\_\-2binary}}
+\index{obj\-\_\-2binary@{obj\-\_\-2binary}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-2binary}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-2binary (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_aec974235d305daa006e1d353d454130d}
+
+
+Definition at line 119 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_aec974235d305daa006e1d353d454130d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_aec974235d305daa006e1d353d454130d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a4ddddf150bbe9f8dbbec4921cc420d8d}{\index{circum.\-c@{circum.\-c}!obj\-\_\-binary@{obj\-\_\-binary}}
+\index{obj\-\_\-binary@{obj\-\_\-binary}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-binary}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-binary (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a4ddddf150bbe9f8dbbec4921cc420d8d}
+
+
+Definition at line 104 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a4ddddf150bbe9f8dbbec4921cc420d8d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a4ddddf150bbe9f8dbbec4921cc420d8d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a88029bd0976d52e82ec40e1b9230d54a}{\index{circum.\-c@{circum.\-c}!obj\-\_\-cir@{obj\-\_\-cir}}
+\index{obj\-\_\-cir@{obj\-\_\-cir}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}int obj\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{circum_8c_a88029bd0976d52e82ec40e1b9230d54a}
+
+
+Definition at line 41 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{circum_8c_a88029bd0976d52e82ec40e1b9230d54a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a88029bd0976d52e82ec40e1b9230d54a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a680495c015fdec011421c87e00c44ff9}{\index{circum.\-c@{circum.\-c}!obj\-\_\-elliptical@{obj\-\_\-elliptical}}
+\index{obj\-\_\-elliptical@{obj\-\_\-elliptical}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-elliptical}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-elliptical (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a680495c015fdec011421c87e00c44ff9}
+
+
+Definition at line 304 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a680495c015fdec011421c87e00c44ff9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a680495c015fdec011421c87e00c44ff9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a57488973ace6632bf1da1323fdfaa809}{\index{circum.\-c@{circum.\-c}!obj\-\_\-fixed@{obj\-\_\-fixed}}
+\index{obj\-\_\-fixed@{obj\-\_\-fixed}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-fixed}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-fixed (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a57488973ace6632bf1da1323fdfaa809}
+
+
+Definition at line 208 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a57488973ace6632bf1da1323fdfaa809_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a57488973ace6632bf1da1323fdfaa809_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a6a63eaf7b724886a5bf3f8544d3e454c}{\index{circum.\-c@{circum.\-c}!obj\-\_\-hyperbolic@{obj\-\_\-hyperbolic}}
+\index{obj\-\_\-hyperbolic@{obj\-\_\-hyperbolic}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-hyperbolic}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-hyperbolic (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a6a63eaf7b724886a5bf3f8544d3e454c}
+
+
+Definition at line 407 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a6a63eaf7b724886a5bf3f8544d3e454c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a6a63eaf7b724886a5bf3f8544d3e454c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a7a5909a2d1f9435fe3f2812991d28146}{\index{circum.\-c@{circum.\-c}!obj\-\_\-parabolic@{obj\-\_\-parabolic}}
+\index{obj\-\_\-parabolic@{obj\-\_\-parabolic}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-parabolic}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-parabolic (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a7a5909a2d1f9435fe3f2812991d28146}
+
+
+Definition at line 498 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a7a5909a2d1f9435fe3f2812991d28146_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a7a5909a2d1f9435fe3f2812991d28146_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_a8918cfa34631c99b8e0a216a9df405e9}{\index{circum.\-c@{circum.\-c}!obj\-\_\-planet@{obj\-\_\-planet}}
+\index{obj\-\_\-planet@{obj\-\_\-planet}!circum.c@{circum.\-c}}
+\subsubsection[{obj\-\_\-planet}]{\setlength{\rightskip}{0pt plus 5cm}static int obj\-\_\-planet (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_a8918cfa34631c99b8e0a216a9df405e9}
+
+
+Definition at line 60 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a8918cfa34631c99b8e0a216a9df405e9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_a8918cfa34631c99b8e0a216a9df405e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_afd684eac057e93b880036f3f27a7b324}{\index{circum.\-c@{circum.\-c}!solve\-Kepler@{solve\-Kepler}}
+\index{solve\-Kepler@{solve\-Kepler}!circum.c@{circum.\-c}}
+\subsubsection[{solve\-Kepler}]{\setlength{\rightskip}{0pt plus 5cm}static double solve\-Kepler (
+\begin{DoxyParamCaption}
+\item[{double}]{M, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_afd684eac057e93b880036f3f27a7b324}
+
+
+Definition at line 194 of file circum.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_afd684eac057e93b880036f3f27a7b324_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{circum_8c_af9c557934690d0724fdcd181f4628aec}{\index{circum.\-c@{circum.\-c}!sun\-\_\-cir@{sun\-\_\-cir}}
+\index{sun\-\_\-cir@{sun\-\_\-cir}!circum.c@{circum.\-c}}
+\subsubsection[{sun\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}static int sun\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_af9c557934690d0724fdcd181f4628aec}
+
+
+Definition at line 536 of file circum.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_af9c557934690d0724fdcd181f4628aec_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{circum_8c_af9c557934690d0724fdcd181f4628aec_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{circum_8c_ae037a79cb31f056d04153837887f5813}{\index{circum.\-c@{circum.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!circum.c@{circum.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf circum.\-c},v \$ \$Date\-: 2004/11/25 20\-:49\-:44 \$ \$Revision\-: 1.\-18 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{circum_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 863 of file circum.\-c.
+

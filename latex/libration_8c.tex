@@ -1,0 +1,386 @@
+\hypertarget{libration_8c}{\section{libastro/libration.c File Reference}
+\label{libration_8c}\index{libastro/libration.\-c@{libastro/libration.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for libration.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{libration_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structplantbl}{plantbl}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{libration_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R}~short
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{libration_8c_a131d4b6e19ef668d9d3be5b03f767890}{mods3600} (double x)
+\item 
+static int \hyperlink{libration_8c_a8b353c6ad0158b5d2904d3f613f48e5d}{sscc} (int k, double arg, int \hyperlink{atlas_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{n})
+\item 
+static int \hyperlink{libration_8c_a0ef86e7d8643ee4fa6cdc7740b00b331}{dargs} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$plan)
+\item 
+static double \hyperlink{libration_8c_ad3909906b99a9c0258063e23ef79e474}{gplan} (double J, struct \hyperlink{structplantbl}{plantbl} $\ast$plan)
+\item 
+void \hyperlink{libration_8c_a42d82e732568f68846d2a138e7bce05f}{llibration} (double J\-D, double $\ast$llatp, double $\ast$llonp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{libration_8c_a64a52c784e0f6d7c18ca20aa92a26245}{J\-D2000} = 2451545.\-0
+\item 
+static double \hyperlink{libration_8c_ac9810ff13cf14f87cd30da00cd23fb2e}{S\-T\-R} = 4.\-8481368110953599359e-\/6
+\item 
+static double \hyperlink{libration_8c_a058c605d07d05839a8416d5e2b47e17d}{ss} \mbox{[}14\mbox{]}\mbox{[}24\mbox{]}
+\item 
+static double \hyperlink{libration_8c_a1f3b89bffdf6ac5023a5bbb12f50202a}{cc} \mbox{[}14\mbox{]}\mbox{[}24\mbox{]}
+\item 
+static double \hyperlink{libration_8c_a16271014249f131ba682ba1329937f4e}{Jlast} = -\/1.\-0e38
+\item 
+static double \hyperlink{libration_8c_ac94a6e5794c2d7b59588b14025cfba20}{T}
+\item 
+static int \hyperlink{libration_8c_a8fb0f87399056da2864d9741cc3bd160}{lattabr} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static int \hyperlink{libration_8c_a2ab27ba9de387c89889272cd56008b3e}{lattabb} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static int \hyperlink{libration_8c_a4145ee7086c99750534a63e5bdf590dc}{lattabl} \mbox{[}$\,$\mbox{]}
+\item 
+static \hyperlink{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R} \hyperlink{libration_8c_af1775e45d087887e522c6bc7c908334d}{latargs} \mbox{[}$\,$\mbox{]}
+\item 
+static struct \hyperlink{structplantbl}{plantbl} \hyperlink{libration_8c_a1718ee01089182f631ea305a396e2254}{liblat}
+\item 
+static int \hyperlink{libration_8c_aeaf8c150757c1040ed83fa8881d65298}{lontabr} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static int \hyperlink{libration_8c_a7832443e2cb4e982526c923a51bb0f8a}{lontabb} \mbox{[}$\,$\mbox{]} = \{-\/1\}
+\item 
+static int \hyperlink{libration_8c_acad7d4bc9e53235c1868df9953206aa9}{lontabl} \mbox{[}$\,$\mbox{]}
+\item 
+static \hyperlink{moon_8c_a35cd67ba7bb0db8105eb6267467535d7}{C\-H\-A\-R} \hyperlink{libration_8c_a85184b18b30972bf93482bc9aa3cfc21}{lonargs} \mbox{[}$\,$\mbox{]}
+\item 
+static struct \hyperlink{structplantbl}{plantbl} \hyperlink{libration_8c_a4d51c899712184a27cb226b146650799}{liblon}
+\item 
+static char $\ast$ \hyperlink{libration_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{libration.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{libration_8c_a35cd67ba7bb0db8105eb6267467535d7}{\index{libration.\-c@{libration.\-c}!C\-H\-A\-R@{C\-H\-A\-R}}
+\index{C\-H\-A\-R@{C\-H\-A\-R}!libration.c@{libration.\-c}}
+\subsubsection[{C\-H\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-R~short}}\label{libration_8c_a35cd67ba7bb0db8105eb6267467535d7}
+
+
+Definition at line 39 of file libration.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{libration_8c_a0ef86e7d8643ee4fa6cdc7740b00b331}{\index{libration.\-c@{libration.\-c}!dargs@{dargs}}
+\index{dargs@{dargs}!libration.c@{libration.\-c}}
+\subsubsection[{dargs}]{\setlength{\rightskip}{0pt plus 5cm}static int dargs (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{plan}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a0ef86e7d8643ee4fa6cdc7740b00b331}
+
+
+Definition at line 118 of file libration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{libration_8c_a0ef86e7d8643ee4fa6cdc7740b00b331_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{libration_8c_a0ef86e7d8643ee4fa6cdc7740b00b331_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libration_8c_ad3909906b99a9c0258063e23ef79e474}{\index{libration.\-c@{libration.\-c}!gplan@{gplan}}
+\index{gplan@{gplan}!libration.c@{libration.\-c}}
+\subsubsection[{gplan}]{\setlength{\rightskip}{0pt plus 5cm}static double gplan (
+\begin{DoxyParamCaption}
+\item[{double}]{J, }
+\item[{struct {\bf plantbl} $\ast$}]{plan}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_ad3909906b99a9c0258063e23ef79e474}
+
+
+Definition at line 222 of file libration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{libration_8c_ad3909906b99a9c0258063e23ef79e474_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{libration_8c_ad3909906b99a9c0258063e23ef79e474_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libration_8c_a42d82e732568f68846d2a138e7bce05f}{\index{libration.\-c@{libration.\-c}!llibration@{llibration}}
+\index{llibration@{llibration}!libration.c@{libration.\-c}}
+\subsubsection[{llibration}]{\setlength{\rightskip}{0pt plus 5cm}void llibration (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{double $\ast$}]{llatp, }
+\item[{double $\ast$}]{llonp}
+\end{DoxyParamCaption}
+)}}\label{libration_8c_a42d82e732568f68846d2a138e7bce05f}
+
+
+Definition at line 2201 of file libration.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libration_8c_a42d82e732568f68846d2a138e7bce05f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libration_8c_a131d4b6e19ef668d9d3be5b03f767890}{\index{libration.\-c@{libration.\-c}!mods3600@{mods3600}}
+\index{mods3600@{mods3600}!libration.c@{libration.\-c}}
+\subsubsection[{mods3600}]{\setlength{\rightskip}{0pt plus 5cm}static double mods3600 (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a131d4b6e19ef668d9d3be5b03f767890}
+
+
+Definition at line 70 of file libration.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libration_8c_a131d4b6e19ef668d9d3be5b03f767890_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libration_8c_a8b353c6ad0158b5d2904d3f613f48e5d}{\index{libration.\-c@{libration.\-c}!sscc@{sscc}}
+\index{sscc@{sscc}!libration.c@{libration.\-c}}
+\subsubsection[{sscc}]{\setlength{\rightskip}{0pt plus 5cm}static int sscc (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{double}]{arg, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a8b353c6ad0158b5d2904d3f613f48e5d}
+
+
+Definition at line 83 of file libration.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libration_8c_a8b353c6ad0158b5d2904d3f613f48e5d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{libration_8c_a1f3b89bffdf6ac5023a5bbb12f50202a}{\index{libration.\-c@{libration.\-c}!cc@{cc}}
+\index{cc@{cc}!libration.c@{libration.\-c}}
+\subsubsection[{cc}]{\setlength{\rightskip}{0pt plus 5cm}double cc\mbox{[}14\mbox{]}\mbox{[}24\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a1f3b89bffdf6ac5023a5bbb12f50202a}
+
+
+Definition at line 65 of file libration.\-c.
+
+\hypertarget{libration_8c_a64a52c784e0f6d7c18ca20aa92a26245}{\index{libration.\-c@{libration.\-c}!J\-D2000@{J\-D2000}}
+\index{J\-D2000@{J\-D2000}!libration.c@{libration.\-c}}
+\subsubsection[{J\-D2000}]{\setlength{\rightskip}{0pt plus 5cm}double J\-D2000 = 2451545.\-0\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a64a52c784e0f6d7c18ca20aa92a26245}
+
+
+Definition at line 60 of file libration.\-c.
+
+\hypertarget{libration_8c_a16271014249f131ba682ba1329937f4e}{\index{libration.\-c@{libration.\-c}!Jlast@{Jlast}}
+\index{Jlast@{Jlast}!libration.c@{libration.\-c}}
+\subsubsection[{Jlast}]{\setlength{\rightskip}{0pt plus 5cm}double Jlast = -\/1.\-0e38\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a16271014249f131ba682ba1329937f4e}
+
+
+Definition at line 114 of file libration.\-c.
+
+\hypertarget{libration_8c_af1775e45d087887e522c6bc7c908334d}{\index{libration.\-c@{libration.\-c}!latargs@{latargs}}
+\index{latargs@{latargs}!libration.c@{libration.\-c}}
+\subsubsection[{latargs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-H\-A\-R} latargs\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_af1775e45d087887e522c6bc7c908334d}
+
+
+Definition at line 831 of file libration.\-c.
+
+\hypertarget{libration_8c_a2ab27ba9de387c89889272cd56008b3e}{\index{libration.\-c@{libration.\-c}!lattabb@{lattabb}}
+\index{lattabb@{lattabb}!libration.c@{libration.\-c}}
+\subsubsection[{lattabb}]{\setlength{\rightskip}{0pt plus 5cm}int lattabb\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a2ab27ba9de387c89889272cd56008b3e}
+
+
+Definition at line 319 of file libration.\-c.
+
+\hypertarget{libration_8c_a4145ee7086c99750534a63e5bdf590dc}{\index{libration.\-c@{libration.\-c}!lattabl@{lattabl}}
+\index{lattabl@{lattabl}!libration.c@{libration.\-c}}
+\subsubsection[{lattabl}]{\setlength{\rightskip}{0pt plus 5cm}int lattabl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a4145ee7086c99750534a63e5bdf590dc}
+
+
+Definition at line 320 of file libration.\-c.
+
+\hypertarget{libration_8c_a8fb0f87399056da2864d9741cc3bd160}{\index{libration.\-c@{libration.\-c}!lattabr@{lattabr}}
+\index{lattabr@{lattabr}!libration.c@{libration.\-c}}
+\subsubsection[{lattabr}]{\setlength{\rightskip}{0pt plus 5cm}int lattabr\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a8fb0f87399056da2864d9741cc3bd160}
+
+
+Definition at line 318 of file libration.\-c.
+
+\hypertarget{libration_8c_a1718ee01089182f631ea305a396e2254}{\index{libration.\-c@{libration.\-c}!liblat@{liblat}}
+\index{liblat@{liblat}!libration.c@{libration.\-c}}
+\subsubsection[{liblat}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf plantbl} liblat\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a1718ee01089182f631ea305a396e2254}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  
+  
+  \{  0, 18, 18, 20,  4,  2,  0,  0,  0,  9, 16,  7,  9,  9,\},
+ 2,
+ \hyperlink{libration_8c_af1775e45d087887e522c6bc7c908334d}{latargs},
+ \hyperlink{libration_8c_a4145ee7086c99750534a63e5bdf590dc}{lattabl},
+ \hyperlink{libration_8c_a2ab27ba9de387c89889272cd56008b3e}{lattabb},
+ \hyperlink{libration_8c_a8fb0f87399056da2864d9741cc3bd160}{lattabr},
+ 3.850000e+05,
+ 36525.0,
+ 1.0e-4,
+\}
+\end{DoxyCode}
+
+
+Definition at line 1090 of file libration.\-c.
+
+\hypertarget{libration_8c_a4d51c899712184a27cb226b146650799}{\index{libration.\-c@{libration.\-c}!liblon@{liblon}}
+\index{liblon@{liblon}!libration.c@{libration.\-c}}
+\subsubsection[{liblon}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf plantbl} liblon\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a4d51c899712184a27cb226b146650799}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  
+  
+  \{  0, 18, 18, 20,  4,  2,  0,  0,  0,  9, 16,  7,  9,  9,\},
+ 2,
+ \hyperlink{libration_8c_a85184b18b30972bf93482bc9aa3cfc21}{lonargs},
+ \hyperlink{libration_8c_acad7d4bc9e53235c1868df9953206aa9}{lontabl},
+ \hyperlink{libration_8c_a7832443e2cb4e982526c923a51bb0f8a}{lontabb},
+ \hyperlink{libration_8c_aeaf8c150757c1040ed83fa8881d65298}{lontabr},
+ 3.850000e+05,
+ 36525.0,
+ 1.0e-4,
+\}
+\end{DoxyCode}
+
+
+Definition at line 2183 of file libration.\-c.
+
+\hypertarget{libration_8c_a85184b18b30972bf93482bc9aa3cfc21}{\index{libration.\-c@{libration.\-c}!lonargs@{lonargs}}
+\index{lonargs@{lonargs}!libration.c@{libration.\-c}}
+\subsubsection[{lonargs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-H\-A\-R} lonargs\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a85184b18b30972bf93482bc9aa3cfc21}
+
+
+Definition at line 1822 of file libration.\-c.
+
+\hypertarget{libration_8c_a7832443e2cb4e982526c923a51bb0f8a}{\index{libration.\-c@{libration.\-c}!lontabb@{lontabb}}
+\index{lontabb@{lontabb}!libration.c@{libration.\-c}}
+\subsubsection[{lontabb}]{\setlength{\rightskip}{0pt plus 5cm}int lontabb\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a7832443e2cb4e982526c923a51bb0f8a}
+
+
+Definition at line 1106 of file libration.\-c.
+
+\hypertarget{libration_8c_acad7d4bc9e53235c1868df9953206aa9}{\index{libration.\-c@{libration.\-c}!lontabl@{lontabl}}
+\index{lontabl@{lontabl}!libration.c@{libration.\-c}}
+\subsubsection[{lontabl}]{\setlength{\rightskip}{0pt plus 5cm}int lontabl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_acad7d4bc9e53235c1868df9953206aa9}
+
+
+Definition at line 1107 of file libration.\-c.
+
+\hypertarget{libration_8c_aeaf8c150757c1040ed83fa8881d65298}{\index{libration.\-c@{libration.\-c}!lontabr@{lontabr}}
+\index{lontabr@{lontabr}!libration.c@{libration.\-c}}
+\subsubsection[{lontabr}]{\setlength{\rightskip}{0pt plus 5cm}int lontabr\mbox{[}$\,$\mbox{]} = \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_aeaf8c150757c1040ed83fa8881d65298}
+
+
+Definition at line 1105 of file libration.\-c.
+
+\hypertarget{libration_8c_ae037a79cb31f056d04153837887f5813}{\index{libration.\-c@{libration.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!libration.c@{libration.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf libration.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 2213 of file libration.\-c.
+
+\hypertarget{libration_8c_a058c605d07d05839a8416d5e2b47e17d}{\index{libration.\-c@{libration.\-c}!ss@{ss}}
+\index{ss@{ss}!libration.c@{libration.\-c}}
+\subsubsection[{ss}]{\setlength{\rightskip}{0pt plus 5cm}double ss\mbox{[}14\mbox{]}\mbox{[}24\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_a058c605d07d05839a8416d5e2b47e17d}
+
+
+Definition at line 64 of file libration.\-c.
+
+\hypertarget{libration_8c_ac9810ff13cf14f87cd30da00cd23fb2e}{\index{libration.\-c@{libration.\-c}!S\-T\-R@{S\-T\-R}}
+\index{S\-T\-R@{S\-T\-R}!libration.c@{libration.\-c}}
+\subsubsection[{S\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}double S\-T\-R = 4.\-8481368110953599359e-\/6\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_ac9810ff13cf14f87cd30da00cd23fb2e}
+
+
+Definition at line 62 of file libration.\-c.
+
+\hypertarget{libration_8c_ac94a6e5794c2d7b59588b14025cfba20}{\index{libration.\-c@{libration.\-c}!T@{T}}
+\index{T@{T}!libration.c@{libration.\-c}}
+\subsubsection[{T}]{\setlength{\rightskip}{0pt plus 5cm}double T\hspace{0.3cm}{\ttfamily [static]}}}\label{libration_8c_ac94a6e5794c2d7b59588b14025cfba20}
+
+
+Definition at line 115 of file libration.\-c.
+

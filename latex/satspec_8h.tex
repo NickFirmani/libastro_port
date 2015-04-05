@@ -1,0 +1,293 @@
+\hypertarget{satspec_8h}{\section{libastro/satspec.h File Reference}
+\label{satspec_8h}\index{libastro/satspec.\-h@{libastro/satspec.\-h}}
+}
+{\ttfamily \#include \char`\"{}sattypes.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}satlib.\-h\char`\"{}}\\*
+Include dependency graph for satspec.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{satspec_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{satspec_8h_a153b388dd103aeab618da79f4a0b49f8}{S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E}~0x00000001
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{satspec_8h_af00c5b96333033246265bd2450bcca66}{init\-\_\-deep} (struct \hyperlink{structdeep__data}{deep\-\_\-data} $\ast$deep)
+\item 
+void \hyperlink{satspec_8h_a400948aa352d1215f58c6d269f089e19}{init\-\_\-sdp4} (struct \hyperlink{structsdp4__data}{sdp4\-\_\-data} $\ast$sdp)
+\item 
+char $\ast$ \hyperlink{satspec_8h_a01ce72df24493a4c9d2dfe185904a137}{tleerr} (int)
+\item 
+int \hyperlink{satspec_8h_a511331ec8295368fdcf93333ef816808}{readtle} (char $\ast$, char $\ast$, \hyperlink{satlib_8h_ab6e90da5c8f52d5b9bb388975e2e49db}{Sat\-Elem} $\ast$)
+\item 
+double \hyperlink{satspec_8h_a93e4e3d1813bba5f076bddf6a2ca5c0e}{current\-\_\-jd} ()
+\item 
+double \hyperlink{satspec_8h_a37151c94ce4e7177db90d93ab74ccfd6}{ut1\-\_\-to\-\_\-gha} (double)
+\item 
+void \hyperlink{satspec_8h_ae9986737eb576f7aee26a88433a135ae}{smallsleep} (double t)
+\item 
+double \hyperlink{satspec_8h_a107b3db24c5590c21d583efbb7ac1acd}{epoch\-\_\-jd} (double)
+\item 
+double \hyperlink{satspec_8h_a8f64856d35ec46cef389467fb299d35e}{actan} (double sinx, double cosx)
+\item 
+double \hyperlink{satspec_8h_a0809c28005fea0e9ae3ff055b21ff95e}{thetag} (double E\-P, double $\ast$D\-S50)
+\item 
+void \hyperlink{satspec_8h_a29630154aab8f09525df6db6a5d93255}{dpinit} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double E\-Q\-S\-Q, double S\-I\-N\-I\-Q, double C\-O\-S\-I\-Q, double R\-T\-E\-Q\-S\-Q, double A\-O, double C\-O\-S\-Q2, double S\-I\-N\-O\-M\-O, double C\-O\-S\-O\-M\-O, double B\-S\-Q, double X\-L\-L\-D\-O\-T, double O\-M\-G\-D\-T, double \hyperlink{sgp4_8c_a62b3086d7973b35924294995be4ef198}{X\-N\-O\-D\-O\-T}, double \hyperlink{sgp4_8c_acba739d1b9c250745858870abfc6688a}{X\-N\-O\-D\-P})
+\item 
+void \hyperlink{satspec_8h_a83540349db5755bd5658b630dc6d6e44}{dpsec} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double $\ast$X\-L\-L, double $\ast$O\-M\-G\-A\-S\-M, double $\ast$X\-N\-O\-D\-E\-S, double $\ast$E\-M, double $\ast$X\-I\-N\-C, double $\ast$X\-N, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\item 
+void \hyperlink{satspec_8h_a533103975f23d3e03ac4e7fb561464b5}{dpper} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, double $\ast$E\-M, double $\ast$X\-I\-N\-C, double $\ast$O\-M\-G\-A\-S\-M, double $\ast$X\-N\-O\-D\-E\-S, double $\ast$X\-L\-L, double \hyperlink{moon_8c_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{satspec_8h_a153b388dd103aeab618da79f4a0b49f8}{\index{satspec.\-h@{satspec.\-h}!S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E@{S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E}}
+\index{S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E@{S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E}!satspec.h@{satspec.\-h}}
+\subsubsection[{S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-P4\-\_\-\-S\-I\-M\-P\-L\-E~0x00000001}}\label{satspec_8h_a153b388dd103aeab618da79f4a0b49f8}
+
+
+Definition at line 9 of file satspec.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{satspec_8h_a8f64856d35ec46cef389467fb299d35e}{\index{satspec.\-h@{satspec.\-h}!actan@{actan}}
+\index{actan@{actan}!satspec.h@{satspec.\-h}}
+\subsubsection[{actan}]{\setlength{\rightskip}{0pt plus 5cm}double actan (
+\begin{DoxyParamCaption}
+\item[{double}]{sinx, }
+\item[{double}]{cosx}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a8f64856d35ec46cef389467fb299d35e}
+
+
+Definition at line 12 of file actan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h_a8f64856d35ec46cef389467fb299d35e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satspec_8h_a93e4e3d1813bba5f076bddf6a2ca5c0e}{\index{satspec.\-h@{satspec.\-h}!current\-\_\-jd@{current\-\_\-jd}}
+\index{current\-\_\-jd@{current\-\_\-jd}!satspec.h@{satspec.\-h}}
+\subsubsection[{current\-\_\-jd}]{\setlength{\rightskip}{0pt plus 5cm}double current\-\_\-jd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a93e4e3d1813bba5f076bddf6a2ca5c0e}
+\hypertarget{satspec_8h_a29630154aab8f09525df6db6a5d93255}{\index{satspec.\-h@{satspec.\-h}!dpinit@{dpinit}}
+\index{dpinit@{dpinit}!satspec.h@{satspec.\-h}}
+\subsubsection[{dpinit}]{\setlength{\rightskip}{0pt plus 5cm}void dpinit (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double}]{E\-Q\-S\-Q, }
+\item[{double}]{S\-I\-N\-I\-Q, }
+\item[{double}]{C\-O\-S\-I\-Q, }
+\item[{double}]{R\-T\-E\-Q\-S\-Q, }
+\item[{double}]{A\-O, }
+\item[{double}]{C\-O\-S\-Q2, }
+\item[{double}]{S\-I\-N\-O\-M\-O, }
+\item[{double}]{C\-O\-S\-O\-M\-O, }
+\item[{double}]{B\-S\-Q, }
+\item[{double}]{X\-L\-L\-D\-O\-T, }
+\item[{double}]{O\-M\-G\-D\-T, }
+\item[{double}]{X\-N\-O\-D\-O\-T, }
+\item[{double}]{X\-N\-O\-D\-P}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a29630154aab8f09525df6db6a5d93255}
+
+
+Definition at line 153 of file deep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{satspec_8h_a29630154aab8f09525df6db6a5d93255_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h_a29630154aab8f09525df6db6a5d93255_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satspec_8h_a533103975f23d3e03ac4e7fb561464b5}{\index{satspec.\-h@{satspec.\-h}!dpper@{dpper}}
+\index{dpper@{dpper}!satspec.h@{satspec.\-h}}
+\subsubsection[{dpper}]{\setlength{\rightskip}{0pt plus 5cm}void dpper (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double $\ast$}]{E\-M, }
+\item[{double $\ast$}]{X\-I\-N\-C, }
+\item[{double $\ast$}]{O\-M\-G\-A\-S\-M, }
+\item[{double $\ast$}]{X\-N\-O\-D\-E\-S, }
+\item[{double $\ast$}]{X\-L\-L, }
+\item[{double}]{T}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a533103975f23d3e03ac4e7fb561464b5}
+
+
+Definition at line 700 of file deep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{satspec_8h_a533103975f23d3e03ac4e7fb561464b5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h_a533103975f23d3e03ac4e7fb561464b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satspec_8h_a83540349db5755bd5658b630dc6d6e44}{\index{satspec.\-h@{satspec.\-h}!dpsec@{dpsec}}
+\index{dpsec@{dpsec}!satspec.h@{satspec.\-h}}
+\subsubsection[{dpsec}]{\setlength{\rightskip}{0pt plus 5cm}void dpsec (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{double $\ast$}]{X\-L\-L, }
+\item[{double $\ast$}]{O\-M\-G\-A\-S\-M, }
+\item[{double $\ast$}]{X\-N\-O\-D\-E\-S, }
+\item[{double $\ast$}]{E\-M, }
+\item[{double $\ast$}]{X\-I\-N\-C, }
+\item[{double $\ast$}]{X\-N, }
+\item[{double}]{T}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a83540349db5755bd5658b630dc6d6e44}
+
+
+Definition at line 504 of file deep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h_a83540349db5755bd5658b630dc6d6e44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satspec_8h_a107b3db24c5590c21d583efbb7ac1acd}{\index{satspec.\-h@{satspec.\-h}!epoch\-\_\-jd@{epoch\-\_\-jd}}
+\index{epoch\-\_\-jd@{epoch\-\_\-jd}!satspec.h@{satspec.\-h}}
+\subsubsection[{epoch\-\_\-jd}]{\setlength{\rightskip}{0pt plus 5cm}double epoch\-\_\-jd (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a107b3db24c5590c21d583efbb7ac1acd}
+\hypertarget{satspec_8h_af00c5b96333033246265bd2450bcca66}{\index{satspec.\-h@{satspec.\-h}!init\-\_\-deep@{init\-\_\-deep}}
+\index{init\-\_\-deep@{init\-\_\-deep}!satspec.h@{satspec.\-h}}
+\subsubsection[{init\-\_\-deep}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-deep (
+\begin{DoxyParamCaption}
+\item[{struct {\bf deep\-\_\-data} $\ast$}]{deep}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_af00c5b96333033246265bd2450bcca66}
+\hypertarget{satspec_8h_a400948aa352d1215f58c6d269f089e19}{\index{satspec.\-h@{satspec.\-h}!init\-\_\-sdp4@{init\-\_\-sdp4}}
+\index{init\-\_\-sdp4@{init\-\_\-sdp4}!satspec.h@{satspec.\-h}}
+\subsubsection[{init\-\_\-sdp4}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-sdp4 (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sdp4\-\_\-data} $\ast$}]{sdp}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a400948aa352d1215f58c6d269f089e19}
+\hypertarget{satspec_8h_a511331ec8295368fdcf93333ef816808}{\index{satspec.\-h@{satspec.\-h}!readtle@{readtle}}
+\index{readtle@{readtle}!satspec.h@{satspec.\-h}}
+\subsubsection[{readtle}]{\setlength{\rightskip}{0pt plus 5cm}int readtle (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{{\bf Sat\-Elem} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a511331ec8295368fdcf93333ef816808}
+\hypertarget{satspec_8h_ae9986737eb576f7aee26a88433a135ae}{\index{satspec.\-h@{satspec.\-h}!smallsleep@{smallsleep}}
+\index{smallsleep@{smallsleep}!satspec.h@{satspec.\-h}}
+\subsubsection[{smallsleep}]{\setlength{\rightskip}{0pt plus 5cm}void smallsleep (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_ae9986737eb576f7aee26a88433a135ae}
+\hypertarget{satspec_8h_a0809c28005fea0e9ae3ff055b21ff95e}{\index{satspec.\-h@{satspec.\-h}!thetag@{thetag}}
+\index{thetag@{thetag}!satspec.h@{satspec.\-h}}
+\subsubsection[{thetag}]{\setlength{\rightskip}{0pt plus 5cm}double thetag (
+\begin{DoxyParamCaption}
+\item[{double}]{E\-P, }
+\item[{double $\ast$}]{D\-S50}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a0809c28005fea0e9ae3ff055b21ff95e}
+
+
+Definition at line 34 of file thetag.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satspec_8h_a0809c28005fea0e9ae3ff055b21ff95e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satspec_8h_a01ce72df24493a4c9d2dfe185904a137}{\index{satspec.\-h@{satspec.\-h}!tleerr@{tleerr}}
+\index{tleerr@{tleerr}!satspec.h@{satspec.\-h}}
+\subsubsection[{tleerr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ tleerr (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a01ce72df24493a4c9d2dfe185904a137}
+\hypertarget{satspec_8h_a37151c94ce4e7177db90d93ab74ccfd6}{\index{satspec.\-h@{satspec.\-h}!ut1\-\_\-to\-\_\-gha@{ut1\-\_\-to\-\_\-gha}}
+\index{ut1\-\_\-to\-\_\-gha@{ut1\-\_\-to\-\_\-gha}!satspec.h@{satspec.\-h}}
+\subsubsection[{ut1\-\_\-to\-\_\-gha}]{\setlength{\rightskip}{0pt plus 5cm}double ut1\-\_\-to\-\_\-gha (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{satspec_8h_a37151c94ce4e7177db90d93ab74ccfd6}

@@ -1,0 +1,1081 @@
+\hypertarget{dbfmt_8c}{\section{libastro/dbfmt.c File Reference}
+\label{dbfmt_8c}\index{libastro/dbfmt.\-c@{libastro/dbfmt.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+Include dependency graph for dbfmt.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dbfmt_8c_a7d27dd270e7fce303c33fb684da33adf}{M\-A\-X\-D\-B\-L\-I\-N\-E}~512     /$\ast$ longest allowed db line $\ast$/
+\item 
+\#define \hyperlink{dbfmt_8c_acc75e7a6ae3dfef7c9480ace7a0a99b2}{F\-L\-D\-S\-E\-P}~','     /$\ast$ major field separator $\ast$/
+\item 
+\#define \hyperlink{dbfmt_8c_af1c1a8c57f2dad89924752c68f14669f}{S\-U\-B\-F\-L\-D}~'$\vert$'     /$\ast$ subfield separator $\ast$/
+\item 
+\#define \hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}~20              /$\ast$ must be more than on any expected line $\ast$/
+\item 
+\#define \hyperlink{dbfmt_8c_a67cc016e12d6e25118e8956e6d91b36f}{M\-A\-X\-E\-S\-G\-O\-O\-D}~100	/$\ast$ max earth satellite good, days $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{dbfmt_8c_af9cb216dc50fbdba951f4dbe7f4c098e}{get\-\_\-fields} (char $\ast$s, int delim, char $\ast$fields\mbox{[}$\,$\mbox{]})
+\item 
+static char $\ast$ \hyperlink{dbfmt_8c_a9270000835cdad973d487e7f1460015b}{enm} (char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_ad17e5f2d5282d42341ce65fd9cba2643}{crack\-\_\-f} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a34b5d48ba833a6ce516d6bfba83043a3}{crack\-\_\-e} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a24751ec0c9fd2431d14c04547f0f4bb8}{crack\-\_\-h} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_adde257ae114b9d07007143390de318f2}{crack\-\_\-p} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a42f89b83f7f316d7a1fd2181f74d6354}{crack\-\_\-\-E} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a00249fa3acceada721cdbeb105cc5b4f}{crack\-\_\-\-P} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a1c4e4f94758549d2efb7a950375222cd}{crack\-\_\-\-B} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{dbfmt_8c_a91f248fb4eb245d71d9a371267aae03f}{crack\-\_\-name} (\hyperlink{union_obj}{Obj} $\ast$op, char $\ast$flds\mbox{[}\hyperlink{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{M\-A\-X\-F\-L\-D\-S}\mbox{]}, int nf, char nm\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{astro_8h_a26811676b2cbf5d687ff3e45be6ebbc8}{M\-A\-X\-N\-M}\mbox{]}, int nnm)
+\item 
+static void \hyperlink{dbfmt_8c_ae820c26fbda0b1fcd8268d7e3869d24e}{crack\-\_\-year} (char $\ast$bp, double $\ast$p)
+\item 
+static void \hyperlink{dbfmt_8c_ae4ac8fd5965bc944641ddb68b4323ab7}{crack\-\_\-okdates} (char $\ast$fld, float $\ast$startok, float $\ast$endok)
+\item 
+static int \hyperlink{dbfmt_8c_a6d7870458b7aaeeaf09f9443334e7619}{get\-\_\-okdates} (char $\ast$lp, float $\ast$sp, float $\ast$ep)
+\item 
+static int \hyperlink{dbfmt_8c_a3ff1fa67ee04f582101d0422298c3be0}{tle\-\_\-sum} (char $\ast$\hyperlink{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{l})
+\item 
+static double \hyperlink{dbfmt_8c_a4823c027bd59a5a5e55cea75afce7064}{tle\-\_\-fld} (char $\ast$\hyperlink{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{l}, int from, int thru)
+\item 
+static double \hyperlink{dbfmt_8c_a871879ebf17d8240e5f30628f348c0f1}{tle\-\_\-expfld} (char $\ast$\hyperlink{atlas_8c_a59e80b8ba32c12c6d0a868f17a19ae48}{l}, int \hyperlink{constel_8c_a10660a12dcc522823429e038f77dec69}{start})
+\item 
+static void \hyperlink{dbfmt_8c_a84b17da44322d9e3af2084c94f4647d8}{write\-\_\-f} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_a8aa667d04f24a19189ef60273a8976da}{write\-\_\-e} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_ae094de840ec08bff84dcaf5a0a5df1a3}{write\-\_\-h} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_aa7106d45d2efe5027cd8915c76f6a558}{write\-\_\-p} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_ad67ab5861587bfad1439d859710721a5}{write\-\_\-\-E} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_a685e3f6cfc4925dd9679695a137d6f67}{write\-\_\-\-P} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+static void \hyperlink{dbfmt_8c_aadf21197fd0398ed525aab5a7076d04c}{write\-\_\-\-B} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{dbfmt_8c_a3fcb82977d6cff1781d5977a04a041fc}{db\-\_\-crack\-\_\-line} (char s\mbox{[}$\,$\mbox{]}, \hyperlink{union_obj}{Obj} $\ast$op, char nm\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{astro_8h_a26811676b2cbf5d687ff3e45be6ebbc8}{M\-A\-X\-N\-M}\mbox{]}, int nnm, char whynot\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{dbfmt_8c_ada7310f8d18d525f927495e5157b7490}{db\-\_\-write\-\_\-line} (\hyperlink{union_obj}{Obj} $\ast$op, char lp\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{dbfmt_8c_a2eb175e79f59960b46a5a2acc1063283}{db\-\_\-tle} (char $\ast$name, char $\ast$l1, char $\ast$l2, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+int \hyperlink{dbfmt_8c_a2cc4d4c161efb870b5b32ee2df721cc7}{date\-Range\-O\-K} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$op)
+\item 
+int \hyperlink{dbfmt_8c_a2650fbf7565f36524b49a12e4092dff5}{dbline\-\_\-candidate} (char $\ast$buf)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{dbfmt_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{dbfmt.\-c},v \$ \$Date\-: 2009/10/09 21\-:28\-:11 \$ \$Revision\-: 1.\-45 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dbfmt_8c_acc75e7a6ae3dfef7c9480ace7a0a99b2}{\index{dbfmt.\-c@{dbfmt.\-c}!F\-L\-D\-S\-E\-P@{F\-L\-D\-S\-E\-P}}
+\index{F\-L\-D\-S\-E\-P@{F\-L\-D\-S\-E\-P}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{F\-L\-D\-S\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-L\-D\-S\-E\-P~','     /$\ast$ major field separator $\ast$/}}\label{dbfmt_8c_acc75e7a6ae3dfef7c9480ace7a0a99b2}
+
+
+Definition at line 17 of file dbfmt.\-c.
+
+\hypertarget{dbfmt_8c_a7d27dd270e7fce303c33fb684da33adf}{\index{dbfmt.\-c@{dbfmt.\-c}!M\-A\-X\-D\-B\-L\-I\-N\-E@{M\-A\-X\-D\-B\-L\-I\-N\-E}}
+\index{M\-A\-X\-D\-B\-L\-I\-N\-E@{M\-A\-X\-D\-B\-L\-I\-N\-E}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{M\-A\-X\-D\-B\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-D\-B\-L\-I\-N\-E~512     /$\ast$ longest allowed db line $\ast$/}}\label{dbfmt_8c_a7d27dd270e7fce303c33fb684da33adf}
+
+
+Definition at line 15 of file dbfmt.\-c.
+
+\hypertarget{dbfmt_8c_a67cc016e12d6e25118e8956e6d91b36f}{\index{dbfmt.\-c@{dbfmt.\-c}!M\-A\-X\-E\-S\-G\-O\-O\-D@{M\-A\-X\-E\-S\-G\-O\-O\-D}}
+\index{M\-A\-X\-E\-S\-G\-O\-O\-D@{M\-A\-X\-E\-S\-G\-O\-O\-D}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{M\-A\-X\-E\-S\-G\-O\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-E\-S\-G\-O\-O\-D~100	/$\ast$ max earth satellite good, days $\ast$/}}\label{dbfmt_8c_a67cc016e12d6e25118e8956e6d91b36f}
+
+
+Definition at line 20 of file dbfmt.\-c.
+
+\hypertarget{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}{\index{dbfmt.\-c@{dbfmt.\-c}!M\-A\-X\-F\-L\-D\-S@{M\-A\-X\-F\-L\-D\-S}}
+\index{M\-A\-X\-F\-L\-D\-S@{M\-A\-X\-F\-L\-D\-S}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{M\-A\-X\-F\-L\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-F\-L\-D\-S~20              /$\ast$ must be more than on any expected line $\ast$/}}\label{dbfmt_8c_a782a087e1e7eaee9a5a610b0844740ab}
+
+
+Definition at line 19 of file dbfmt.\-c.
+
+\hypertarget{dbfmt_8c_af1c1a8c57f2dad89924752c68f14669f}{\index{dbfmt.\-c@{dbfmt.\-c}!S\-U\-B\-F\-L\-D@{S\-U\-B\-F\-L\-D}}
+\index{S\-U\-B\-F\-L\-D@{S\-U\-B\-F\-L\-D}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{S\-U\-B\-F\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-B\-F\-L\-D~'$\vert$'     /$\ast$ subfield separator $\ast$/}}\label{dbfmt_8c_af1c1a8c57f2dad89924752c68f14669f}
+
+
+Definition at line 18 of file dbfmt.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{dbfmt_8c_a1c4e4f94758549d2efb7a950375222cd}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-\-B@{crack\-\_\-\-B}}
+\index{crack\-\_\-\-B@{crack\-\_\-\-B}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a1c4e4f94758549d2efb7a950375222cd}
+
+
+Definition at line 632 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a1c4e4f94758549d2efb7a950375222cd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a1c4e4f94758549d2efb7a950375222cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a34b5d48ba833a6ce516d6bfba83043a3}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-e@{crack\-\_\-e}}
+\index{crack\-\_\-e@{crack\-\_\-e}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-e}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-e (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a34b5d48ba833a6ce516d6bfba83043a3}
+
+
+Definition at line 470 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a34b5d48ba833a6ce516d6bfba83043a3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a34b5d48ba833a6ce516d6bfba83043a3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a42f89b83f7f316d7a1fd2181f74d6354}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-\-E@{crack\-\_\-\-E}}
+\index{crack\-\_\-\-E@{crack\-\_\-\-E}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-\-E}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a42f89b83f7f316d7a1fd2181f74d6354}
+
+
+Definition at line 570 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a42f89b83f7f316d7a1fd2181f74d6354_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a42f89b83f7f316d7a1fd2181f74d6354_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ad17e5f2d5282d42341ce65fd9cba2643}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-f@{crack\-\_\-f}}
+\index{crack\-\_\-f@{crack\-\_\-f}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-f}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-f (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ad17e5f2d5282d42341ce65fd9cba2643}
+
+
+Definition at line 386 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ad17e5f2d5282d42341ce65fd9cba2643_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ad17e5f2d5282d42341ce65fd9cba2643_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a24751ec0c9fd2431d14c04547f0f4bb8}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-h@{crack\-\_\-h}}
+\index{crack\-\_\-h@{crack\-\_\-h}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-h}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-h (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a24751ec0c9fd2431d14c04547f0f4bb8}
+
+
+Definition at line 511 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a24751ec0c9fd2431d14c04547f0f4bb8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a24751ec0c9fd2431d14c04547f0f4bb8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a91f248fb4eb245d71d9a371267aae03f}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-name@{crack\-\_\-name}}
+\index{crack\-\_\-name@{crack\-\_\-name}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{nm\mbox{[}$\,$\mbox{]}\mbox{[}\-M\-A\-X\-N\-M\mbox{]}, }
+\item[{int}]{nnm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a91f248fb4eb245d71d9a371267aae03f}
+
+
+Definition at line 778 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{dbfmt_8c_a91f248fb4eb245d71d9a371267aae03f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a91f248fb4eb245d71d9a371267aae03f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ae4ac8fd5965bc944641ddb68b4323ab7}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-okdates@{crack\-\_\-okdates}}
+\index{crack\-\_\-okdates@{crack\-\_\-okdates}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-okdates}]{\setlength{\rightskip}{0pt plus 5cm}static void crack\-\_\-okdates (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{fld, }
+\item[{float $\ast$}]{startok, }
+\item[{float $\ast$}]{endok}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ae4ac8fd5965bc944641ddb68b4323ab7}
+
+
+Definition at line 820 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ae4ac8fd5965bc944641ddb68b4323ab7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ae4ac8fd5965bc944641ddb68b4323ab7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_adde257ae114b9d07007143390de318f2}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-p@{crack\-\_\-p}}
+\index{crack\-\_\-p@{crack\-\_\-p}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-p (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_adde257ae114b9d07007143390de318f2}
+
+
+Definition at line 541 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_adde257ae114b9d07007143390de318f2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_adde257ae114b9d07007143390de318f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a00249fa3acceada721cdbeb105cc5b4f}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-\-P@{crack\-\_\-\-P}}
+\index{crack\-\_\-\-P@{crack\-\_\-\-P}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}static int crack\-\_\-\-P (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}, }
+\item[{int}]{nf, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a00249fa3acceada721cdbeb105cc5b4f}
+
+
+Definition at line 610 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a00249fa3acceada721cdbeb105cc5b4f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a00249fa3acceada721cdbeb105cc5b4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ae820c26fbda0b1fcd8268d7e3869d24e}{\index{dbfmt.\-c@{dbfmt.\-c}!crack\-\_\-year@{crack\-\_\-year}}
+\index{crack\-\_\-year@{crack\-\_\-year}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{crack\-\_\-year}]{\setlength{\rightskip}{0pt plus 5cm}static void crack\-\_\-year (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{bp, }
+\item[{double $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ae820c26fbda0b1fcd8268d7e3869d24e}
+
+
+Definition at line 806 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ae820c26fbda0b1fcd8268d7e3869d24e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ae820c26fbda0b1fcd8268d7e3869d24e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a2cc4d4c161efb870b5b32ee2df721cc7}{\index{dbfmt.\-c@{dbfmt.\-c}!date\-Range\-O\-K@{date\-Range\-O\-K}}
+\index{date\-Range\-O\-K@{date\-Range\-O\-K}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{date\-Range\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}int date\-Range\-O\-K (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_a2cc4d4c161efb870b5b32ee2df721cc7}
+
+
+Definition at line 270 of file dbfmt.\-c.
+
+\hypertarget{dbfmt_8c_a3fcb82977d6cff1781d5977a04a041fc}{\index{dbfmt.\-c@{dbfmt.\-c}!db\-\_\-crack\-\_\-line@{db\-\_\-crack\-\_\-line}}
+\index{db\-\_\-crack\-\_\-line@{db\-\_\-crack\-\_\-line}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{db\-\_\-crack\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}int db\-\_\-crack\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{char}]{s\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{nm\mbox{[}$\,$\mbox{]}\mbox{[}\-M\-A\-X\-N\-M\mbox{]}, }
+\item[{int}]{nnm, }
+\item[{char}]{whynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_a3fcb82977d6cff1781d5977a04a041fc}
+
+
+Definition at line 60 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a3fcb82977d6cff1781d5977a04a041fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a3fcb82977d6cff1781d5977a04a041fc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a2eb175e79f59960b46a5a2acc1063283}{\index{dbfmt.\-c@{dbfmt.\-c}!db\-\_\-tle@{db\-\_\-tle}}
+\index{db\-\_\-tle@{db\-\_\-tle}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{db\-\_\-tle}]{\setlength{\rightskip}{0pt plus 5cm}int db\-\_\-tle (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name, }
+\item[{char $\ast$}]{l1, }
+\item[{char $\ast$}]{l2, }
+\item[{{\bf Obj} $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_a2eb175e79f59960b46a5a2acc1063283}
+
+
+Definition at line 191 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a2eb175e79f59960b46a5a2acc1063283_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ada7310f8d18d525f927495e5157b7490}{\index{dbfmt.\-c@{dbfmt.\-c}!db\-\_\-write\-\_\-line@{db\-\_\-write\-\_\-line}}
+\index{db\-\_\-write\-\_\-line@{db\-\_\-write\-\_\-line}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{db\-\_\-write\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}void db\-\_\-write\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_ada7310f8d18d525f927495e5157b7490}
+
+
+Definition at line 144 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ada7310f8d18d525f927495e5157b7490_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a2650fbf7565f36524b49a12e4092dff5}{\index{dbfmt.\-c@{dbfmt.\-c}!dbline\-\_\-candidate@{dbline\-\_\-candidate}}
+\index{dbline\-\_\-candidate@{dbline\-\_\-candidate}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{dbline\-\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}int dbline\-\_\-candidate (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_a2650fbf7565f36524b49a12e4092dff5}
+
+
+Definition at line 330 of file dbfmt.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a2650fbf7565f36524b49a12e4092dff5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a9270000835cdad973d487e7f1460015b}{\index{dbfmt.\-c@{dbfmt.\-c}!enm@{enm}}
+\index{enm@{enm}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{enm}]{\setlength{\rightskip}{0pt plus 5cm}static char $\ast$ enm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{flds\mbox{[}\-M\-A\-X\-F\-L\-D\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a9270000835cdad973d487e7f1460015b}
+
+
+Definition at line 795 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{dbfmt_8c_a9270000835cdad973d487e7f1460015b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a9270000835cdad973d487e7f1460015b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_af9cb216dc50fbdba951f4dbe7f4c098e}{\index{dbfmt.\-c@{dbfmt.\-c}!get\-\_\-fields@{get\-\_\-fields}}
+\index{get\-\_\-fields@{get\-\_\-fields}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{get\-\_\-fields}]{\setlength{\rightskip}{0pt plus 5cm}int get\-\_\-fields (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s, }
+\item[{int}]{delim, }
+\item[{char $\ast$}]{fields\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{dbfmt_8c_af9cb216dc50fbdba951f4dbe7f4c098e}
+
+
+Definition at line 307 of file dbfmt.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_af9cb216dc50fbdba951f4dbe7f4c098e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a6d7870458b7aaeeaf09f9443334e7619}{\index{dbfmt.\-c@{dbfmt.\-c}!get\-\_\-okdates@{get\-\_\-okdates}}
+\index{get\-\_\-okdates@{get\-\_\-okdates}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{get\-\_\-okdates}]{\setlength{\rightskip}{0pt plus 5cm}static int get\-\_\-okdates (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{lp, }
+\item[{float $\ast$}]{sp, }
+\item[{float $\ast$}]{ep}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a6d7870458b7aaeeaf09f9443334e7619}
+
+
+Definition at line 848 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{dbfmt_8c_a6d7870458b7aaeeaf09f9443334e7619_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{dbfmt_8c_a6d7870458b7aaeeaf09f9443334e7619_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a871879ebf17d8240e5f30628f348c0f1}{\index{dbfmt.\-c@{dbfmt.\-c}!tle\-\_\-expfld@{tle\-\_\-expfld}}
+\index{tle\-\_\-expfld@{tle\-\_\-expfld}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{tle\-\_\-expfld}]{\setlength{\rightskip}{0pt plus 5cm}static double tle\-\_\-expfld (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{l, }
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a871879ebf17d8240e5f30628f348c0f1}
+
+
+Definition at line 373 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{dbfmt_8c_a871879ebf17d8240e5f30628f348c0f1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{dbfmt_8c_a871879ebf17d8240e5f30628f348c0f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a4823c027bd59a5a5e55cea75afce7064}{\index{dbfmt.\-c@{dbfmt.\-c}!tle\-\_\-fld@{tle\-\_\-fld}}
+\index{tle\-\_\-fld@{tle\-\_\-fld}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{tle\-\_\-fld}]{\setlength{\rightskip}{0pt plus 5cm}static double tle\-\_\-fld (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{l, }
+\item[{int}]{from, }
+\item[{int}]{thru}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a4823c027bd59a5a5e55cea75afce7064}
+
+
+Definition at line 361 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{dbfmt_8c_a4823c027bd59a5a5e55cea75afce7064_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{dbfmt_8c_a4823c027bd59a5a5e55cea75afce7064_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a3ff1fa67ee04f582101d0422298c3be0}{\index{dbfmt.\-c@{dbfmt.\-c}!tle\-\_\-sum@{tle\-\_\-sum}}
+\index{tle\-\_\-sum@{tle\-\_\-sum}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{tle\-\_\-sum}]{\setlength{\rightskip}{0pt plus 5cm}static int tle\-\_\-sum (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a3ff1fa67ee04f582101d0422298c3be0}
+
+
+Definition at line 339 of file dbfmt.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{dbfmt_8c_a3ff1fa67ee04f582101d0422298c3be0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_aadf21197fd0398ed525aab5a7076d04c}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-\-B@{write\-\_\-\-B}}
+\index{write\-\_\-\-B@{write\-\_\-\-B}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_aadf21197fd0398ed525aab5a7076d04c}
+
+
+Definition at line 978 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_aadf21197fd0398ed525aab5a7076d04c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{dbfmt_8c_aadf21197fd0398ed525aab5a7076d04c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a8aa667d04f24a19189ef60273a8976da}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-e@{write\-\_\-e}}
+\index{write\-\_\-e@{write\-\_\-e}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-e}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-e (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a8aa667d04f24a19189ef60273a8976da}
+
+
+Definition at line 893 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a8aa667d04f24a19189ef60273a8976da_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{dbfmt_8c_a8aa667d04f24a19189ef60273a8976da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ad67ab5861587bfad1439d859710721a5}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-\-E@{write\-\_\-\-E}}
+\index{write\-\_\-\-E@{write\-\_\-\-E}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-\-E}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ad67ab5861587bfad1439d859710721a5}
+
+
+Definition at line 956 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ad67ab5861587bfad1439d859710721a5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{dbfmt_8c_ad67ab5861587bfad1439d859710721a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a84b17da44322d9e3af2084c94f4647d8}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-f@{write\-\_\-f}}
+\index{write\-\_\-f@{write\-\_\-f}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-f}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-f (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a84b17da44322d9e3af2084c94f4647d8}
+
+
+Definition at line 866 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_a84b17da44322d9e3af2084c94f4647d8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{dbfmt_8c_a84b17da44322d9e3af2084c94f4647d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_ae094de840ec08bff84dcaf5a0a5df1a3}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-h@{write\-\_\-h}}
+\index{write\-\_\-h@{write\-\_\-h}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-h}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-h (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ae094de840ec08bff84dcaf5a0a5df1a3}
+
+
+Definition at line 919 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_ae094de840ec08bff84dcaf5a0a5df1a3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{dbfmt_8c_ae094de840ec08bff84dcaf5a0a5df1a3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_aa7106d45d2efe5027cd8915c76f6a558}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-p@{write\-\_\-p}}
+\index{write\-\_\-p@{write\-\_\-p}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-p (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_aa7106d45d2efe5027cd8915c76f6a558}
+
+
+Definition at line 938 of file dbfmt.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dbfmt_8c_aa7106d45d2efe5027cd8915c76f6a558_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{dbfmt_8c_aa7106d45d2efe5027cd8915c76f6a558_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dbfmt_8c_a685e3f6cfc4925dd9679695a137d6f67}{\index{dbfmt.\-c@{dbfmt.\-c}!write\-\_\-\-P@{write\-\_\-\-P}}
+\index{write\-\_\-\-P@{write\-\_\-\-P}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{write\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}static void write\-\_\-\-P (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{op, }
+\item[{char}]{lp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_a685e3f6cfc4925dd9679695a137d6f67}
+
+
+Definition at line 1022 of file dbfmt.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{dbfmt_8c_a685e3f6cfc4925dd9679695a137d6f67_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dbfmt_8c_ae037a79cb31f056d04153837887f5813}{\index{dbfmt.\-c@{dbfmt.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!dbfmt.c@{dbfmt.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf dbfmt.\-c},v \$ \$Date\-: 2009/10/09 21\-:28\-:11 \$ \$Revision\-: 1.\-45 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{dbfmt_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 1029 of file dbfmt.\-c.
+

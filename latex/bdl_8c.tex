@@ -1,0 +1,181 @@
+\hypertarget{bdl_8c}{\section{libastro/bdl.c File Reference}
+\label{bdl_8c}\index{libastro/bdl.\-c@{libastro/bdl.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bdl.\-h\char`\"{}}\\*
+Include dependency graph for bdl.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bdl_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bdl_8c_aa185de2ad4cc8d037b0586b46a10b154}{S\-C\-A\-N\-F\-L\-D}(f, w, vp)~if(\hyperlink{bdl_8c_aebf44bfa2723362c7c933f1ca7af8b39}{read\-Field}(fp,f,w,(void $\ast$)vp,ynot)$<$0) return (-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027}{Scan\-Type} \{ \hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027ad091b8e376f7cf432dc367e1eda65e85}{I}, 
+\hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027af382a63cc3d6491bf26b59e66f46826d}{F}, 
+\hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027aeba10cd0b438b1f9094fa3d1fc88193e}{N\-L}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{bdl_8c_aebf44bfa2723362c7c933f1ca7af8b39}{read\-Field} (F\-I\-L\-E $\ast$fp, \hyperlink{bdl_8c_ae5946ed4b15008a587172896601a9027}{Scan\-Type} f, int w, void $\ast$ptr, char ynot\mbox{[}$\,$\mbox{]})
+\item 
+static int \hyperlink{bdl_8c_a4331f3afd3bdac68ba5033db106fe193}{read\-Rec} (F\-I\-L\-E $\ast$fp, double $\ast$t0, double cmx\mbox{[}$\,$\mbox{]}, double cfx\mbox{[}$\,$\mbox{]}, double cmy\mbox{[}$\,$\mbox{]}, double cfy\mbox{[}$\,$\mbox{]}, double cmz\mbox{[}$\,$\mbox{]}, double cfz\mbox{[}$\,$\mbox{]}, char ynot\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{bdl_8c_a51d019786fd99bb73ac95005d81d979e}{read\-\_\-bdl} (F\-I\-L\-E $\ast$fp, double jd, double $\ast$xp, double $\ast$yp, double $\ast$zp, char ynot\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{bdl_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{bdl.\-c},v \$ \$Date\-: 2008/04/20 08\-:11\-:35 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bdl_8c_aa185de2ad4cc8d037b0586b46a10b154}{\index{bdl.\-c@{bdl.\-c}!S\-C\-A\-N\-F\-L\-D@{S\-C\-A\-N\-F\-L\-D}}
+\index{S\-C\-A\-N\-F\-L\-D@{S\-C\-A\-N\-F\-L\-D}!bdl.c@{bdl.\-c}}
+\subsubsection[{S\-C\-A\-N\-F\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-A\-N\-F\-L\-D(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{w, }
+\item[{}]{vp}
+\end{DoxyParamCaption}
+)~if({\bf read\-Field}(fp,f,w,(void $\ast$)vp,ynot)$<$0) return (-\/1)}}\label{bdl_8c_aa185de2ad4cc8d037b0586b46a10b154}
+
+
+Definition at line 13 of file bdl.\-c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{bdl_8c_ae5946ed4b15008a587172896601a9027}{\index{bdl.\-c@{bdl.\-c}!Scan\-Type@{Scan\-Type}}
+\index{Scan\-Type@{Scan\-Type}!bdl.c@{bdl.\-c}}
+\subsubsection[{Scan\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Scan\-Type}}}\label{bdl_8c_ae5946ed4b15008a587172896601a9027}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I@{I}!bdl.\-c@{bdl.\-c}}\index{bdl.\-c@{bdl.\-c}!I@{I}}\item[{\em 
+\hypertarget{bdl_8c_ae5946ed4b15008a587172896601a9027ad091b8e376f7cf432dc367e1eda65e85}{I}\label{bdl_8c_ae5946ed4b15008a587172896601a9027ad091b8e376f7cf432dc367e1eda65e85}
+}]\index{F@{F}!bdl.\-c@{bdl.\-c}}\index{bdl.\-c@{bdl.\-c}!F@{F}}\item[{\em 
+\hypertarget{bdl_8c_ae5946ed4b15008a587172896601a9027af382a63cc3d6491bf26b59e66f46826d}{F}\label{bdl_8c_ae5946ed4b15008a587172896601a9027af382a63cc3d6491bf26b59e66f46826d}
+}]\index{N\-L@{N\-L}!bdl.\-c@{bdl.\-c}}\index{bdl.\-c@{bdl.\-c}!N\-L@{N\-L}}\item[{\em 
+\hypertarget{bdl_8c_ae5946ed4b15008a587172896601a9027aeba10cd0b438b1f9094fa3d1fc88193e}{N\-L}\label{bdl_8c_ae5946ed4b15008a587172896601a9027aeba10cd0b438b1f9094fa3d1fc88193e}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 12 of file bdl.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{bdl_8c_a51d019786fd99bb73ac95005d81d979e}{\index{bdl.\-c@{bdl.\-c}!read\-\_\-bdl@{read\-\_\-bdl}}
+\index{read\-\_\-bdl@{read\-\_\-bdl}!bdl.c@{bdl.\-c}}
+\subsubsection[{read\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}int read\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{double}]{jd, }
+\item[{double $\ast$}]{xp, }
+\item[{double $\ast$}]{yp, }
+\item[{double $\ast$}]{zp, }
+\item[{char}]{ynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{bdl_8c_a51d019786fd99bb73ac95005d81d979e}
+
+
+Definition at line 27 of file bdl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{bdl_8c_a51d019786fd99bb73ac95005d81d979e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{bdl_8c_a51d019786fd99bb73ac95005d81d979e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bdl_8c_aebf44bfa2723362c7c933f1ca7af8b39}{\index{bdl.\-c@{bdl.\-c}!read\-Field@{read\-Field}}
+\index{read\-Field@{read\-Field}!bdl.c@{bdl.\-c}}
+\subsubsection[{read\-Field}]{\setlength{\rightskip}{0pt plus 5cm}static int read\-Field (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf Scan\-Type}}]{f, }
+\item[{int}]{w, }
+\item[{void $\ast$}]{ptr, }
+\item[{char}]{ynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bdl_8c_aebf44bfa2723362c7c933f1ca7af8b39}
+
+
+Definition at line 112 of file bdl.\-c.
+
+\hypertarget{bdl_8c_a4331f3afd3bdac68ba5033db106fe193}{\index{bdl.\-c@{bdl.\-c}!read\-Rec@{read\-Rec}}
+\index{read\-Rec@{read\-Rec}!bdl.c@{bdl.\-c}}
+\subsubsection[{read\-Rec}]{\setlength{\rightskip}{0pt plus 5cm}static int read\-Rec (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{double $\ast$}]{t0, }
+\item[{double}]{cmx\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cfx\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cmy\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cfy\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cmz\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cfz\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{ynot\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bdl_8c_a4331f3afd3bdac68ba5033db106fe193}
+
+
+Definition at line 153 of file bdl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{bdl_8c_a4331f3afd3bdac68ba5033db106fe193_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{bdl_8c_ae037a79cb31f056d04153837887f5813}{\index{bdl.\-c@{bdl.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!bdl.c@{bdl.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf bdl.\-c},v \$ \$Date\-: 2008/04/20 08\-:11\-:35 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{bdl_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 238 of file bdl.\-c.
+

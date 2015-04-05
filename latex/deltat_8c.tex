@@ -1,0 +1,135 @@
+\hypertarget{deltat_8c}{\section{libastro/deltat.c File Reference}
+\label{deltat_8c}\index{libastro/deltat.\-c@{libastro/deltat.\-c}}
+}
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for deltat.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{deltat_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{deltat_8c_a9de9f0145a98c2a1ff2638f5c00c1ea8}{T\-A\-B\-S\-T\-A\-R\-T}~1620
+\item 
+\#define \hyperlink{deltat_8c_a5bd2153578264221482b1e3d3b81bae6}{T\-A\-B\-E\-N\-D}~2011
+\item 
+\#define \hyperlink{deltat_8c_ac7510a0420de6716bf0177686f5025f8}{T\-A\-B\-S\-I\-Z}~(\hyperlink{deltat_8c_a5bd2153578264221482b1e3d3b81bae6}{T\-A\-B\-E\-N\-D} -\/ \hyperlink{deltat_8c_a9de9f0145a98c2a1ff2638f5c00c1ea8}{T\-A\-B\-S\-T\-A\-R\-T} + 1)
+\item 
+\#define \hyperlink{deltat_8c_a4d1ae83e684e9846e8b007401be72461}{M\-S\-\_\-\-S\-I\-Z}~28
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{deltat_8c_a35dc9e84c487f7b5da96376267950f39}{deltat} (double mj)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+short \hyperlink{deltat_8c_a6142a0ceec0255ef7c4bc1c87a3d6f8c}{m\-\_\-s} \mbox{[}\hyperlink{deltat_8c_a4d1ae83e684e9846e8b007401be72461}{M\-S\-\_\-\-S\-I\-Z}\mbox{]}
+\item 
+short \hyperlink{deltat_8c_a364a5e6dbd1915b980097296b5d69b85}{dt} \mbox{[}\hyperlink{deltat_8c_ac7510a0420de6716bf0177686f5025f8}{T\-A\-B\-S\-I\-Z}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{deltat_8c_a4d1ae83e684e9846e8b007401be72461}{\index{deltat.\-c@{deltat.\-c}!M\-S\-\_\-\-S\-I\-Z@{M\-S\-\_\-\-S\-I\-Z}}
+\index{M\-S\-\_\-\-S\-I\-Z@{M\-S\-\_\-\-S\-I\-Z}!deltat.c@{deltat.\-c}}
+\subsubsection[{M\-S\-\_\-\-S\-I\-Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-I\-Z~28}}\label{deltat_8c_a4d1ae83e684e9846e8b007401be72461}
+
+
+Definition at line 62 of file deltat.\-c.
+
+\hypertarget{deltat_8c_a5bd2153578264221482b1e3d3b81bae6}{\index{deltat.\-c@{deltat.\-c}!T\-A\-B\-E\-N\-D@{T\-A\-B\-E\-N\-D}}
+\index{T\-A\-B\-E\-N\-D@{T\-A\-B\-E\-N\-D}!deltat.c@{deltat.\-c}}
+\subsubsection[{T\-A\-B\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-B\-E\-N\-D~2011}}\label{deltat_8c_a5bd2153578264221482b1e3d3b81bae6}
+
+
+Definition at line 50 of file deltat.\-c.
+
+\hypertarget{deltat_8c_ac7510a0420de6716bf0177686f5025f8}{\index{deltat.\-c@{deltat.\-c}!T\-A\-B\-S\-I\-Z@{T\-A\-B\-S\-I\-Z}}
+\index{T\-A\-B\-S\-I\-Z@{T\-A\-B\-S\-I\-Z}!deltat.c@{deltat.\-c}}
+\subsubsection[{T\-A\-B\-S\-I\-Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-B\-S\-I\-Z~({\bf T\-A\-B\-E\-N\-D} -\/ {\bf T\-A\-B\-S\-T\-A\-R\-T} + 1)}}\label{deltat_8c_ac7510a0420de6716bf0177686f5025f8}
+
+
+Definition at line 51 of file deltat.\-c.
+
+\hypertarget{deltat_8c_a9de9f0145a98c2a1ff2638f5c00c1ea8}{\index{deltat.\-c@{deltat.\-c}!T\-A\-B\-S\-T\-A\-R\-T@{T\-A\-B\-S\-T\-A\-R\-T}}
+\index{T\-A\-B\-S\-T\-A\-R\-T@{T\-A\-B\-S\-T\-A\-R\-T}!deltat.c@{deltat.\-c}}
+\subsubsection[{T\-A\-B\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-B\-S\-T\-A\-R\-T~1620}}\label{deltat_8c_a9de9f0145a98c2a1ff2638f5c00c1ea8}
+
+
+Definition at line 49 of file deltat.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{deltat_8c_a35dc9e84c487f7b5da96376267950f39}{\index{deltat.\-c@{deltat.\-c}!deltat@{deltat}}
+\index{deltat@{deltat}!deltat.c@{deltat.\-c}}
+\subsubsection[{deltat}]{\setlength{\rightskip}{0pt plus 5cm}double deltat (
+\begin{DoxyParamCaption}
+\item[{double}]{mj}
+\end{DoxyParamCaption}
+)}}\label{deltat_8c_a35dc9e84c487f7b5da96376267950f39}
+
+
+Definition at line 148 of file deltat.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deltat_8c_a35dc9e84c487f7b5da96376267950f39_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{deltat_8c_a35dc9e84c487f7b5da96376267950f39_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{deltat_8c_a364a5e6dbd1915b980097296b5d69b85}{\index{deltat.\-c@{deltat.\-c}!dt@{dt}}
+\index{dt@{dt}!deltat.c@{deltat.\-c}}
+\subsubsection[{dt}]{\setlength{\rightskip}{0pt plus 5cm}short dt\mbox{[}{\bf T\-A\-B\-S\-I\-Z}\mbox{]}}}\label{deltat_8c_a364a5e6dbd1915b980097296b5d69b85}
+
+
+Definition at line 79 of file deltat.\-c.
+
+\hypertarget{deltat_8c_a6142a0ceec0255ef7c4bc1c87a3d6f8c}{\index{deltat.\-c@{deltat.\-c}!m\-\_\-s@{m\-\_\-s}}
+\index{m\-\_\-s@{m\-\_\-s}!deltat.c@{deltat.\-c}}
+\subsubsection[{m\-\_\-s}]{\setlength{\rightskip}{0pt plus 5cm}short m\-\_\-s\mbox{[}{\bf M\-S\-\_\-\-S\-I\-Z}\mbox{]}}}\label{deltat_8c_a6142a0ceec0255ef7c4bc1c87a3d6f8c}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    
+    25428, 23700, 22000, 21000, 19040, 17190, 15530, 14080, 12790, 11640,
+
+    
+    10580, 9600, 8640, 7680, 6700, 5710, 4740, 3810, 2960, 2200,
+
+    
+    1570, 1090, 740, 490, 320, 200, 120, 9,
+\}
+\end{DoxyCode}
+
+
+Definition at line 63 of file deltat.\-c.
+

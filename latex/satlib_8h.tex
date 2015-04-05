@@ -1,0 +1,126 @@
+\hypertarget{satlib_8h}{\section{libastro/satlib.h File Reference}
+\label{satlib_8h}\index{libastro/satlib.\-h@{libastro/satlib.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satlib_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct___sat_elem}{\-\_\-\-Sat\-Elem}
+\item 
+struct \hyperlink{structsgp4__data}{sgp4\-\_\-data}
+\item 
+struct \hyperlink{structdeep__data}{deep\-\_\-data}
+\item 
+struct \hyperlink{structsdp4__data}{sdp4\-\_\-data}
+\item 
+struct \hyperlink{struct___sat_data}{\-\_\-\-Sat\-Data}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct___sat_elem}{\-\_\-\-Sat\-Elem} \hyperlink{satlib_8h_ab6e90da5c8f52d5b9bb388975e2e49db}{Sat\-Elem}
+\item 
+typedef struct \hyperlink{struct___sat_data}{\-\_\-\-Sat\-Data} \hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{satlib_8h_a978f0c72f91a23dd860f0bae451d8a34}{sgp4} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$pos, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$dpos, double t)
+\item 
+void \hyperlink{satlib_8h_acddb23780273aa81282da6520341cb4a}{sdp4} (\hyperlink{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{Sat\-Data} $\ast$sat, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$pos, \hyperlink{sattypes_8h_aeb8c7d663d0c8b9c40d3caf81d39388d}{Vec3} $\ast$dpos, double T\-S\-I\-N\-C\-E)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}{\index{satlib.\-h@{satlib.\-h}!Sat\-Data@{Sat\-Data}}
+\index{Sat\-Data@{Sat\-Data}!satlib.h@{satlib.\-h}}
+\subsubsection[{Sat\-Data}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-\-Sat\-Data}  {\bf Sat\-Data}}}\label{satlib_8h_ac57fcb0b9c96573ce3cab0b5de5c0e7f}
+\hypertarget{satlib_8h_ab6e90da5c8f52d5b9bb388975e2e49db}{\index{satlib.\-h@{satlib.\-h}!Sat\-Elem@{Sat\-Elem}}
+\index{Sat\-Elem@{Sat\-Elem}!satlib.h@{satlib.\-h}}
+\subsubsection[{Sat\-Elem}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-\-Sat\-Elem}  {\bf Sat\-Elem}}}\label{satlib_8h_ab6e90da5c8f52d5b9bb388975e2e49db}
+
+
+\subsection{Function Documentation}
+\hypertarget{satlib_8h_acddb23780273aa81282da6520341cb4a}{\index{satlib.\-h@{satlib.\-h}!sdp4@{sdp4}}
+\index{sdp4@{sdp4}!satlib.h@{satlib.\-h}}
+\subsubsection[{sdp4}]{\setlength{\rightskip}{0pt plus 5cm}void sdp4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{{\bf Vec3} $\ast$}]{pos, }
+\item[{{\bf Vec3} $\ast$}]{dpos, }
+\item[{double}]{T\-S\-I\-N\-C\-E}
+\end{DoxyParamCaption}
+)}}\label{satlib_8h_acddb23780273aa81282da6520341cb4a}
+
+
+Definition at line 98 of file sdp4.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{satlib_8h_acddb23780273aa81282da6520341cb4a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satlib_8h_acddb23780273aa81282da6520341cb4a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{satlib_8h_a978f0c72f91a23dd860f0bae451d8a34}{\index{satlib.\-h@{satlib.\-h}!sgp4@{sgp4}}
+\index{sgp4@{sgp4}!satlib.h@{satlib.\-h}}
+\subsubsection[{sgp4}]{\setlength{\rightskip}{0pt plus 5cm}void sgp4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Sat\-Data} $\ast$}]{sat, }
+\item[{{\bf Vec3} $\ast$}]{pos, }
+\item[{{\bf Vec3} $\ast$}]{dpos, }
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}}\label{satlib_8h_a978f0c72f91a23dd860f0bae451d8a34}
+
+
+Definition at line 81 of file sgp4.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{satlib_8h_a978f0c72f91a23dd860f0bae451d8a34_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satlib_8h_a978f0c72f91a23dd860f0bae451d8a34_icgraph}
+\end{center}
+\end{figure}
+
+

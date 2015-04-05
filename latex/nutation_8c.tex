@@ -1,0 +1,210 @@
+\hypertarget{nutation_8c}{\section{libastro/nutation.c File Reference}
+\label{nutation_8c}\index{libastro/nutation.\-c@{libastro/nutation.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for nutation.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{nutation_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nutation_8c_a9ae59fa4ff254af1d26cbb5504e8ef2b}{N\-U\-T\-\_\-\-S\-C\-A\-L\-E}~1e4
+\item 
+\#define \hyperlink{nutation_8c_a2183c7bec90d21b6ec1a14a9c1b8f958}{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}~106
+\item 
+\#define \hyperlink{nutation_8c_acf4656556275b6ec03fdd02018c3b0b5}{N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L}~4
+\item 
+\#define \hyperlink{nutation_8c_a257da7ecbef5856e51587301e2055765}{S\-E\-C\-P\-E\-R\-C\-I\-R\-C}~(3600.$\ast$360.)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nutation_8c_aa96fabf6716188dd032253b4dbf753cf}{nutation} (double mj, double $\ast$deps, double $\ast$dpsi)
+\item 
+void \hyperlink{nutation_8c_ad8fa57679a8dc86dbc5a0f84edf240e8}{nut\-\_\-eq} (double mj, double $\ast$\hyperlink{constel_8c_aeb704957d1ce8d0299718c60f3cd3a4c}{ra}, double $\ast$\hyperlink{constel_8c_a69b9a761071ef54b54c6970eb304268f}{dec})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{nutation_8c_a52cd386c654d1199a22ac6fd8bd1da97}{delaunay} \mbox{[}5\mbox{]}\mbox{[}4\mbox{]}
+\item 
+static short \hyperlink{nutation_8c_a3c5e3d94a2ae977c324937936c3785c5}{multarg} \mbox{[}\hyperlink{nutation_8c_a2183c7bec90d21b6ec1a14a9c1b8f958}{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}\mbox{]}\mbox{[}5\mbox{]}
+\item 
+static long \hyperlink{nutation_8c_a923c785fd665c26575bfcf0909f2f89e}{ampsecul} \mbox{[}$\,$\mbox{]}\mbox{[}5\mbox{]}
+\item 
+static short \hyperlink{nutation_8c_aab23686826507b82c9a85f80af235cfb}{ampconst} \mbox{[}\hyperlink{nutation_8c_a2183c7bec90d21b6ec1a14a9c1b8f958}{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}\mbox{]}\mbox{[}2\mbox{]}
+\item 
+static char $\ast$ \hyperlink{nutation_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{nutation.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{nutation_8c_acf4656556275b6ec03fdd02018c3b0b5}{\index{nutation.\-c@{nutation.\-c}!N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L@{N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L}}
+\index{N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L@{N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L}!nutation.c@{nutation.\-c}}
+\subsubsection[{N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-T\-\_\-\-M\-A\-X\-M\-U\-L~4}}\label{nutation_8c_acf4656556275b6ec03fdd02018c3b0b5}
+
+
+Definition at line 12 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a9ae59fa4ff254af1d26cbb5504e8ef2b}{\index{nutation.\-c@{nutation.\-c}!N\-U\-T\-\_\-\-S\-C\-A\-L\-E@{N\-U\-T\-\_\-\-S\-C\-A\-L\-E}}
+\index{N\-U\-T\-\_\-\-S\-C\-A\-L\-E@{N\-U\-T\-\_\-\-S\-C\-A\-L\-E}!nutation.c@{nutation.\-c}}
+\subsubsection[{N\-U\-T\-\_\-\-S\-C\-A\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-T\-\_\-\-S\-C\-A\-L\-E~1e4}}\label{nutation_8c_a9ae59fa4ff254af1d26cbb5504e8ef2b}
+
+
+Definition at line 10 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a2183c7bec90d21b6ec1a14a9c1b8f958}{\index{nutation.\-c@{nutation.\-c}!N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S@{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}}
+\index{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S@{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}!nutation.c@{nutation.\-c}}
+\subsubsection[{N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S~106}}\label{nutation_8c_a2183c7bec90d21b6ec1a14a9c1b8f958}
+
+
+Definition at line 11 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a257da7ecbef5856e51587301e2055765}{\index{nutation.\-c@{nutation.\-c}!S\-E\-C\-P\-E\-R\-C\-I\-R\-C@{S\-E\-C\-P\-E\-R\-C\-I\-R\-C}}
+\index{S\-E\-C\-P\-E\-R\-C\-I\-R\-C@{S\-E\-C\-P\-E\-R\-C\-I\-R\-C}!nutation.c@{nutation.\-c}}
+\subsubsection[{S\-E\-C\-P\-E\-R\-C\-I\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-P\-E\-R\-C\-I\-R\-C~(3600.$\ast$360.)}}\label{nutation_8c_a257da7ecbef5856e51587301e2055765}
+
+
+Definition at line 13 of file nutation.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{nutation_8c_ad8fa57679a8dc86dbc5a0f84edf240e8}{\index{nutation.\-c@{nutation.\-c}!nut\-\_\-eq@{nut\-\_\-eq}}
+\index{nut\-\_\-eq@{nut\-\_\-eq}!nutation.c@{nutation.\-c}}
+\subsubsection[{nut\-\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}void nut\-\_\-eq (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{ra, }
+\item[{double $\ast$}]{dec}
+\end{DoxyParamCaption}
+)}}\label{nutation_8c_ad8fa57679a8dc86dbc5a0f84edf240e8}
+
+
+Definition at line 373 of file nutation.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{nutation_8c_ad8fa57679a8dc86dbc5a0f84edf240e8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nutation_8c_ad8fa57679a8dc86dbc5a0f84edf240e8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{nutation_8c_aa96fabf6716188dd032253b4dbf753cf}{\index{nutation.\-c@{nutation.\-c}!nutation@{nutation}}
+\index{nutation@{nutation}!nutation.c@{nutation.\-c}}
+\subsubsection[{nutation}]{\setlength{\rightskip}{0pt plus 5cm}void nutation (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{deps, }
+\item[{double $\ast$}]{dpsi}
+\end{DoxyParamCaption}
+)}}\label{nutation_8c_aa96fabf6716188dd032253b4dbf753cf}
+
+
+Definition at line 274 of file nutation.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nutation_8c_aa96fabf6716188dd032253b4dbf753cf_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{nutation_8c_aab23686826507b82c9a85f80af235cfb}{\index{nutation.\-c@{nutation.\-c}!ampconst@{ampconst}}
+\index{ampconst@{ampconst}!nutation.c@{nutation.\-c}}
+\subsubsection[{ampconst}]{\setlength{\rightskip}{0pt plus 5cm}short ampconst\mbox{[}{\bf N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}\mbox{]}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{nutation_8c_aab23686826507b82c9a85f80af235cfb}
+
+
+Definition at line 161 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a923c785fd665c26575bfcf0909f2f89e}{\index{nutation.\-c@{nutation.\-c}!ampsecul@{ampsecul}}
+\index{ampsecul@{ampsecul}!nutation.c@{nutation.\-c}}
+\subsubsection[{ampsecul}]{\setlength{\rightskip}{0pt plus 5cm}long ampsecul\mbox{[}$\,$\mbox{]}\mbox{[}5\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{nutation_8c_a923c785fd665c26575bfcf0909f2f89e}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{0  ,-171996 ,-1742 ,92025 ,89\},
+    \{1  ,2062    ,2     ,-895  ,5\},
+    \{8  ,-13187  ,-16   ,5736  ,-31\},
+    \{9  ,1426    ,-34   ,54    ,-1\},
+    \{10 ,-517    ,12    ,224   ,-6\},
+    \{11 ,217     ,-5    ,-95   ,3\},
+    \{12 ,129     ,1     ,-70   ,0\},
+    \{15 ,17      ,-1    ,0     ,0\},
+    \{17 ,-16     ,1     ,7     ,0\},
+    \{30 ,-2274   ,-2    ,977   ,-5\},
+    \{31 ,712     ,1     ,-7    ,0\},
+    \{32 ,-386    ,-4    ,200   ,0\},
+    \{33 ,-301    ,0     ,129   ,-1\},
+    \{37 ,63      ,1     ,-33   ,0\},
+    \{38 ,-58     ,-1    ,32    ,0\},
+      \{ -1, \}
+\}
+\end{DoxyCode}
+
+
+Definition at line 138 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a52cd386c654d1199a22ac6fd8bd1da97}{\index{nutation.\-c@{nutation.\-c}!delaunay@{delaunay}}
+\index{delaunay@{delaunay}!nutation.c@{nutation.\-c}}
+\subsubsection[{delaunay}]{\setlength{\rightskip}{0pt plus 5cm}double delaunay\mbox{[}5\mbox{]}\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{nutation_8c_a52cd386c654d1199a22ac6fd8bd1da97}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{485866.733,  1717915922.633, 31.310,  0.064\}, 
+    \{1287099.804, 129596581.224,  -0.577, -0.012\}, 
+    \{335778.877,  1739527263.137, -13.257, 0.011\}, 
+    \{1072261.307, 1602961601.328, -6.891,  0.019\}, 
+    \{450160.280,  -6962890.539,   7.455,   0.008\}, 
+\}
+\end{DoxyCode}
+
+
+Definition at line 16 of file nutation.\-c.
+
+\hypertarget{nutation_8c_a3c5e3d94a2ae977c324937936c3785c5}{\index{nutation.\-c@{nutation.\-c}!multarg@{multarg}}
+\index{multarg@{multarg}!nutation.c@{nutation.\-c}}
+\subsubsection[{multarg}]{\setlength{\rightskip}{0pt plus 5cm}short multarg\mbox{[}{\bf N\-U\-T\-\_\-\-S\-E\-R\-I\-E\-S}\mbox{]}\mbox{[}5\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{nutation_8c_a3c5e3d94a2ae977c324937936c3785c5}
+
+
+Definition at line 25 of file nutation.\-c.
+
+\hypertarget{nutation_8c_ae037a79cb31f056d04153837887f5813}{\index{nutation.\-c@{nutation.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!nutation.c@{nutation.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf nutation.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-4 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{nutation_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 441 of file nutation.\-c.
+

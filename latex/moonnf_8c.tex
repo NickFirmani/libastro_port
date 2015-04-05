@@ -1,0 +1,109 @@
+\hypertarget{moonnf_8c}{\section{libastro/moonnf.c File Reference}
+\label{moonnf_8c}\index{libastro/moonnf.\-c@{libastro/moonnf.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for moonnf.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{moonnf_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{moonnf_8c_a1d830f945e68af29ddfdfcc53d65546f}{unw}(w, z)~((w)-\/floor((w)/(z))$\ast$(z))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{m} (double t, double k, double $\ast$mj)
+\item 
+void \hyperlink{moonnf_8c_a8aea5265249503f0a0687b4b7350e8ea}{moonnf} (double mj, double $\ast$mjn, double $\ast$mjf)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{moonnf_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{moonnf.\-c},v \$ \$Date\-: 2003/03/20 08\-:50\-:15 \$ \$Revision\-: 1.\-1 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{moonnf_8c_a1d830f945e68af29ddfdfcc53d65546f}{\index{moonnf.\-c@{moonnf.\-c}!unw@{unw}}
+\index{unw@{unw}!moonnf.c@{moonnf.\-c}}
+\subsubsection[{unw}]{\setlength{\rightskip}{0pt plus 5cm}\#define unw(
+\begin{DoxyParamCaption}
+\item[{}]{w, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~((w)-\/floor((w)/(z))$\ast$(z))}}\label{moonnf_8c_a1d830f945e68af29ddfdfcc53d65546f}
+
+
+Definition at line 8 of file moonnf.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{\index{moonnf.\-c@{moonnf.\-c}!m@{m}}
+\index{m@{m}!moonnf.c@{moonnf.\-c}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}static void m (
+\begin{DoxyParamCaption}
+\item[{double}]{t, }
+\item[{double}]{k, }
+\item[{double $\ast$}]{mj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}
+
+
+Definition at line 38 of file moonnf.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{moonnf_8c_a8aea5265249503f0a0687b4b7350e8ea}{\index{moonnf.\-c@{moonnf.\-c}!moonnf@{moonnf}}
+\index{moonnf@{moonnf}!moonnf.c@{moonnf.\-c}}
+\subsubsection[{moonnf}]{\setlength{\rightskip}{0pt plus 5cm}void moonnf (
+\begin{DoxyParamCaption}
+\item[{double}]{mj, }
+\item[{double $\ast$}]{mjn, }
+\item[{double $\ast$}]{mjf}
+\end{DoxyParamCaption}
+)}}\label{moonnf_8c_a8aea5265249503f0a0687b4b7350e8ea}
+
+
+Definition at line 17 of file moonnf.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{moonnf_8c_a8aea5265249503f0a0687b4b7350e8ea_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{moonnf_8c_ae037a79cb31f056d04153837887f5813}{\index{moonnf.\-c@{moonnf.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!moonnf.c@{moonnf.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf moonnf.\-c},v \$ \$Date\-: 2003/03/20 08\-:50\-:15 \$ \$Revision\-: 1.\-1 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{moonnf_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 69 of file moonnf.\-c.
+

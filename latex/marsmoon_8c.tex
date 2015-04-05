@@ -1,0 +1,339 @@
+\hypertarget{marsmoon_8c}{\section{libastro/marsmoon.c File Reference}
+\label{marsmoon_8c}\index{libastro/marsmoon.\-c@{libastro/marsmoon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bdl.\-h\char`\"{}}\\*
+Include dependency graph for marsmoon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{marsmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{P\-O\-L\-E\-\_\-\-R\-A}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(317.\-61)
+\item 
+\#define \hyperlink{marsmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{P\-O\-L\-E\-\_\-\-D\-E\-C}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(52.\-85)
+\item 
+\#define \hyperlink{marsmoon_8c_a67c4126c17fbe14e801b9110a51468c7}{M\-R\-A\-U}~.\-00002269       /$\ast$ Mars radius, A\-U $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{marsmoon_8c_ab7a20d196c0510abfb6fafb48fe41727}{use\-\_\-bdl} (double J\-D, char $\ast$dir, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{marsmoon_8c_ab9422970b62ba33cdfb42f479ff0d8e6}{moonradec} (double msize, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{marsmoon_8c_a310a8355bde8fd579173ae9aba6ecb24}{moon\-S\-Vis} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$mop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{marsmoon_8c_ac588d3bbb399e8edbb10fd001e97e78b}{moon\-E\-Vis} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{marsmoon_8c_a94e664a5e269fd19b45ce02affe5bfd6}{moon\-P\-Shad} (\hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$mop, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static void \hyperlink{marsmoon_8c_ad312e4e7d38a9c890d2251a56458cecd}{moon\-Trans} (\hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+void \hyperlink{marsmoon_8c_acfe41456d3f422ad2c540df040227966}{marsm\-\_\-data} (double Mjd, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{union_obj}{Obj} $\ast$sop, \hyperlink{union_obj}{Obj} $\ast$mop, double $\ast$sizep, double $\ast$polera, double $\ast$poledec, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\item 
+static int \hyperlink{marsmoon_8c_a19b8eda51665c988b3344d041448f745}{use\-\_\-bdl} (double J\-D, char dir\mbox{[}$\,$\mbox{]}, \hyperlink{struct_moon_data}{Moon\-Data} md\mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{marsmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{mdmjd} = -\/123456
+\item 
+static \hyperlink{struct_moon_data}{Moon\-Data} \hyperlink{marsmoon_8c_a19a928b479e6c58795cf23a81e959702}{mmd} \mbox{[}\hyperlink{astro_8h_afaeec18bba1a4b2238c56ff864c7a674ab48935852a8ec737103a71d2d6df9b83}{M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}
+\item 
+static double \hyperlink{marsmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{sizemjd}
+\item 
+static char $\ast$ \hyperlink{marsmoon_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{marsmoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{marsmoon_8c_a67c4126c17fbe14e801b9110a51468c7}{\index{marsmoon.\-c@{marsmoon.\-c}!M\-R\-A\-U@{M\-R\-A\-U}}
+\index{M\-R\-A\-U@{M\-R\-A\-U}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{M\-R\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-R\-A\-U~.\-00002269       /$\ast$ Mars radius, A\-U $\ast$/}}\label{marsmoon_8c_a67c4126c17fbe14e801b9110a51468c7}
+\hypertarget{marsmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}{\index{marsmoon.\-c@{marsmoon.\-c}!P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}}
+\index{P\-O\-L\-E\-\_\-\-D\-E\-C@{P\-O\-L\-E\-\_\-\-D\-E\-C}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-D\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-D\-E\-C~{\bf degrad}(52.\-85)}}\label{marsmoon_8c_a63c891b0f07cc4d4dc78cb23820e7b6c}
+
+
+Definition at line 32 of file marsmoon.\-c.
+
+\hypertarget{marsmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}{\index{marsmoon.\-c@{marsmoon.\-c}!P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}}
+\index{P\-O\-L\-E\-\_\-\-R\-A@{P\-O\-L\-E\-\_\-\-R\-A}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{P\-O\-L\-E\-\_\-\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-L\-E\-\_\-\-R\-A~{\bf degrad}(317.\-61)}}\label{marsmoon_8c_a83a6f96ccb90e690856b0f23796d7a53}
+
+
+Definition at line 31 of file marsmoon.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{marsmoon_8c_acfe41456d3f422ad2c540df040227966}{\index{marsmoon.\-c@{marsmoon.\-c}!marsm\-\_\-data@{marsm\-\_\-data}}
+\index{marsm\-\_\-data@{marsm\-\_\-data}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{marsm\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void marsm\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{double}]{Mjd, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{mop, }
+\item[{double $\ast$}]{sizep, }
+\item[{double $\ast$}]{polera, }
+\item[{double $\ast$}]{poledec, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{marsmoon_8c_acfe41456d3f422ad2c540df040227966}
+
+
+Definition at line 41 of file marsmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_acfe41456d3f422ad2c540df040227966_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_acfe41456d3f422ad2c540df040227966_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_ac588d3bbb399e8edbb10fd001e97e78b}{\index{marsmoon.\-c@{marsmoon.\-c}!moon\-E\-Vis@{moon\-E\-Vis}}
+\index{moon\-E\-Vis@{moon\-E\-Vis}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{moon\-E\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-E\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ac588d3bbb399e8edbb10fd001e97e78b}
+
+
+Definition at line 223 of file marsmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_ac588d3bbb399e8edbb10fd001e97e78b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_a94e664a5e269fd19b45ce02affe5bfd6}{\index{marsmoon.\-c@{marsmoon.\-c}!moon\-P\-Shad@{moon\-P\-Shad}}
+\index{moon\-P\-Shad@{moon\-P\-Shad}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{moon\-P\-Shad}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-P\-Shad (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{mop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_a94e664a5e269fd19b45ce02affe5bfd6}
+
+
+Definition at line 237 of file marsmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{marsmoon_8c_a94e664a5e269fd19b45ce02affe5bfd6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_a94e664a5e269fd19b45ce02affe5bfd6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_ab9422970b62ba33cdfb42f479ff0d8e6}{\index{marsmoon.\-c@{marsmoon.\-c}!moonradec@{moonradec}}
+\index{moonradec@{moonradec}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{moonradec}]{\setlength{\rightskip}{0pt plus 5cm}static void moonradec (
+\begin{DoxyParamCaption}
+\item[{double}]{msize, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ab9422970b62ba33cdfb42f479ff0d8e6}
+
+
+Definition at line 172 of file marsmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_ab9422970b62ba33cdfb42f479ff0d8e6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_a310a8355bde8fd579173ae9aba6ecb24}{\index{marsmoon.\-c@{marsmoon.\-c}!moon\-S\-Vis@{moon\-S\-Vis}}
+\index{moon\-S\-Vis@{moon\-S\-Vis}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{moon\-S\-Vis}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-S\-Vis (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$}]{sop, }
+\item[{{\bf Obj} $\ast$}]{mop, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_a310a8355bde8fd579173ae9aba6ecb24}
+
+
+Definition at line 191 of file marsmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_a310a8355bde8fd579173ae9aba6ecb24_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_ad312e4e7d38a9c890d2251a56458cecd}{\index{marsmoon.\-c@{marsmoon.\-c}!moon\-Trans@{moon\-Trans}}
+\index{moon\-Trans@{moon\-Trans}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{moon\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}static void moon\-Trans (
+\begin{DoxyParamCaption}
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ad312e4e7d38a9c890d2251a56458cecd}
+
+
+Definition at line 253 of file marsmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_ad312e4e7d38a9c890d2251a56458cecd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_ab7a20d196c0510abfb6fafb48fe41727}{\index{marsmoon.\-c@{marsmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char $\ast$}]{dir, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ab7a20d196c0510abfb6fafb48fe41727}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{marsmoon_8c_ab7a20d196c0510abfb6fafb48fe41727_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{marsmoon_8c_a19b8eda51665c988b3344d041448f745}{\index{marsmoon.\-c@{marsmoon.\-c}!use\-\_\-bdl@{use\-\_\-bdl}}
+\index{use\-\_\-bdl@{use\-\_\-bdl}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{use\-\_\-bdl}]{\setlength{\rightskip}{0pt plus 5cm}static int use\-\_\-bdl (
+\begin{DoxyParamCaption}
+\item[{double}]{J\-D, }
+\item[{char}]{dir\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Moon\-Data}}]{md\mbox{[}\-M\-\_\-\-N\-M\-O\-O\-N\-S\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_a19b8eda51665c988b3344d041448f745}
+
+
+Definition at line 113 of file marsmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{marsmoon_8c_a19b8eda51665c988b3344d041448f745_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{marsmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}{\index{marsmoon.\-c@{marsmoon.\-c}!mdmjd@{mdmjd}}
+\index{mdmjd@{mdmjd}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{mdmjd}]{\setlength{\rightskip}{0pt plus 5cm}double mdmjd = -\/123456\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_a512ed1be102fd7b33fd9cfb75acb9d39}
+
+
+Definition at line 20 of file marsmoon.\-c.
+
+\hypertarget{marsmoon_8c_a19a928b479e6c58795cf23a81e959702}{\index{marsmoon.\-c@{marsmoon.\-c}!mmd@{mmd}}
+\index{mmd@{mmd}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{mmd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Moon\-Data} mmd\mbox{[}{\bf M\-\_\-\-N\-M\-O\-O\-N\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_a19a928b479e6c58795cf23a81e959702}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"Mars"}, NULL\},
+    \{\textcolor{stringliteral}{"Phobos"}, \textcolor{stringliteral}{"I"}\},
+    \{\textcolor{stringliteral}{"Deimos"}, \textcolor{stringliteral}{"II"}\},
+\}
+\end{DoxyCode}
+
+
+Definition at line 21 of file marsmoon.\-c.
+
+\hypertarget{marsmoon_8c_ae037a79cb31f056d04153837887f5813}{\index{marsmoon.\-c@{marsmoon.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf marsmoon.\-c},v \$ \$Date\-: 2006/08/29 03\-:16\-:47 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 265 of file marsmoon.\-c.
+
+\hypertarget{marsmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}{\index{marsmoon.\-c@{marsmoon.\-c}!sizemjd@{sizemjd}}
+\index{sizemjd@{sizemjd}!marsmoon.c@{marsmoon.\-c}}
+\subsubsection[{sizemjd}]{\setlength{\rightskip}{0pt plus 5cm}double sizemjd\hspace{0.3cm}{\ttfamily [static]}}}\label{marsmoon_8c_ab8ab7b4495f6c38e333b804d69144a89}
+
+
+Definition at line 26 of file marsmoon.\-c.
+

@@ -1,0 +1,185 @@
+\hypertarget{formats_8c}{\section{libastro/formats.c File Reference}
+\label{formats_8c}\index{libastro/formats.\-c@{libastro/formats.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+Include dependency graph for formats.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{formats_8c_ad1d4abef28e1ebc8198d6d667f947516}{fs\-\_\-sexa} (char $\ast$out, double a, int w, int fracbase)
+\item 
+int \hyperlink{formats_8c_aad19fd4c699b772ab5155ff79df50d48}{fs\-\_\-date} (char out\mbox{[}$\,$\mbox{]}, int format, double jd)
+\item 
+int \hyperlink{formats_8c_a20bb727f60cdbaf5578ddf92b0222fb6}{f\-\_\-scansexa} (const char $\ast$str0, double $\ast$dp)
+\item 
+void \hyperlink{formats_8c_acb4c0000fa5b94721c8e2534b0d58396}{f\-\_\-sscandate} (char $\ast$bp, int pref, int $\ast$\hyperlink{moonnf_8c_a0da0a4863fcd4c1f629fc7fc6e6a4dad}{m}, double $\ast$d, int $\ast$y)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{formats_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{formats.\-c},v \$ \$Date\-: 2006/04/10 09\-:00\-:06 \$ \$Revision\-: 1.\-17 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{formats_8c_a20bb727f60cdbaf5578ddf92b0222fb6}{\index{formats.\-c@{formats.\-c}!f\-\_\-scansexa@{f\-\_\-scansexa}}
+\index{f\-\_\-scansexa@{f\-\_\-scansexa}!formats.c@{formats.\-c}}
+\subsubsection[{f\-\_\-scansexa}]{\setlength{\rightskip}{0pt plus 5cm}int f\-\_\-scansexa (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str0, }
+\item[{double $\ast$}]{dp}
+\end{DoxyParamCaption}
+)}}\label{formats_8c_a20bb727f60cdbaf5578ddf92b0222fb6}
+
+
+Definition at line 122 of file formats.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c_a20bb727f60cdbaf5578ddf92b0222fb6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{formats_8c_acb4c0000fa5b94721c8e2534b0d58396}{\index{formats.\-c@{formats.\-c}!f\-\_\-sscandate@{f\-\_\-sscandate}}
+\index{f\-\_\-sscandate@{f\-\_\-sscandate}!formats.c@{formats.\-c}}
+\subsubsection[{f\-\_\-sscandate}]{\setlength{\rightskip}{0pt plus 5cm}void f\-\_\-sscandate (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{bp, }
+\item[{int}]{pref, }
+\item[{int $\ast$}]{m, }
+\item[{double $\ast$}]{d, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}}\label{formats_8c_acb4c0000fa5b94721c8e2534b0d58396}
+
+
+Definition at line 163 of file formats.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c_acb4c0000fa5b94721c8e2534b0d58396_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c_acb4c0000fa5b94721c8e2534b0d58396_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{formats_8c_aad19fd4c699b772ab5155ff79df50d48}{\index{formats.\-c@{formats.\-c}!fs\-\_\-date@{fs\-\_\-date}}
+\index{fs\-\_\-date@{fs\-\_\-date}!formats.c@{formats.\-c}}
+\subsubsection[{fs\-\_\-date}]{\setlength{\rightskip}{0pt plus 5cm}int fs\-\_\-date (
+\begin{DoxyParamCaption}
+\item[{char}]{out\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{format, }
+\item[{double}]{jd}
+\end{DoxyParamCaption}
+)}}\label{formats_8c_aad19fd4c699b772ab5155ff79df50d48}
+
+
+Definition at line 84 of file formats.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{formats_8c_aad19fd4c699b772ab5155ff79df50d48_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c_aad19fd4c699b772ab5155ff79df50d48_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{formats_8c_ad1d4abef28e1ebc8198d6d667f947516}{\index{formats.\-c@{formats.\-c}!fs\-\_\-sexa@{fs\-\_\-sexa}}
+\index{fs\-\_\-sexa@{fs\-\_\-sexa}!formats.c@{formats.\-c}}
+\subsubsection[{fs\-\_\-sexa}]{\setlength{\rightskip}{0pt plus 5cm}int fs\-\_\-sexa (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{out, }
+\item[{double}]{a, }
+\item[{int}]{w, }
+\item[{int}]{fracbase}
+\end{DoxyParamCaption}
+)}}\label{formats_8c_ad1d4abef28e1ebc8198d6d667f947516}
+
+
+Definition at line 21 of file formats.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{formats_8c_ad1d4abef28e1ebc8198d6d667f947516_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{formats_8c_ad1d4abef28e1ebc8198d6d667f947516_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{formats_8c_ae037a79cb31f056d04153837887f5813}{\index{formats.\-c@{formats.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!formats.c@{formats.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf formats.\-c},v \$ \$Date\-: 2006/04/10 09\-:00\-:06 \$ \$Revision\-: 1.\-17 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{formats_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 212 of file formats.\-c.
+

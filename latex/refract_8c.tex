@@ -1,0 +1,192 @@
+\hypertarget{refract_8c}{\section{libastro/refract.c File Reference}
+\label{refract_8c}\index{libastro/refract.\-c@{libastro/refract.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for refract.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{refract_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{refract_8c_ab99e20d17308c245a0b7a9eec5986925}{L\-T\-L\-I\-M}~14.\-5
+\item 
+\#define \hyperlink{refract_8c_a951802ad69815481130e4600f2316c0c}{G\-E\-L\-I\-M}~15.\-5
+\item 
+\#define \hyperlink{refract_8c_ac657002a68b9c1aaa4ae25fce84add2b}{M\-A\-X\-R\-E\-R\-R}~\hyperlink{astro_8h_a4f290ef8550589b60e07c92fe19e06cd}{degrad}(0.\-1/3600.)	/$\ast$ desired accuracy, rads $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{refract_8c_ae1488244de4fe2a416b798fb35ef9792}{unrefract\-L\-T15} (double pr, double tr, double aa, double $\ast$ta)
+\item 
+static void \hyperlink{refract_8c_af91b94cbba7deddb0a6ea17bcc53cf9a}{unrefract\-G\-E15} (double pr, double tr, double aa, double $\ast$ta)
+\item 
+void \hyperlink{refract_8c_a4a6c54019b5a6bfb74fa06ca9d180d10}{unrefract} (double pr, double tr, double aa, double $\ast$ta)
+\item 
+void \hyperlink{refract_8c_ab1fcc7b515c9676616d119cf02b775e3}{refract} (double pr, double tr, double ta, double $\ast$aa)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \hyperlink{refract_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{refract.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{refract_8c_a951802ad69815481130e4600f2316c0c}{\index{refract.\-c@{refract.\-c}!G\-E\-L\-I\-M@{G\-E\-L\-I\-M}}
+\index{G\-E\-L\-I\-M@{G\-E\-L\-I\-M}!refract.c@{refract.\-c}}
+\subsubsection[{G\-E\-L\-I\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-L\-I\-M~15.\-5}}\label{refract_8c_a951802ad69815481130e4600f2316c0c}
+\hypertarget{refract_8c_ab99e20d17308c245a0b7a9eec5986925}{\index{refract.\-c@{refract.\-c}!L\-T\-L\-I\-M@{L\-T\-L\-I\-M}}
+\index{L\-T\-L\-I\-M@{L\-T\-L\-I\-M}!refract.c@{refract.\-c}}
+\subsubsection[{L\-T\-L\-I\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-T\-L\-I\-M~14.\-5}}\label{refract_8c_ab99e20d17308c245a0b7a9eec5986925}
+\hypertarget{refract_8c_ac657002a68b9c1aaa4ae25fce84add2b}{\index{refract.\-c@{refract.\-c}!M\-A\-X\-R\-E\-R\-R@{M\-A\-X\-R\-E\-R\-R}}
+\index{M\-A\-X\-R\-E\-R\-R@{M\-A\-X\-R\-E\-R\-R}!refract.c@{refract.\-c}}
+\subsubsection[{M\-A\-X\-R\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-R\-E\-R\-R~{\bf degrad}(0.\-1/3600.)	/$\ast$ desired accuracy, rads $\ast$/}}\label{refract_8c_ac657002a68b9c1aaa4ae25fce84add2b}
+
+
+\subsection{Function Documentation}
+\hypertarget{refract_8c_ab1fcc7b515c9676616d119cf02b775e3}{\index{refract.\-c@{refract.\-c}!refract@{refract}}
+\index{refract@{refract}!refract.c@{refract.\-c}}
+\subsubsection[{refract}]{\setlength{\rightskip}{0pt plus 5cm}void refract (
+\begin{DoxyParamCaption}
+\item[{double}]{pr, }
+\item[{double}]{tr, }
+\item[{double}]{ta, }
+\item[{double $\ast$}]{aa}
+\end{DoxyParamCaption}
+)}}\label{refract_8c_ab1fcc7b515c9676616d119cf02b775e3}
+
+
+Definition at line 59 of file refract.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{refract_8c_ab1fcc7b515c9676616d119cf02b775e3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refract_8c_ab1fcc7b515c9676616d119cf02b775e3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{refract_8c_a4a6c54019b5a6bfb74fa06ca9d180d10}{\index{refract.\-c@{refract.\-c}!unrefract@{unrefract}}
+\index{unrefract@{unrefract}!refract.c@{refract.\-c}}
+\subsubsection[{unrefract}]{\setlength{\rightskip}{0pt plus 5cm}void unrefract (
+\begin{DoxyParamCaption}
+\item[{double}]{pr, }
+\item[{double}]{tr, }
+\item[{double}]{aa, }
+\item[{double $\ast$}]{ta}
+\end{DoxyParamCaption}
+)}}\label{refract_8c_a4a6c54019b5a6bfb74fa06ca9d180d10}
+
+
+Definition at line 10 of file refract.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{refract_8c_a4a6c54019b5a6bfb74fa06ca9d180d10_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refract_8c_a4a6c54019b5a6bfb74fa06ca9d180d10_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{refract_8c_af91b94cbba7deddb0a6ea17bcc53cf9a}{\index{refract.\-c@{refract.\-c}!unrefract\-G\-E15@{unrefract\-G\-E15}}
+\index{unrefract\-G\-E15@{unrefract\-G\-E15}!refract.c@{refract.\-c}}
+\subsubsection[{unrefract\-G\-E15}]{\setlength{\rightskip}{0pt plus 5cm}static void unrefract\-G\-E15 (
+\begin{DoxyParamCaption}
+\item[{double}]{pr, }
+\item[{double}]{tr, }
+\item[{double}]{aa, }
+\item[{double $\ast$}]{ta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{refract_8c_af91b94cbba7deddb0a6ea17bcc53cf9a}
+
+
+Definition at line 33 of file refract.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refract_8c_af91b94cbba7deddb0a6ea17bcc53cf9a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{refract_8c_ae1488244de4fe2a416b798fb35ef9792}{\index{refract.\-c@{refract.\-c}!unrefract\-L\-T15@{unrefract\-L\-T15}}
+\index{unrefract\-L\-T15@{unrefract\-L\-T15}!refract.c@{refract.\-c}}
+\subsubsection[{unrefract\-L\-T15}]{\setlength{\rightskip}{0pt plus 5cm}static void unrefract\-L\-T15 (
+\begin{DoxyParamCaption}
+\item[{double}]{pr, }
+\item[{double}]{tr, }
+\item[{double}]{aa, }
+\item[{double $\ast$}]{ta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{refract_8c_ae1488244de4fe2a416b798fb35ef9792}
+
+
+Definition at line 42 of file refract.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refract_8c_ae1488244de4fe2a416b798fb35ef9792_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{refract_8c_ae037a79cb31f056d04153837887f5813}{\index{refract.\-c@{refract.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!refract.c@{refract.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf refract.\-c},v \$ \$Date\-: 2003/03/20 08\-:51\-:37 \$ \$Revision\-: 1.\-6 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{refract_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 91 of file refract.\-c.
+

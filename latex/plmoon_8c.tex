@@ -1,0 +1,283 @@
+\hypertarget{plmoon_8c}{\section{libastro/plmoon.c File Reference}
+\label{plmoon_8c}\index{libastro/plmoon.\-c@{libastro/plmoon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+Include dependency graph for plmoon.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{plmoon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{plmoon_8c_a64418e0acba1cfe2e785fd57abca8a15}{set\-Moon} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$moonop, \hyperlink{union_obj}{Obj} $\ast$planop, \hyperlink{struct_moon_data}{Moon\-Data} $\ast$mdp)
+\item 
+static void \hyperlink{plmoon_8c_adac1ba026cc4ed6970c9c6152ed1a81b}{init1\-B\-I} (int idx, int pl, int \hyperlink{moon_8c_a31d7a91387fe83d44db48e120627254c}{moon}, char $\ast$name)
+\item 
+static void \hyperlink{plmoon_8c_a33046b91633c6e8def4a3b93d25c661b}{init\-Plobj} (void)
+\item 
+static void \hyperlink{plmoon_8c_a1b395228afc827246fecd40407df4a78}{rotate} (double a, double $\ast$x, double $\ast$y)
+\item 
+void \hyperlink{plmoon_8c_a28f32fd63eeeb239f4c68d43f13ba5e0}{set\-Moon\-Dir} (char $\ast$dir)
+\item 
+int \hyperlink{plmoon_8c_a402a3716f4b9767a1503543aa416bc10}{get\-Built\-In\-Objs} (\hyperlink{union_obj}{Obj} $\ast$$\ast$opp)
+\item 
+int \hyperlink{plmoon_8c_a36bf9219baa35c252d1962dd7396e9f7}{plmoon\-\_\-cir} (\hyperlink{struct_now}{Now} $\ast$np, \hyperlink{union_obj}{Obj} $\ast$moonop)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_obj_pl}{Obj\-Pl} \hyperlink{plmoon_8c_a16b4a1822b47ff95ca068388f35287c8}{plobj} \mbox{[}\hyperlink{astro_8h_a2a6f493a094887058ce904937bb27647ad51498f3267f8b12e29941d0b378c643}{N\-O\-B\-J}\mbox{]}
+\item 
+static \hyperlink{struct_now}{Now} \hyperlink{plmoon_8c_a6c7f686b2294a2ee703cc88ec5eb1b4d}{plnow} \mbox{[}\hyperlink{astro_8h_a2a6f493a094887058ce904937bb27647ad51498f3267f8b12e29941d0b378c643}{N\-O\-B\-J}\mbox{]}
+\item 
+static \hyperlink{union_obj}{Obj} \hyperlink{plmoon_8c_ae5409281f5c3af1d308659ad7b7836aa}{builtin} \mbox{[}\hyperlink{astro_8h_ac0d9b5d3144a9cf8616c62dad3579db7a19ec060f4bd05c6c95a15f8e0a7c92a7}{N\-B\-U\-I\-L\-T\-I\-N}\mbox{]}
+\item 
+static char $\ast$ \hyperlink{plmoon_8c_a141a30f52526cbadfd78aeba132a9d9c}{moondir}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{plmoon_8c_a402a3716f4b9767a1503543aa416bc10}{\index{plmoon.\-c@{plmoon.\-c}!get\-Built\-In\-Objs@{get\-Built\-In\-Objs}}
+\index{get\-Built\-In\-Objs@{get\-Built\-In\-Objs}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{get\-Built\-In\-Objs}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Built\-In\-Objs (
+\begin{DoxyParamCaption}
+\item[{{\bf Obj} $\ast$$\ast$}]{opp}
+\end{DoxyParamCaption}
+)}}\label{plmoon_8c_a402a3716f4b9767a1503543aa416bc10}
+
+
+Definition at line 40 of file plmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a402a3716f4b9767a1503543aa416bc10_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a402a3716f4b9767a1503543aa416bc10_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_adac1ba026cc4ed6970c9c6152ed1a81b}{\index{plmoon.\-c@{plmoon.\-c}!init1\-B\-I@{init1\-B\-I}}
+\index{init1\-B\-I@{init1\-B\-I}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{init1\-B\-I}]{\setlength{\rightskip}{0pt plus 5cm}static void init1\-B\-I (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{int}]{pl, }
+\item[{int}]{moon, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_adac1ba026cc4ed6970c9c6152ed1a81b}
+
+
+Definition at line 90 of file plmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_adac1ba026cc4ed6970c9c6152ed1a81b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_adac1ba026cc4ed6970c9c6152ed1a81b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_a33046b91633c6e8def4a3b93d25c661b}{\index{plmoon.\-c@{plmoon.\-c}!init\-Plobj@{init\-Plobj}}
+\index{init\-Plobj@{init\-Plobj}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{init\-Plobj}]{\setlength{\rightskip}{0pt plus 5cm}static void init\-Plobj (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a33046b91633c6e8def4a3b93d25c661b}
+
+
+Definition at line 217 of file plmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a33046b91633c6e8def4a3b93d25c661b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_a36bf9219baa35c252d1962dd7396e9f7}{\index{plmoon.\-c@{plmoon.\-c}!plmoon\-\_\-cir@{plmoon\-\_\-cir}}
+\index{plmoon\-\_\-cir@{plmoon\-\_\-cir}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{plmoon\-\_\-cir}]{\setlength{\rightskip}{0pt plus 5cm}int plmoon\-\_\-cir (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{moonop}
+\end{DoxyParamCaption}
+)}}\label{plmoon_8c_a36bf9219baa35c252d1962dd7396e9f7}
+
+
+Definition at line 102 of file plmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{plmoon_8c_a36bf9219baa35c252d1962dd7396e9f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a36bf9219baa35c252d1962dd7396e9f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_a1b395228afc827246fecd40407df4a78}{\index{plmoon.\-c@{plmoon.\-c}!rotate@{rotate}}
+\index{rotate@{rotate}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}static void rotate (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double $\ast$}]{x, }
+\item[{double $\ast$}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a1b395228afc827246fecd40407df4a78}
+
+
+Definition at line 276 of file plmoon.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a1b395228afc827246fecd40407df4a78_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_a64418e0acba1cfe2e785fd57abca8a15}{\index{plmoon.\-c@{plmoon.\-c}!set\-Moon@{set\-Moon}}
+\index{set\-Moon@{set\-Moon}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{set\-Moon}]{\setlength{\rightskip}{0pt plus 5cm}static void set\-Moon (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np, }
+\item[{{\bf Obj} $\ast$}]{moonop, }
+\item[{{\bf Obj} $\ast$}]{planop, }
+\item[{{\bf Moon\-Data} $\ast$}]{mdp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a64418e0acba1cfe2e785fd57abca8a15}
+
+
+Definition at line 231 of file plmoon.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{plmoon_8c_a64418e0acba1cfe2e785fd57abca8a15_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plmoon_8c_a64418e0acba1cfe2e785fd57abca8a15_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{plmoon_8c_a28f32fd63eeeb239f4c68d43f13ba5e0}{\index{plmoon.\-c@{plmoon.\-c}!set\-Moon\-Dir@{set\-Moon\-Dir}}
+\index{set\-Moon\-Dir@{set\-Moon\-Dir}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{set\-Moon\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Moon\-Dir (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dir}
+\end{DoxyParamCaption}
+)}}\label{plmoon_8c_a28f32fd63eeeb239f4c68d43f13ba5e0}
+
+
+Definition at line 31 of file plmoon.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{plmoon_8c_ae5409281f5c3af1d308659ad7b7836aa}{\index{plmoon.\-c@{plmoon.\-c}!builtin@{builtin}}
+\index{builtin@{builtin}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{builtin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Obj} builtin\mbox{[}{\bf N\-B\-U\-I\-L\-T\-I\-N}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_ae5409281f5c3af1d308659ad7b7836aa}
+
+
+Definition at line 18 of file plmoon.\-c.
+
+\hypertarget{plmoon_8c_a141a30f52526cbadfd78aeba132a9d9c}{\index{plmoon.\-c@{plmoon.\-c}!moondir@{moondir}}
+\index{moondir@{moondir}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{moondir}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ moondir\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a141a30f52526cbadfd78aeba132a9d9c}
+
+
+Definition at line 20 of file plmoon.\-c.
+
+\hypertarget{plmoon_8c_a6c7f686b2294a2ee703cc88ec5eb1b4d}{\index{plmoon.\-c@{plmoon.\-c}!plnow@{plnow}}
+\index{plnow@{plnow}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{plnow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Now} plnow\mbox{[}{\bf N\-O\-B\-J}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a6c7f686b2294a2ee703cc88ec5eb1b4d}
+
+
+Definition at line 14 of file plmoon.\-c.
+
+\hypertarget{plmoon_8c_a16b4a1822b47ff95ca068388f35287c8}{\index{plmoon.\-c@{plmoon.\-c}!plobj@{plobj}}
+\index{plobj@{plobj}!plmoon.c@{plmoon.\-c}}
+\subsubsection[{plobj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Obj\-Pl} plobj\mbox{[}{\bf N\-O\-B\-J}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{plmoon_8c_a16b4a1822b47ff95ca068388f35287c8}
+
+
+Definition at line 13 of file plmoon.\-c.
+

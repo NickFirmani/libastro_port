@@ -1,0 +1,101 @@
+\hypertarget{vector_8h}{\section{libastro/vector.h File Reference}
+\label{vector_8h}\index{libastro/vector.\-h@{libastro/vector.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vector_8h_a6edc10d57fdffad0848ffbd7cb319be9}{dotp}(A, B)~((A).x$\ast$(B).x+(A).y$\ast$(B).y+(A).z$\ast$(B).z)
+\item 
+\#define \hyperlink{vector_8h_af0b196d0baa279815702bc21d34994ea}{crossp}(A, B, \hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C})~\{(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).x=(A).y$\ast$(B).z-\/(A).z$\ast$(B).y;(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).y=(A).z$\ast$(B).x-\/(A).x$\ast$(B).z;(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).z=(A).x$\ast$(B).y-\/(A).y$\ast$(B).x;\}
+\item 
+\#define \hyperlink{vector_8h_a2869ade325cb3c945545a667d2f0179f}{vecabs}(V)~(sqrt((V).x$\ast$(V).x+(V).y$\ast$(V).y+(V).z$\ast$(V).z))
+\item 
+\#define \hyperlink{vector_8h_a4fcfa19b7aa3a0f33a04335bddb27b37}{vecsq}(V)~((V).x$\ast$(V).x+(V).y$\ast$(V).y+(V).z$\ast$(V).z)
+\item 
+\#define \hyperlink{vector_8h_a930e2a1f421ccfe041d012ef61175a6a}{vecsub}(A, B, \hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C})~\{(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).x=(A).x-\/(B).x;(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).y=(A).y-\/(B).y;(\hyperlink{earthsat_8c_ac4cf4b2ab929bd23951a8676eeac086b}{C}).z=(A).z-\/(B).z;\}
+\item 
+\#define \hyperlink{vector_8h_afe79cbaa3361ec8faa59556b6fb6c31b}{vecscale}(A, k)~\{(A).x$\ast$=(k);(A).y$\ast$=(k);(A).z$\ast$=(k);\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vector_8h_af0b196d0baa279815702bc21d34994ea}{\index{vector.\-h@{vector.\-h}!crossp@{crossp}}
+\index{crossp@{crossp}!vector.h@{vector.\-h}}
+\subsubsection[{crossp}]{\setlength{\rightskip}{0pt plus 5cm}\#define crossp(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{{\bf C}}
+\end{DoxyParamCaption}
+)~\{({\bf C}).x=(A).y$\ast$(B).z-\/(A).z$\ast$(B).y;({\bf C}).y=(A).z$\ast$(B).x-\/(A).x$\ast$(B).z;({\bf C}).z=(A).x$\ast$(B).y-\/(A).y$\ast$(B).x;\}}}\label{vector_8h_af0b196d0baa279815702bc21d34994ea}
+
+
+Definition at line 8 of file vector.\-h.
+
+\hypertarget{vector_8h_a6edc10d57fdffad0848ffbd7cb319be9}{\index{vector.\-h@{vector.\-h}!dotp@{dotp}}
+\index{dotp@{dotp}!vector.h@{vector.\-h}}
+\subsubsection[{dotp}]{\setlength{\rightskip}{0pt plus 5cm}\#define dotp(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B}
+\end{DoxyParamCaption}
+)~((A).x$\ast$(B).x+(A).y$\ast$(B).y+(A).z$\ast$(B).z)}}\label{vector_8h_a6edc10d57fdffad0848ffbd7cb319be9}
+
+
+Definition at line 6 of file vector.\-h.
+
+\hypertarget{vector_8h_a2869ade325cb3c945545a667d2f0179f}{\index{vector.\-h@{vector.\-h}!vecabs@{vecabs}}
+\index{vecabs@{vecabs}!vector.h@{vector.\-h}}
+\subsubsection[{vecabs}]{\setlength{\rightskip}{0pt plus 5cm}\#define vecabs(
+\begin{DoxyParamCaption}
+\item[{}]{V}
+\end{DoxyParamCaption}
+)~(sqrt((V).x$\ast$(V).x+(V).y$\ast$(V).y+(V).z$\ast$(V).z))}}\label{vector_8h_a2869ade325cb3c945545a667d2f0179f}
+
+
+Definition at line 10 of file vector.\-h.
+
+\hypertarget{vector_8h_afe79cbaa3361ec8faa59556b6fb6c31b}{\index{vector.\-h@{vector.\-h}!vecscale@{vecscale}}
+\index{vecscale@{vecscale}!vector.h@{vector.\-h}}
+\subsubsection[{vecscale}]{\setlength{\rightskip}{0pt plus 5cm}\#define vecscale(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{k}
+\end{DoxyParamCaption}
+)~\{(A).x$\ast$=(k);(A).y$\ast$=(k);(A).z$\ast$=(k);\}}}\label{vector_8h_afe79cbaa3361ec8faa59556b6fb6c31b}
+
+
+Definition at line 13 of file vector.\-h.
+
+\hypertarget{vector_8h_a4fcfa19b7aa3a0f33a04335bddb27b37}{\index{vector.\-h@{vector.\-h}!vecsq@{vecsq}}
+\index{vecsq@{vecsq}!vector.h@{vector.\-h}}
+\subsubsection[{vecsq}]{\setlength{\rightskip}{0pt plus 5cm}\#define vecsq(
+\begin{DoxyParamCaption}
+\item[{}]{V}
+\end{DoxyParamCaption}
+)~((V).x$\ast$(V).x+(V).y$\ast$(V).y+(V).z$\ast$(V).z)}}\label{vector_8h_a4fcfa19b7aa3a0f33a04335bddb27b37}
+
+
+Definition at line 11 of file vector.\-h.
+
+\hypertarget{vector_8h_a930e2a1f421ccfe041d012ef61175a6a}{\index{vector.\-h@{vector.\-h}!vecsub@{vecsub}}
+\index{vecsub@{vecsub}!vector.h@{vector.\-h}}
+\subsubsection[{vecsub}]{\setlength{\rightskip}{0pt plus 5cm}\#define vecsub(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{{\bf C}}
+\end{DoxyParamCaption}
+)~\{({\bf C}).x=(A).x-\/(B).x;({\bf C}).y=(A).y-\/(B).y;({\bf C}).z=(A).z-\/(B).z;\}}}\label{vector_8h_a930e2a1f421ccfe041d012ef61175a6a}
+
+
+Definition at line 12 of file vector.\-h.
+

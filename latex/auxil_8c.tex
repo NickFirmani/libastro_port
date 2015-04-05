@@ -1,0 +1,142 @@
+\hypertarget{auxil_8c}{\section{libastro/auxil.c File Reference}
+\label{auxil_8c}\index{libastro/auxil.\-c@{libastro/auxil.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}astro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preferences.\-h\char`\"{}}\\*
+Include dependency graph for auxil.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{auxil_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{auxil_8c_aeb02823236c174da4b590869214f40a7}{pref\-\_\-get} (\hyperlink{preferences_8h_a35afd8b056c1450f185f88b835fb1976}{Preferences} pref)
+\item 
+int \hyperlink{auxil_8c_adbbe129554255d53fbc37a4e546b2604}{pref\-\_\-set} (\hyperlink{preferences_8h_a35afd8b056c1450f185f88b835fb1976}{Preferences} pref, int newp)
+\item 
+double \hyperlink{auxil_8c_a56ed70df83f91389b30f9f219fc20a2c}{mm\-\_\-mjed} (\hyperlink{struct_now}{Now} $\ast$np)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{auxil_8c_abdf6d0f523df1c342adad5c574a051e4}{prefs} \mbox{[}\hyperlink{preferences_8h_a35afd8b056c1450f185f88b835fb1976ae53c7d348a9e56798e445e813e08e811}{N\-P\-R\-E\-F\-S}\mbox{]}
+\item 
+static char $\ast$ \hyperlink{auxil_8c_ae037a79cb31f056d04153837887f5813}{rcsid} \mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: \hyperlink{circum_8c_aafc737ea9ef91f59cf9acd287fb8d085}{auxil.\-c},v \$ \$Date\-: 2003/05/04 04\-:41\-:57 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{auxil_8c_a56ed70df83f91389b30f9f219fc20a2c}{\index{auxil.\-c@{auxil.\-c}!mm\-\_\-mjed@{mm\-\_\-mjed}}
+\index{mm\-\_\-mjed@{mm\-\_\-mjed}!auxil.c@{auxil.\-c}}
+\subsubsection[{mm\-\_\-mjed}]{\setlength{\rightskip}{0pt plus 5cm}double mm\-\_\-mjed (
+\begin{DoxyParamCaption}
+\item[{{\bf Now} $\ast$}]{np}
+\end{DoxyParamCaption}
+)}}\label{auxil_8c_a56ed70df83f91389b30f9f219fc20a2c}
+
+
+Definition at line 36 of file auxil.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{auxil_8c_a56ed70df83f91389b30f9f219fc20a2c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{auxil_8c_aeb02823236c174da4b590869214f40a7}{\index{auxil.\-c@{auxil.\-c}!pref\-\_\-get@{pref\-\_\-get}}
+\index{pref\-\_\-get@{pref\-\_\-get}!auxil.c@{auxil.\-c}}
+\subsubsection[{pref\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}int pref\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf Preferences}}]{pref}
+\end{DoxyParamCaption}
+)}}\label{auxil_8c_aeb02823236c174da4b590869214f40a7}
+
+
+Definition at line 19 of file auxil.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{auxil_8c_aeb02823236c174da4b590869214f40a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{auxil_8c_adbbe129554255d53fbc37a4e546b2604}{\index{auxil.\-c@{auxil.\-c}!pref\-\_\-set@{pref\-\_\-set}}
+\index{pref\-\_\-set@{pref\-\_\-set}!auxil.c@{auxil.\-c}}
+\subsubsection[{pref\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}int pref\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf Preferences}}]{pref, }
+\item[{int}]{newp}
+\end{DoxyParamCaption}
+)}}\label{auxil_8c_adbbe129554255d53fbc37a4e546b2604}
+
+
+Definition at line 27 of file auxil.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{auxil_8c_adbbe129554255d53fbc37a4e546b2604_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{auxil_8c_adbbe129554255d53fbc37a4e546b2604_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{auxil_8c_abdf6d0f523df1c342adad5c574a051e4}{\index{auxil.\-c@{auxil.\-c}!prefs@{prefs}}
+\index{prefs@{prefs}!auxil.c@{auxil.\-c}}
+\subsubsection[{prefs}]{\setlength{\rightskip}{0pt plus 5cm}int prefs\mbox{[}{\bf N\-P\-R\-E\-F\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{auxil_8c_abdf6d0f523df1c342adad5c574a051e4}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \hyperlink{preferences_8h_ae22abfa5ded9739a446b298c134b4705a62975d4fca28c7876745c3f035c0bb82}{PREF\_TOPO}, \hyperlink{preferences_8h_a58b61e0ad66832b834e23e8b89524af7a41db2f11ecdcefe6ed6a0b4bde05836b}{PREF\_METRIC}, \hyperlink{preferences_8h_adff6c9e13839e0381773400fbfa574f7af1e804d23fc9ab2bbc9a84ac0bed2d83}{PREF\_MDY}, \hyperlink{preferences_8h_abf5844fc3fe2cf6eec8e0bae631d3730ad1041c60af220a334cded9d5ef6c7de7}{PREF\_UTCTZ}, 
+      \hyperlink{preferences_8h_aac42e8ffc489877ae6c2c0ee52666eebaa6485affbc9efd21a97657a3f5664a77}{PREF\_HIPREC}, \hyperlink{preferences_8h_a7cdfa7b0dda89e43a262b07bea92635ba4d17af1e69a8cded848bcb1dc0fd6fe2}{PREF\_NOMSGBELL},
+    \hyperlink{preferences_8h_ab7b002e530dd1352a0ed6d84964bc217ae20bda4c8ab51a950aa590ec4d2812ad}{PREF\_PREFILL}, \hyperlink{preferences_8h_a05e379603dab3dbe4416470c73518222ab0a012bf487f8c02b0b9751ff8054cef}{PREF\_TIPSON}, \hyperlink{preferences_8h_aa050eeed7f77d11bd9a4e36e4bccb86fa548d9d6f6eb09562413cdf3dafdf1fec}{PREF\_CONFIRMON}, 
+      \hyperlink{preferences_8h_a561b233a95181d701557d264060b90bcac8f4e9ee0ed9bbd45cd5e992edbd0aa2}{PREF\_SUN}
+\}
+\end{DoxyCode}
+
+
+Definition at line 11 of file auxil.\-c.
+
+\hypertarget{auxil_8c_ae037a79cb31f056d04153837887f5813}{\index{auxil.\-c@{auxil.\-c}!rcsid@{rcsid}}
+\index{rcsid@{rcsid}!auxil.c@{auxil.\-c}}
+\subsubsection[{rcsid}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rcsid\mbox{[}2\mbox{]} = \{(char $\ast$)rcsid, \char`\"{}@(\#) \$R\-C\-Sfile\-: {\bf auxil.\-c},v \$ \$Date\-: 2003/05/04 04\-:41\-:57 \$ \$Revision\-: 1.\-8 \$ \$Name\-: \$\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}}\label{auxil_8c_ae037a79cb31f056d04153837887f5813}
+
+
+Definition at line 42 of file auxil.\-c.
+
