@@ -80,15 +80,16 @@ void unitTest() {
 
 	/* Set up our Now struct */
 	//y, m, d, h, m, s, tz, lat, lon, temp, pressure, elevation
-	initNow(np, 2014, 4, 2, 13, 30, 0, 7, 37.8717, -122.2728, 27, 1013.25, 0);
+	initNow(np, 2014, 4, 2, 12, 0, 0, 1, 1, -1, 27, 1013.25, 20);
 	
 	/* Set up our target earth sat via known good EDB (3/30/15 loaded) */
 	char s[] = "ISS (ZARYA)-999,E,1/089.52353579/2015, 51.6452,117.0009,0.0006864,154.4167,296.5045,15.55407364, .00015021,93579, 0.00022297";
 	setObj(op, s);
+	/*Run our test for the example earthsat*/
 	(void) obj_cir (np, op);		/* compute position at now */
 	reportNowPosition(np);
 	
-	/* Do test for moon first */
+	/* Do test for moon */
 	memset (op, 0, sizeof(*op));	/* zero everything initially */
 	op->o_type = PLANET;			/* core type */
 	op->pl_code = MOON;				/* ID code if PLANET */
